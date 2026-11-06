@@ -2,18 +2,55 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monitor Político - X</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
-    .container { max-width: 700px; margin: auto; background: #1e293b; padding: 25px; border-radius: 12px; }
-    h1 { text-align: center; margin-bottom: 20px; }
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --pos: #22c55e;
+      --neg: #ef4444;
+      --neu: #94a3b8;
+    }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { margin: 0 0 8px 0; color: #ffffff; }
+    .header p { color: #94a3b8; margin: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1000px; margin: auto; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
+    .card h3 { margin-top: 0; color: #f1f5f9; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+    .feed { max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; }
+    .tweet-card { background: #0f172a; padding: 14px; border-radius: 8px; border-left: 4px solid var(--neu); font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
+    .tweet-card.POS { border-left-color: var(--pos); }
+    .tweet-card.NEG { border-left-color: var(--neg); }
+    .tag { display: inline-block; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-top: 8px; text-transform: uppercase; }
+    .tag.POS { background: rgba(34,197,94,0.2); color: var(--pos); }
+    .tag.NEG { background: rgba(239,68,68,0.2); color: var(--neg); }
+    .tag.NEU { background: rgba(148,163,184,0.2); color: var(--neu); }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Análisis de Sentimiento Político</h1>
-    <canvas id="graficoSentimiento"></canvas>
+
+  <div class="header">
+    <h1>Monitor Político en X</h1>
+    <p>Análisis de sentimiento sobre tendencias y debate público</p>
+  </div>
+
+  <div class="grid">
+    <!-- Gráfico -->
+    <div class="card">
+      <h3>Distribución de Sentimiento</h3>
+      <canvas id="graficoSentimiento"></canvas>
+    </div>
+
+    <!-- Feed de Publicaciones -->
+    <div class="card">
+      <h3>Publicaciones Analizadas</h3>
+      <div id="feedTweets" class="feed">Cargando publicaciones...</div>
+    </div>
   </div>
 
   <script>
@@ -21,18 +58,51 @@
       .then(res => res.json())
       .then(datos => {
         const conteo = { POS: 0, NEG: 0, NEU: 0 };
-        datos.forEach(d => conteo[d.sentimiento]++);
+        const feedContainer = document.getElementById('feedTweets');
+        feedContainer.innerHTML = '';
 
+        datos.forEach(d => {
+          conteo[d.sentimiento]++;
+
+          const tweetEl = document.createElement('div');
+          tweetEl.className = `tweet-card ${d.sentimiento}`;
+          
+          let textoEtiqueta = 'Neutral';
+          if(d.sentimiento === 'POS') textoEtiqueta = 'Positivo';
+          if(d.sentimiento === 'NEG') textoEtiqueta = 'Negativo';
+
+          tweetEl.innerHTML = `
+            <div>${d.texto}</div>
+            <span class="tag ${d.sentimiento}">${textoEtiqueta}</span>
+          `;
+          feedContainer.appendChild(tweetEl);
+        });
+
+        // Generar Gráfico con textos legibles en blanco
         new Chart(document.getElementById('graficoSentimiento'), {
           type: 'doughnut',
           data: {
             labels: ['Positivo', 'Negativo', 'Neutral'],
             datasets: [{
               data: [conteo.POS, conteo.NEG, conteo.NEU],
-              backgroundColor: ['#22c55e', '#ef4444', '#94a3b8']
+              backgroundColor: ['#22c55e', '#ef4444', '#94a3b8'],
+              borderWidth: 0
             }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  color: '#f8fafc',
+                  font: { size: 14 }
+                }
+              }
+            }
           }
         });
+      })
+      .catch(err => {
+        document.getElementById('feedTweets').innerText = 'Error al cargar los datos de datos.json';
       });
   </script>
 </body>

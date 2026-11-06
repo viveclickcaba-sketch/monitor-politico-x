@@ -3,79 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monitor Político - X</title>
+  <title>Monitor Político - Comparativa por Candidato</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --pos: #22c55e;
-      --neg: #ef4444;
-      --neu: #94a3b8;
-      --accent: #38bdf8;
-    }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
-    .header { text-align: center; margin-bottom: 25px; }
-    .header h1 { margin: 0 0 8px 0; color: #ffffff; }
-    .header p { color: #94a3b8; margin: 0; }
-    
-    .main-container { max-width: 1000px; margin: auto; display: flex; flex-direction: column; gap: 20px; }
-    
-    /* Tarjeta informativa del rastreo */
-    .info-box { background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); padding: 18px; border-radius: 12px; }
-    .info-box h3 { margin: 0 0 8px 0; color: var(--accent); font-size: 1.1rem; }
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9rem; color: #cbd5e1; }
-    .info-item strong { color: #ffffff; }
-
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-    
-    .card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
-    .card h3 { margin-top: 0; color: #f1f5f9; border-bottom: 1px solid #334155; padding-bottom: 10px; }
-    
-    .feed { max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; }
-    .tweet-card { background: #0f172a; padding: 14px; border-radius: 8px; border-left: 4px solid var(--neu); font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
-    .tweet-card.POS { border-left-color: var(--pos); }
-    .tweet-card.NEG { border-left-color: var(--neg); }
-    
-    .tag { display: inline-block; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-top: 8px; text-transform: uppercase; }
-    .tag.POS { background: rgba(34,197,94,0.2); color: var(--pos); }
-    .tag.NEG { background: rgba(239,68,68,0.2); color: var(--neg); }
-    .tag.NEU { background: rgba(148,163,184,0.2); color: var(--neu); }
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
+    .container { max-width: 900px; margin: auto; }
+    .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+    h1 { text-align: center; margin-bottom: 5px; }
+    p.sub { text-align: center; color: #94a3b8; margin-bottom: 25px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+    th { color: #38bdf8; }
+    .pos { color: #22c55e; font-weight: bold; }
+    .neg { color: #ef4444; font-weight: bold; }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Monitor Político en X</h1>
+    <p class="sub">Imagen Positiva vs. Negativa por Dirigente</p>
 
-  <div class="main-container">
-    <div class="header">
-      <h1>Monitor Político en X</h1>
-      <p>Plataforma de análisis de sentimiento sobre el debate público</p>
+    <div class="card">
+      <h3>Comparativa de Imagen (Menciones)</h3>
+      <canvas id="graficoBarras"></canvas>
     </div>
 
-    <!-- Panel de información sobre los datos recopilados -->
-    <div class="info-box">
-      <h3>ℹ️ Parámetros del Análisis</h3>
-      <div class="info-grid">
-        <div class="info-item"><strong>Fuente:</strong> Red social X (Twitter)</div>
-        <div class="info-item"><strong>Búsqueda:</strong> elecciones, candidatos, buenos aires</div>
-        <div class="info-item"><strong>Filtro:</strong> Idioma Español (sin Retweets)</div>
-        <div class="info-item"><strong>Actualización:</strong> Cada 6 horas (GitHub Actions)</div>
-      </div>
-    </div>
-
-    <div class="grid">
-      <!-- Gráfico -->
-      <div class="card">
-        <h3>Distribución de Sentimiento</h3>
-        <canvas id="graficoSentimiento"></canvas>
-      </div>
-
-      <!-- Feed de Publicaciones -->
-      <div class="card">
-        <h3>Últimas Publicaciones Procesadas</h3>
-        <div id="feedTweets" class="feed">Cargando publicaciones...</div>
-      </div>
+    <div class="card">
+      <h3>Resumen Estadístico</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Político / Dirigente</th>
+            <th>Menciones Positivas</th>
+            <th>Menciones Negativas</th>
+            <th>Neutrales</th>
+          </tr>
+        </thead>
+        <tbody id="tablaResultados"></tbody>
+      </table>
     </div>
   </div>
 
@@ -83,52 +48,46 @@
     fetch('datos.json')
       .then(res => res.json())
       .then(datos => {
-        const conteo = { POS: 0, NEG: 0, NEU: 0 };
-        const feedContainer = document.getElementById('feedTweets');
-        feedContainer.innerHTML = '';
+        const politicos = Object.keys(datos);
+        const posData = politicos.map(p => datos[p].POS);
+        const negData = politicos.map(p => datos[p].NEG);
+        const neuData = politicos.map(p => datos[p].NEU);
 
-        datos.forEach(d => {
-          conteo[d.sentimiento]++;
-
-          const tweetEl = document.createElement('div');
-          tweetEl.className = `tweet-card ${d.sentimiento}`;
-          
-          let textoEtiqueta = 'Neutral';
-          if(d.sentimiento === 'POS') textoEtiqueta = 'Positivo';
-          if(d.sentimiento === 'NEG') textoEtiqueta = 'Negativo';
-
-          tweetEl.innerHTML = `
-            <div>${d.texto}</div>
-            <span class="tag ${d.sentimiento}">${textoEtiqueta}</span>
+        // Llenar Tabla
+        const tabla = document.getElementById('tablaResultados');
+        politicos.forEach(p => {
+          tabla.innerHTML += `
+            <tr>
+              <td><strong>${p}</strong></td>
+              <td class="pos">${datos[p].POS}</td>
+              <td class="neg">${datos[p].NEG}</td>
+              <td>${datos[p].NEU}</td>
+            </tr>
           `;
-          feedContainer.appendChild(tweetEl);
         });
 
-        // Gráfico con etiquetas claras
-        new Chart(document.getElementById('graficoSentimiento'), {
-          type: 'doughnut',
+        // Crear Gráfico de Barras por Político
+        new Chart(document.getElementById('graficoBarras'), {
+          type: 'bar',
           data: {
-            labels: ['Positivo', 'Negativo', 'Neutral'],
-            datasets: [{
-              data: [conteo.POS, conteo.NEG, conteo.NEU],
-              backgroundColor: ['#22c55e', '#ef4444', '#94a3b8'],
-              borderWidth: 0
-            }]
+            labels: politicos,
+            datasets: [
+              { label: 'Positivo', data: posData, backgroundColor: '#22c55e' },
+              { label: 'Negativo', data: negData, backgroundColor: '#ef4444' },
+              { label: 'Neutral', data: neuData, backgroundColor: '#94a3b8' }
+            ]
           },
           options: {
+            responsive: true,
+            scales: {
+              x: { ticks: { color: '#f8fafc' } },
+              y: { ticks: { color: '#f8fafc' } }
+            },
             plugins: {
-              legend: {
-                labels: {
-                  color: '#f8fafc',
-                  font: { size: 14 }
-                }
-              }
+              legend: { labels: { color: '#f8fafc' } }
             }
           }
         });
-      })
-      .catch(err => {
-        document.getElementById('feedTweets').innerText = 'Error al cargar los datos de datos.json';
       });
   </script>
 </body>

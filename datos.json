@@ -1,14 +1,27 @@
-[
-    {
-        "texto": "Excelente la nueva propuesta de transporte público para la ciudad.",
-        "sentimiento": "POS"
+{
+    "Milei": {
+        "POS": 18,
+        "NEG": 12,
+        "NEU": 5
     },
-    {
-        "texto": "Una vergüenza la gestión de las obras en la avenida principal.",
-        "sentimiento": "NEG"
+    "Massa": {
+        "POS": 8,
+        "NEG": 22,
+        "NEU": 6
     },
-    {
-        "texto": "Mañana se presentará el informe económico a las 10 hs.",
-        "sentimiento": "NEU"
+    "Kicillof": {
+        "POS": 11,
+        "NEG": 14,
+        "NEU": 8
+    },
+    "Macri": {
+        "POS": 14,
+        "NEG": 9,
+        "NEU": 7
+    },
+    "Bullrich": {
+        "POS": 13,
+        "NEG": 10,
+        "NEU": 4
     }
-]
+}

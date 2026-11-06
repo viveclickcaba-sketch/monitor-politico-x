@@ -1,0 +1,14 @@
+[
+    {
+        "texto": "Excelente la nueva propuesta de transporte público para la ciudad.",
+        "sentimiento": "POS"
+    },
+    {
+        "texto": "Una vergüenza la gestión de las obras en la avenida principal.",
+        "sentimiento": "NEG"
+    },
+    {
+        "texto": "Mañana se presentará el informe económico a las 10 hs.",
+        "sentimiento": "NEU"
+    }
+]

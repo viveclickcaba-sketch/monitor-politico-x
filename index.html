@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitor Político - X</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
+    .container { max-width: 700px; margin: auto; background: #1e293b; padding: 25px; border-radius: 12px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Análisis de Sentimiento Político</h1>
+    <canvas id="graficoSentimiento"></canvas>
+  </div>
+
+  <script>
+    fetch('datos.json')
+      .then(res => res.json())
+      .then(datos => {
+        const conteo = { POS: 0, NEG: 0, NEU: 0 };
+        datos.forEach(d => conteo[d.sentimiento]++);
+
+        new Chart(document.getElementById('graficoSentimiento'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Positivo', 'Negativo', 'Neutral'],
+            datasets: [{
+              data: [conteo.POS, conteo.NEG, conteo.NEU],
+              backgroundColor: ['#22c55e', '#ef4444', '#94a3b8']
+            }]
+          }
+        });
+      });
+  </script>
+</body>
+</html>

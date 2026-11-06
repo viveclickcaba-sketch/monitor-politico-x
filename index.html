@@ -6,16 +6,17 @@
   <title>Monitor Político - Comparativa por Candidato</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; margin: 0; }
     .container { max-width: 900px; margin: auto; }
-    .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
-    h1 { text-align: center; margin-bottom: 5px; }
+    .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
+    h1 { text-align: center; margin-bottom: 5px; color: #ffffff; }
     p.sub { text-align: center; color: #94a3b8; margin-bottom: 25px; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
     th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
     th { color: #38bdf8; }
     .pos { color: #22c55e; font-weight: bold; }
     .neg { color: #ef4444; font-weight: bold; }
+    .neu { color: #94a3b8; }
   </style>
 </head>
 <body>
@@ -24,7 +25,7 @@
     <p class="sub">Imagen Positiva vs. Negativa por Dirigente</p>
 
     <div class="card">
-      <h3>Comparativa de Imagen (Menciones)</h3>
+      <h3>Comparativa de Imagen por Político</h3>
       <canvas id="graficoBarras"></canvas>
     </div>
 
@@ -34,8 +35,8 @@
         <thead>
           <tr>
             <th>Político / Dirigente</th>
-            <th>Menciones Positivas</th>
-            <th>Menciones Negativas</th>
+            <th>Positivas</th>
+            <th>Negativas</th>
             <th>Neutrales</th>
           </tr>
         </thead>
@@ -49,24 +50,23 @@
       .then(res => res.json())
       .then(datos => {
         const politicos = Object.keys(datos);
-        const posData = politicos.map(p => datos[p].POS);
-        const negData = politicos.map(p => datos[p].NEG);
-        const neuData = politicos.map(p => datos[p].NEU);
+        const posData = politicos.map(p => datos[p].POS || 0);
+        const negData = politicos.map(p => datos[p].NEG || 0);
+        const neuData = politicos.map(p => datos[p].NEU || 0);
 
-        // Llenar Tabla
         const tabla = document.getElementById('tablaResultados');
+        tabla.innerHTML = '';
         politicos.forEach(p => {
           tabla.innerHTML += `
             <tr>
               <td><strong>${p}</strong></td>
-              <td class="pos">${datos[p].POS}</td>
-              <td class="neg">${datos[p].NEG}</td>
-              <td>${datos[p].NEU}</td>
+              <td class="pos">${datos[p].POS || 0}</td>
+              <td class="neg">${datos[p].NEG || 0}</td>
+              <td class="neu">${datos[p].NEU || 0}</td>
             </tr>
           `;
         });
 
-        // Crear Gráfico de Barras por Político
         new Chart(document.getElementById('graficoBarras'), {
           type: 'bar',
           data: {
@@ -88,6 +88,10 @@
             }
           }
         });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('tablaResultados').innerHTML = '<tr><td colspan="4">Error al cargar datos.json</td></tr>';
       });
   </script>
 </body>

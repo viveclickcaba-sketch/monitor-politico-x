@@ -10,10 +10,14 @@
     .container { max-width: 900px; margin: auto; }
     .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
     h1 { text-align: center; margin-bottom: 5px; color: #ffffff; }
-    h3 { margin-top: 0; }
+    h3 { margin: 0; }
     p.sub { text-align: center; color: #94a3b8; margin-bottom: 12px; }
     .info { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; color: #94a3b8; font-size: 14px; margin-bottom: 22px; }
     .info strong { color: #f8fafc; }
+    .cabecera { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .botones { display: flex; background: #0f172a; border-radius: 8px; padding: 3px; }
+    .botones button { background: transparent; color: #94a3b8; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-family: inherit; }
+    .botones button.activo { background: #334155; color: #f8fafc; font-weight: 600; }
     .grafico { position: relative; width: 100%; }
     .tabla-scroll { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -39,9 +43,15 @@
     <div class="info" id="info">Cargando…</div>
 
     <div class="card">
-      <h3>Imagen por dirigente (% de comentarios)</h3>
+      <div class="cabecera">
+        <h3>Comparativa de imagen por dirigente</h3>
+        <div class="botones">
+          <button id="btnCantidad" class="activo">Cantidad</button>
+          <button id="btnPorcentaje">Porcentaje</button>
+        </div>
+      </div>
       <div class="grafico" id="cajaGrafico"><canvas id="graficoBarras"></canvas></div>
-      <p class="muted">* Pocos datos: el resultado de ese dirigente es poco confiable.</p>
+      <p class="muted" id="notaGrafico"></p>
     </div>
 
     <div class="card">
@@ -71,7 +81,7 @@
 
     <div class="card">
       <h3>Cómo se mide</h3>
-      <div class="nota" id="metodo"></div>
+      <div class="nota" id="metodo" style="margin-top: 12px;"></div>
     </div>
   </div>
 
@@ -79,6 +89,7 @@
     const sinCache = '?v=' + Date.now();
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
+    let grafico = null;
 
     Promise.all([
       fetch('datos.json' + sinCache).then(r => r.json()),
@@ -102,6 +113,7 @@
           det
         };
       });
+      const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
 
       // Barra de informacion
       const infoEl = document.getElementById('info');
@@ -116,32 +128,70 @@
         infoEl.textContent = 'Sin información de actualización';
       }
 
-      // Grafico en porcentajes
-      document.getElementById('cajaGrafico').style.height = (filas.length * 48 + 70) + 'px';
-      new Chart(document.getElementById('graficoBarras'), {
-        type: 'bar',
-        data: {
-          labels: filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre),
-          datasets: [
-            { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
-            { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
-            { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
-          ]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: { stacked: true, max: 100, ticks: { color: '#f8fafc', callback: v => v + '%' }, grid: { color: '#334155' } },
-            y: { stacked: true, ticks: { color: '#f8fafc' }, grid: { display: false } }
-          },
-          plugins: {
-            legend: { labels: { color: '#f8fafc' } },
-            tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-          }
+      // Grafico: cantidad (barras como antes) o porcentaje
+      function dibujar(modo) {
+        if (grafico) grafico.destroy();
+        const caja = document.getElementById('cajaGrafico');
+        const nota = document.getElementById('notaGrafico');
+        const esPct = modo === 'porcentaje';
+        document.getElementById('btnCantidad').classList.toggle('activo', !esPct);
+        document.getElementById('btnPorcentaje').classList.toggle('activo', esPct);
+
+        if (!esPct) {
+          caja.style.height = '380px';
+          nota.textContent = 'La altura de cada barra es la cantidad de comentarios. * Pocos datos: resultado poco confiable.';
+          grafico = new Chart(document.getElementById('graficoBarras'), {
+            type: 'bar',
+            data: {
+              labels: etiquetas,
+              datasets: [
+                { label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e' },
+                { label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444' },
+                { label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8' }
+              ]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { ticks: { color: '#f8fafc' }, grid: { display: false } },
+                y: { beginAtZero: true, ticks: { color: '#f8fafc' }, grid: { color: '#334155' } }
+              },
+              plugins: { legend: { labels: { color: '#f8fafc' } } }
+            }
+          });
+        } else {
+          caja.style.height = (filas.length * 48 + 70) + 'px';
+          nota.textContent = 'Cada barra suma 100%: sirve para comparar dirigentes aunque de algunos se hable mucho más. * Pocos datos: resultado poco confiable.';
+          grafico = new Chart(document.getElementById('graficoBarras'), {
+            type: 'bar',
+            data: {
+              labels: etiquetas,
+              datasets: [
+                { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
+                { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
+                { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
+              ]
+            },
+            options: {
+              indexAxis: 'y',
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { stacked: true, max: 100, ticks: { color: '#f8fafc', callback: v => v + '%' }, grid: { color: '#334155' } },
+                y: { stacked: true, ticks: { color: '#f8fafc' }, grid: { display: false } }
+              },
+              plugins: {
+                legend: { labels: { color: '#f8fafc' } },
+                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
+              }
+            }
+          });
         }
-      });
+      }
+      document.getElementById('btnCantidad').addEventListener('click', () => dibujar('cantidad'));
+      document.getElementById('btnPorcentaje').addEventListener('click', () => dibujar('porcentaje'));
+      dibujar('cantidad');
 
       // Tabla
       document.getElementById('tablaResultados').innerHTML = filas.map(f => `
@@ -189,7 +239,7 @@
       document.getElementById('metodo').innerHTML = `
         <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
-        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo puede confundir ironías, y en general la gente comenta más para criticar, por eso es más útil comparar dirigentes entre sí que leer cada porcentaje por separado.</p>`;
+        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo puede confundir ironías, y en general la gente comenta más para criticar, por eso es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
     }).catch(err => {
       console.error(err);
       document.getElementById('info').textContent = 'Error al cargar los datos';

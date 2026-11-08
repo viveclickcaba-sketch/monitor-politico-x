@@ -1,0 +1,28 @@
+{
+  "actualizado": "08/11/2026 12:07",
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "total_comentarios": 154,
+  "detalle": {
+    "Milei": {
+      "videos": 10,
+      "comentarios": 65
+    },
+    "Massa": {
+      "videos": 10,
+      "comentarios": 40
+    },
+    "Kicillof": {
+      "videos": 10,
+      "comentarios": 4
+    },
+    "Macri": {
+      "videos": 10,
+      "comentarios": 39
+    },
+    "Bullrich": {
+      "videos": 10,
+      "comentarios": 6
+    }
+  }
+}

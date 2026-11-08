@@ -11,6 +11,7 @@
     .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
     h1 { text-align: center; margin-bottom: 5px; color: #ffffff; }
     h3 { margin: 0; }
+    a { color: #38bdf8; }
     p.sub { text-align: center; color: #94a3b8; margin-bottom: 12px; }
     .info { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; color: #94a3b8; font-size: 14px; margin-bottom: 22px; }
     .info strong { color: #f8fafc; }
@@ -18,6 +19,7 @@
     .botones { display: flex; background: #0f172a; border-radius: 8px; padding: 3px; }
     .botones button { background: transparent; color: #94a3b8; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-family: inherit; }
     .botones button.activo { background: #334155; color: #f8fafc; font-weight: 600; }
+    select, input[type="text"] { background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 8px; padding: 8px 10px; font-family: inherit; font-size: 14px; }
     .grafico { position: relative; width: 100%; }
     .tabla-scroll { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -31,9 +33,15 @@
     details { border-bottom: 1px solid #334155; padding: 12px 0; }
     summary { cursor: pointer; font-weight: 600; }
     .det { color: #cbd5e1; font-size: 14px; margin-top: 10px; line-height: 1.5; }
-    .det ul { margin: 6px 0 10px; padding-left: 20px; }
+    .det ul { margin: 6px 0 12px; padding-left: 20px; }
+    .det li { margin-bottom: 4px; white-space: normal; }
     .nota { color: #cbd5e1; font-size: 14px; line-height: 1.6; }
     .nota p { margin: 0 0 10px; }
+    .form { display: grid; gap: 12px; margin: 14px 0; }
+    .form label { display: grid; gap: 6px; font-size: 13px; color: #94a3b8; }
+    .form label.check { display: flex; align-items: center; gap: 8px; }
+    .preview { display: block; max-width: 100%; max-height: 520px; margin: 10px auto; border-radius: 8px; border: 1px solid #334155; }
+    .boton { display: block; margin: 12px auto 0; background: #e30613; color: #fff; border: none; border-radius: 8px; padding: 12px 22px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; }
   </style>
 </head>
 <body>
@@ -52,6 +60,15 @@
       </div>
       <div class="grafico" id="cajaGrafico"><canvas id="graficoBarras"></canvas></div>
       <p class="muted" id="notaGrafico"></p>
+    </div>
+
+    <div class="card">
+      <div class="cabecera">
+        <h3>Evolución en el tiempo</h3>
+        <select id="selEvolucion"></select>
+      </div>
+      <p class="muted" id="evoAviso"></p>
+      <div class="grafico" id="cajaEvolucion" style="height: 360px;"><canvas id="graficoEvolucion"></canvas></div>
     </div>
 
     <div class="card">
@@ -74,8 +91,29 @@
     </div>
 
     <div class="card">
+      <h3>Placa para Instagram</h3>
+      <div class="form">
+        <label>Formato
+          <select id="plFormato">
+            <option value="post">Posteo (1080 × 1350)</option>
+            <option value="historia">Historia (1080 × 1920)</option>
+          </select>
+        </label>
+        <label>Bajada (en rojo)
+          <input type="text" id="plBajada" value="MONITOR POLÍTICO">
+        </label>
+        <label>Título
+          <input type="text" id="plTitulo" value="¿QUÉ DICEN DE CADA DIRIGENTE EN YOUTUBE?">
+        </label>
+        <label class="check"><input type="checkbox" id="plOcultar"> Ocultar dirigentes con pocos datos</label>
+      </div>
+      <img id="plPreview" class="preview" alt="Vista previa de la placa">
+      <button id="plDescargar" class="boton">Descargar placa</button>
+    </div>
+
+    <div class="card">
       <h3>¿De dónde salen los datos?</h3>
-      <p class="muted">Tocá cada dirigente para ver los canales usados y los comentarios descartados.</p>
+      <p class="muted">Tocá cada dirigente para ver canales, videos con más conversación, comentarios de ejemplo y descartes.</p>
       <div id="fuentes"></div>
     </div>
 
@@ -89,16 +127,21 @@
     const sinCache = '?v=' + Date.now();
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
+    const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e2e8f0', '#60a5fa', '#c084fc'];
+    const ROJO_VIVE = '#e30613';
     let grafico = null;
+    let graficoEvo = null;
 
     Promise.all([
       fetch('datos.json' + sinCache).then(r => r.json()),
-      fetch('info.json' + sinCache).then(r => r.ok ? r.json() : null).catch(() => null)
-    ]).then(([datos, info]) => {
+      fetch('info.json' + sinCache).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch('historial.json' + sinCache).then(r => r.ok ? r.json() : []).catch(() => [])
+    ]).then(([datos, info, historial]) => {
       const detalle = (info && info.detalle) || {};
       const filtros = (info && info.filtros) || {};
       const diasCuenta = filtros.cuentas_nuevas_excluidas_dias || 30;
       const tope = filtros.tope_por_canal || 20;
+      const periodo = info ? String(info.periodo || '').replace('ultimos', 'últimos').replace('dias', 'días') : '';
 
       const filas = Object.keys(datos).map(nombre => {
         const d = datos[nombre];
@@ -115,10 +158,9 @@
       });
       const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
 
-      // Barra de informacion
+      // ===== Barra de informacion =====
       const infoEl = document.getElementById('info');
       if (info) {
-        const periodo = String(info.periodo || '').replace('ultimos', 'últimos').replace('dias', 'días');
         infoEl.innerHTML =
           `<span>Actualizado: <strong>${esc(info.actualizado)}</strong></span>` +
           `<span>Fuente: <strong>${esc(info.fuente)}</strong></span>` +
@@ -128,7 +170,7 @@
         infoEl.textContent = 'Sin información de actualización';
       }
 
-      // Grafico: cantidad (barras como antes) o porcentaje
+      // ===== Grafico principal =====
       function dibujar(modo) {
         if (grafico) grafico.destroy();
         const caja = document.getElementById('cajaGrafico');
@@ -193,7 +235,63 @@
       document.getElementById('btnPorcentaje').addEventListener('click', () => dibujar('porcentaje'));
       dibujar('cantidad');
 
-      // Tabla
+      // ===== Evolucion en el tiempo =====
+      const nombres = filas.map(f => f.nombre);
+      const sel = document.getElementById('selEvolucion');
+      sel.innerHTML = '<option value="__todos">Todos (% negativo)</option>' +
+        nombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      const pctDe = (d, k) => {
+        if (!d) return null;
+        const t = (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
+        return t ? Math.round((d[k] || 0) * 1000 / t) / 10 : null;
+      };
+      if (!Array.isArray(historial) || historial.length < 2) {
+        document.getElementById('evoAviso').textContent = 'El gráfico aparece a partir de la segunda actualización: cada vez que corras el bot se suma un punto.';
+        document.getElementById('cajaEvolucion').style.display = 'none';
+        sel.disabled = true;
+      } else {
+        document.getElementById('evoAviso').textContent = 'Cada punto es una actualización del bot.';
+        const fechas = historial.map(h => h.fecha);
+        const dibujarEvo = valor => {
+          if (graficoEvo) graficoEvo.destroy();
+          let datasets;
+          if (valor === '__todos') {
+            datasets = nombres.map((n, i) => ({
+              label: n,
+              data: historial.map(h => pctDe((h.datos || {})[n], 'NEG')),
+              borderColor: COLORES[i % COLORES.length],
+              backgroundColor: COLORES[i % COLORES.length],
+              tension: 0.3, spanGaps: true
+            }));
+          } else {
+            datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
+              label: l,
+              data: historial.map(h => pctDe((h.datos || {})[valor], k)),
+              borderColor: c, backgroundColor: c, tension: 0.3, spanGaps: true
+            }));
+          }
+          graficoEvo = new Chart(document.getElementById('graficoEvolucion'), {
+            type: 'line',
+            data: { labels: fechas, datasets },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { ticks: { color: '#f8fafc' }, grid: { display: false } },
+                y: { min: 0, max: 100, ticks: { color: '#f8fafc', callback: v => v + '%' }, grid: { color: '#334155' } }
+              },
+              plugins: {
+                legend: { labels: { color: '#f8fafc' } },
+                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
+              }
+            }
+          });
+        };
+        sel.addEventListener('change', () => dibujarEvo(sel.value));
+        dibujarEvo('__todos');
+      }
+
+      // ===== Tabla =====
       document.getElementById('tablaResultados').innerHTML = filas.map(f => `
         <tr>
           <td><strong>${esc(f.nombre)}</strong>${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}</td>
@@ -204,7 +302,140 @@
           <td>${Object.keys(f.canales).length}</td>
         </tr>`).join('');
 
-      // Fuentes por dirigente
+      // ===== Placa para Instagram =====
+      const FUENTE = '"Arial Black", "Helvetica Neue", Arial, sans-serif';
+      function partir(ctx, texto, ancho) {
+        const palabras = texto.split(' ');
+        const lineas = [];
+        let linea = '';
+        palabras.forEach(p => {
+          const prueba = linea ? linea + ' ' + p : p;
+          if (ctx.measureText(prueba).width > ancho && linea) { lineas.push(linea); linea = p; }
+          else linea = prueba;
+        });
+        if (linea) lineas.push(linea);
+        return lineas;
+      }
+      function ajustarFuente(ctx, texto, tamano, peso, familia, anchoMax) {
+        let t = tamano;
+        ctx.font = `${peso} ${t}px ${familia}`;
+        while (ctx.measureText(texto).width > anchoMax && t > 14) {
+          t -= 1;
+          ctx.font = `${peso} ${t}px ${familia}`;
+        }
+        return t;
+      }
+      let ultimaPlaca = '';
+      function dibujarPlaca() {
+        const historia = document.getElementById('plFormato').value === 'historia';
+        const W = 1080, H = historia ? 1920 : 1350;
+        const cv = document.createElement('canvas');
+        cv.width = W; cv.height = H;
+        const ctx = cv.getContext('2d');
+
+        const fondo = ctx.createLinearGradient(0, 0, 0, H);
+        fondo.addColorStop(0, '#151515');
+        fondo.addColorStop(1, '#000000');
+        ctx.fillStyle = fondo;
+        ctx.fillRect(0, 0, W, H);
+
+        // Logo VIVE / CABA chico y centrado arriba
+        let y = historia ? 150 : 90;
+        ctx.textAlign = 'center';
+        ctx.fillStyle = ROJO_VIVE;
+        ctx.font = `900 60px ${FUENTE}`;
+        ctx.fillText('VIVE', W / 2, y);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `700 24px Arial, sans-serif`;
+        ctx.fillText('CABA', W / 2, y + 32);
+
+        // Bajada en rojo y titulo en blanco
+        y += historia ? 150 : 110;
+        ctx.fillStyle = ROJO_VIVE;
+        ctx.font = `900 34px ${FUENTE}`;
+        ctx.fillText(document.getElementById('plBajada').value.toUpperCase(), W / 2, y);
+        const tamTitulo = historia ? 68 : 58;
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `900 ${tamTitulo}px ${FUENTE}`;
+        const lineas = partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - 140);
+        lineas.forEach(l => { y += tamTitulo * 1.15; ctx.fillText(l, W / 2, y); });
+        y += historia ? 90 : 60;
+
+        // Barras: largo = cantidad de comentarios, colores = reparto
+        const ocultar = document.getElementById('plOcultar').checked;
+        const lista = filas.filter(f => f.total > 0 && !(ocultar && f.pocos));
+        const maxTotal = Math.max(1, ...lista.map(f => f.total));
+        const finFilas = H - (historia ? 300 : 190);
+        const alto = Math.min(historia ? 150 : 115, (finFilas - y) / Math.max(1, lista.length));
+        const xNombre = 70, xBarra = 320, anchoMax = W - 70 - xBarra;
+        lista.forEach((f, i) => {
+          const top = y + i * alto;
+          ctx.textAlign = 'left';
+          ctx.fillStyle = '#ffffff';
+          ajustarFuente(ctx, f.nombre.toUpperCase() + (f.pocos ? '*' : ''), Math.round(alto * 0.3), 900, FUENTE, xBarra - xNombre - 20);
+          ctx.fillText(f.nombre.toUpperCase() + (f.pocos ? '*' : ''), xNombre, top + alto * 0.42);
+          ctx.fillStyle = '#9ca3af';
+          ctx.font = `700 ${Math.round(alto * 0.19)}px Arial, sans-serif`;
+          ctx.fillText(`${f.total} comentarios`, xNombre, top + alto * 0.7);
+
+          const largo = Math.max(anchoMax * f.total / maxTotal, 8);
+          const altoBarra = alto * 0.38, yBarra = top + alto * 0.12;
+          let x = xBarra;
+          [[f.pos, '#22c55e'], [f.neu, '#94a3b8'], [f.neg, '#ef4444']].forEach(([n, c]) => {
+            const w = largo * n / f.total;
+            ctx.fillStyle = c;
+            ctx.fillRect(x, yBarra, w, altoBarra);
+            x += w;
+          });
+          ctx.font = `700 ${Math.round(alto * 0.19)}px Arial, sans-serif`;
+          const yTexto = yBarra + altoBarra + alto * 0.24;
+          ctx.fillStyle = '#22c55e';
+          const txtPos = `${Math.round(f.pPos)}% positivo`;
+          ctx.fillText(txtPos, xBarra, yTexto);
+          ctx.fillStyle = '#ef4444';
+          ctx.fillText(`${Math.round(f.pNeg)}% negativo`, xBarra + ctx.measureText(txtPos).width + 28, yTexto);
+        });
+
+        // Leyenda
+        let yLey = finFilas + (historia ? 60 : 40);
+        ctx.textAlign = 'left';
+        ctx.font = `700 24px Arial, sans-serif`;
+        let xLey = 70;
+        [['Positivo', '#22c55e'], ['Neutral', '#94a3b8'], ['Negativo', '#ef4444']].forEach(([t, c]) => {
+          ctx.fillStyle = c;
+          ctx.fillRect(xLey, yLey - 20, 24, 24);
+          ctx.fillStyle = '#d1d5db';
+          ctx.fillText(t, xLey + 34, yLey);
+          xLey += ctx.measureText(t).width + 80;
+        });
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillText('Largo de la barra = cantidad de comentarios', 70, yLey + 40);
+
+        // Fuente abajo, chica
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#9ca3af';
+        ctx.font = `400 22px Arial, sans-serif`;
+        const actualizado = info ? String(info.actualizado).split(' ')[0] : '';
+        ctx.fillText(`Fuente: comentarios de YouTube (${periodo.toLowerCase()}) · ${actualizado}`, W / 2, H - (historia ? 140 : 80));
+        const hayPocos = lista.some(f => f.pocos);
+        ctx.fillText('No es una encuesta' + (hayPocos ? ' · * Pocos datos, resultado poco confiable' : ''), W / 2, H - (historia ? 108 : 48));
+
+        ultimaPlaca = cv.toDataURL('image/png');
+        document.getElementById('plPreview').src = ultimaPlaca;
+      }
+      ['plFormato', 'plBajada', 'plTitulo', 'plOcultar'].forEach(id => {
+        document.getElementById(id).addEventListener('input', dibujarPlaca);
+        document.getElementById(id).addEventListener('change', dibujarPlaca);
+      });
+      document.getElementById('plDescargar').addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = ultimaPlaca;
+        a.download = `monitor-politico-${document.getElementById('plFormato').value}.png`;
+        a.click();
+      });
+      dibujarPlaca();
+
+      // ===== Fuentes por dirigente =====
       const textosDescarte = {
         mismo_autor: 'Misma persona comentando otra vez',
         texto_repetido: 'Texto repetido (posible copia y pega)',
@@ -215,9 +446,14 @@
         canal_extranjero: 'Videos de canales de otro país',
         canal_oficial: 'Videos del canal propio del dirigente'
       };
+      const listaEjemplos = lista => (lista || [])
+        .map(e => `<li>“${esc(e.texto)}” <span class="muted">👍 ${esc(e.likes)}</span></li>`).join('') || '<li>Sin ejemplos</li>';
       document.getElementById('fuentes').innerHTML = filas.map(f => {
         const canales = Object.entries(f.canales)
           .map(([c, n]) => `<li>${esc(c)}: ${n}</li>`).join('') || '<li>Sin datos</li>';
+        const destacados = (f.det.videos_destacados || [])
+          .map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.titulo)}</a> <span class="muted">(${esc(v.canal)} · ${esc(v.comentarios)} comentarios)</span></li>`).join('') || '<li>Sin datos</li>';
+        const ejemplos = (f.det.ejemplos || {});
         const desc = Object.entries(f.det.comentarios_descartados || {})
           .filter(([, n]) => n > 0)
           .map(([k, n]) => `<li>${esc(textosDescarte[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
@@ -228,6 +464,9 @@
           <details>
             <summary>${esc(f.nombre)} · ${f.total} comentarios${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}</summary>
             <div class="det">
+              <strong>Videos con más conversación</strong><ul>${destacados}</ul>
+              <strong class="pos">Comentarios positivos más votados</strong><ul>${listaEjemplos(ejemplos.positivos)}</ul>
+              <strong class="neg">Comentarios negativos más votados</strong><ul>${listaEjemplos(ejemplos.negativos)}</ul>
               <strong>Canales usados</strong><ul>${canales}</ul>
               <strong>Comentarios descartados</strong><ul>${desc}</ul>
               <strong>Videos descartados</strong><ul>${vids}</ul>
@@ -235,7 +474,7 @@
           </details>`;
       }).join('');
 
-      // Metodo
+      // ===== Metodo =====
       document.getElementById('metodo').innerHTML = `
         <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>

@@ -1,5 +1,5 @@
 {
-  "actualizado": "08/11/2026 14:56",
+  "actualizado": "08/11/2026 18:24",
   "fuente": "Comentarios de YouTube",
   "periodo": "Videos de los ultimos 7 dias",
   "filtros": {
@@ -13,33 +13,84 @@
     "comentarios": 50,
     "canales": 5
   },
-  "total_comentarios": 459,
+  "total_comentarios": 443,
   "detalle": {
     "Milei": {
       "videos": 16,
-      "comentarios": 112,
+      "comentarios": 130,
       "pocos_datos": false,
       "canales": {
         "Revolución Popular Noticias": 20,
+        "El Peluca Milei": 20,
         "LA NACION": 20,
         "Oficina Anti Milei": 20,
         "Crónica TV": 20,
         "Adrián Ackerman": 15,
-        "El Destape": 6,
-        "Bruno Scaglione": 4,
+        "eltrece": 7,
         "El Cronista": 3,
         "C5N": 3,
-        "Perfil": 1
+        "Las Fuerzas de La Pala": 1,
+        "NICO ZAPATA": 1
       },
       "videos_descartados": {
         "canal_extranjero": 9,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "mismo_autor": 6,
-        "texto_repetido": 6,
+        "mismo_autor": 10,
+        "texto_repetido": 7,
         "cuenta_nueva": 0,
-        "tope_canal": 69
+        "tope_canal": 68
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Amenazan de muerte al Presidente y a la Secretaria de la Nación",
+          "canal": "Crónica TV",
+          "url": "https://www.youtube.com/watch?v=AR9o4qZy16M",
+          "comentarios": 1057
+        },
+        {
+          "titulo": "Increparon a Milei en Boedo al salir de una distinción de la comunidad judía en un templo evangélico",
+          "canal": "LA NACION",
+          "url": "https://www.youtube.com/watch?v=sStSPN6fZJg",
+          "comentarios": 575
+        },
+        {
+          "titulo": "ADORNI: NO HUBO ENRIQUECIMIENTO ILICITO #javiermilei",
+          "canal": "Adrián Ackerman",
+          "url": "https://www.youtube.com/watch?v=H4r3EHTud80",
+          "comentarios": 532
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Milei siga, no abandoné 💪",
+            "likes": 33
+          },
+          {
+            "texto": "Vamos milei",
+            "likes": 15
+          },
+          {
+            "texto": "Jajajja todos estan ahi por Milei porque es un grande nada mas diré 🎉 2027- 2031",
+            "likes": 13
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Dejensen de joder, entonces vamos presos media Argentina, Milei también amenaza y lo realiza",
+            "likes": 125
+          },
+          {
+            "texto": "Caputo y milei son cómplices de lo que pasó fíjense estaría bueno que los metan presos",
+            "likes": 93
+          },
+          {
+            "texto": "Milei también tiene que renunciar e ir presoo",
+            "likes": 91
+          }
+        ]
       }
     },
     "Massa": {
@@ -63,21 +114,59 @@
         "texto_repetido": 0,
         "cuenta_nueva": 1,
         "tope_canal": 36
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MILEI TE MINTIÓ, MASSA NO: TODO LO QUE TE HABÍA ADVERTIDO SERGIO MASSA Y NO QUISISTE CREER",
+          "canal": "LA ROSCA Y LA PELOTA",
+          "url": "https://www.youtube.com/watch?v=oWXf48qHcrE",
+          "comentarios": 820
+        },
+        {
+          "titulo": "UN POCO DE RUIDO! Programa #159 Hoy \" ENRIQUE MAZA\"",
+          "canal": "Un Poco De Ruido",
+          "url": "https://www.youtube.com/watch?v=Yuvz3YpHbpY",
+          "comentarios": 204
+        },
+        {
+          "titulo": "¿Y KICILLOF?🚨 BOMBAZO: MASSA Y CRISTINA BUSCAN AL ESTRATEGA DE LULA PARA DERROTAR A MILEI",
+          "canal": "Herrero Liberal  ",
+          "url": "https://www.youtube.com/watch?v=57K_tCeir5M",
+          "comentarios": 105
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "texto": "Massa te quedaste cortó en los aumentos",
+            "likes": 104
+          },
+          {
+            "texto": "Massa tenia raazon votaron loco suelto sin patria ni oh honor😮",
+            "likes": 49
+          },
+          {
+            "texto": "Asi es, los ingenuos le creyeron al hipocrita de milei, pero el ministro Massa dijo la pura Verdad de lo que el mentiroso de milei haria, y lo hizo.!😒🤔",
+            "likes": 44
+          }
+        ]
       }
     },
     "Kicillof": {
       "videos": 25,
-      "comentarios": 46,
+      "comentarios": 48,
       "pocos_datos": true,
       "canales": {
         "El Destape": 20,
         "Adrián Ackerman": 17,
         "eltresTV": 2,
         "Las Fuerzas de La Pala": 2,
+        "Movimiento Derecho al Futuro": 2,
         "Carnaval Stream": 2,
         "De Loredo Presente": 1,
         "EZZE TV": 1,
-        "Laca Stream": 1
+        "Cronos Noticias": 1
       },
       "videos_descartados": {
         "canal_extranjero": 0,
@@ -86,16 +175,65 @@
       "comentarios_descartados": {
         "mismo_autor": 2,
         "texto_repetido": 8,
-        "cuenta_nueva": 2,
-        "tope_canal": 18
+        "cuenta_nueva": 1,
+        "tope_canal": 22
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Kicillof habló sobre los jóvenes y la crisis económica❗",
+          "canal": "El Destape",
+          "url": "https://www.youtube.com/watch?v=_A7QUoo6pTI",
+          "comentarios": 472
+        },
+        {
+          "titulo": "SEGUN KICILLOF, EL PAPA LEON XIV LO VOTARÍA A ÉL #javiermilei",
+          "canal": "Adrián Ackerman",
+          "url": "https://www.youtube.com/watch?v=ZagfioWjyPs",
+          "comentarios": 333
+        },
+        {
+          "titulo": "EXPONGO A PERIODISTA K Y LOS MILLONES DE PAUTA DE KICILLOF A EL DESTAPE",
+          "canal": "Marco Palazzo",
+          "url": "https://www.youtube.com/watch?v=KTdMVKIwnqQ",
+          "comentarios": 93
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "vamos Axel 2027 presidente ❤🎉",
+            "likes": 19
+          },
+          {
+            "texto": "Axel presidente 2027 y listo  o la Cristina porque son personas de buenas muy buenos",
+            "likes": 16
+          },
+          {
+            "texto": "Vamos Axel fuerza una gran persona que piensa en el pueblo y ayuda a la gente cosa que milei no hace .",
+            "likes": 11
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Estoy es una burrada más de kicillof. Pero me encantaría saber que piensan los obispos y curas argentinos.",
+            "likes": 27
+          },
+          {
+            "texto": "Axel hace muchísimo como gobernador, sostiene la medicación en las salitas, sostiene lo q Milei abandono,tiene mí voto xq no abandono a la provincia como miley abandono a los más débiles en todo el país",
+            "likes": 6
+          },
+          {
+            "texto": "Kicillof al igual que Milei son judíos, y ambos usan la figura del Papá para rascar votos católicos . Pero un católico medianamente formado sabe que a ninguno de los dos sinvergüenza habría que votarlo. Los males de izquierda y derecha, dos caras de la misma moneda.",
+            "likes": 1
+          }
+        ]
       }
     },
     "Macri": {
-      "videos": 21,
-      "comentarios": 51,
-      "pocos_datos": false,
+      "videos": 22,
+      "comentarios": 34,
+      "pocos_datos": true,
       "canales": {
-        "Canal EY! | Streaming": 16,
         "C5N": 10,
         "Revolución Popular Noticias": 9,
         "Las Fuerzas del Pueblo": 6,
@@ -103,31 +241,70 @@
         "Movimiento Anti Milei": 2,
         "Diario Todo Jujuy": 1,
         "LA ROSCA Y LA PELOTA": 1,
-        "EZZE TV": 1,
-        "Carnaval Stream": 1
+        "EZZE TV": 1
       },
       "videos_descartados": {
-        "canal_extranjero": 1,
+        "canal_extranjero": 0,
         "canal_oficial": 3
       },
       "comentarios_descartados": {
-        "mismo_autor": 1,
+        "mismo_autor": 0,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MAURICIO MACRI: \"No soy MILEISTA\"",
+          "canal": "C5N",
+          "url": "https://www.youtube.com/watch?v=IX8rnIah-18",
+          "comentarios": 243
+        },
+        {
+          "titulo": "Las negociaciones de Macri con Florentino Perez previo a la polemica final entre Boca - Real Madrid",
+          "canal": "Un Poco de Clips ",
+          "url": "https://www.youtube.com/watch?v=FDVP4I7zx6A",
+          "comentarios": 119
+        },
+        {
+          "titulo": "Macri fue a la calle a sacarse fotos y le pidieron que devuelva el préstamo con el FMI",
+          "canal": "Las Fuerzas del Pueblo",
+          "url": "https://www.youtube.com/watch?v=Jcf5OAF1vdQ",
+          "comentarios": 72
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Vamos macri te queremos",
+            "likes": 1
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Generaciones enteras los Macri enriquecidos por todos nosotros!! Que paguen ko que deben",
+            "likes": 28
+          },
+          {
+            "texto": "MACRI, CAPUTO STURZENEGER Y BULLRICH CAMINAN LIBRES POR LAS CALLES CON TOTAL IMPUNIDAD, GRACIAS A LA JUSTICIA CORRUPTA QUE LOS AMPARAN... PRESOS PRESOS PRESOS, PERO YA!!!... DESPIERTA ARGENTINA!!!",
+            "likes": 18
+          },
+          {
+            "texto": "Hola. Todos. Lo. Saben.  Lo. Que. Hizo. Macri y. Caputo. Saben. Quien. No.  Lo. Sabe. La. Justicia. De. La. DEUDA. De. Macri. Causa. Cerrada. Justicia. No. Se. Puede. Ocultar. El. Pueblo. Lo. Sabe.",
+            "likes": 11
+          }
+        ]
       }
     },
     "Bullrich": {
       "videos": 23,
-      "comentarios": 44,
+      "comentarios": 20,
       "pocos_datos": true,
       "canales": {
-        "NICO ZAPATA": 20,
         "A24com": 6,
-        "LA NACION": 5,
-        "Revolución Popular Noticias": 4,
+        "Revolución Popular Noticias": 5,
         "Super Libertaria": 4,
-        "Oficina Anti Milei": 3,
+        "LA NACION": 3,
         "Jonatan Viale": 1,
         "Canal de la Ciudad": 1
       },
@@ -136,31 +313,76 @@
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "mismo_autor": 1,
+        "mismo_autor": 0,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
-        "tope_canal": 3
+        "tope_canal": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "WADO DE PEDRO LE SACÓ LA CARETA A BULLRICH EN EL SENADO:",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=P5aVAlnjAvI",
+          "comentarios": 75
+        },
+        {
+          "titulo": "🔴 LA REBELIÓN DE PATRICIA BULLRICH: LA FOTO QUE ENFURECIÓ A LOS HERMANOS MILEI",
+          "canal": "A24com",
+          "url": "https://www.youtube.com/watch?v=V7AiKLh-WDA",
+          "comentarios": 59
+        },
+        {
+          "titulo": "BOMBA ATÓMICA ¿Después de la visita del Papa BULLRICH... ¿AFUERAAA?",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=bQIiTfZ9EBY",
+          "comentarios": 36
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Estoy con Patricia ❤",
+            "likes": 1
+          },
+          {
+            "texto": "Vamos Patricia y equipo, den el paso, asi sabemos quien es quien. Y sino, a trabajar senadora y demas, que hay mucho x hacer.",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Más allá del mamarracho que es Bullrich....lastimar? La figura presencia la están lastimando los impresentables que están en el gobierno jajaja",
+            "likes": 8
+          },
+          {
+            "texto": "Bullrich suma crueldad!!! Eso es lo que a Milei le gusta!! Solo que ahora les está peleando a ellos mismos😅😅😅 siniestro con siniestro en algún momento chocan!",
+            "likes": 6
+          },
+          {
+            "texto": "NO ME GUSTA PARA NADA EL JUEGUITO QUE ESTÁ HACIENDO HACE YA BASTANTE PATRICIA. SE NOTA MUCHO . LOS VOTOS SON DE JAVIER MILEI, NO HAY OTRO. CUANTOS TRAIDORES AL LADO DEL PRESIDENTE 🙈🙈🙈🇦🇷🇦🇷",
+            "likes": 6
+          }
+        ]
       }
     },
     "Cristina": {
       "videos": 24,
-      "comentarios": 133,
+      "comentarios": 139,
       "pocos_datos": false,
       "canales": {
         "Crónica TV": 20,
-        "A24com": 20,
         "Argentina 12": 20,
-        "Perfil": 15,
-        "Nico Guthmann": 14,
+        "A24com": 19,
+        "Perfil": 16,
+        "Mate con Mote": 15,
         "El Peluca Milei": 11,
         "Revolución Popular Noticias": 10,
+        "Las Fuerzas de La Pala": 7,
         "eldoce": 6,
-        "Las Fuerzas de La Pala": 5,
-        "Break Point Noticias": 3,
-        "LA NACION": 3,
+        "Break Point Noticias": 4,
+        "Radio Mitre": 4,
         "PRESIDEN TA": 3,
-        "Cadena 3 Argentina": 1,
-        "Canal 9 Televida Mendoza": 1,
+        "LA NACION": 3,
         "Telenueve": 1
       },
       "videos_descartados": {
@@ -168,10 +390,60 @@
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "mismo_autor": 16,
-        "texto_repetido": 12,
+        "mismo_autor": 18,
+        "texto_repetido": 10,
         "cuenta_nueva": 2,
-        "tope_canal": 108
+        "tope_canal": 100
+      },
+      "videos_destacados": [
+        {
+          "titulo": "¿Cristina Kirchner candidata en 2027? Salieron a la calle y las respuestas sorprendieron",
+          "canal": "Crónica TV",
+          "url": "https://www.youtube.com/watch?v=Sd0t5bKKjRY",
+          "comentarios": 722
+        },
+        {
+          "titulo": "Cristina Kirchner fotos al lado del diputado encargado de las milicias digitales de Lula",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=Dh34x06zNJo",
+          "comentarios": 324
+        },
+        {
+          "titulo": "“Cuando la democracia no genera progreso, la gente empieza a cuestionar el sistema político”",
+          "canal": "Argentina 12",
+          "url": "https://www.youtube.com/watch?v=qq5mos5gNic",
+          "comentarios": 205
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Totalmente verdadero.Viva Cristina.",
+            "likes": 29
+          },
+          {
+            "texto": "Bendiciones Cristina soy de Uruguay amén 🙏",
+            "likes": 14
+          },
+          {
+            "texto": "Querida Cristina, todo el pueblo te Ama ❤",
+            "likes": 12
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Todos kirchneristas con sueldos pagos x él kirchnerismo y gobernadores e intendentes también!! Militando la mentira.",
+            "likes": 61
+          },
+          {
+            "texto": "En capital hay mucha gente que vive en su mundo y no quieren ver lo mal que estamos,CRISTINA VOLVE",
+            "likes": 42
+          },
+          {
+            "texto": "CRISTINA NO ROBO .... NOOOOOSSSSS ROBO .. QUE NO ES LA MISMA COSA .. Y NOS ROBO A TODOS INCLUYENDO A LOS BOLUDOS QUE LA DEFIENDEN",
+            "likes": 21
+          }
+        ]
       }
     },
     "Grabois": {
@@ -192,14 +464,56 @@
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "NAVARRO Y GRABOIS EXPUSIERON EL PROYECTO K SIN FILTROS: “VOLVER A REPOBLAR LA PATRIA,",
+          "canal": "Agarra la Pala América",
+          "url": "https://www.youtube.com/watch?v=daB44XZAcb8",
+          "comentarios": 175
+        },
+        {
+          "titulo": "MAJUL DESTROZÓ AL KUKA GRABOIS, QUE FOGONEA HACERLE UN GOLPE A MILEI TRAS LA CAIDA DE PEÑA",
+          "canal": "El Camino Del Liberalismo",
+          "url": "https://www.youtube.com/watch?v=W0NWBQu784Q",
+          "comentarios": 47
+        },
+        {
+          "titulo": "🥊\"LA DERROTA DE TRUMP ES BUENA NOTICIA PARA ARGENTINA Y EL MUNDO\" | Juan Grabois con Roberto Navarro",
+          "canal": "El Destape",
+          "url": "https://www.youtube.com/watch?v=C_XZbWvhYXk",
+          "comentarios": 33
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Tiene razón, Grabois.\nTiene razón.",
+            "likes": 6
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Que asco este tipo 🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮grabois dona tu sueldo y todo lo que nos robaste!!! Y después preso",
+            "likes": 9
+          },
+          {
+            "texto": "las mismas medidas de la antigua union sovietca que quebro, medidas que solo le aseguran votos a grabobis, medidas clientelistas para ganar votos pero que no sirven de nada al pais, orque grabois siendo presidente todas las empresas salen corriendo de la argentina, entonces sobra",
+            "likes": 3
+          },
+          {
+            "texto": "Que grande es grabois.  Lo aprecio mucho y es un  poco de esperanza cuesta tanto creer en la maldad que tienen los Donal y los libertarios  no tienen una sola idea de mejorar el planeta solo destruyen y festejan el mal.",
+            "likes": 3
+          }
+        ]
       }
     },
     "Bregman": {
       "videos": 25,
-      "comentarios": 25,
+      "comentarios": 24,
       "pocos_datos": true,
       "canales": {
-        "Ariel Te Lo Muestra": 17,
+        "Ariel Te Lo Muestra": 16,
         "Mica. Tur": 6,
         "Revolución Popular Noticias": 1,
         "laberinto stream": 1
@@ -213,6 +527,56 @@
         "texto_repetido": 0,
         "cuenta_nueva": 1,
         "tope_canal": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Humilló a Milei: ¿NACE LA CLAUDIA SHEINBAUM ARGENTINA?",
+          "canal": "Ariel Te Lo Muestra",
+          "url": "https://www.youtube.com/watch?v=SQXysambSh4",
+          "comentarios": 1315
+        },
+        {
+          "titulo": "¿NACE LA CLAUDIA SHEINBAUM ARGENTINA?",
+          "canal": "Mica. Tur",
+          "url": "https://www.youtube.com/watch?v=KXIsS_PHKyY",
+          "comentarios": 157
+        },
+        {
+          "titulo": "Pagni genera un incendio total en LN+ con la bomba que acaba de REVELAR ¿TRUMP LE DICE CHAU A MILEI?",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=GrLxcb6fJUQ",
+          "comentarios": 115
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Excelente ariel\nSoy mexicano, myriam debe postularse y tu apoyarla, por eres el Che en vivo, che con el fusil y tu con tu programa y tu micrófono\nARGENTINA NECESITA UNA PRESIDENTA ASÍ.....",
+            "likes": 57
+          },
+          {
+            "texto": "BREGMAN ESTA SIEMPRE DEL LADO DEL PUEBLO  EN TODAS LAS LUCHAS Y SIEMPRE DEL LADO DEL PUEBLO ARGENTINO Y DE LOS TRABAJADORES .......PARA MI SI ES  CLAUDIA SHEINWAUN ....CON LOS OVARIOS BIEN PUESTOS 💪❤",
+            "likes": 4
+          },
+          {
+            "texto": "ME ENCANTA EL DISCURSO DE ESA SEÑORA BREGMAN !!!",
+            "likes": 4
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Bregman es una doble cara en cuanto gane se derrumban sus propuestas dice verdades pero no hace verdades ⚠️⚠️⚠️",
+            "likes": 3
+          },
+          {
+            "texto": "nunca la izquierda gano porque son muchas particiones, y los peronista se unen aunque se odien para ser mayoria , ahora estan divididos y tratando de unirse. pero son muchos ellos corruptos peronista falsos que dicen una cosa y despues ayudan a milei haciendo que sus diputados a ",
+            "likes": 2
+          },
+          {
+            "texto": "Mis respetos para la señora Bregman, pero compararla con Claudia Sheibaum, creo que no tienes idea de la trayectoria de Claudia Sheimbaum, es ridícula la comparación, primero deberías conocer la historia de vida y sus luchas.",
+            "likes": 1
+          }
+        ]
       }
     }
   }

@@ -1,7 +1,9 @@
 import html
 import json
 import os
+import re
 import sys
+import unicodedata
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -16,7 +18,7 @@ if not API_KEY:
 # ============================================================
 # LISTA DE POLITICOS A MONITOREAR
 # "busqueda": lo que se busca en YouTube
-# "palabras": como lo escribe la gente en los comentarios (en minuscula)
+# "palabras": como lo escribe la gente en los comentarios (minuscula, sin tildes)
 # ============================================================
 POLITICOS = {
     "Milei":    {"busqueda": "Javier Milei",       "palabras": ["milei"]},
@@ -34,8 +36,11 @@ POLITICOS = {
 # ============================================================
 VIDEOS_POR_POLITICO = 25
 COMENTARIOS_POR_VIDEO = 300
-MAX_COMENTARIOS_POR_CANAL = 30
+MAX_COMENTARIOS_POR_CANAL = 20
 DIAS_HACIA_ATRAS = 7
+DIAS_CUENTA_NUEVA = 30
+MINIMO_COMENTARIOS = 50
+MINIMO_CANALES = 5
 
 
 def llamar_youtube(endpoint, parametros):
@@ -43,6 +48,39 @@ def llamar_youtube(endpoint, parametros):
     url = "https://www.googleapis.com/youtube/v3/" + endpoint + "?" + urllib.parse.urlencode(parametros)
     with urllib.request.urlopen(url, timeout=30) as respuesta:
         return json.loads(respuesta.read().decode("utf-8"))
+
+
+def normalizar(texto):
+    texto = unicodedata.normalize("NFD", texto.lower())
+    texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
+    texto = re.sub(r"[^a-z0-9 ]+", " ", texto)
+    return re.sub(r"\s+", " ", texto).strip()
+
+
+# Informacion de canales (pais y fecha de creacion), guardada para no repetir consultas
+info_canales = {}
+
+
+def cargar_canales(ids):
+    faltan = list({i for i in ids if i and i.startswith("UC") and i not in info_canales})
+    for inicio in range(0, len(faltan), 50):
+        grupo = faltan[inicio:inicio + 50]
+        try:
+            datos = llamar_youtube("channels", {"part": "snippet", "id": ",".join(grupo), "maxResults": 50})
+        except Exception as e:
+            print(f"  No se pudo consultar informacion de canales ({e})")
+            datos = {}
+        for item in datos.get("items", []):
+            sn = item.get("snippet", {})
+            creado = None
+            if sn.get("publishedAt"):
+                try:
+                    creado = datetime.strptime(sn["publishedAt"][:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+                except ValueError:
+                    creado = None
+            info_canales[item["id"]] = {"pais": sn.get("country"), "creado": creado}
+        for i in grupo:
+            info_canales.setdefault(i, {"pais": None, "creado": None})
 
 
 def buscar_videos(busqueda):
@@ -59,9 +97,12 @@ def buscar_videos(busqueda):
     })
     videos = []
     for item in datos.get("items", []):
-        video_id = item["id"]["videoId"]
-        canal = html.unescape(item["snippet"].get("channelTitle", "Canal desconocido"))
-        videos.append((video_id, canal))
+        sn = item["snippet"]
+        videos.append((
+            item["id"]["videoId"],
+            sn.get("channelId", ""),
+            html.unescape(sn.get("channelTitle", "Canal desconocido")),
+        ))
     return videos
 
 
@@ -86,7 +127,9 @@ def leer_comentarios(video_id):
             break
         for item in datos.get("items", []):
             c = item["snippet"]["topLevelComment"]
-            comentarios.append((c["id"], c["snippet"]["textDisplay"]))
+            sn = c["snippet"]
+            autor = sn.get("authorChannelId", {}).get("value") or ("nombre:" + sn.get("authorDisplayName", ""))
+            comentarios.append((c["id"], sn.get("textDisplay", ""), autor))
         pagina = datos.get("nextPageToken")
         if not pagina:
             break
@@ -97,6 +140,7 @@ analyzer = create_analyzer(task="sentiment", lang="es")
 resultados = {p: {"POS": 0, "NEG": 0, "NEU": 0} for p in POLITICOS}
 detalle = {}
 ya_analizados = {}
+limite_cuenta_nueva = datetime.now(timezone.utc) - timedelta(days=DIAS_CUENTA_NUEVA)
 
 for nombre, config in POLITICOS.items():
     print(f"Buscando videos de {config['busqueda']}...")
@@ -106,42 +150,86 @@ for nombre, config in POLITICOS.items():
         print(f"  Error al buscar videos: {e}")
         continue
 
-    # Juntar comentarios que mencionan al politico, con tope por canal
-    por_canal = {}
-    vistos = set()
-    for video_id, canal in videos:
-        for cid, texto in leer_comentarios(video_id):
-            if cid in vistos:
-                continue
-            texto_min = texto.lower()
-            if not any(palabra in texto_min for palabra in config["palabras"]):
-                continue
-            lista = por_canal.setdefault(canal, [])
-            if len(lista) >= MAX_COMENTARIOS_POR_CANAL:
-                continue
-            lista.append((cid, texto))
-            vistos.add(cid)
+    videos_descartados = {"canal_extranjero": 0, "canal_oficial": 0}
+    descartes = {"mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0}
 
-    # Analizar sentimiento
+    # 1) Filtrar videos de canales extranjeros u oficiales del dirigente
+    cargar_canales([v[1] for v in videos])
+    busqueda_norm = normalizar(config["busqueda"])
+    validos = []
+    for video_id, canal_id, canal in videos:
+        pais = info_canales.get(canal_id, {}).get("pais")
+        if pais and pais != "AR":
+            videos_descartados["canal_extranjero"] += 1
+            print(f"    (descartado canal extranjero: {canal}, {pais})")
+            continue
+        if busqueda_norm in normalizar(canal):
+            videos_descartados["canal_oficial"] += 1
+            print(f"    (descartado canal oficial: {canal})")
+            continue
+        validos.append((video_id, canal))
+
+    # 2) Juntar comentarios que lo mencionan, sin autores ni textos repetidos
+    candidatos = {}
+    vistos_cid, vistos_autor, vistos_texto = set(), set(), set()
+    for video_id, canal in validos:
+        for cid, texto, autor in leer_comentarios(video_id):
+            if cid in vistos_cid:
+                continue
+            vistos_cid.add(cid)
+            norm = normalizar(texto)
+            if not any(palabra in norm for palabra in config["palabras"]):
+                continue
+            if autor in vistos_autor:
+                descartes["mismo_autor"] += 1
+                continue
+            if norm in vistos_texto:
+                descartes["texto_repetido"] += 1
+                continue
+            vistos_autor.add(autor)
+            vistos_texto.add(norm)
+            candidatos.setdefault(canal, []).append((cid, texto, autor))
+
+    # 3) Revisar antiguedad de las cuentas y aplicar tope por canal
+    cargar_canales([autor for lista in candidatos.values() for _, _, autor in lista])
     canales = {}
     contados = 0
-    for canal, lista in por_canal.items():
-        for cid, texto in lista:
+    for canal, lista in candidatos.items():
+        aceptados = []
+        for cid, texto, autor in lista:
+            creado = info_canales.get(autor, {}).get("creado")
+            if creado and creado > limite_cuenta_nueva:
+                descartes["cuenta_nueva"] += 1
+                continue
+            if len(aceptados) >= MAX_COMENTARIOS_POR_CANAL:
+                descartes["tope_canal"] += 1
+                continue
+            aceptados.append((cid, texto))
+        for cid, texto in aceptados:
             if cid not in ya_analizados:
                 ya_analizados[cid] = analyzer.predict(texto[:500]).output
             resultados[nombre][ya_analizados[cid]] += 1
-        canales[canal] = len(lista)
-        contados += len(lista)
+        if aceptados:
+            canales[canal] = len(aceptados)
+            contados += len(aceptados)
 
     canales_ordenados = dict(sorted(canales.items(), key=lambda x: -x[1]))
-    print(f"  {len(videos)} videos, {contados} comentarios de {len(canales)} canales")
+    pocos_datos = contados < MINIMO_COMENTARIOS or len(canales) < MINIMO_CANALES
+
+    print(f"  {len(validos)} videos validos, {contados} comentarios de {len(canales)} canales")
+    print(f"  Descartados: {descartes}")
+    if pocos_datos:
+        print("  AVISO: pocos datos, resultado poco confiable")
     for canal, cantidad in canales_ordenados.items():
         print(f"    - {canal}: {cantidad}")
 
     detalle[nombre] = {
-        "videos": len(videos),
+        "videos": len(validos),
         "comentarios": contados,
+        "pocos_datos": pocos_datos,
         "canales": canales_ordenados,
+        "videos_descartados": videos_descartados,
+        "comentarios_descartados": descartes,
     }
 
 total = sum(sum(v.values()) for v in resultados.values())
@@ -157,7 +245,14 @@ info = {
     "actualizado": hora_ar.strftime("%d/%m/%Y %H:%M"),
     "fuente": "Comentarios de YouTube",
     "periodo": f"Videos de los ultimos {DIAS_HACIA_ATRAS} dias",
-    "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
+    "filtros": {
+        "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
+        "un_comentario_por_persona": True,
+        "sin_textos_repetidos": True,
+        "cuentas_nuevas_excluidas_dias": DIAS_CUENTA_NUEVA,
+        "sin_canales_extranjeros_ni_oficiales": True,
+    },
+    "minimo_confiable": {"comentarios": MINIMO_COMENTARIOS, "canales": MINIMO_CANALES},
     "total_comentarios": total,
     "detalle": detalle,
 }

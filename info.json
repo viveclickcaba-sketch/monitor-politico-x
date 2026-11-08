@@ -1,127 +1,218 @@
 {
-  "actualizado": "08/11/2026 12:19",
+  "actualizado": "08/11/2026 14:56",
   "fuente": "Comentarios de YouTube",
   "periodo": "Videos de los ultimos 7 dias",
-  "tope_por_canal": 30,
-  "total_comentarios": 640,
+  "filtros": {
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 459,
   "detalle": {
     "Milei": {
-      "videos": 25,
-      "comentarios": 196,
+      "videos": 16,
+      "comentarios": 112,
+      "pocos_datos": false,
       "canales": {
-        "El Debate": 30,
-        "Oficina Anti Milei": 30,
-        "La Vanguardia": 30,
-        "Revolución Popular Noticias": 22,
-        "El Peluca Milei": 21,
-        "Leónidas Libertario News": 14,
-        "COPE": 11,
-        "Las Fuerzas de La Pala": 9,
-        "El Confidencial": 7,
-        "LA NACION": 6,
-        "Marcelo Longobardi": 5,
+        "Revolución Popular Noticias": 20,
+        "LA NACION": 20,
+        "Oficina Anti Milei": 20,
+        "Crónica TV": 20,
+        "Adrián Ackerman": 15,
+        "El Destape": 6,
         "Bruno Scaglione": 4,
         "El Cronista": 3,
         "C5N": 3,
-        "Willy Shorts": 1
+        "Perfil": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 9,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 6,
+        "texto_repetido": 6,
+        "cuenta_nueva": 0,
+        "tope_canal": 69
       }
     },
     "Massa": {
-      "videos": 25,
-      "comentarios": 47,
+      "videos": 24,
+      "comentarios": 35,
+      "pocos_datos": true,
       "canales": {
-        "LA ROSCA Y LA PELOTA": 30,
-        "LA NACION": 7,
+        "LA ROSCA Y LA PELOTA": 20,
+        "LA NACION": 5,
         "A24com": 4,
         "Herrero Liberal  ": 4,
         "La Política Online": 1,
         "UNItvShorts": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 4,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 36
       }
     },
     "Kicillof": {
       "videos": 25,
-      "comentarios": 56,
+      "comentarios": 46,
+      "pocos_datos": true,
       "canales": {
-        "El Destape": 30,
-        "Adrián Ackerman": 16,
+        "El Destape": 20,
+        "Adrián Ackerman": 17,
         "eltresTV": 2,
         "Las Fuerzas de La Pala": 2,
-        "Lombris Mech": 2,
         "Carnaval Stream": 2,
         "De Loredo Presente": 1,
-        "EZZE TV": 1
+        "EZZE TV": 1,
+        "Laca Stream": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 2,
+        "texto_repetido": 8,
+        "cuenta_nueva": 2,
+        "tope_canal": 18
       }
     },
     "Macri": {
-      "videos": 25,
-      "comentarios": 47,
+      "videos": 21,
+      "comentarios": 51,
+      "pocos_datos": false,
       "canales": {
         "Canal EY! | Streaming": 16,
-        "C5N": 9,
-        "Revolución Popular Noticias": 8,
+        "C5N": 10,
+        "Revolución Popular Noticias": 9,
         "Las Fuerzas del Pueblo": 6,
         "Un Poco de Clips ": 4,
         "Movimiento Anti Milei": 2,
         "Diario Todo Jujuy": 1,
-        "LA ROSCA Y LA PELOTA": 1
+        "LA ROSCA Y LA PELOTA": 1,
+        "EZZE TV": 1,
+        "Carnaval Stream": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 3
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0
       }
     },
     "Bullrich": {
-      "videos": 25,
-      "comentarios": 52,
+      "videos": 23,
+      "comentarios": 44,
+      "pocos_datos": true,
       "canales": {
-        "NICO ZAPATA": 23,
+        "NICO ZAPATA": 20,
         "A24com": 6,
-        "Karolina MAR": 5,
         "LA NACION": 5,
         "Revolución Popular Noticias": 4,
-        "Fijap Liberal": 4,
+        "Super Libertaria": 4,
         "Oficina Anti Milei": 3,
         "Jonatan Viale": 1,
         "Canal de la Ciudad": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 2,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 3
       }
     },
     "Cristina": {
-      "videos": 25,
-      "comentarios": 179,
+      "videos": 24,
+      "comentarios": 133,
+      "pocos_datos": false,
       "canales": {
-        "Crónica TV": 30,
-        "A24com": 30,
-        "Argentina 12": 30,
-        "Revolución Popular Noticias": 17,
+        "Crónica TV": 20,
+        "A24com": 20,
+        "Argentina 12": 20,
+        "Perfil": 15,
         "Nico Guthmann": 14,
-        "Perfil": 13,
-        "El Peluca Milei": 12,
-        "eldoce": 8,
+        "El Peluca Milei": 11,
+        "Revolución Popular Noticias": 10,
+        "eldoce": 6,
         "Las Fuerzas de La Pala": 5,
-        "LA NACION": 4,
-        "Somos Radio AM 530 - EN VIVO": 4,
-        "Radio Mitre": 4,
         "Break Point Noticias": 3,
+        "LA NACION": 3,
         "PRESIDEN TA": 3,
+        "Cadena 3 Argentina": 1,
         "Canal 9 Televida Mendoza": 1,
         "Telenueve": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 16,
+        "texto_repetido": 12,
+        "cuenta_nueva": 2,
+        "tope_canal": 108
       }
     },
     "Grabois": {
-      "videos": 25,
-      "comentarios": 34,
+      "videos": 21,
+      "comentarios": 13,
+      "pocos_datos": true,
       "canales": {
-        "Juan Grabois": 20,
         "Agarra la Pala América": 7,
         "Las Fuerzas del Pueblo": 4,
-        "El Destape": 2,
-        "Despertar Nacional": 1
+        "El Destape": 2
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 4
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0
       }
     },
     "Bregman": {
       "videos": 25,
-      "comentarios": 29,
+      "comentarios": 25,
+      "pocos_datos": true,
       "canales": {
-        "Ariel Te Lo Muestra": 21,
+        "Ariel Te Lo Muestra": 17,
         "Mica. Tur": 6,
         "Revolución Popular Noticias": 1,
         "laberinto stream": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "mismo_autor": 3,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 0
       }
     }
   }

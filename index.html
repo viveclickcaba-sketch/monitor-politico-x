@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monitor Político</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; margin: 0; }
@@ -302,8 +305,8 @@
           <td>${Object.keys(f.canales).length}</td>
         </tr>`).join('');
 
-      // ===== Placa para Instagram =====
-      const FUENTE = '"Arial Black", "Helvetica Neue", Arial, sans-serif';
+      // ===== Placa para Instagram (Montserrat ExtraBold, estilo VIVE) =====
+      const FUENTE = '"Montserrat", Arial, sans-serif';
       function partir(ctx, texto, ancho) {
         const palabras = texto.split(' ');
         const lineas = [];
@@ -316,12 +319,12 @@
         if (linea) lineas.push(linea);
         return lineas;
       }
-      function ajustarFuente(ctx, texto, tamano, peso, familia, anchoMax) {
+      function ajustarFuente(ctx, texto, tamano, peso, anchoMax) {
         let t = tamano;
-        ctx.font = `${peso} ${t}px ${familia}`;
+        ctx.font = `${peso} ${t}px ${FUENTE}`;
         while (ctx.measureText(texto).width > anchoMax && t > 14) {
           t -= 1;
-          ctx.font = `${peso} ${t}px ${familia}`;
+          ctx.font = `${peso} ${t}px ${FUENTE}`;
         }
         return t;
       }
@@ -329,6 +332,7 @@
       function dibujarPlaca() {
         const historia = document.getElementById('plFormato').value === 'historia';
         const W = 1080, H = historia ? 1920 : 1350;
+        const M = 70;
         const cv = document.createElement('canvas');
         cv.width = W; cv.height = H;
         const ctx = cv.getContext('2d');
@@ -339,44 +343,50 @@
         ctx.fillStyle = fondo;
         ctx.fillRect(0, 0, W, H);
 
-        // Logo VIVE / CABA chico y centrado arriba
-        let y = historia ? 150 : 90;
-        ctx.textAlign = 'center';
-        ctx.fillStyle = ROJO_VIVE;
-        ctx.font = `900 60px ${FUENTE}`;
-        ctx.fillText('VIVE', W / 2, y);
-        ctx.fillStyle = '#ffffff';
-        ctx.font = `700 24px Arial, sans-serif`;
-        ctx.fillText('CABA', W / 2, y + 32);
+        let y;
+        if (historia) {
+          // Logo VIVE / CABA chico y centrado arriba
+          ctx.textAlign = 'center';
+          ctx.fillStyle = ROJO_VIVE;
+          ctx.font = `italic 800 60px ${FUENTE}`;
+          ctx.fillText('VIVE', W / 2, 150);
+          ctx.fillStyle = '#ffffff';
+          ctx.font = `800 24px ${FUENTE}`;
+          ctx.fillText('CABA', W / 2, 182);
+          y = 310;
+        } else {
+          y = 130;
+        }
 
-        // Bajada en rojo y titulo en blanco
-        y += historia ? 150 : 110;
+        // Bajada en rojo y titulo en blanco, alineados a la izquierda
+        ctx.textAlign = 'left';
         ctx.fillStyle = ROJO_VIVE;
-        ctx.font = `900 34px ${FUENTE}`;
-        ctx.fillText(document.getElementById('plBajada').value.toUpperCase(), W / 2, y);
-        const tamTitulo = historia ? 68 : 58;
+        ctx.font = `800 36px ${FUENTE}`;
+        ctx.fillText(document.getElementById('plBajada').value.toUpperCase(), M, y);
+        const tamTitulo = historia ? 70 : 62;
         ctx.fillStyle = '#ffffff';
-        ctx.font = `900 ${tamTitulo}px ${FUENTE}`;
-        const lineas = partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - 140);
-        lineas.forEach(l => { y += tamTitulo * 1.15; ctx.fillText(l, W / 2, y); });
+        ctx.font = `800 ${tamTitulo}px ${FUENTE}`;
+        const lineas = partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - M * 2);
+        lineas.forEach(l => { y += tamTitulo * 1.12; ctx.fillText(l, M, y); });
         y += historia ? 90 : 60;
 
         // Barras: largo = cantidad de comentarios, colores = reparto
         const ocultar = document.getElementById('plOcultar').checked;
         const lista = filas.filter(f => f.total > 0 && !(ocultar && f.pocos));
         const maxTotal = Math.max(1, ...lista.map(f => f.total));
-        const finFilas = H - (historia ? 300 : 190);
+        const finFilas = H - 300;
         const alto = Math.min(historia ? 150 : 115, (finFilas - y) / Math.max(1, lista.length));
-        const xNombre = 70, xBarra = 320, anchoMax = W - 70 - xBarra;
+        const xBarra = 330, anchoMax = W - M - xBarra;
         lista.forEach((f, i) => {
           const top = y + i * alto;
+          const nombreTxt = f.nombre.toUpperCase() + (f.pocos ? '*' : '');
           ctx.textAlign = 'left';
           ctx.fillStyle = '#ffffff';
-          ajustarFuente(ctx, f.nombre.toUpperCase() + (f.pocos ? '*' : ''), Math.round(alto * 0.3), 900, FUENTE, xBarra - xNombre - 20);
-          ctx.fillText(f.nombre.toUpperCase() + (f.pocos ? '*' : ''), xNombre, top + alto * 0.42);
+          ajustarFuente(ctx, nombreTxt, Math.round(alto * 0.3), 800, xBarra - M - 20);
+          ctx.fillText(nombreTxt, M, top + alto * 0.42);
           ctx.fillStyle = '#9ca3af';
-          ctx.font = `700 ${Math.round(alto * 0.19)}px Arial, sans-serif`;
-          ctx.fillText(`${f.total} comentarios`, xNombre, top + alto * 0.7);
+          ctx.font = `700 ${Math.round(alto * 0.18)}px ${FUENTE}`;
+          ctx.fillText(`${f.total} comentarios`, M, top + alto * 0.7);
 
           const largo = Math.max(anchoMax * f.total / maxTotal, 8);
           const altoBarra = alto * 0.38, yBarra = top + alto * 0.12;
@@ -387,7 +397,7 @@
             ctx.fillRect(x, yBarra, w, altoBarra);
             x += w;
           });
-          ctx.font = `700 ${Math.round(alto * 0.19)}px Arial, sans-serif`;
+          ctx.font = `700 ${Math.round(alto * 0.18)}px ${FUENTE}`;
           const yTexto = yBarra + altoBarra + alto * 0.24;
           ctx.fillStyle = '#22c55e';
           const txtPos = `${Math.round(f.pPos)}% positivo`;
@@ -397,10 +407,10 @@
         });
 
         // Leyenda
-        let yLey = finFilas + (historia ? 60 : 40);
+        const yLey = finFilas + 40;
         ctx.textAlign = 'left';
-        ctx.font = `700 24px Arial, sans-serif`;
-        let xLey = 70;
+        ctx.font = `700 24px ${FUENTE}`;
+        let xLey = M;
         [['Positivo', '#22c55e'], ['Neutral', '#94a3b8'], ['Negativo', '#ef4444']].forEach(([t, c]) => {
           ctx.fillStyle = c;
           ctx.fillRect(xLey, yLey - 20, 24, 24);
@@ -409,16 +419,24 @@
           xLey += ctx.measureText(t).width + 80;
         });
         ctx.fillStyle = '#9ca3af';
-        ctx.fillText('Largo de la barra = cantidad de comentarios', 70, yLey + 40);
+        ctx.fillText('Largo de la barra = cantidad de comentarios', M, yLey + 40);
 
         // Fuente abajo, chica
         ctx.textAlign = 'center';
         ctx.fillStyle = '#9ca3af';
-        ctx.font = `400 22px Arial, sans-serif`;
+        ctx.font = `400 22px ${FUENTE}`;
         const actualizado = info ? String(info.actualizado).split(' ')[0] : '';
-        ctx.fillText(`Fuente: comentarios de YouTube (${periodo.toLowerCase()}) · ${actualizado}`, W / 2, H - (historia ? 140 : 80));
         const hayPocos = lista.some(f => f.pocos);
-        ctx.fillText('No es una encuesta' + (hayPocos ? ' · * Pocos datos, resultado poco confiable' : ''), W / 2, H - (historia ? 108 : 48));
+        const yFuente = historia ? H - 140 : H - 170;
+        ctx.fillText(`Fuente: comentarios de YouTube (${periodo.toLowerCase()}) · ${actualizado}`, W / 2, yFuente);
+        ctx.fillText('No es una encuesta' + (hayPocos ? ' · * Pocos datos, resultado poco confiable' : ''), W / 2, yFuente + 32);
+
+        // Posteo: solo VIVE rojo en cursiva, centrado abajo
+        if (!historia) {
+          ctx.fillStyle = ROJO_VIVE;
+          ctx.font = `italic 800 52px ${FUENTE}`;
+          ctx.fillText('VIVE', W / 2, H - 55);
+        }
 
         ultimaPlaca = cv.toDataURL('image/png');
         document.getElementById('plPreview').src = ultimaPlaca;
@@ -433,7 +451,11 @@
         a.download = `monitor-politico-${document.getElementById('plFormato').value}.png`;
         a.click();
       });
-      dibujarPlaca();
+      const cargarFuentes = document.fonts
+        ? Promise.all(['800 60px Montserrat', 'italic 800 60px Montserrat', '700 24px Montserrat', '400 22px Montserrat']
+            .map(f => document.fonts.load(f))).catch(() => null)
+        : Promise.resolve();
+      cargarFuentes.then(dibujarPlaca);
 
       // ===== Fuentes por dirigente =====
       const textosDescarte = {

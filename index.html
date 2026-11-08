@@ -6,56 +6,122 @@
   <title>Monitor Político</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; margin: 0; }
-    .container { max-width: 900px; margin: auto; }
-    .card { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
-    h1 { text-align: center; margin-bottom: 5px; color: #ffffff; }
-    h3 { margin: 0; }
-    a { color: #38bdf8; }
-    p.sub { text-align: center; color: #94a3b8; margin-bottom: 12px; }
-    .info { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; color: #94a3b8; font-size: 14px; margin-bottom: 22px; }
-    .info strong { color: #f8fafc; }
-    .cabecera { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-    .botones { display: flex; background: #0f172a; border-radius: 8px; padding: 3px; }
-    .botones button { background: transparent; color: #94a3b8; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-family: inherit; }
-    .botones button.activo { background: #334155; color: #f8fafc; font-weight: 600; }
-    select, input[type="text"] { background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 8px; padding: 8px 10px; font-family: inherit; font-size: 14px; }
+    :root {
+      --fondo: #050505;
+      --vidrio: rgba(255, 255, 255, 0.045);
+      --borde: rgba(255, 255, 255, 0.09);
+      --texto: #f5f5f5;
+      --suave: #9ca3af;
+      --rojo: #ff2d2d;
+      --pos: #22c55e;
+      --neg: #ef4444;
+      --neu: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Montserrat", system-ui, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      margin: 0;
+      padding: 28px 18px 60px;
+      min-height: 100vh;
+    }
+    .luz { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; pointer-events: none; }
+    .luz.roja { width: 520px; height: 520px; background: rgba(255, 30, 30, 0.22); top: -160px; left: -140px; }
+    .luz.azul { width: 600px; height: 600px; background: rgba(76, 80, 230, 0.16); bottom: -220px; right: -180px; }
+    .luz.centro { width: 380px; height: 380px; background: rgba(255, 255, 255, 0.04); top: 40%; left: 45%; }
+
+    .container { max-width: 1000px; margin: auto; }
+    .card {
+      background: var(--vidrio);
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      animation: aparecer 0.6s ease both;
+    }
+    @keyframes aparecer { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    header { text-align: center; margin-bottom: 26px; }
+    .etiqueta { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--rojo); border: 1px solid rgba(255, 45, 45, 0.4); background: rgba(255, 45, 45, 0.08); padding: 6px 14px; border-radius: 999px; }
+    h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; margin: 14px 0 6px; letter-spacing: -1px; }
+    .sub { color: var(--suave); margin: 0 0 6px; font-size: 15px; }
+    .meta { color: var(--suave); font-size: 13px; }
+    h3 { margin: 0; font-size: 18px; font-weight: 700; }
+    a { color: #7dd3fc; }
+
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .kpi { padding: 20px; margin: 0; }
+    .kpi .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--suave); }
+    .kpi .valor { font-size: 34px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
+    .kpi .det { font-size: 13px; color: var(--suave); }
+
+    .cabecera { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .botones { display: flex; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde); border-radius: 999px; padding: 4px; }
+    .botones button { background: transparent; color: var(--suave); border: none; padding: 7px 16px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; }
+    .botones button.activo { background: var(--rojo); color: #fff; }
+    select, input[type="text"] { background: rgba(255, 255, 255, 0.05); color: var(--texto); border: 1px solid var(--borde); border-radius: 12px; padding: 10px 12px; font-family: inherit; font-size: 14px; }
+    select option { background: #111; }
     .grafico { position: relative; width: 100%; }
-    .tabla-scroll { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; white-space: nowrap; }
-    th { color: #38bdf8; }
-    .pos { color: #22c55e; font-weight: bold; }
-    .neg { color: #ef4444; font-weight: bold; }
-    .neu { color: #94a3b8; }
-    .muted { color: #94a3b8; font-size: 13px; }
-    .aviso { display: inline-block; background: #78350f; color: #fde68a; font-size: 11px; padding: 2px 8px; border-radius: 999px; margin-left: 6px; font-weight: 600; }
-    details { border-bottom: 1px solid #334155; padding: 12px 0; }
-    summary { cursor: pointer; font-weight: 600; }
-    .det { color: #cbd5e1; font-size: 14px; margin-top: 10px; line-height: 1.5; }
-    .det ul { margin: 6px 0 12px; padding-left: 20px; }
-    .det li { margin-bottom: 4px; white-space: normal; }
-    .nota { color: #cbd5e1; font-size: 14px; line-height: 1.6; }
+    .muted { color: var(--suave); font-size: 13px; }
+
+    .grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 16px; }
+    .dir { background: rgba(255, 255, 255, 0.035); border: 1px solid var(--borde); border-radius: 18px; padding: 18px; }
+    .dir .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .dir .nombre { font-size: 20px; font-weight: 800; }
+    .dir .total { font-size: 12px; color: var(--suave); white-space: nowrap; }
+    .barra { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255, 255, 255, 0.06); margin: 14px 0 12px; }
+    .barra span { display: block; height: 100%; }
+    .porcentajes { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
+    .pos { color: var(--pos); }
+    .neg { color: var(--neg); }
+    .neu { color: var(--neu); }
+    .aviso { display: inline-block; background: rgba(251, 191, 36, 0.12); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.35); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 999px; margin-top: 10px; text-transform: uppercase; }
+
+    details { border-bottom: 1px solid var(--borde); padding: 14px 0; }
+    details:last-child { border-bottom: none; }
+    summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--rojo); font-size: 20px; font-weight: 700; }
+    details[open] summary::after { content: "–"; }
+    .detalle { color: #d1d5db; font-size: 14px; margin-top: 12px; line-height: 1.55; }
+    .detalle ul { margin: 6px 0 14px; padding-left: 20px; }
+    .detalle li { margin-bottom: 5px; }
+    .nota { color: #d1d5db; font-size: 14px; line-height: 1.7; margin-top: 12px; }
     .nota p { margin: 0 0 10px; }
-    .form { display: grid; gap: 12px; margin: 14px 0; }
-    .form label { display: grid; gap: 6px; font-size: 13px; color: #94a3b8; }
-    .form label.check { display: flex; align-items: center; gap: 8px; }
-    .preview { display: block; max-width: 100%; max-height: 520px; margin: 10px auto; border-radius: 8px; border: 1px solid #334155; }
-    .boton { display: block; margin: 12px auto 0; background: #e30613; color: #fff; border: none; border-radius: 8px; padding: 12px 22px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; }
+
+    .form { display: grid; gap: 12px; margin: 16px 0; }
+    .form label { display: grid; gap: 6px; font-size: 12px; font-weight: 600; color: var(--suave); text-transform: uppercase; letter-spacing: 1px; }
+    .form label.check { display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-size: 14px; }
+    .preview { display: block; max-width: 100%; max-height: 540px; margin: 12px auto; border-radius: 14px; border: 1px solid var(--borde); }
+    .boton { display: block; margin: 14px auto 0; background: var(--rojo); color: #fff; border: none; border-radius: 999px; padding: 13px 28px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; box-shadow: 0 8px 24px rgba(255, 45, 45, 0.3); }
+    .boton:hover { filter: brightness(1.1); }
   </style>
 </head>
 <body>
+  <div class="luz roja"></div>
+  <div class="luz azul"></div>
+  <div class="luz centro"></div>
+
   <div class="container">
-    <h1>Monitor Político</h1>
-    <p class="sub">Clima de opinión sobre dirigentes argentinos en comentarios de YouTube</p>
-    <div class="info" id="info">Cargando…</div>
+    <header>
+      <span class="etiqueta">MONITOR POLÍTICO</span>
+      <h1>Clima de opinión</h1>
+      <p class="sub">Qué dicen los comentarios de YouTube sobre cada dirigente argentino</p>
+      <div class="meta" id="meta">Cargando…</div>
+    </header>
+
+    <div class="kpis" id="kpis"></div>
 
     <div class="card">
       <div class="cabecera">
-        <h3>Comparativa de imagen por dirigente</h3>
+        <h3>Comparativa por dirigente</h3>
         <div class="botones">
           <button id="btnCantidad" class="activo">Cantidad</button>
           <button id="btnPorcentaje">Porcentaje</button>
@@ -66,31 +132,17 @@
     </div>
 
     <div class="card">
+      <h3>Dirigente por dirigente</h3>
+      <div class="grilla" id="grilla"></div>
+    </div>
+
+    <div class="card">
       <div class="cabecera">
         <h3>Evolución en el tiempo</h3>
         <select id="selEvolucion"></select>
       </div>
       <p class="muted" id="evoAviso"></p>
       <div class="grafico" id="cajaEvolucion" style="height: 360px;"><canvas id="graficoEvolucion"></canvas></div>
-    </div>
-
-    <div class="card">
-      <h3>Resumen</h3>
-      <div class="tabla-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Dirigente</th>
-              <th>Positivo</th>
-              <th>Negativo</th>
-              <th>Neutral</th>
-              <th>Comentarios</th>
-              <th>Canales</th>
-            </tr>
-          </thead>
-          <tbody id="tablaResultados"></tbody>
-        </table>
-      </div>
     </div>
 
     <div class="card">
@@ -116,13 +168,13 @@
 
     <div class="card">
       <h3>¿De dónde salen los datos?</h3>
-      <p class="muted">Tocá cada dirigente para ver canales, videos con más conversación, comentarios de ejemplo y descartes.</p>
+      <p class="muted">Tocá cada dirigente para ver videos, comentarios de ejemplo, canales y descartes.</p>
       <div id="fuentes"></div>
     </div>
 
     <div class="card">
       <h3>Cómo se mide</h3>
-      <div class="nota" id="metodo" style="margin-top: 12px;"></div>
+      <div class="nota" id="metodo"></div>
     </div>
   </div>
 
@@ -130,10 +182,14 @@
     const sinCache = '?v=' + Date.now();
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
-    const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e2e8f0', '#60a5fa', '#c084fc'];
-    const ROJO_VIVE = '#e30613';
+    const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
+    const ROJO_PLACA = '#ff0000';
     let grafico = null;
     let graficoEvo = null;
+
+    Chart.defaults.font.family = '"Montserrat", system-ui, sans-serif';
+    Chart.defaults.color = '#cbd5e1';
+    const GRID = 'rgba(255, 255, 255, 0.06)';
 
     Promise.all([
       fetch('datos.json' + sinCache).then(r => r.json()),
@@ -160,18 +216,30 @@
         };
       });
       const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
+      const totalGeneral = info ? info.total_comentarios : filas.reduce((a, f) => a + f.total, 0);
 
-      // ===== Barra de informacion =====
-      const infoEl = document.getElementById('info');
-      if (info) {
-        infoEl.innerHTML =
-          `<span>Actualizado: <strong>${esc(info.actualizado)}</strong></span>` +
-          `<span>Fuente: <strong>${esc(info.fuente)}</strong></span>` +
-          `<span>${esc(periodo)}</span>` +
-          `<span><strong>${esc(info.total_comentarios)}</strong> comentarios analizados</span>`;
-      } else {
-        infoEl.textContent = 'Sin información de actualización';
-      }
+      // ===== Encabezado =====
+      document.getElementById('meta').textContent = info
+        ? `Actualizado ${info.actualizado} · ${info.fuente} · ${periodo}`
+        : 'Sin información de actualización';
+
+      // ===== Marcadores =====
+      const confiables = filas.filter(f => !f.pocos && f.total > 0);
+      const mayor = (lista, clave) => lista.length ? lista.reduce((a, b) => (b[clave] > a[clave] ? b : a)) : null;
+      const masMencionado = mayor(filas, 'total');
+      const masPositivo = mayor(confiables, 'pPos');
+      const masNegativo = mayor(confiables, 'pNeg');
+      const kpi = (lbl, valor, det, color) => `
+        <div class="card kpi">
+          <div class="lbl">${lbl}</div>
+          <div class="valor" style="${color ? 'color:' + color : ''}">${valor}</div>
+          <div class="det">${det}</div>
+        </div>`;
+      document.getElementById('kpis').innerHTML =
+        kpi('Comentarios analizados', esc(totalGeneral), `${filas.length} dirigentes`) +
+        kpi('Más mencionado', masMencionado ? esc(masMencionado.nombre) : '—', masMencionado ? `${masMencionado.total} comentarios` : '') +
+        kpi('Mayor % positivo', masPositivo ? esc(masPositivo.nombre) : '—', masPositivo ? `${masPositivo.pPos}% positivo` : 'Sin datos suficientes', 'var(--pos)') +
+        kpi('Mayor % negativo', masNegativo ? esc(masNegativo.nombre) : '—', masNegativo ? `${masNegativo.pNeg}% negativo` : 'Sin datos suficientes', 'var(--neg)');
 
       // ===== Grafico principal =====
       function dibujar(modo) {
@@ -183,30 +251,30 @@
         document.getElementById('btnPorcentaje').classList.toggle('activo', esPct);
 
         if (!esPct) {
-          caja.style.height = '380px';
+          caja.style.height = '400px';
           nota.textContent = 'La altura de cada barra es la cantidad de comentarios. * Pocos datos: resultado poco confiable.';
           grafico = new Chart(document.getElementById('graficoBarras'), {
             type: 'bar',
             data: {
               labels: etiquetas,
               datasets: [
-                { label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e' },
-                { label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444' },
-                { label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8' }
+                { label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e', borderRadius: 6, borderSkipped: false },
+                { label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444', borderRadius: 6, borderSkipped: false },
+                { label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8', borderRadius: 6, borderSkipped: false }
               ]
             },
             options: {
               responsive: true,
               maintainAspectRatio: false,
               scales: {
-                x: { ticks: { color: '#f8fafc' }, grid: { display: false } },
-                y: { beginAtZero: true, ticks: { color: '#f8fafc' }, grid: { color: '#334155' } }
+                x: { grid: { display: false }, border: { display: false } },
+                y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } }
               },
-              plugins: { legend: { labels: { color: '#f8fafc' } } }
+              plugins: { legend: { labels: { usePointStyle: true, pointStyle: 'circle' } } }
             }
           });
         } else {
-          caja.style.height = (filas.length * 48 + 70) + 'px';
+          caja.style.height = (filas.length * 50 + 70) + 'px';
           nota.textContent = 'Cada barra suma 100%: sirve para comparar dirigentes aunque de algunos se hable mucho más. * Pocos datos: resultado poco confiable.';
           grafico = new Chart(document.getElementById('graficoBarras'), {
             type: 'bar',
@@ -214,298 +282,4 @@
               labels: etiquetas,
               datasets: [
                 { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
-                { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
-                { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
-              ]
-            },
-            options: {
-              indexAxis: 'y',
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                x: { stacked: true, max: 100, ticks: { color: '#f8fafc', callback: v => v + '%' }, grid: { color: '#334155' } },
-                y: { stacked: true, ticks: { color: '#f8fafc' }, grid: { display: false } }
-              },
-              plugins: {
-                legend: { labels: { color: '#f8fafc' } },
-                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-              }
-            }
-          });
-        }
-      }
-      document.getElementById('btnCantidad').addEventListener('click', () => dibujar('cantidad'));
-      document.getElementById('btnPorcentaje').addEventListener('click', () => dibujar('porcentaje'));
-      dibujar('cantidad');
-
-      // ===== Evolucion en el tiempo =====
-      const nombres = filas.map(f => f.nombre);
-      const sel = document.getElementById('selEvolucion');
-      sel.innerHTML = '<option value="__todos">Todos (% negativo)</option>' +
-        nombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
-      const pctDe = (d, k) => {
-        if (!d) return null;
-        const t = (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
-        return t ? Math.round((d[k] || 0) * 1000 / t) / 10 : null;
-      };
-      if (!Array.isArray(historial) || historial.length < 2) {
-        document.getElementById('evoAviso').textContent = 'El gráfico aparece a partir de la segunda actualización: cada vez que corras el bot se suma un punto.';
-        document.getElementById('cajaEvolucion').style.display = 'none';
-        sel.disabled = true;
-      } else {
-        document.getElementById('evoAviso').textContent = 'Cada punto es una actualización del bot.';
-        const fechas = historial.map(h => h.fecha);
-        const dibujarEvo = valor => {
-          if (graficoEvo) graficoEvo.destroy();
-          let datasets;
-          if (valor === '__todos') {
-            datasets = nombres.map((n, i) => ({
-              label: n,
-              data: historial.map(h => pctDe((h.datos || {})[n], 'NEG')),
-              borderColor: COLORES[i % COLORES.length],
-              backgroundColor: COLORES[i % COLORES.length],
-              tension: 0.3, spanGaps: true
-            }));
-          } else {
-            datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
-              label: l,
-              data: historial.map(h => pctDe((h.datos || {})[valor], k)),
-              borderColor: c, backgroundColor: c, tension: 0.3, spanGaps: true
-            }));
-          }
-          graficoEvo = new Chart(document.getElementById('graficoEvolucion'), {
-            type: 'line',
-            data: { labels: fechas, datasets },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                x: { ticks: { color: '#f8fafc' }, grid: { display: false } },
-                y: { min: 0, max: 100, ticks: { color: '#f8fafc', callback: v => v + '%' }, grid: { color: '#334155' } }
-              },
-              plugins: {
-                legend: { labels: { color: '#f8fafc' } },
-                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-              }
-            }
-          });
-        };
-        sel.addEventListener('change', () => dibujarEvo(sel.value));
-        dibujarEvo('__todos');
-      }
-
-      // ===== Tabla =====
-      document.getElementById('tablaResultados').innerHTML = filas.map(f => `
-        <tr>
-          <td><strong>${esc(f.nombre)}</strong>${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}</td>
-          <td class="pos">${f.pPos}%</td>
-          <td class="neg">${f.pNeg}%</td>
-          <td class="neu">${f.pNeu}%</td>
-          <td>${f.total}</td>
-          <td>${Object.keys(f.canales).length}</td>
-        </tr>`).join('');
-
-      // ===== Placa para Instagram (Montserrat ExtraBold, estilo VIVE) =====
-      const FUENTE = '"Montserrat", Arial, sans-serif';
-      function partir(ctx, texto, ancho) {
-        const palabras = texto.split(' ');
-        const lineas = [];
-        let linea = '';
-        palabras.forEach(p => {
-          const prueba = linea ? linea + ' ' + p : p;
-          if (ctx.measureText(prueba).width > ancho && linea) { lineas.push(linea); linea = p; }
-          else linea = prueba;
-        });
-        if (linea) lineas.push(linea);
-        return lineas;
-      }
-      function ajustarFuente(ctx, texto, tamano, peso, anchoMax) {
-        let t = tamano;
-        ctx.font = `${peso} ${t}px ${FUENTE}`;
-        while (ctx.measureText(texto).width > anchoMax && t > 14) {
-          t -= 1;
-          ctx.font = `${peso} ${t}px ${FUENTE}`;
-        }
-        return t;
-      }
-      let ultimaPlaca = '';
-      function dibujarPlaca() {
-        const historia = document.getElementById('plFormato').value === 'historia';
-        const W = 1080, H = historia ? 1920 : 1350;
-        const M = 70;
-        const cv = document.createElement('canvas');
-        cv.width = W; cv.height = H;
-        const ctx = cv.getContext('2d');
-
-        const fondo = ctx.createLinearGradient(0, 0, 0, H);
-        fondo.addColorStop(0, '#151515');
-        fondo.addColorStop(1, '#000000');
-        ctx.fillStyle = fondo;
-        ctx.fillRect(0, 0, W, H);
-
-        let y;
-        if (historia) {
-          // Logo VIVE / CABA chico y centrado arriba
-          ctx.textAlign = 'center';
-          ctx.fillStyle = ROJO_VIVE;
-          ctx.font = `italic 800 60px ${FUENTE}`;
-          ctx.fillText('VIVE', W / 2, 150);
-          ctx.fillStyle = '#ffffff';
-          ctx.font = `800 24px ${FUENTE}`;
-          ctx.fillText('CABA', W / 2, 182);
-          y = 310;
-        } else {
-          y = 130;
-        }
-
-        // Bajada en rojo y titulo en blanco, alineados a la izquierda
-        ctx.textAlign = 'left';
-        ctx.fillStyle = ROJO_VIVE;
-        ctx.font = `800 36px ${FUENTE}`;
-        ctx.fillText(document.getElementById('plBajada').value.toUpperCase(), M, y);
-        const tamTitulo = historia ? 70 : 62;
-        ctx.fillStyle = '#ffffff';
-        ctx.font = `800 ${tamTitulo}px ${FUENTE}`;
-        const lineas = partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - M * 2);
-        lineas.forEach(l => { y += tamTitulo * 1.12; ctx.fillText(l, M, y); });
-        y += historia ? 90 : 60;
-
-        // Barras: largo = cantidad de comentarios, colores = reparto
-        const ocultar = document.getElementById('plOcultar').checked;
-        const lista = filas.filter(f => f.total > 0 && !(ocultar && f.pocos));
-        const maxTotal = Math.max(1, ...lista.map(f => f.total));
-        const finFilas = H - 300;
-        const alto = Math.min(historia ? 150 : 115, (finFilas - y) / Math.max(1, lista.length));
-        const xBarra = 330, anchoMax = W - M - xBarra;
-        lista.forEach((f, i) => {
-          const top = y + i * alto;
-          const nombreTxt = f.nombre.toUpperCase() + (f.pocos ? '*' : '');
-          ctx.textAlign = 'left';
-          ctx.fillStyle = '#ffffff';
-          ajustarFuente(ctx, nombreTxt, Math.round(alto * 0.3), 800, xBarra - M - 20);
-          ctx.fillText(nombreTxt, M, top + alto * 0.42);
-          ctx.fillStyle = '#9ca3af';
-          ctx.font = `700 ${Math.round(alto * 0.18)}px ${FUENTE}`;
-          ctx.fillText(`${f.total} comentarios`, M, top + alto * 0.7);
-
-          const largo = Math.max(anchoMax * f.total / maxTotal, 8);
-          const altoBarra = alto * 0.38, yBarra = top + alto * 0.12;
-          let x = xBarra;
-          [[f.pos, '#22c55e'], [f.neu, '#94a3b8'], [f.neg, '#ef4444']].forEach(([n, c]) => {
-            const w = largo * n / f.total;
-            ctx.fillStyle = c;
-            ctx.fillRect(x, yBarra, w, altoBarra);
-            x += w;
-          });
-          ctx.font = `700 ${Math.round(alto * 0.18)}px ${FUENTE}`;
-          const yTexto = yBarra + altoBarra + alto * 0.24;
-          ctx.fillStyle = '#22c55e';
-          const txtPos = `${Math.round(f.pPos)}% positivo`;
-          ctx.fillText(txtPos, xBarra, yTexto);
-          ctx.fillStyle = '#ef4444';
-          ctx.fillText(`${Math.round(f.pNeg)}% negativo`, xBarra + ctx.measureText(txtPos).width + 28, yTexto);
-        });
-
-        // Leyenda
-        const yLey = finFilas + 40;
-        ctx.textAlign = 'left';
-        ctx.font = `700 24px ${FUENTE}`;
-        let xLey = M;
-        [['Positivo', '#22c55e'], ['Neutral', '#94a3b8'], ['Negativo', '#ef4444']].forEach(([t, c]) => {
-          ctx.fillStyle = c;
-          ctx.fillRect(xLey, yLey - 20, 24, 24);
-          ctx.fillStyle = '#d1d5db';
-          ctx.fillText(t, xLey + 34, yLey);
-          xLey += ctx.measureText(t).width + 80;
-        });
-        ctx.fillStyle = '#9ca3af';
-        ctx.fillText('Largo de la barra = cantidad de comentarios', M, yLey + 40);
-
-        // Fuente abajo, chica
-        ctx.textAlign = 'center';
-        ctx.fillStyle = '#9ca3af';
-        ctx.font = `400 22px ${FUENTE}`;
-        const actualizado = info ? String(info.actualizado).split(' ')[0] : '';
-        const hayPocos = lista.some(f => f.pocos);
-        const yFuente = historia ? H - 140 : H - 170;
-        ctx.fillText(`Fuente: comentarios de YouTube (${periodo.toLowerCase()}) · ${actualizado}`, W / 2, yFuente);
-        ctx.fillText('No es una encuesta' + (hayPocos ? ' · * Pocos datos, resultado poco confiable' : ''), W / 2, yFuente + 32);
-
-        // Posteo: solo VIVE rojo en cursiva, centrado abajo
-        if (!historia) {
-          ctx.fillStyle = ROJO_VIVE;
-          ctx.font = `italic 800 52px ${FUENTE}`;
-          ctx.fillText('VIVE', W / 2, H - 55);
-        }
-
-        ultimaPlaca = cv.toDataURL('image/png');
-        document.getElementById('plPreview').src = ultimaPlaca;
-      }
-      ['plFormato', 'plBajada', 'plTitulo', 'plOcultar'].forEach(id => {
-        document.getElementById(id).addEventListener('input', dibujarPlaca);
-        document.getElementById(id).addEventListener('change', dibujarPlaca);
-      });
-      document.getElementById('plDescargar').addEventListener('click', () => {
-        const a = document.createElement('a');
-        a.href = ultimaPlaca;
-        a.download = `monitor-politico-${document.getElementById('plFormato').value}.png`;
-        a.click();
-      });
-      const cargarFuentes = document.fonts
-        ? Promise.all(['800 60px Montserrat', 'italic 800 60px Montserrat', '700 24px Montserrat', '400 22px Montserrat']
-            .map(f => document.fonts.load(f))).catch(() => null)
-        : Promise.resolve();
-      cargarFuentes.then(dibujarPlaca);
-
-      // ===== Fuentes por dirigente =====
-      const textosDescarte = {
-        mismo_autor: 'Misma persona comentando otra vez',
-        texto_repetido: 'Texto repetido (posible copia y pega)',
-        cuenta_nueva: `Cuentas creadas hace menos de ${diasCuenta} días`,
-        tope_canal: `Superaban el tope de ${tope} por canal`
-      };
-      const textosVideos = {
-        canal_extranjero: 'Videos de canales de otro país',
-        canal_oficial: 'Videos del canal propio del dirigente'
-      };
-      const listaEjemplos = lista => (lista || [])
-        .map(e => `<li>“${esc(e.texto)}” <span class="muted">👍 ${esc(e.likes)}</span></li>`).join('') || '<li>Sin ejemplos</li>';
-      document.getElementById('fuentes').innerHTML = filas.map(f => {
-        const canales = Object.entries(f.canales)
-          .map(([c, n]) => `<li>${esc(c)}: ${n}</li>`).join('') || '<li>Sin datos</li>';
-        const destacados = (f.det.videos_destacados || [])
-          .map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.titulo)}</a> <span class="muted">(${esc(v.canal)} · ${esc(v.comentarios)} comentarios)</span></li>`).join('') || '<li>Sin datos</li>';
-        const ejemplos = (f.det.ejemplos || {});
-        const desc = Object.entries(f.det.comentarios_descartados || {})
-          .filter(([, n]) => n > 0)
-          .map(([k, n]) => `<li>${esc(textosDescarte[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
-        const vids = Object.entries(f.det.videos_descartados || {})
-          .filter(([, n]) => n > 0)
-          .map(([k, n]) => `<li>${esc(textosVideos[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
-        return `
-          <details>
-            <summary>${esc(f.nombre)} · ${f.total} comentarios${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}</summary>
-            <div class="det">
-              <strong>Videos con más conversación</strong><ul>${destacados}</ul>
-              <strong class="pos">Comentarios positivos más votados</strong><ul>${listaEjemplos(ejemplos.positivos)}</ul>
-              <strong class="neg">Comentarios negativos más votados</strong><ul>${listaEjemplos(ejemplos.negativos)}</ul>
-              <strong>Canales usados</strong><ul>${canales}</ul>
-              <strong>Comentarios descartados</strong><ul>${desc}</ul>
-              <strong>Videos descartados</strong><ul>${vids}</ul>
-            </div>
-          </details>`;
-      }).join('');
-
-      // ===== Metodo =====
-      document.getElementById('metodo').innerHTML = `
-        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
-        <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
-        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo puede confundir ironías, y en general la gente comenta más para criticar, por eso es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
-    }).catch(err => {
-      console.error(err);
-      document.getElementById('info').textContent = 'Error al cargar los datos';
-      document.getElementById('tablaResultados').innerHTML = '<tr><td colspan="6">Error al cargar datos.json</td></tr>';
-    });
-  </script>
-</body>
-</html>
+                { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor:

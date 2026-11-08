@@ -11,6 +11,10 @@ from datetime import datetime, timedelta, timezone
 from pysentimiento import create_analyzer
 
 API_KEY = os.getenv("YOUTUBE_API_KEY")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+URL_WEB = "https://viveclickcaba-sketch.github.io/monitor-politico-x/"
+
 if not API_KEY:
     print("ERROR: falta la clave YOUTUBE_API_KEY en los secretos de GitHub.")
     sys.exit(1)
@@ -41,6 +45,10 @@ DIAS_HACIA_ATRAS = 7
 DIAS_CUENTA_NUEVA = 30
 MINIMO_COMENTARIOS = 50
 MINIMO_CANALES = 5
+EJEMPLOS_POR_TIPO = 3
+VIDEOS_DESTACADOS = 3
+MAX_HISTORIAL = 200
+UMBRAL_ALERTA = 15
 
 
 def llamar_youtube(endpoint, parametros):
@@ -55,6 +63,19 @@ def normalizar(texto):
     texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
     texto = re.sub(r"[^a-z0-9 ]+", " ", texto)
     return re.sub(r"\s+", " ", texto).strip()
+
+
+def enviar_telegram(texto):
+    datos = urllib.parse.urlencode({
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": texto,
+        "disable_web_page_preview": "true",
+    }).encode("utf-8")
+    try:
+        urllib.request.urlopen("https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/sendMessage", data=datos, timeout=30)
+        print("Aviso enviado por Telegram")
+    except Exception as e:
+        print(f"No se pudo enviar el aviso por Telegram ({e})")
 
 
 # Informacion de canales (pais y fecha de creacion), guardada para no repetir consultas
@@ -102,8 +123,26 @@ def buscar_videos(busqueda):
             item["id"]["videoId"],
             sn.get("channelId", ""),
             html.unescape(sn.get("channelTitle", "Canal desconocido")),
+            html.unescape(sn.get("title", "")),
         ))
     return videos
+
+
+def cantidad_comentarios_videos(ids):
+    if not ids:
+        return {}
+    try:
+        datos = llamar_youtube("videos", {"part": "statistics", "id": ",".join(ids[:50])})
+    except Exception as e:
+        print(f"  No se pudieron consultar estadisticas de videos ({e})")
+        return {}
+    resultado = {}
+    for item in datos.get("items", []):
+        try:
+            resultado[item["id"]] = int(item.get("statistics", {}).get("commentCount", 0) or 0)
+        except ValueError:
+            resultado[item["id"]] = 0
+    return resultado
 
 
 def leer_comentarios(video_id):
@@ -129,11 +168,17 @@ def leer_comentarios(video_id):
             c = item["snippet"]["topLevelComment"]
             sn = c["snippet"]
             autor = sn.get("authorChannelId", {}).get("value") or ("nombre:" + sn.get("authorDisplayName", ""))
-            comentarios.append((c["id"], sn.get("textDisplay", ""), autor))
+            likes = sn.get("likeCount", 0) or 0
+            comentarios.append((c["id"], sn.get("textDisplay", ""), autor, likes))
         pagina = datos.get("nextPageToken")
         if not pagina:
             break
     return comentarios[:COMENTARIOS_POR_VIDEO]
+
+
+def porcentaje_negativo(d):
+    total = d.get("POS", 0) + d.get("NEG", 0) + d.get("NEU", 0)
+    return d.get("NEG", 0) * 100 / total if total else None
 
 
 analyzer = create_analyzer(task="sentiment", lang="es")
@@ -157,7 +202,7 @@ for nombre, config in POLITICOS.items():
     cargar_canales([v[1] for v in videos])
     busqueda_norm = normalizar(config["busqueda"])
     validos = []
-    for video_id, canal_id, canal in videos:
+    for video_id, canal_id, canal, titulo in videos:
         pais = info_canales.get(canal_id, {}).get("pais")
         if pais and pais != "AR":
             videos_descartados["canal_extranjero"] += 1
@@ -167,13 +212,23 @@ for nombre, config in POLITICOS.items():
             videos_descartados["canal_oficial"] += 1
             print(f"    (descartado canal oficial: {canal})")
             continue
-        validos.append((video_id, canal))
+        validos.append((video_id, canal, titulo))
 
-    # 2) Juntar comentarios que lo mencionan, sin autores ni textos repetidos
+    # 2) Videos con mas conversacion
+    conteo = cantidad_comentarios_videos([v[0] for v in validos])
+    destacados = sorted(validos, key=lambda v: -conteo.get(v[0], 0))[:VIDEOS_DESTACADOS]
+    videos_destacados = [{
+        "titulo": titulo,
+        "canal": canal,
+        "url": "https://www.youtube.com/watch?v=" + video_id,
+        "comentarios": conteo.get(video_id, 0),
+    } for video_id, canal, titulo in destacados]
+
+    # 3) Juntar comentarios que lo mencionan, sin autores ni textos repetidos
     candidatos = {}
     vistos_cid, vistos_autor, vistos_texto = set(), set(), set()
-    for video_id, canal in validos:
-        for cid, texto, autor in leer_comentarios(video_id):
+    for video_id, canal, titulo in validos:
+        for cid, texto, autor, likes in leer_comentarios(video_id):
             if cid in vistos_cid:
                 continue
             vistos_cid.add(cid)
@@ -188,15 +243,16 @@ for nombre, config in POLITICOS.items():
                 continue
             vistos_autor.add(autor)
             vistos_texto.add(norm)
-            candidatos.setdefault(canal, []).append((cid, texto, autor))
+            candidatos.setdefault(canal, []).append((cid, texto, autor, likes))
 
-    # 3) Revisar antiguedad de las cuentas y aplicar tope por canal
-    cargar_canales([autor for lista in candidatos.values() for _, _, autor in lista])
+    # 4) Revisar antiguedad de las cuentas, aplicar tope por canal y analizar
+    cargar_canales([c[2] for lista in candidatos.values() for c in lista])
     canales = {}
     contados = 0
+    analizados_politico = []
     for canal, lista in candidatos.items():
         aceptados = []
-        for cid, texto, autor in lista:
+        for cid, texto, autor, likes in lista:
             creado = info_canales.get(autor, {}).get("creado")
             if creado and creado > limite_cuenta_nueva:
                 descartes["cuenta_nueva"] += 1
@@ -204,14 +260,21 @@ for nombre, config in POLITICOS.items():
             if len(aceptados) >= MAX_COMENTARIOS_POR_CANAL:
                 descartes["tope_canal"] += 1
                 continue
-            aceptados.append((cid, texto))
-        for cid, texto in aceptados:
+            aceptados.append((cid, texto, likes))
+        for cid, texto, likes in aceptados:
             if cid not in ya_analizados:
                 ya_analizados[cid] = analyzer.predict(texto[:500]).output
-            resultados[nombre][ya_analizados[cid]] += 1
+            sentimiento = ya_analizados[cid]
+            resultados[nombre][sentimiento] += 1
+            analizados_politico.append((sentimiento, likes, texto))
         if aceptados:
             canales[canal] = len(aceptados)
             contados += len(aceptados)
+
+    # 5) Comentarios de ejemplo (los mas votados, sin nombre de autor)
+    def ejemplos_de(tipo):
+        lista = sorted([a for a in analizados_politico if a[0] == tipo], key=lambda a: -a[1])
+        return [{"texto": t[:280], "likes": l} for _, l, t in lista[:EJEMPLOS_POR_TIPO]]
 
     canales_ordenados = dict(sorted(canales.items(), key=lambda x: -x[1]))
     pocos_datos = contados < MINIMO_COMENTARIOS or len(canales) < MINIMO_CANALES
@@ -230,6 +293,8 @@ for nombre, config in POLITICOS.items():
         "canales": canales_ordenados,
         "videos_descartados": videos_descartados,
         "comentarios_descartados": descartes,
+        "videos_destacados": videos_destacados,
+        "ejemplos": {"positivos": ejemplos_de("POS"), "negativos": ejemplos_de("NEG")},
     }
 
 total = sum(sum(v.values()) for v in resultados.values())
@@ -237,10 +302,14 @@ if total == 0:
     print("ERROR: no se pudo analizar ningun comentario. No se actualizan los datos.")
     sys.exit(1)
 
+hora_ar = datetime.now(timezone(timedelta(hours=-3)))
+
+# ============================================================
+# GUARDAR DATOS
+# ============================================================
 with open("datos.json", "w", encoding="utf-8") as f:
     json.dump(resultados, f, ensure_ascii=False, indent=2)
 
-hora_ar = datetime.now(timezone(timedelta(hours=-3)))
 info = {
     "actualizado": hora_ar.strftime("%d/%m/%Y %H:%M"),
     "fuente": "Comentarios de YouTube",
@@ -259,4 +328,58 @@ info = {
 with open("info.json", "w", encoding="utf-8") as f:
     json.dump(info, f, ensure_ascii=False, indent=2)
 
-print(f"Listo: {total} comentarios analizados. Datos guardados en datos.json e info.json")
+# ============================================================
+# HISTORIAL
+# ============================================================
+historial = []
+if os.path.exists("historial.json"):
+    try:
+        with open("historial.json", encoding="utf-8") as f:
+            historial = json.load(f)
+    except Exception:
+        historial = []
+anterior = historial[-1] if historial else None
+
+historial.append({
+    "fecha": hora_ar.strftime("%d/%m %H:%M"),
+    "fecha_completa": hora_ar.strftime("%d/%m/%Y %H:%M"),
+    "datos": resultados,
+    "pocos_datos": {n: d["pocos_datos"] for n, d in detalle.items()},
+})
+historial = historial[-MAX_HISTORIAL:]
+with open("historial.json", "w", encoding="utf-8") as f:
+    json.dump(historial, f, ensure_ascii=False, indent=2)
+
+# ============================================================
+# AVISO POR TELEGRAM SI HAY CAMBIOS FUERTES
+# ============================================================
+cambios = []
+if anterior:
+    for nombre in resultados:
+        previo = anterior.get("datos", {}).get(nombre)
+        if not previo:
+            continue
+        if detalle.get(nombre, {}).get("pocos_datos") or anterior.get("pocos_datos", {}).get(nombre):
+            continue
+        antes = porcentaje_negativo(previo)
+        ahora = porcentaje_negativo(resultados[nombre])
+        if antes is None or ahora is None:
+            continue
+        diferencia = ahora - antes
+        if abs(diferencia) >= UMBRAL_ALERTA:
+            verbo = "subió" if diferencia > 0 else "bajó"
+            cambios.append(f"• {nombre}: el negativo {verbo} de {antes:.0f}% a {ahora:.0f}% ({diferencia:+.0f} puntos)")
+
+if cambios:
+    print("Cambios fuertes detectados:")
+    for c in cambios:
+        print("  " + c)
+    if TELEGRAM_TOKEN and TELEGRAM_CHAT_ID:
+        mensaje = "📊 Monitor Político: cambios fuertes\n\n" + "\n".join(cambios) + f"\n\nActualizado: {info['actualizado']}\n{URL_WEB}"
+        enviar_telegram(mensaje)
+    else:
+        print("(Telegram no configurado, no se envia aviso)")
+else:
+    print("Sin cambios fuertes respecto de la corrida anterior")
+
+print(f"Listo: {total} comentarios analizados. Datos guardados en datos.json, info.json e historial.json")

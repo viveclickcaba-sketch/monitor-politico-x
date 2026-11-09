@@ -46,7 +46,7 @@
     .kpi .valor { font-size: 32px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
     .kpi .det { font-size: 13px; color: var(--suave); }
 
-    .controles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+    .controles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
     .controles label, .form label { display: grid; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--suave); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     .chip { border: 1px solid var(--borde); background: rgba(255, 255, 255, 0.04); color: var(--suave); padding: 7px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 13px; font-family: inherit; }
@@ -131,6 +131,17 @@
         <label>Comparar con
           <select id="selComparar"></select>
         </label>
+        <label>Ordenar por
+          <select id="selOrden">
+            <option value="repercusion">Repercusión (comentarios)</option>
+            <option value="positivo">% positivo (ajustado)</option>
+            <option value="negativo">% negativo (ajustado)</option>
+            <option value="enojo">Enojo</option>
+            <option value="alegria">Alegría</option>
+            <option value="vistas">Vistas</option>
+            <option value="original">Orden original</option>
+          </select>
+        </label>
       </div>
       <div class="chips" id="chips"></div>
       <label class="check"><input type="checkbox" id="chkPocos"> Ocultar dirigentes con pocos datos</label>
@@ -195,7 +206,7 @@
 
     <div class="card">
       <h3>Placas para Instagram</h3>
-      <p class="muted">Usan los datos y dirigentes elegidos en los filtros de arriba.</p>
+      <p class="muted">Usan los datos, dirigentes y orden elegidos en los filtros de arriba.</p>
       <div class="form">
         <label>Gráfico
           <select id="plTipo">
@@ -335,8 +346,9 @@
       const todosNombres = [];
       [datos, ...opciones.map(o => o.datos)].forEach(d => Object.keys(d || {}).forEach(n => { if (!todosNombres.includes(n)) todosNombres.push(n); }));
 
-      const estado = { fuente: opciones[0].id, comparar: '', modo: 'ajustado', visibles: new Set(todosNombres), ocultarPocos: false };
+      const estado = { fuente: opciones[0].id, comparar: '', modo: 'ajustado', orden: 'repercusion', visibles: new Set(todosNombres), ocultarPocos: false };
 
+      // ===== Calculos =====
       function promedioGeneral(op) {
         let pos = 0, neg = 0, neu = 0;
         Object.values(op.datos || {}).forEach(d => { pos += d.POS || 0; neg += d.NEG || 0; neu += d.NEU || 0; });
@@ -356,12 +368,6 @@
           aPos: aj(pos, g.pos), aNeg: aj(neg, g.neg), aNeu: aj(neu, g.neu)
         };
       }
-      function filasDe(op) {
-        return todosNombres.filter(n => estado.visibles.has(n)).map(n => fila(op, n)).filter(f => !(estado.ocultarPocos && f.pocos));
-      }
-      function nombresUltima() {
-        return todosNombres.filter(n => estado.visibles.has(n) && detalle[n]).filter(n => !(estado.ocultarPocos && D(n).pocos_datos));
-      }
       function emocionesPct(n, sinNeutra) {
         const e = D(n).emociones || {};
         const claves = EMOCIONES.map(x => x[0]).filter(k => !(sinNeutra && k === 'sin_emocion_clara'));
@@ -369,6 +375,52 @@
         const r = {};
         claves.forEach(k => { r[k] = pct(e[k] || 0, total); });
         return r;
+      }
+      // Emocion ajustada por cantidad (sobre comentarios con emocion clara)
+      const totalesEmo = { _total: 0 };
+      Object.values(detalle).forEach(d => {
+        Object.entries(d.emociones || {}).forEach(([k, v]) => {
+          if (k === 'sin_emocion_clara') return;
+          totalesEmo[k] = (totalesEmo[k] || 0) + v;
+          totalesEmo._total += v;
+        });
+      });
+      function emocionAjustada(n, emo) {
+        const e = D(n).emociones;
+        if (!e) return null;
+        const total = Object.entries(e).filter(([k]) => k !== 'sin_emocion_clara').reduce((a, [, v]) => a + v, 0);
+        const g = totalesEmo._total ? (totalesEmo[emo] || 0) / totalesEmo._total : 0;
+        return { aj: r1(((e[emo] || 0) + COLCHON * g) / (total + COLCHON) * 100), cant: e[emo] || 0, total };
+      }
+
+      // ===== Orden =====
+      const NOMBRES_ORDEN = {
+        repercusion: 'repercusión', positivo: '% positivo ajustado', negativo: '% negativo ajustado',
+        enojo: 'enojo', alegria: 'alegría', vistas: 'vistas', original: 'orden original'
+      };
+      function ordenar(nombres) {
+        if (estado.orden === 'original') return nombres.slice();
+        const A = opcion(estado.fuente);
+        const valor = n => {
+          switch (estado.orden) {
+            case 'repercusion': return fila(A, n).total;
+            case 'positivo': return fila(A, n).aPos;
+            case 'negativo': return fila(A, n).aNeg;
+            case 'enojo': { const e = emocionAjustada(n, 'enojo'); return e ? e.aj : -1; }
+            case 'alegria': { const e = emocionAjustada(n, 'alegria'); return e ? e.aj : -1; }
+            case 'vistas': return (D(n).alcance || {}).vistas || 0;
+            default: return 0;
+          }
+        };
+        const valores = new Map(nombres.map(n => [n, valor(n)]));
+        return nombres.slice().sort((a, b) => valores.get(b) - valores.get(a));
+      }
+      function filasDe(op) {
+        const nombres = ordenar(todosNombres.filter(n => estado.visibles.has(n)));
+        return nombres.map(n => fila(op, n)).filter(f => !(estado.ocultarPocos && f.pocos));
+      }
+      function nombresUltima() {
+        return ordenar(todosNombres.filter(n => estado.visibles.has(n) && detalle[n]).filter(n => !(estado.ocultarPocos && D(n).pocos_datos)));
       }
 
       // ===== Encabezado =====
@@ -383,6 +435,7 @@
       selComparar.innerHTML = '<option value="">Sin comparar</option>' + opciones.map(o => `<option value="${o.id}">${esc(o.etiqueta)}</option>`).join('');
       selFuente.addEventListener('change', () => { estado.fuente = selFuente.value; render(); });
       selComparar.addEventListener('change', () => { estado.comparar = selComparar.value; render(); });
+      document.getElementById('selOrden').addEventListener('change', e => { estado.orden = e.target.value; render(); });
 
       const chips = document.getElementById('chips');
       function dibujarChips() {
@@ -415,6 +468,19 @@
         const masPos = mayor(filas, 'pos');
         const masNeg = mayor(filas, 'neg');
         const total = filas.reduce((a, f) => a + f.total, 0);
+
+        const conEmo = nombresUltima().filter(n => D(n).emociones);
+        const mayorEmo = emo => {
+          let mejor = null;
+          conEmo.forEach(n => {
+            const e = emocionAjustada(n, emo);
+            if (e && (!mejor || e.aj > mejor.aj)) mejor = Object.assign({ nombre: n }, e);
+          });
+          return mejor;
+        };
+        const masEnojo = mayorEmo('enojo');
+        const masAlegria = mayorEmo('alegria');
+
         const kpi = (lbl, valor, det, color) => `
           <div class="card kpi">
             <div class="lbl">${lbl}</div>
@@ -427,10 +493,12 @@
           kpi('Mayor % positivo (ajustado)', masAjPos ? esc(masAjPos.nombre) : '—', masAjPos ? `${masAjPos.aPos}% ajustado · ${masAjPos.pos} de ${masAjPos.total} comentarios` : '', 'var(--pos)') +
           kpi('Más comentarios positivos', masPos ? esc(masPos.nombre) : '—', masPos ? `${masPos.pos} comentarios positivos` : '', 'var(--pos)') +
           kpi('Mayor % negativo (ajustado)', masAjNeg ? esc(masAjNeg.nombre) : '—', masAjNeg ? `${masAjNeg.aNeg}% ajustado · ${masAjNeg.neg} de ${masAjNeg.total} comentarios` : '', 'var(--neg)') +
-          kpi('Más comentarios negativos', masNeg ? esc(masNeg.nombre) : '—', masNeg ? `${masNeg.neg} comentarios negativos` : '', 'var(--neg)');
+          kpi('Más comentarios negativos', masNeg ? esc(masNeg.nombre) : '—', masNeg ? `${masNeg.neg} comentarios negativos` : '', 'var(--neg)') +
+          kpi('Genera más enojo', masEnojo ? esc(masEnojo.nombre) : '—', masEnojo ? `${masEnojo.aj}% ajustado · ${masEnojo.cant} de ${masEnojo.total} con emoción` : 'Sin datos de emociones', '#ef4444') +
+          kpi('Genera más alegría', masAlegria ? esc(masAlegria.nombre) : '—', masAlegria ? `${masAlegria.aj}% ajustado · ${masAlegria.cant} de ${masAlegria.total} con emoción` : 'Sin datos de emociones', '#22c55e');
       }
 
-      // ===== Configuracion de los graficos (se usa en la web y en las placas) =====
+      // ===== Configuracion de los graficos (web y placas) =====
       function configPrincipal(modo) {
         const A = opcion(estado.fuente);
         const B = estado.comparar && estado.comparar !== estado.fuente ? opcion(estado.comparar) : null;
@@ -441,6 +509,7 @@
         const ejesPct = () => ({ x: ejeX(), y: { beginAtZero: true, suggestedMax: 60, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } } });
         const barra = (label, data, color, extra) => Object.assign({ label, data, backgroundColor: color }, redondo, extra || {});
         const tipPct = { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } };
+        const textoOrden = ` Ordenado por ${NOMBRES_ORDEN[estado.orden]}.`;
 
         if (modo === 'emociones') {
           const sinNeutra = document.getElementById('chkSinEmocion').checked;
@@ -449,7 +518,7 @@
           const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
           const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
           return {
-            nota: 'Cada columna suma 100%, repartido entre las emociones de los comentarios. Datos de la última corrida (no cambia con el filtro de fechas). * Pocos datos.',
+            nota: 'Cada columna suma 100%, repartido entre las emociones de los comentarios. Datos de la última corrida (no cambia con el filtro de fechas).' + textoOrden + ' * Pocos datos.',
             config: {
               type: 'bar',
               data: {
@@ -485,7 +554,7 @@
             barra('Neutral', filas.map(f => f.aNeu), '#94a3b8', { filas, tipo: 'neu' })
           ];
           return {
-            nota: `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.` + textoComparar,
+            nota: `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.` + textoComparar + textoOrden,
             config: {
               type: 'bar',
               data: { labels: etiquetas, datasets },
@@ -524,7 +593,7 @@
         return {
           nota: (esPct
             ? 'Porcentaje de comentarios de cada tipo. Ojo: con pocos comentarios el porcentaje puede exagerar; para comparar, usá la pestaña Ajustado.'
-            : 'La altura de cada barra es la cantidad de comentarios.') + textoComparar + ' * Pocos datos: resultado poco confiable.',
+            : 'La altura de cada barra es la cantidad de comentarios.') + textoComparar + textoOrden + ' * Pocos datos: resultado poco confiable.',
           config: {
             type: 'bar',
             data: { labels: etiquetas, datasets },
@@ -552,7 +621,7 @@
         const valor = selEvo.value;
         let datasets;
         if (valor === '__todos') {
-          datasets = todosNombres.filter(n => estado.visibles.has(n)).map(n => {
+          datasets = ordenar(todosNombres.filter(n => estado.visibles.has(n))).map(n => {
             const i = todosNombres.indexOf(n);
             return { label: n, data: hist.map(h => pctDe((h.datos || {})[n], 'NEG')), borderColor: COLORES[i % COLORES.length], backgroundColor: COLORES[i % COLORES.length], tension: 0.35, spanGaps: true, borderWidth: 3, pointRadius: 4 };
           });
@@ -699,7 +768,6 @@
         ctx.font = `${peso} ${t}px ${FUENTE}`;
         while (ctx.measureText(texto).width > anchoMax && t > 14) { t -= 1; ctx.font = `${peso} ${t}px ${FUENTE}`; }
       }
-      // Agranda letras y colores de un grafico para que se lea en la placa
       function escalarParaPlaca(config, tam) {
         const o = config.options;
         Object.values(o.scales || {}).forEach(eje => {
@@ -742,7 +810,6 @@
         ctx.fillStyle = fondo;
         ctx.fillRect(0, 0, W, H);
 
-        // Bajada y titulo
         let y = historia ? 260 : 130;
         ctx.textAlign = 'left';
         ctx.fillStyle = ROJO_PLACA;
@@ -827,7 +894,6 @@
           }
         }
 
-        // Pie con fuente y aclaraciones
         ctx.textAlign = 'center';
         ctx.fillStyle = '#9ca3af';
         ctx.font = `400 22px ${FUENTE}`;
@@ -936,7 +1002,7 @@
       document.getElementById('metodo').innerHTML = `
         <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
         <p>Modelos de inteligencia artificial en español clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
-        <p>El <strong>porcentaje ajustado</strong> le suma a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada. Es la forma más justa de comparar dirigentes con distinta cantidad de comentarios.</p>
+        <p>Los <strong>porcentajes ajustados</strong> (de tono y de emociones) le suman a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada. Es la forma más justa de comparar dirigentes con distinta cantidad de comentarios.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
         <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
         <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población, y los modelos pueden equivocarse. Es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;

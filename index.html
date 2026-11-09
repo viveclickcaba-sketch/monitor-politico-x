@@ -21,31 +21,14 @@
       --neu: #94a3b8;
     }
     * { box-sizing: border-box; }
-    body {
-      font-family: "Montserrat", system-ui, sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      margin: 0;
-      padding: 28px 18px 60px;
-      min-height: 100vh;
-    }
+    body { font-family: "Montserrat", system-ui, sans-serif; background: var(--fondo); color: var(--texto); margin: 0; padding: 28px 18px 60px; min-height: 100vh; }
     .luz { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; pointer-events: none; }
     .luz.roja { width: 520px; height: 520px; background: rgba(255, 30, 30, 0.22); top: -160px; left: -140px; }
     .luz.azul { width: 600px; height: 600px; background: rgba(76, 80, 230, 0.16); bottom: -220px; right: -180px; }
     .luz.centro { width: 380px; height: 380px; background: rgba(255, 255, 255, 0.04); top: 40%; left: 45%; }
 
     .container { max-width: 1000px; margin: auto; }
-    .card {
-      background: var(--vidrio);
-      border: 1px solid var(--borde);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 20px;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      animation: aparecer 0.6s ease both;
-    }
+    .card { background: var(--vidrio); border: 1px solid var(--borde); border-radius: 22px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); animation: aparecer 0.6s ease both; }
     @keyframes aparecer { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
     header { text-align: center; margin-bottom: 26px; }
@@ -62,11 +45,18 @@
     .kpi .valor { font-size: 34px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
     .kpi .det { font-size: 13px; color: var(--suave); }
 
+    .controles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+    .controles label, .form label { display: grid; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--suave); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .chip { border: 1px solid var(--borde); background: rgba(255, 255, 255, 0.04); color: var(--suave); padding: 7px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 13px; font-family: inherit; }
+    .chip.activo { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.55); color: #fff; }
+    .check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--texto); margin-top: 14px; cursor: pointer; }
+
     .cabecera { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .botones { display: flex; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde); border-radius: 999px; padding: 4px; }
     .botones button { background: transparent; color: var(--suave); border: none; padding: 7px 16px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; }
     .botones button.activo { background: var(--rojo); color: #fff; }
-    select, input[type="text"] { background: rgba(255, 255, 255, 0.05); color: var(--texto); border: 1px solid var(--borde); border-radius: 12px; padding: 10px 12px; font-family: inherit; font-size: 14px; }
+    select, input[type="text"] { background: rgba(255, 255, 255, 0.05); color: var(--texto); border: 1px solid var(--borde); border-radius: 12px; padding: 10px 12px; font-family: inherit; font-size: 14px; width: 100%; }
     select option { background: #111; }
     .grafico { position: relative; width: 100%; }
     .muted { color: var(--suave); font-size: 13px; }
@@ -97,8 +87,6 @@
     .nota p { margin: 0 0 10px; }
 
     .form { display: grid; gap: 12px; margin: 16px 0; }
-    .form label { display: grid; gap: 6px; font-size: 12px; font-weight: 600; color: var(--suave); text-transform: uppercase; letter-spacing: 1px; }
-    .form label.check { display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-size: 14px; }
     .preview { display: block; max-width: 100%; max-height: 540px; margin: 12px auto; border-radius: 14px; border: 1px solid var(--borde); }
     .boton { display: block; margin: 14px auto 0; background: var(--rojo); color: #fff; border: none; border-radius: 999px; padding: 13px 28px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; box-shadow: 0 8px 24px rgba(255, 45, 45, 0.3); }
     .boton:hover { filter: brightness(1.1); }
@@ -116,6 +104,20 @@
       <p class="sub">Qué dicen los comentarios de YouTube sobre cada dirigente argentino</p>
       <div class="meta" id="meta">Cargando…</div>
     </header>
+
+    <div class="card">
+      <h3>Filtros</h3>
+      <div class="controles">
+        <label>Ver datos de
+          <select id="selFuente"></select>
+        </label>
+        <label>Comparar con
+          <select id="selComparar"></select>
+        </label>
+      </div>
+      <div class="chips" id="chips"></div>
+      <label class="check"><input type="checkbox" id="chkPocos"> Ocultar dirigentes con pocos datos</label>
+    </div>
 
     <div class="kpis" id="kpis"></div>
 
@@ -139,14 +141,16 @@
     <div class="card">
       <div class="cabecera">
         <h3>Evolución en el tiempo</h3>
-        <select id="selEvolucion"></select>
+        <select id="selEvolucion" style="width: auto;"></select>
       </div>
+      <label class="check" style="margin-top: 0; margin-bottom: 10px;"><input type="checkbox" id="chkAnterior"> Incluir corridas del método anterior</label>
       <p class="muted" id="evoAviso"></p>
       <div class="grafico" id="cajaEvolucion" style="height: 360px;"><canvas id="graficoEvolucion"></canvas></div>
     </div>
 
     <div class="card">
       <h3>Placa para Instagram</h3>
+      <p class="muted">Usa los datos y dirigentes elegidos en los filtros de arriba.</p>
       <div class="form">
         <label>Formato
           <select id="plFormato">
@@ -160,7 +164,6 @@
         <label>Título
           <input type="text" id="plTitulo" value="¿QUÉ DICEN DE CADA DIRIGENTE EN YOUTUBE?">
         </label>
-        <label class="check"><input type="checkbox" id="plOcultar"> Ocultar dirigentes con pocos datos</label>
       </div>
       <img id="plPreview" class="preview" alt="Vista previa de la placa">
       <button id="plDescargar" class="boton">Descargar placa</button>
@@ -168,7 +171,7 @@
 
     <div class="card">
       <h3>¿De dónde salen los datos?</h3>
-      <p class="muted">Tocá cada dirigente para ver videos, comentarios de ejemplo, canales y descartes.</p>
+      <p class="muted">Detalle de la última corrida. Tocá cada dirigente para ver videos, comentarios de ejemplo, canales y descartes.</p>
       <div id="fuentes"></div>
     </div>
 
@@ -184,6 +187,7 @@
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
     const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
     const ROJO_PLACA = '#ff0000';
+    const METODO_ACTUAL = 2;
     let grafico = null;
     let graficoEvo = null;
 
@@ -196,61 +200,172 @@
       fetch('info.json' + sinCache).then(r => r.ok ? r.json() : null).catch(() => null),
       fetch('historial.json' + sinCache).then(r => r.ok ? r.json() : []).catch(() => [])
     ]).then(([datos, info, historial]) => {
+      if (!Array.isArray(historial)) historial = [];
       const detalle = (info && info.detalle) || {};
       const filtros = (info && info.filtros) || {};
       const diasCuenta = filtros.cuentas_nuevas_excluidas_dias || 30;
       const tope = filtros.tope_por_canal || 20;
       const periodo = info ? String(info.periodo || '').replace('ultimos', 'últimos').replace('dias', 'días') : '';
+      const acum = info && info.acumulado;
 
-      const filas = Object.keys(datos).map(nombre => {
-        const d = datos[nombre];
+      // ===== Opciones de datos: corridas guardadas y acumulado =====
+      const opciones = [];
+      if (historial.length) {
+        for (let i = historial.length - 1; i >= 0; i--) {
+          const h = historial[i];
+          const metodo = h.metodo || 1;
+          const fecha = h.fecha_completa || h.fecha;
+          opciones.push({
+            id: 'h' + i,
+            etiqueta: (i === historial.length - 1 ? 'Última corrida · ' : '') + fecha + (metodo !== METODO_ACTUAL ? ' (método anterior)' : ''),
+            corto: h.fecha || fecha,
+            datos: h.datos || {},
+            pocos: h.pocos_datos || {},
+            metodo
+          });
+        }
+      } else {
+        const pocos = {};
+        Object.keys(detalle).forEach(n => { pocos[n] = detalle[n].pocos_datos; });
+        opciones.push({ id: 'ultima', etiqueta: 'Última corrida', corto: info ? info.actualizado : '', datos, pocos, metodo: (info && info.metodo) || 1 });
+      }
+      if (acum && acum.datos) {
+        opciones.splice(1, 0, {
+          id: 'acum',
+          etiqueta: `Acumulado ${acum.dias} días (${acum.corridas} corrida${acum.corridas === 1 ? '' : 's'})`,
+          corto: 'Acumulado',
+          datos: acum.datos,
+          pocos: acum.pocos_datos || {},
+          metodo: METODO_ACTUAL
+        });
+      }
+      const opcion = id => opciones.find(o => o.id === id);
+
+      const todosNombres = [];
+      [datos, ...opciones.map(o => o.datos)].forEach(d => Object.keys(d || {}).forEach(n => { if (!todosNombres.includes(n)) todosNombres.push(n); }));
+
+      const estado = {
+        fuente: opciones[0].id,
+        comparar: '',
+        modo: 'cantidad',
+        visibles: new Set(todosNombres),
+        ocultarPocos: false
+      };
+
+      function fila(op, n) {
+        const d = (op.datos || {})[n] || {};
         const pos = d.POS || 0, neg = d.NEG || 0, neu = d.NEU || 0;
         const total = pos + neg + neu;
-        const det = detalle[nombre] || {};
-        return {
-          nombre, pos, neg, neu, total,
-          pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total),
-          canales: det.canales || {},
-          pocos: det.pocos_datos !== undefined ? det.pocos_datos : total < 50,
-          det
-        };
-      });
-      const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
-      const totalGeneral = info ? info.total_comentarios : filas.reduce((a, f) => a + f.total, 0);
+        const pocos = op.pocos && op.pocos[n] !== undefined ? op.pocos[n] : total < 50;
+        return { nombre: n, pos, neg, neu, total, pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total), pocos };
+      }
+      function filasDe(op) {
+        return todosNombres
+          .filter(n => estado.visibles.has(n))
+          .map(n => fila(op, n))
+          .filter(f => !(estado.ocultarPocos && f.pocos));
+      }
 
       // ===== Encabezado =====
       document.getElementById('meta').textContent = info
-        ? `Actualizado ${info.actualizado} · ${info.fuente} · ${periodo}`
+        ? `Última actualización ${info.actualizado} · ${info.fuente} · ${periodo}`
         : 'Sin información de actualización';
 
+      // ===== Controles de filtros =====
+      const selFuente = document.getElementById('selFuente');
+      const selComparar = document.getElementById('selComparar');
+      selFuente.innerHTML = opciones.map(o => `<option value="${o.id}">${esc(o.etiqueta)}</option>`).join('');
+      selComparar.innerHTML = '<option value="">Sin comparar</option>' + opciones.map(o => `<option value="${o.id}">${esc(o.etiqueta)}</option>`).join('');
+      selFuente.addEventListener('change', () => { estado.fuente = selFuente.value; render(); });
+      selComparar.addEventListener('change', () => { estado.comparar = selComparar.value; render(); });
+
+      const chips = document.getElementById('chips');
+      function dibujarChips() {
+        chips.innerHTML = todosNombres.map(n =>
+          `<button class="chip ${estado.visibles.has(n) ? 'activo' : ''}" data-nombre="${esc(n)}">${esc(n)}</button>`).join('');
+        chips.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+          const n = b.dataset.nombre;
+          if (estado.visibles.has(n)) {
+            if (estado.visibles.size > 1) estado.visibles.delete(n);
+          } else {
+            estado.visibles.add(n);
+          }
+          dibujarChips();
+          render();
+        }));
+      }
+      dibujarChips();
+      document.getElementById('chkPocos').addEventListener('change', e => { estado.ocultarPocos = e.target.checked; render(); });
+      document.getElementById('btnCantidad').addEventListener('click', () => { estado.modo = 'cantidad'; render(); });
+      document.getElementById('btnPorcentaje').addEventListener('click', () => { estado.modo = 'porcentaje'; render(); });
+
       // ===== Marcadores =====
-      const confiables = filas.filter(f => !f.pocos && f.total > 0);
-      const mayor = (lista, clave) => lista.length ? lista.reduce((a, b) => (b[clave] > a[clave] ? b : a)) : null;
-      const masMencionado = mayor(filas, 'total');
-      const masPositivo = mayor(confiables, 'pPos');
-      const masNegativo = mayor(confiables, 'pNeg');
-      const kpi = (lbl, valor, det, color) => `
-        <div class="card kpi">
-          <div class="lbl">${lbl}</div>
-          <div class="valor" style="${color ? 'color:' + color : ''}">${valor}</div>
-          <div class="det">${det}</div>
-        </div>`;
-      document.getElementById('kpis').innerHTML =
-        kpi('Comentarios analizados', esc(totalGeneral), `${filas.length} dirigentes`) +
-        kpi('Más mencionado', masMencionado ? esc(masMencionado.nombre) : '—', masMencionado ? `${masMencionado.total} comentarios` : '') +
-        kpi('Mayor % positivo', masPositivo ? esc(masPositivo.nombre) : '—', masPositivo ? `${masPositivo.pPos}% positivo` : 'Sin datos suficientes', 'var(--pos)') +
-        kpi('Mayor % negativo', masNegativo ? esc(masNegativo.nombre) : '—', masNegativo ? `${masNegativo.pNeg}% negativo` : 'Sin datos suficientes', 'var(--neg)');
+      function dibujarKpis() {
+        const A = opcion(estado.fuente);
+        const filas = filasDe(A);
+        const confiables = filas.filter(f => !f.pocos && f.total > 0);
+        const mayor = (lista, clave) => lista.length ? lista.reduce((a, b) => (b[clave] > a[clave] ? b : a)) : null;
+        const masMencionado = mayor(filas.filter(f => f.total > 0), 'total');
+        const masPositivo = mayor(confiables, 'pPos');
+        const masNegativo = mayor(confiables, 'pNeg');
+        const total = filas.reduce((a, f) => a + f.total, 0);
+        const kpi = (lbl, valor, det, color) => `
+          <div class="card kpi">
+            <div class="lbl">${lbl}</div>
+            <div class="valor" style="${color ? 'color:' + color : ''}">${valor}</div>
+            <div class="det">${det}</div>
+          </div>`;
+        document.getElementById('kpis').innerHTML =
+          kpi('Comentarios', total, esc(A.etiqueta)) +
+          kpi('Más mencionado', masMencionado ? esc(masMencionado.nombre) : '—', masMencionado ? `${masMencionado.total} comentarios` : '') +
+          kpi('Mayor % positivo', masPositivo ? esc(masPositivo.nombre) : '—', masPositivo ? `${masPositivo.pPos}% positivo` : 'Sin datos suficientes', 'var(--pos)') +
+          kpi('Mayor % negativo', masNegativo ? esc(masNegativo.nombre) : '—', masNegativo ? `${masNegativo.pNeg}% negativo` : 'Sin datos suficientes', 'var(--neg)');
+      }
 
       // ===== Grafico principal =====
-      function dibujar(modo) {
+      function dibujarGrafico() {
         if (grafico) grafico.destroy();
+        const A = opcion(estado.fuente);
+        const B = estado.comparar && estado.comparar !== estado.fuente ? opcion(estado.comparar) : null;
+        const filas = filasDe(A);
+        const esPct = estado.modo === 'porcentaje';
         const caja = document.getElementById('cajaGrafico');
         const nota = document.getElementById('notaGrafico');
-        const esPct = modo === 'porcentaje';
         document.getElementById('btnCantidad').classList.toggle('activo', !esPct);
         document.getElementById('btnPorcentaje').classList.toggle('activo', esPct);
+        const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
+        const leyenda = { labels: { usePointStyle: true, pointStyle: 'circle' } };
+        const tooltipPct = { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } };
 
-        if (!esPct) {
+        if (B) {
+          const fb = filas.map(f => fila(B, f.nombre));
+          caja.style.height = '420px';
+          let texto = `Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}. * Pocos datos.`;
+          if (A.metodo !== B.metodo) texto += ' Atención: las dos opciones usan métodos distintos, la comparación no es exacta.';
+          nota.textContent = texto;
+          grafico = new Chart(document.getElementById('graficoBarras'), {
+            type: 'bar',
+            data: {
+              labels: etiquetas,
+              datasets: [
+                { label: `Positivo · ${A.corto}`, data: filas.map(f => esPct ? f.pPos : f.pos), backgroundColor: '#22c55e', borderRadius: 6, borderSkipped: false },
+                { label: `Positivo · ${B.corto}`, data: fb.map(f => esPct ? f.pPos : f.pos), backgroundColor: 'rgba(34, 197, 94, 0.35)', borderRadius: 6, borderSkipped: false },
+                { label: `Negativo · ${A.corto}`, data: filas.map(f => esPct ? f.pNeg : f.neg), backgroundColor: '#ef4444', borderRadius: 6, borderSkipped: false },
+                { label: `Negativo · ${B.corto}`, data: fb.map(f => esPct ? f.pNeg : f.neg), backgroundColor: 'rgba(239, 68, 68, 0.35)', borderRadius: 6, borderSkipped: false }
+              ]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { grid: { display: false }, border: { display: false } },
+                y: Object.assign({ beginAtZero: true, grid: { color: GRID }, border: { display: false } },
+                  esPct ? { max: 100, ticks: { callback: v => v + '%' } } : {})
+              },
+              plugins: { legend: leyenda, tooltip: esPct ? tooltipPct : {} }
+            }
+          });
+        } else if (!esPct) {
           caja.style.height = '400px';
           nota.textContent = 'La altura de cada barra es la cantidad de comentarios. * Pocos datos: resultado poco confiable.';
           grafico = new Chart(document.getElementById('graficoBarras'), {
@@ -270,7 +385,7 @@
                 x: { grid: { display: false }, border: { display: false } },
                 y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } }
               },
-              plugins: { legend: { labels: { usePointStyle: true, pointStyle: 'circle' } } }
+              plugins: { legend: leyenda }
             }
           });
         } else {
@@ -294,93 +409,97 @@
                 x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
                 y: { stacked: true, grid: { display: false }, border: { display: false } }
               },
-              plugins: {
-                legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
-                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-              }
+              plugins: { legend: leyenda, tooltip: tooltipPct }
             }
           });
         }
       }
-      document.getElementById('btnCantidad').addEventListener('click', () => dibujar('cantidad'));
-      document.getElementById('btnPorcentaje').addEventListener('click', () => dibujar('porcentaje'));
-      dibujar('cantidad');
 
       // ===== Tarjetas por dirigente =====
-      document.getElementById('grilla').innerHTML = filas.map(f => `
-        <div class="dir">
-          <div class="top">
-            <div class="nombre">${esc(f.nombre)}</div>
-            <div class="total">${f.total} comentarios</div>
-          </div>
-          <div class="barra">
-            <span style="width:${f.pPos}%; background: var(--pos);"></span>
-            <span style="width:${f.pNeu}%; background: var(--neu);"></span>
-            <span style="width:${f.pNeg}%; background: var(--neg);"></span>
-          </div>
-          <div class="porcentajes">
-            <span class="pos">${f.pPos}% pos.</span>
-            <span class="neu">${f.pNeu}% neu.</span>
-            <span class="neg">${f.pNeg}% neg.</span>
-          </div>
-          ${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}
-        </div>`).join('');
+      function dibujarGrilla() {
+        const filas = filasDe(opcion(estado.fuente));
+        document.getElementById('grilla').innerHTML = filas.map(f => `
+          <div class="dir">
+            <div class="top">
+              <div class="nombre">${esc(f.nombre)}</div>
+              <div class="total">${f.total} comentarios</div>
+            </div>
+            <div class="barra">
+              <span style="width:${f.pPos}%; background: var(--pos);"></span>
+              <span style="width:${f.pNeu}%; background: var(--neu);"></span>
+              <span style="width:${f.pNeg}%; background: var(--neg);"></span>
+            </div>
+            <div class="porcentajes">
+              <span class="pos">${f.pPos}% pos.</span>
+              <span class="neu">${f.pNeu}% neu.</span>
+              <span class="neg">${f.pNeg}% neg.</span>
+            </div>
+            ${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}
+          </div>`).join('') || '<p class="muted">No hay dirigentes para mostrar con estos filtros.</p>';
+      }
 
       // ===== Evolucion en el tiempo =====
-      const nombres = filas.map(f => f.nombre);
-      const sel = document.getElementById('selEvolucion');
-      sel.innerHTML = '<option value="__todos">Todos (% negativo)</option>' +
-        nombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      const selEvo = document.getElementById('selEvolucion');
+      selEvo.innerHTML = '<option value="__todos">Todos (% negativo)</option>' +
+        todosNombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
       const pctDe = (d, k) => {
         if (!d) return null;
         const t = (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
         return t ? Math.round((d[k] || 0) * 1000 / t) / 10 : null;
       };
-      if (!Array.isArray(historial) || historial.length < 2) {
-        document.getElementById('evoAviso').textContent = 'El gráfico aparece a partir de la segunda actualización: cada vez que corras el bot se suma un punto.';
-        document.getElementById('cajaEvolucion').style.display = 'none';
-        sel.disabled = true;
-      } else {
-        document.getElementById('evoAviso').textContent = 'Cada punto es una actualización del bot.';
-        const fechas = historial.map(h => h.fecha);
-        const dibujarEvo = valor => {
-          if (graficoEvo) graficoEvo.destroy();
-          let datasets;
-          if (valor === '__todos') {
-            datasets = nombres.map((n, i) => ({
+      function dibujarEvolucion() {
+        if (graficoEvo) { graficoEvo.destroy(); graficoEvo = null; }
+        const incluirAnterior = document.getElementById('chkAnterior').checked;
+        const hist = historial.filter(h => incluirAnterior || (h.metodo || 1) === METODO_ACTUAL);
+        const caja = document.getElementById('cajaEvolucion');
+        const aviso = document.getElementById('evoAviso');
+        if (hist.length < 2) {
+          aviso.textContent = 'El gráfico aparece cuando hay al menos dos corridas para comparar: cada vez que corras el bot se suma un punto.';
+          caja.style.display = 'none';
+          return;
+        }
+        caja.style.display = 'block';
+        aviso.textContent = 'Cada punto es una actualización del bot.' + (incluirAnterior ? ' Los puntos marcados con "(ant.)" usan el método anterior.' : '');
+        const fechas = hist.map(h => h.fecha + ((h.metodo || 1) !== METODO_ACTUAL ? ' (ant.)' : ''));
+        const valor = selEvo.value;
+        let datasets;
+        if (valor === '__todos') {
+          datasets = todosNombres.filter(n => estado.visibles.has(n)).map(n => {
+            const i = todosNombres.indexOf(n);
+            return {
               label: n,
-              data: historial.map(h => pctDe((h.datos || {})[n], 'NEG')),
+              data: hist.map(h => pctDe((h.datos || {})[n], 'NEG')),
               borderColor: COLORES[i % COLORES.length],
               backgroundColor: COLORES[i % COLORES.length],
               tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
-            }));
-          } else {
-            datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
-              label: l,
-              data: historial.map(h => pctDe((h.datos || {})[valor], k)),
-              borderColor: c, backgroundColor: c, tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
-            }));
-          }
-          graficoEvo = new Chart(document.getElementById('graficoEvolucion'), {
-            type: 'line',
-            data: { labels: fechas, datasets },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                x: { grid: { display: false }, border: { display: false } },
-                y: { min: 0, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
-              },
-              plugins: {
-                legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
-                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-              }
-            }
+            };
           });
-        };
-        sel.addEventListener('change', () => dibujarEvo(sel.value));
-        dibujarEvo('__todos');
+        } else {
+          datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
+            label: l,
+            data: hist.map(h => pctDe((h.datos || {})[valor], k)),
+            borderColor: c, backgroundColor: c, tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
+          }));
+        }
+        graficoEvo = new Chart(document.getElementById('graficoEvolucion'), {
+          type: 'line',
+          data: { labels: fechas, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { grid: { display: false }, border: { display: false } },
+              y: { min: 0, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
+            },
+            plugins: {
+              legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
+              tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
+            }
+          }
+        });
       }
+      selEvo.addEventListener('change', dibujarEvolucion);
+      document.getElementById('chkAnterior').addEventListener('change', dibujarEvolucion);
 
       // ===== Placa para Instagram (sin logo, Montserrat ExtraBold) =====
       const FUENTE = '"Montserrat", Arial, sans-serif';
@@ -406,6 +525,7 @@
       }
       let ultimaPlaca = '';
       function dibujarPlaca() {
+        const A = opcion(estado.fuente);
         const historia = document.getElementById('plFormato').value === 'historia';
         const W = 1080, H = historia ? 1920 : 1350;
         const M = 70;
@@ -419,7 +539,6 @@
         ctx.fillStyle = fondo;
         ctx.fillRect(0, 0, W, H);
 
-        // Bajada en rojo y titulo en blanco, alineados a la izquierda
         let y = historia ? 260 : 130;
         ctx.textAlign = 'left';
         ctx.fillStyle = ROJO_PLACA;
@@ -432,9 +551,7 @@
           .forEach(l => { y += tamTitulo * 1.12; ctx.fillText(l, M, y); });
         y += historia ? 90 : 60;
 
-        // Barras: largo = cantidad de comentarios, colores = reparto
-        const ocultar = document.getElementById('plOcultar').checked;
-        const lista = filas.filter(f => f.total > 0 && !(ocultar && f.pocos));
+        const lista = filasDe(A).filter(f => f.total > 0);
         const maxTotal = Math.max(1, ...lista.map(f => f.total));
         const finFilas = H - (historia ? 300 : 230);
         const alto = Math.min(historia ? 150 : 115, (finFilas - y) / Math.max(1, lista.length));
@@ -468,7 +585,6 @@
           ctx.fillText(`${Math.round(f.pNeg)}% negativo`, xBarra + ctx.measureText(txtPos).width + 28, yTexto);
         });
 
-        // Leyenda
         const yLey = finFilas + 40;
         ctx.textAlign = 'left';
         ctx.font = `700 24px ${FUENTE}`;
@@ -483,20 +599,21 @@
         ctx.fillStyle = '#9ca3af';
         ctx.fillText('Largo de la barra = cantidad de comentarios', M, yLey + 40);
 
-        // Fuente abajo, chica
         ctx.textAlign = 'center';
         ctx.fillStyle = '#9ca3af';
         ctx.font = `400 22px ${FUENTE}`;
-        const actualizado = info ? String(info.actualizado).split(' ')[0] : '';
+        const cuando = A.id === 'acum' && acum
+          ? `acumulado de ${acum.dias} días`
+          : `${periodo.toLowerCase()} · ${String(A.corto).split(' ')[0]}`;
         const hayPocos = lista.some(f => f.pocos);
         const yFuente = historia ? H - 140 : H - 90;
-        ctx.fillText(`Fuente: comentarios de YouTube (${periodo.toLowerCase()}) · ${actualizado}`, W / 2, yFuente);
+        ctx.fillText(`Fuente: comentarios de YouTube (${cuando})`, W / 2, yFuente);
         ctx.fillText('No es una encuesta' + (hayPocos ? ' · * Pocos datos, resultado poco confiable' : ''), W / 2, yFuente + 32);
 
         ultimaPlaca = cv.toDataURL('image/png');
         document.getElementById('plPreview').src = ultimaPlaca;
       }
-      ['plFormato', 'plBajada', 'plTitulo', 'plOcultar'].forEach(id => {
+      ['plFormato', 'plBajada', 'plTitulo'].forEach(id => {
         document.getElementById(id).addEventListener('input', dibujarPlaca);
         document.getElementById(id).addEventListener('change', dibujarPlaca);
       });
@@ -506,14 +623,24 @@
         a.download = `monitor-politico-${document.getElementById('plFormato').value}.png`;
         a.click();
       });
-      const cargarFuentes = document.fonts
-        ? Promise.all(['800 60px Montserrat', '700 24px Montserrat', '400 22px Montserrat']
-            .map(f => document.fonts.load(f))).catch(() => null)
-        : Promise.resolve();
-      cargarFuentes.then(dibujarPlaca);
 
-      // ===== Fuentes por dirigente =====
+      // ===== Dibujar todo =====
+      function render() {
+        dibujarKpis();
+        dibujarGrafico();
+        dibujarGrilla();
+        dibujarEvolucion();
+        dibujarPlaca();
+      }
+      render();
+      if (document.fonts) {
+        Promise.all(['800 60px Montserrat', '700 24px Montserrat', '400 22px Montserrat'].map(f => document.fonts.load(f)))
+          .then(dibujarPlaca).catch(() => null);
+      }
+
+      // ===== Fuentes por dirigente (ultima corrida) =====
       const textosDescarte = {
+        menciona_otros: 'Nombraban a otro dirigente o figura (no se puede atribuir el tono)',
         mismo_autor: 'Misma persona comentando otra vez',
         texto_repetido: 'Texto repetido (posible copia y pega)',
         cuenta_nueva: `Cuentas creadas hace menos de ${diasCuenta} días`,
@@ -525,21 +652,22 @@
       };
       const listaEjemplos = lista => (lista || [])
         .map(e => `<li>“${esc(e.texto)}” <span class="muted">👍 ${esc(e.likes)}</span></li>`).join('') || '<li>Sin ejemplos</li>';
-      document.getElementById('fuentes').innerHTML = filas.map(f => {
-        const canales = Object.entries(f.canales)
+      document.getElementById('fuentes').innerHTML = Object.keys(detalle).map(nombre => {
+        const det = detalle[nombre];
+        const canales = Object.entries(det.canales || {})
           .map(([c, n]) => `<li>${esc(c)}: ${n}</li>`).join('') || '<li>Sin datos</li>';
-        const destacados = (f.det.videos_destacados || [])
+        const destacados = (det.videos_destacados || [])
           .map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.titulo)}</a> <span class="muted">(${esc(v.canal)} · ${esc(v.comentarios)} comentarios)</span></li>`).join('') || '<li>Sin datos</li>';
-        const ejemplos = (f.det.ejemplos || {});
-        const desc = Object.entries(f.det.comentarios_descartados || {})
+        const ejemplos = det.ejemplos || {};
+        const desc = Object.entries(det.comentarios_descartados || {})
           .filter(([, n]) => n > 0)
           .map(([k, n]) => `<li>${esc(textosDescarte[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
-        const vids = Object.entries(f.det.videos_descartados || {})
+        const vids = Object.entries(det.videos_descartados || {})
           .filter(([, n]) => n > 0)
           .map(([k, n]) => `<li>${esc(textosVideos[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
         return `
           <details>
-            <summary><span>${esc(f.nombre)} <span class="muted">· ${f.total} comentarios</span></span></summary>
+            <summary><span>${esc(nombre)} <span class="muted">· ${esc(det.comentarios)} comentarios</span></span></summary>
             <div class="detalle">
               <strong>Videos con más conversación</strong><ul>${destacados}</ul>
               <strong class="pos">Comentarios positivos más votados</strong><ul>${listaEjemplos(ejemplos.positivos)}</ul>
@@ -552,10 +680,12 @@
       }).join('');
 
       // ===== Metodo =====
+      const diasAcum = acum ? acum.dias : 30;
       document.getElementById('metodo').innerHTML = `
-        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
+        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
-        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo puede confundir ironías, y en general la gente comenta más para criticar, por eso es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
+        <p>El <strong>acumulado</strong> junta todas las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez, para que los dirigentes con poca conversación sumen volumen.</p>
+        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo mide el tono del comentario y puede confundir ironías, por eso es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
     }).catch(err => {
       console.error(err);
       document.getElementById('meta').textContent = 'Error al cargar los datos';

@@ -1,0 +1,1079 @@
+{
+  "pais": "España",
+  "codigo": "es",
+  "idioma": "es",
+  "actualizado": "09/11/2026 20:46",
+  "metodo": 3,
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "filtros": {
+    "solo_un_dirigente_por_comentario": true,
+    "otros_nombres_excluidos": [
+      "ayuso",
+      "puigdemont",
+      "yolanda diaz",
+      "belarra",
+      "illa"
+    ],
+    "ironia_excluida": true,
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "modelos": {
+    "emociones": true,
+    "agresividad": true,
+    "ironia": true
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 623,
+  "acumulado": {
+    "dias": 30,
+    "corridas": 1,
+    "datos": {
+      "Sánchez": {
+        "POS": 18,
+        "NEG": 96,
+        "NEU": 15
+      },
+      "Feijóo": {
+        "POS": 8,
+        "NEG": 66,
+        "NEU": 3
+      },
+      "Abascal": {
+        "POS": 29,
+        "NEG": 87,
+        "NEU": 24
+      },
+      "Colau": {
+        "POS": 14,
+        "NEG": 34,
+        "NEU": 5
+      },
+      "Irene Montero": {
+        "POS": 22,
+        "NEG": 11,
+        "NEU": 20
+      },
+      "Rufián": {
+        "POS": 38,
+        "NEG": 117,
+        "NEU": 16
+      }
+    },
+    "pocos_datos": {
+      "Sánchez": false,
+      "Feijóo": false,
+      "Abascal": false,
+      "Colau": false,
+      "Irene Montero": false,
+      "Rufián": false
+    }
+  },
+  "detalle": {
+    "Sánchez": {
+      "videos": 20,
+      "comentarios": 129,
+      "pocos_datos": false,
+      "canales": {
+        "UN ABOGADO CONTRA LA DEMAGOGIA": 18,
+        "Ultima Hora": 17,
+        "LibertadDigital": 15,
+        "Memorias de Pez": 14,
+        "El Debate": 13,
+        "elDiarioes": 12,
+        "LA SÉPTIMA": 11,
+        "COPE": 9,
+        "El Mundo": 7,
+        "Antena 3 Noticias": 4,
+        "OKDIARIO": 4,
+        "La Vanguardia": 3,
+        "Diario ABC": 1,
+        "Andi García": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 11,
+        "mismo_autor": 9,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 6,
+        "ironia": 37
+      },
+      "videos_destacados": [
+        {
+          "titulo": "✅ Charlando de geopolítica con PEDRO SÁNCHEZ | Crisis de CEUTA, Oriente Medio, vivienda y PENSIONES",
+          "canal": "Memorias de Pez",
+          "url": "https://www.youtube.com/watch?v=UNgXqTWfE_M",
+          "comentarios": 4674,
+          "vistas": 440152
+        },
+        {
+          "titulo": "🔥BOMBAZO BRUTAL🔥PEDRO SÁNCHEZ HUNDIDO por BRONCANO y ABASCAL en BILBAO  // JORDI WILD Y ELECCIONES.",
+          "canal": "UN ABOGADO CONTRA LA DEMAGOGIA",
+          "url": "https://www.youtube.com/watch?v=Ojq0ZpsbUv0",
+          "comentarios": 1439,
+          "vistas": 253702
+        },
+        {
+          "titulo": "La cara de Pedro Sánchez mientras corean el nombre de Óscar Puente en un mitin del PSOE",
+          "canal": "LibertadDigital",
+          "url": "https://www.youtube.com/watch?v=3XZiqQKn4qM",
+          "comentarios": 449,
+          "vistas": 44424
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Enhorabuena Borja por la entrevista. No comparto la dureza de los comentarios. Yo veo que Borja ha formulado preguntas interesantes y sanchez ha contestado algunas y evitado otras.",
+            "likes": 31
+          },
+          {
+            "texto": "Me gusto conocer las ideas de Sanchez. Muchas gracias",
+            "likes": 26
+          },
+          {
+            "texto": "Da gusto escuchar al Presidente Pedro Sánchez,  el mejor presidente de la Democracia.  Un orgullo para este país.  ❤❤❤❤❤",
+            "likes": 26
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Que se puede esperar de un sinvergüenza como Sánchez",
+            "likes": 257
+          },
+          {
+            "texto": "Sánchez exigió a sus afiliados la asistencia a sus mítines, y no así son capaces de llenar",
+            "likes": 216
+          },
+          {
+            "texto": "Quedan 21 días para que Sánchez se fugue",
+            "likes": 88
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 20,
+        "tristeza": 3,
+        "enojo": 64,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 41
+      },
+      "agresivos": 3,
+      "ponderado_likes": {
+        "POS": 215,
+        "NEG": 1407,
+        "NEU": 99
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 1390376,
+        "likes_videos": 41723
+      },
+      "polemica": {
+        "respuestas": 90,
+        "promedio": 0.7,
+        "mas_discutido": {
+          "texto": "Sánchez exigió a sus afiliados la asistencia a sus mítines, y no así son capaces de llenar",
+          "respuestas": 18
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 14,
+        "NEU": 5
+      },
+      "temas": [
+        [
+          "presidente",
+          24
+        ],
+        [
+          "entrevista",
+          10
+        ],
+        [
+          "verguenza",
+          9
+        ],
+        [
+          "psoe",
+          9
+        ],
+        [
+          "espanoles",
+          7
+        ],
+        [
+          "voto",
+          7
+        ],
+        [
+          "elecciones",
+          7
+        ],
+        [
+          "gracias",
+          6
+        ],
+        [
+          "pena",
+          6
+        ],
+        [
+          "nadie",
+          6
+        ],
+        [
+          "empatia",
+          6
+        ],
+        [
+          "preguntas",
+          5
+        ]
+      ]
+    },
+    "Feijóo": {
+      "videos": 20,
+      "comentarios": 77,
+      "pocos_datos": false,
+      "canales": {
+        "la8zaragoza": 19,
+        "Antena 3 Noticias": 18,
+        "Alán Barroso": 14,
+        "elDiarioes": 8,
+        "El Debate": 7,
+        "EL PAÍS": 5,
+        "No Me Cuadra": 2,
+        "El Mundo": 2,
+        "LibertadDigital": 1,
+        "SUP_Policia": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 39,
+        "mismo_autor": 11,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 36,
+        "ironia": 12
+      },
+      "videos_destacados": [
+        {
+          "titulo": "LAS ENCUESTAS EMPIEZAN A CAMBIAR PARA SÁNCHEZ. \"¡FEIJÓO ES UN TRISTE!\"",
+          "canal": "Alán Barroso",
+          "url": "https://www.youtube.com/watch?v=es2-YiiE92A",
+          "comentarios": 570,
+          "vistas": 78149
+        },
+        {
+          "titulo": "Feijóo promete menos espectáculo en un mitin, ¿y las pensiones?",
+          "canal": "Alán Barroso",
+          "url": "https://www.youtube.com/watch?v=q3t8nKpSYTo",
+          "comentarios": 450,
+          "vistas": 65354
+        },
+        {
+          "titulo": "🔥FEIJÓO TIRA DE MARQUESA PARA REPETIR LA CONSIGNA DE 2023 DEL VOTO ÚTIL CONTRA VOX🔥",
+          "canal": "la8zaragoza",
+          "url": "https://www.youtube.com/watch?v=MyxTmZ8ZtNU",
+          "comentarios": 351,
+          "vistas": 19712
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Muy bien así se habla S.Feijo alto y claro",
+            "likes": 15
+          },
+          {
+            "texto": "Leer: FEIJOO LA CARA OCULTA DE UN FARSANTE  libro muy bien documentado",
+            "likes": 4
+          },
+          {
+            "texto": "PERFECTO 👏🏻 \nUSTED ME REPRESENTA PRESIDENTE FEIJÓO!",
+            "likes": 2
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "FEIJO  ES UN COMPLETO LRRDO😂",
+            "likes": 76
+          },
+          {
+            "texto": "El pp quiere gobernar con el psoe son iguales feijo empleado de van der leyen",
+            "likes": 67
+          },
+          {
+            "texto": "No sé quién es más tonto..si Feijóo o los que le aplauden detrás😂😂😂",
+            "likes": 57
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 7,
+        "tristeza": 2,
+        "enojo": 39,
+        "sorpresa": 1,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 27
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 32,
+        "NEG": 511,
+        "NEU": 12
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 490516,
+        "likes_videos": 21337
+      },
+      "polemica": {
+        "respuestas": 31,
+        "promedio": 0.4,
+        "mas_discutido": {
+          "texto": "Feijóo  promete estabilizar a España y encima con Vox. Qué humor tiene el pájaro! Sobornando como la Mafia, comprando voluntades y llenando de suciedad todo lo que tocan. Qué tirria!",
+          "respuestas": 4
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 15,
+        "NEU": 5
+      },
+      "temas": [
+        [
+          "psoe",
+          11
+        ],
+        [
+          "presidente",
+          9
+        ],
+        [
+          "senor",
+          6
+        ],
+        [
+          "votar",
+          6
+        ],
+        [
+          "voto",
+          5
+        ],
+        [
+          "elecciones",
+          4
+        ],
+        [
+          "estado",
+          4
+        ],
+        [
+          "cambiar",
+          3
+        ],
+        [
+          "partido",
+          3
+        ],
+        [
+          "claro",
+          3
+        ],
+        [
+          "habla",
+          3
+        ],
+        [
+          "eres",
+          3
+        ]
+      ]
+    },
+    "Abascal": {
+      "videos": 20,
+      "comentarios": 140,
+      "pocos_datos": false,
+      "canales": {
+        "VOX España": 19,
+        "Resistencia Salvame": 17,
+        "inMatrix": 15,
+        "Ultima Hora": 15,
+        "ESPAÑA EN LLAMAS": 15,
+        "Onda Cero": 15,
+        "Alán Barroso": 13,
+        "EL PAÍS": 8,
+        "Patri Today": 6,
+        "No Me Cuadra": 5,
+        "laSexta": 5,
+        "Se Lió": 3,
+        "Grubby Mask": 2,
+        "SpainData": 1,
+        "La Pandereta": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 25,
+        "mismo_autor": 30,
+        "texto_repetido": 8,
+        "cuenta_nueva": 1,
+        "tope_canal": 132,
+        "ironia": 30
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Abascal va a La Revuelta de Broncano, pero sin el público",
+          "canal": "Alán Barroso",
+          "url": "https://www.youtube.com/watch?v=DVaBwNp-C4s",
+          "comentarios": 1070,
+          "vistas": 118819
+        },
+        {
+          "titulo": "Santiago Abascal: \"El miedo a Vox ya no funciona porque el PP no colabora es esparcirlo\"",
+          "canal": "Onda Cero",
+          "url": "https://www.youtube.com/watch?v=r4cAmXgV6Q0",
+          "comentarios": 571,
+          "vistas": 278151
+        },
+        {
+          "titulo": "Abascal en La Revuelta: Broncano y el miedo",
+          "canal": "inMatrix",
+          "url": "https://www.youtube.com/watch?v=8nNx6mej8a0",
+          "comentarios": 320,
+          "vistas": 44588
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Soy Jubilado y Voto ha Vox desde que Existen y Prioridad Nacional y Viva Ceuta y Melilla y Viva Vox y Viva mi Presidente el Sr Santiago Abascal y Viva España libre",
+            "likes": 47
+          },
+          {
+            "texto": "ADELANTE ABASCAL,      Haz España Española Otra Vez",
+            "likes": 43
+          },
+          {
+            "texto": "Don Santiago Abascal PRESIDENTE",
+            "likes": 41
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Tras ver a varios políticos,  mi voto va a Abascal. De un ex votante de psoe y pp.",
+            "likes": 137
+          },
+          {
+            "texto": "Si consienten llevar a Abascal bajo sus condiciones, Broncano y su programa verá como irá perdiendo audiencia semana a semana 😡",
+            "likes": 103
+          },
+          {
+            "texto": "Pero como es posible que un individuo como Abascal imponga sus condiciones y la cadena ceda. Es la primera decepción de la 1  y del programa, o va como todo el mundo o que se vaya a las privadas de lo mafiosos.",
+            "likes": 54
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 25,
+        "tristeza": 6,
+        "enojo": 38,
+        "sorpresa": 1,
+        "asco": 1,
+        "miedo": 1,
+        "sin_emocion_clara": 68
+      },
+      "agresivos": 3,
+      "ponderado_likes": {
+        "POS": 384,
+        "NEG": 873,
+        "NEU": 261
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 905400,
+        "likes_videos": 21147
+      },
+      "polemica": {
+        "respuestas": 131,
+        "promedio": 0.94,
+        "mas_discutido": {
+          "texto": "Tras ver a varios políticos,  mi voto va a Abascal. De un ex votante de psoe y pp.",
+          "respuestas": 39
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 14,
+        "NEU": 4
+      },
+      "temas": [
+        [
+          "broncano",
+          31
+        ],
+        [
+          "presidente",
+          20
+        ],
+        [
+          "viva",
+          18
+        ],
+        [
+          "programa",
+          16
+        ],
+        [
+          "entrevista",
+          12
+        ],
+        [
+          "grande",
+          11
+        ],
+        [
+          "hablar",
+          10
+        ],
+        [
+          "voto",
+          9
+        ],
+        [
+          "revuelta",
+          9
+        ],
+        [
+          "visto",
+          9
+        ],
+        [
+          "publico",
+          9
+        ],
+        [
+          "adelante",
+          8
+        ]
+      ]
+    },
+    "Colau": {
+      "videos": 20,
+      "comentarios": 53,
+      "pocos_datos": false,
+      "canales": {
+        "EL PAÍS": 10,
+        "Frente Amplio": 9,
+        "La Vanguardia": 9,
+        "El Sentido De La Birra con Ricardo Moya": 7,
+        "elDiarioes": 6,
+        "The Objective": 6,
+        "Víctor Domínguez": 2,
+        "Europa Press": 2,
+        "OKDIARIO": 1,
+        "El lado izquierdo España": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 3,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 0,
+        "ironia": 12
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Ada Colau, a Cayetana: \"Vamos a freír a usted y a sus amigos pijos a impuestos\"",
+          "canal": "EL PAÍS",
+          "url": "https://www.youtube.com/watch?v=OAtm_LG2CG4",
+          "comentarios": 537,
+          "vistas": 90245
+        },
+        {
+          "titulo": "El delirio chavista de Ada Colau para solucionar el problema de la vivienda: \"¡Exprópiese!\"",
+          "canal": "OKDIARIO",
+          "url": "https://www.youtube.com/watch?v=rENpD8pOsdk",
+          "comentarios": 326,
+          "vistas": 16616
+        },
+        {
+          "titulo": "Ada Colau propone el impuesto “tax the rich” para gravar a patrimonios de más de un millón de euros",
+          "canal": "elDiarioes",
+          "url": "https://www.youtube.com/watch?v=53YmFX9ldPo",
+          "comentarios": 189,
+          "vistas": 21614
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Lo digo siempre, Ada Colau y el equipo de Frente Amplio saben lo que quieren, proponen cosas sensatas y pueden conseguirlo.",
+            "likes": 16
+          },
+          {
+            "texto": "Mi admiración y respeto a Ada Colau",
+            "likes": 8
+          },
+          {
+            "texto": "Ada Colau como siempre sincera y clara, la dimisión de Óscar Puente era necesaria y pone de manifiesto que la dimisión en política no tiene que ser una excepción.",
+            "likes": 2
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Colau. Que con tu sueldo no llegas a fin de mes. !!!!Que vas a gestionar tu?",
+            "likes": 18
+          },
+          {
+            "texto": "Menos mal del sentido comun de Ada Colau y el Frente Amplio ante una situación tan dramática y complicada. Tienen mi voto.",
+            "likes": 8
+          },
+          {
+            "texto": "Los que somos de Barcelona sabemos lo que se ha enriquecido y la decadencia que ha llevado a la ciudad, ahora pretende hacerlo con España. Antes que a Colau espero que tengan alguna neurona los votantes, a y el Urtasun nunca a pegao palo al agua y siempre está como primera lanza ",
+            "likes": 8
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 5,
+        "tristeza": 1,
+        "enojo": 21,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 26
+      },
+      "agresivos": 6,
+      "ponderado_likes": {
+        "POS": 45,
+        "NEG": 109,
+        "NEU": 14
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 356587,
+        "likes_videos": 9902
+      },
+      "polemica": {
+        "respuestas": 9,
+        "promedio": 0.17,
+        "mas_discutido": {
+          "texto": "Bravo Colau🙏🙏 paremos a estos sinvergüenzas",
+          "respuestas": 4
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 14,
+        "NEU": 6
+      },
+      "temas": [
+        [
+          "barcelona",
+          9
+        ],
+        [
+          "politica",
+          8
+        ],
+        [
+          "amplio",
+          6
+        ],
+        [
+          "frente",
+          6
+        ],
+        [
+          "senora",
+          5
+        ],
+        [
+          "alcaldesa",
+          5
+        ],
+        [
+          "toledo",
+          4
+        ],
+        [
+          "cayetana",
+          4
+        ],
+        [
+          "alvarez",
+          4
+        ],
+        [
+          "izquierda",
+          3
+        ],
+        [
+          "luego",
+          3
+        ],
+        [
+          "voto",
+          3
+        ]
+      ]
+    },
+    "Irene Montero": {
+      "videos": 19,
+      "comentarios": 53,
+      "pocos_datos": false,
+      "canales": {
+        "Podemos": 18,
+        "LA SÉPTIMA": 15,
+        "Europa Press": 8,
+        "UN ABOGADO CONTRA LA DEMAGOGIA": 6,
+        "Canal Red": 5,
+        "Grubby Mask": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 1
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 20,
+        "mismo_autor": 29,
+        "texto_repetido": 3,
+        "cuenta_nueva": 1,
+        "tope_canal": 21,
+        "ironia": 16
+      },
+      "videos_destacados": [
+        {
+          "titulo": "🔥LAS REDES ARDEN CON EL TRISTE ESPECTÁCULO DE IRENE MONTERO por ABASCAL y BRONCANO🔥PEDRO SÁNCHEZ KO.",
+          "canal": "UN ABOGADO CONTRA LA DEMAGOGIA",
+          "url": "https://www.youtube.com/watch?v=LdqOSAFNsqc",
+          "comentarios": 1119,
+          "vistas": 140936
+        },
+        {
+          "titulo": "REPORTAJE: Alejandra Martínez en el acto de Rufián y Montero en Madrid",
+          "canal": "Canal Red",
+          "url": "https://www.youtube.com/watch?v=zsuDrYQpjAw",
+          "comentarios": 502,
+          "vistas": 82327
+        },
+        {
+          "titulo": "El 11N es una huelga contra el rentismo y los gobiernos que lo sostienen - Irene Montero en RNE",
+          "canal": "Podemos",
+          "url": "https://www.youtube.com/watch?v=xwvDGUCpDhQ",
+          "comentarios": 409,
+          "vistas": 21696
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Podemos e Irene Montero son garantia de honestidad y anticorrupción.",
+            "likes": 77
+          },
+          {
+            "texto": "Bravo Irene Montero. Yo voto PODEMOS.",
+            "likes": 66
+          },
+          {
+            "texto": "Brava,luchadora, valiente ,Irene montero una super mujer ❤❤",
+            "likes": 34
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Ese ser oscuro ( Irene Montero) me causa rechazo.",
+            "likes": 156
+          },
+          {
+            "texto": "Buenas tardes Aitor. Muchísimas gracias por la información. Yo estoy muy indignada con lo del tribunal supremo. Así que ya me espero cualquier cosa . Irene Montero no creo que saque nada. Puede decir lo que quiera, no tiene apoyo ni de los suyos.... Sobre lo de esta noche cada un",
+            "likes": 46
+          },
+          {
+            "texto": "Escucha el  discurso y las intenciones de Irene Montero y luego compáralo con Emilio Delgado diciendo en la sexta que la huelga no es contra el gobierno,  es contra el poder que toma las decisiones.  Meridiano quien representa a quien.",
+            "likes": 39
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 24,
+        "tristeza": 0,
+        "enojo": 6,
+        "sorpresa": 1,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 21
+      },
+      "agresivos": 3,
+      "ponderado_likes": {
+        "POS": 415,
+        "NEG": 330,
+        "NEU": 355
+      },
+      "alcance": {
+        "videos": 19,
+        "vistas": 596243,
+        "likes_videos": 42626
+      },
+      "polemica": {
+        "respuestas": 28,
+        "promedio": 0.53,
+        "mas_discutido": {
+          "texto": "Ese ser oscuro ( Irene Montero) me causa rechazo.",
+          "respuestas": 9
+        }
+      },
+      "titulos": {
+        "POS": 2,
+        "NEG": 7,
+        "NEU": 6
+      },
+      "temas": [
+        [
+          "podemos",
+          17
+        ],
+        [
+          "gracias",
+          9
+        ],
+        [
+          "voto",
+          8
+        ],
+        [
+          "presidenta",
+          6
+        ],
+        [
+          "valiente",
+          5
+        ],
+        [
+          "entrevista",
+          5
+        ],
+        [
+          "politica",
+          5
+        ],
+        [
+          "bravo",
+          5
+        ],
+        [
+          "grande",
+          4
+        ],
+        [
+          "gran",
+          4
+        ],
+        [
+          "buenas",
+          3
+        ],
+        [
+          "izquierda",
+          3
+        ]
+      ]
+    },
+    "Rufián": {
+      "videos": 18,
+      "comentarios": 171,
+      "pocos_datos": false,
+      "canales": {
+        "EL PAÍS": 18,
+        "laSexta": 17,
+        "elDiarioes": 17,
+        "20minutos": 17,
+        "Canal Red": 15,
+        "RTVE Noticias": 15,
+        "El Debate": 14,
+        "EL ESPAÑOL": 13,
+        "la torreta informativa": 13,
+        "Diario AS": 10,
+        "LibertadDigital": 10,
+        "Podemos": 9,
+        "LA SÉPTIMA": 3
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 2
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 35,
+        "mismo_autor": 20,
+        "texto_repetido": 8,
+        "cuenta_nueva": 4,
+        "tope_canal": 152,
+        "ironia": 45
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Rufián, a Puente: \"Usted es un buen político y da la cara\"",
+          "canal": "elDiarioes",
+          "url": "https://www.youtube.com/watch?v=N6x17nkw3yE",
+          "comentarios": 1174,
+          "vistas": 751691
+        },
+        {
+          "titulo": "Rufián se acerca a Puente tras anunciar su dimisión: \"Has sido un gran ministro\" #shorts",
+          "canal": "EL PAÍS",
+          "url": "https://www.youtube.com/watch?v=g1b8H1yIu1c",
+          "comentarios": 578,
+          "vistas": 104718
+        },
+        {
+          "titulo": "Discurso completo de Gabriel Rufián junto a Irene Montero en Madrid",
+          "canal": "Canal Red",
+          "url": "https://www.youtube.com/watch?v=M9to_agIjCA",
+          "comentarios": 402,
+          "vistas": 121517
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Q grandes, gracias por tanto! Muy orgullosa de Irene y Rufián, gente honesta luchando por los de abajo.",
+            "likes": 118
+          },
+          {
+            "texto": "Gracias Rufián, algo coherente entre tanta basura.",
+            "likes": 79
+          },
+          {
+            "texto": "Mis felicitaciones para los 2, Muy bien hablado ojala seais el futuro de nuestro pais y podais llevar a cabo lo k hablais.Nuedta futura presidenta de la mano de Gabriel Rufian .2 personas k no tienen pelos en la lengua y hablan bien claro,k entendemos todos los Españoles .",
+            "likes": 67
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Rufián no es más tonto porque no se entrena. Que payaso 🤡",
+            "likes": 203
+          },
+          {
+            "texto": "En serio Rufián Entonces Eres igualito de miserable qué él",
+            "likes": 82
+          },
+          {
+            "texto": "no le saco ni una coma a lo que dice Gabriel Rufián",
+            "likes": 68
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 34,
+        "tristeza": 8,
+        "enojo": 75,
+        "sorpresa": 0,
+        "asco": 2,
+        "miedo": 0,
+        "sin_emocion_clara": 52
+      },
+      "agresivos": 1,
+      "ponderado_likes": {
+        "POS": 788,
+        "NEG": 1159,
+        "NEU": 117
+      },
+      "alcance": {
+        "videos": 18,
+        "vistas": 1881260,
+        "likes_videos": 35733
+      },
+      "polemica": {
+        "respuestas": 107,
+        "promedio": 0.63,
+        "mas_discutido": {
+          "texto": "Gracias Rufián, algo coherente entre tanta basura.",
+          "respuestas": 11
+        }
+      },
+      "titulos": {
+        "POS": 2,
+        "NEG": 11,
+        "NEU": 5
+      },
+      "temas": [
+        [
+          "puente",
+          15
+        ],
+        [
+          "politico",
+          14
+        ],
+        [
+          "eres",
+          14
+        ],
+        [
+          "gran",
+          13
+        ],
+        [
+          "podemos",
+          11
+        ],
+        [
+          "gracias",
+          8
+        ],
+        [
+          "grande",
+          8
+        ],
+        [
+          "izquierda",
+          8
+        ],
+        [
+          "buen",
+          7
+        ],
+        [
+          "claro",
+          7
+        ],
+        [
+          "haciendo",
+          7
+        ],
+        [
+          "ministro",
+          7
+        ]
+      ]
+    }
+  }
+}

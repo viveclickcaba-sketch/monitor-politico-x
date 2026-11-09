@@ -1,0 +1,32 @@
+{
+  "Sánchez": {
+    "POS": 18,
+    "NEG": 96,
+    "NEU": 15
+  },
+  "Feijóo": {
+    "POS": 8,
+    "NEG": 66,
+    "NEU": 3
+  },
+  "Abascal": {
+    "POS": 29,
+    "NEG": 87,
+    "NEU": 24
+  },
+  "Colau": {
+    "POS": 14,
+    "NEG": 34,
+    "NEU": 5
+  },
+  "Irene Montero": {
+    "POS": 22,
+    "NEG": 11,
+    "NEU": 20
+  },
+  "Rufián": {
+    "POS": 38,
+    "NEG": 117,
+    "NEU": 16
+  }
+}

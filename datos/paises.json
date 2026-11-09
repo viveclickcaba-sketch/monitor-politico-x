@@ -1,0 +1,36 @@
+{
+  "ar": {
+    "nombre": "Argentina",
+    "idioma": "es"
+  },
+  "es": {
+    "nombre": "España",
+    "idioma": "es",
+    "actualizado": "09/11/2026 20:46",
+    "total_comentarios": 623
+  },
+  "co": {
+    "nombre": "Colombia",
+    "idioma": "es"
+  },
+  "us": {
+    "nombre": "Estados Unidos",
+    "idioma": "en"
+  },
+  "br": {
+    "nombre": "Brasil",
+    "idioma": "pt"
+  },
+  "it": {
+    "nombre": "Italia",
+    "idioma": "it"
+  },
+  "py": {
+    "nombre": "Paraguay",
+    "idioma": "es"
+  },
+  "ve": {
+    "nombre": "Venezuela",
+    "idioma": "es"
+  }
+}

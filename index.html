@@ -42,7 +42,7 @@
     .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .kpi { padding: 20px; margin: 0; }
     .kpi .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--suave); }
-    .kpi .valor { font-size: 34px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
+    .kpi .valor { font-size: 32px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
     .kpi .det { font-size: 13px; color: var(--suave); }
 
     .controles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
@@ -61,7 +61,7 @@
     .grafico { position: relative; width: 100%; }
     .muted { color: var(--suave); font-size: 13px; }
 
-    .grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 16px; }
+    .grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 16px; }
     .dir { background: rgba(255, 255, 255, 0.035); border: 1px solid var(--borde); border-radius: 18px; padding: 18px; }
     .dir .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
     .dir .nombre { font-size: 20px; font-weight: 800; }
@@ -69,10 +69,21 @@
     .barra { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255, 255, 255, 0.06); margin: 14px 0 12px; }
     .barra span { display: block; height: 100%; }
     .porcentajes { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
+    .emo { margin-top: 14px; font-size: 13px; color: var(--suave); }
+    .emo strong { color: var(--texto); }
+    .mini { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 12px; color: var(--suave); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag { font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--borde); color: #d1d5db; }
     .pos { color: var(--pos); }
     .neg { color: var(--neg); }
     .neu { color: var(--neu); }
     .aviso { display: inline-block; background: rgba(251, 191, 36, 0.12); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.35); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 999px; margin-top: 10px; text-transform: uppercase; }
+
+    .tabla-scroll { overflow-x: auto; margin-top: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--borde); white-space: nowrap; }
+    th { color: var(--suave); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    td strong { font-weight: 800; }
 
     details { border-bottom: 1px solid var(--borde); padding: 14px 0; }
     details:last-child { border-bottom: none; }
@@ -83,6 +94,7 @@
     .detalle { color: #d1d5db; font-size: 14px; margin-top: 12px; line-height: 1.55; }
     .detalle ul { margin: 6px 0 14px; padding-left: 20px; }
     .detalle li { margin-bottom: 5px; }
+    .detalle .tags { margin: 6px 0 14px; }
     .nota { color: #d1d5db; font-size: 14px; line-height: 1.7; margin-top: 12px; }
     .nota p { margin: 0 0 10px; }
 
@@ -134,8 +146,40 @@
     </div>
 
     <div class="card">
+      <h3>Emociones por dirigente</h3>
+      <p class="muted">Porcentaje de comentarios según la emoción que expresan. Datos de la última corrida.</p>
+      <label class="check" style="margin-top: 0;"><input type="checkbox" id="chkSinEmocion" checked> Dejar afuera los comentarios sin emoción clara</label>
+      <div class="grafico" id="cajaEmociones" style="margin-top: 14px;"><canvas id="graficoEmociones"></canvas></div>
+    </div>
+
+    <div class="card">
       <h3>Dirigente por dirigente</h3>
+      <p class="muted">El tono responde a los filtros de arriba. Emoción, temas y demás indicadores son de la última corrida.</p>
       <div class="grilla" id="grilla"></div>
+    </div>
+
+    <div class="card">
+      <h3>Más indicadores</h3>
+      <p class="muted">Datos de la última corrida. Deslizá la tabla hacia los costados en el celular.</p>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Dirigente</th>
+              <th>Agresivos</th>
+              <th>Irónicos</th>
+              <th>Tono con likes</th>
+              <th>Tono de títulos</th>
+              <th>Vistas</th>
+              <th>Polémica</th>
+            </tr>
+          </thead>
+          <tbody id="tablaIndicadores"></tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top: 14px; line-height: 1.6;">
+        <strong>Agresivos:</strong> comentarios con lenguaje hostil o insultante. <strong>Irónicos:</strong> comentarios detectados como ironía, que quedan afuera del tono. <strong>Tono con likes:</strong> positivo y negativo dándole más peso a los comentarios más votados. <strong>Tono de títulos:</strong> cómo presentan los canales al dirigente en los títulos de sus videos. <strong>Polémica:</strong> promedio de respuestas por comentario.
+      </p>
     </div>
 
     <div class="card">
@@ -143,7 +187,7 @@
         <h3>Evolución en el tiempo</h3>
         <select id="selEvolucion" style="width: auto;"></select>
       </div>
-      <label class="check" style="margin-top: 0; margin-bottom: 10px;"><input type="checkbox" id="chkAnterior"> Incluir corridas del método anterior</label>
+      <label class="check" style="margin-top: 0; margin-bottom: 10px;"><input type="checkbox" id="chkAnterior"> Incluir corridas de métodos anteriores</label>
       <p class="muted" id="evoAviso"></p>
       <div class="grafico" id="cajaEvolucion" style="height: 360px;"><canvas id="graficoEvolucion"></canvas></div>
     </div>
@@ -171,7 +215,7 @@
 
     <div class="card">
       <h3>¿De dónde salen los datos?</h3>
-      <p class="muted">Detalle de la última corrida. Tocá cada dirigente para ver videos, comentarios de ejemplo, canales y descartes.</p>
+      <p class="muted">Detalle de la última corrida. Tocá cada dirigente para ver videos, comentarios, temas, canales y descartes.</p>
       <div id="fuentes"></div>
     </div>
 
@@ -185,11 +229,24 @@
     const sinCache = '?v=' + Date.now();
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
+    const fmtNum = n => {
+      n = Number(n) || 0;
+      if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.', ',') + ' M';
+      if (n >= 1e3) return Math.round(n / 1e3) + ' mil';
+      return String(n);
+    };
     const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
+    const EMOCIONES = [
+      ['enojo', 'Enojo', '#ef4444'],
+      ['asco', 'Asco', '#84cc16'],
+      ['tristeza', 'Tristeza', '#60a5fa'],
+      ['miedo', 'Miedo', '#a78bfa'],
+      ['sorpresa', 'Sorpresa', '#facc15'],
+      ['alegria', 'Alegría', '#22c55e'],
+      ['sin_emocion_clara', 'Sin emoción clara', '#6b7280']
+    ];
     const ROJO_PLACA = '#ff0000';
-    const METODO_ACTUAL = 2;
-    let grafico = null;
-    let graficoEvo = null;
+    let grafico = null, graficoEvo = null, graficoEmo = null;
 
     Chart.defaults.font.family = '"Montserrat", system-ui, sans-serif';
     Chart.defaults.color = '#cbd5e1';
@@ -201,14 +258,16 @@
       fetch('historial.json' + sinCache).then(r => r.ok ? r.json() : []).catch(() => [])
     ]).then(([datos, info, historial]) => {
       if (!Array.isArray(historial)) historial = [];
+      const METODO_ACTUAL = (info && info.metodo) || 1;
       const detalle = (info && info.detalle) || {};
       const filtros = (info && info.filtros) || {};
       const diasCuenta = filtros.cuentas_nuevas_excluidas_dias || 30;
       const tope = filtros.tope_por_canal || 20;
       const periodo = info ? String(info.periodo || '').replace('ultimos', 'últimos').replace('dias', 'días') : '';
       const acum = info && info.acumulado;
+      const D = n => detalle[n] || {};
 
-      // ===== Opciones de datos: corridas guardadas y acumulado =====
+      // ===== Opciones de datos =====
       const opciones = [];
       if (historial.length) {
         for (let i = historial.length - 1; i >= 0; i--) {
@@ -227,7 +286,7 @@
       } else {
         const pocos = {};
         Object.keys(detalle).forEach(n => { pocos[n] = detalle[n].pocos_datos; });
-        opciones.push({ id: 'ultima', etiqueta: 'Última corrida', corto: info ? info.actualizado : '', datos, pocos, metodo: (info && info.metodo) || 1 });
+        opciones.push({ id: 'ultima', etiqueta: 'Última corrida', corto: info ? info.actualizado : '', datos, pocos, metodo: METODO_ACTUAL });
       }
       if (acum && acum.datos) {
         opciones.splice(1, 0, {
@@ -244,13 +303,7 @@
       const todosNombres = [];
       [datos, ...opciones.map(o => o.datos)].forEach(d => Object.keys(d || {}).forEach(n => { if (!todosNombres.includes(n)) todosNombres.push(n); }));
 
-      const estado = {
-        fuente: opciones[0].id,
-        comparar: '',
-        modo: 'cantidad',
-        visibles: new Set(todosNombres),
-        ocultarPocos: false
-      };
+      const estado = { fuente: opciones[0].id, comparar: '', modo: 'cantidad', visibles: new Set(todosNombres), ocultarPocos: false };
 
       function fila(op, n) {
         const d = (op.datos || {})[n] || {};
@@ -260,10 +313,19 @@
         return { nombre: n, pos, neg, neu, total, pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total), pocos };
       }
       function filasDe(op) {
-        return todosNombres
-          .filter(n => estado.visibles.has(n))
-          .map(n => fila(op, n))
-          .filter(f => !(estado.ocultarPocos && f.pocos));
+        return todosNombres.filter(n => estado.visibles.has(n)).map(n => fila(op, n)).filter(f => !(estado.ocultarPocos && f.pocos));
+      }
+      function nombresUltima() {
+        return todosNombres.filter(n => estado.visibles.has(n) && detalle[n])
+          .filter(n => !(estado.ocultarPocos && D(n).pocos_datos));
+      }
+      function emocionesPct(n, sinNeutra) {
+        const e = D(n).emociones || {};
+        const claves = EMOCIONES.map(x => x[0]).filter(k => !(sinNeutra && k === 'sin_emocion_clara'));
+        const total = claves.reduce((a, k) => a + (e[k] || 0), 0);
+        const r = {};
+        claves.forEach(k => { r[k] = pct(e[k] || 0, total); });
+        return r;
       }
 
       // ===== Encabezado =====
@@ -271,7 +333,7 @@
         ? `Última actualización ${info.actualizado} · ${info.fuente} · ${periodo}`
         : 'Sin información de actualización';
 
-      // ===== Controles de filtros =====
+      // ===== Controles =====
       const selFuente = document.getElementById('selFuente');
       const selComparar = document.getElementById('selComparar');
       selFuente.innerHTML = opciones.map(o => `<option value="${o.id}">${esc(o.etiqueta)}</option>`).join('');
@@ -285,11 +347,8 @@
           `<button class="chip ${estado.visibles.has(n) ? 'activo' : ''}" data-nombre="${esc(n)}">${esc(n)}</button>`).join('');
         chips.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
           const n = b.dataset.nombre;
-          if (estado.visibles.has(n)) {
-            if (estado.visibles.size > 1) estado.visibles.delete(n);
-          } else {
-            estado.visibles.add(n);
-          }
+          if (estado.visibles.has(n)) { if (estado.visibles.size > 1) estado.visibles.delete(n); }
+          else estado.visibles.add(n);
           dibujarChips();
           render();
         }));
@@ -298,16 +357,19 @@
       document.getElementById('chkPocos').addEventListener('change', e => { estado.ocultarPocos = e.target.checked; render(); });
       document.getElementById('btnCantidad').addEventListener('click', () => { estado.modo = 'cantidad'; render(); });
       document.getElementById('btnPorcentaje').addEventListener('click', () => { estado.modo = 'porcentaje'; render(); });
+      document.getElementById('chkSinEmocion').addEventListener('change', dibujarEmociones);
 
       // ===== Marcadores =====
       function dibujarKpis() {
         const A = opcion(estado.fuente);
-        const filas = filasDe(A);
-        const confiables = filas.filter(f => !f.pocos && f.total > 0);
+        const filas = filasDe(A).filter(f => f.total > 0);
+        const confiables = filas.filter(f => !f.pocos);
         const mayor = (lista, clave) => lista.length ? lista.reduce((a, b) => (b[clave] > a[clave] ? b : a)) : null;
-        const masMencionado = mayor(filas.filter(f => f.total > 0), 'total');
-        const masPositivo = mayor(confiables, 'pPos');
-        const masNegativo = mayor(confiables, 'pNeg');
+        const masMencionado = mayor(filas, 'total');
+        const masPctPos = mayor(confiables, 'pPos');
+        const masPctNeg = mayor(confiables, 'pNeg');
+        const masPos = mayor(filas, 'pos');
+        const masNeg = mayor(filas, 'neg');
         const total = filas.reduce((a, f) => a + f.total, 0);
         const kpi = (lbl, valor, det, color) => `
           <div class="card kpi">
@@ -318,8 +380,10 @@
         document.getElementById('kpis').innerHTML =
           kpi('Comentarios', total, esc(A.etiqueta)) +
           kpi('Más mencionado', masMencionado ? esc(masMencionado.nombre) : '—', masMencionado ? `${masMencionado.total} comentarios` : '') +
-          kpi('Mayor % positivo', masPositivo ? esc(masPositivo.nombre) : '—', masPositivo ? `${masPositivo.pPos}% positivo` : 'Sin datos suficientes', 'var(--pos)') +
-          kpi('Mayor % negativo', masNegativo ? esc(masNegativo.nombre) : '—', masNegativo ? `${masNegativo.pNeg}% negativo` : 'Sin datos suficientes', 'var(--neg)');
+          kpi('Mayor % positivo', masPctPos ? esc(masPctPos.nombre) : '—', masPctPos ? `${masPctPos.pPos}% · ${masPctPos.pos} de ${masPctPos.total} comentarios` : 'Sin datos suficientes', 'var(--pos)') +
+          kpi('Más comentarios positivos', masPos ? esc(masPos.nombre) : '—', masPos ? `${masPos.pos} comentarios positivos` : '', 'var(--pos)') +
+          kpi('Mayor % negativo', masPctNeg ? esc(masPctNeg.nombre) : '—', masPctNeg ? `${masPctNeg.pNeg}% · ${masPctNeg.neg} de ${masPctNeg.total} comentarios` : 'Sin datos suficientes', 'var(--neg)') +
+          kpi('Más comentarios negativos', masNeg ? esc(masNeg.nombre) : '—', masNeg ? `${masNeg.neg} comentarios negativos` : '', 'var(--neg)');
       }
 
       // ===== Grafico principal =====
@@ -336,6 +400,7 @@
         const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
         const leyenda = { labels: { usePointStyle: true, pointStyle: 'circle' } };
         const tooltipPct = { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } };
+        const redondo = { borderRadius: 6, borderSkipped: false };
 
         if (B) {
           const fb = filas.map(f => fila(B, f.nombre));
@@ -348,15 +413,14 @@
             data: {
               labels: etiquetas,
               datasets: [
-                { label: `Positivo · ${A.corto}`, data: filas.map(f => esPct ? f.pPos : f.pos), backgroundColor: '#22c55e', borderRadius: 6, borderSkipped: false },
-                { label: `Positivo · ${B.corto}`, data: fb.map(f => esPct ? f.pPos : f.pos), backgroundColor: 'rgba(34, 197, 94, 0.35)', borderRadius: 6, borderSkipped: false },
-                { label: `Negativo · ${A.corto}`, data: filas.map(f => esPct ? f.pNeg : f.neg), backgroundColor: '#ef4444', borderRadius: 6, borderSkipped: false },
-                { label: `Negativo · ${B.corto}`, data: fb.map(f => esPct ? f.pNeg : f.neg), backgroundColor: 'rgba(239, 68, 68, 0.35)', borderRadius: 6, borderSkipped: false }
+                Object.assign({ label: `Positivo · ${A.corto}`, data: filas.map(f => esPct ? f.pPos : f.pos), backgroundColor: '#22c55e' }, redondo),
+                Object.assign({ label: `Positivo · ${B.corto}`, data: fb.map(f => esPct ? f.pPos : f.pos), backgroundColor: 'rgba(34, 197, 94, 0.35)' }, redondo),
+                Object.assign({ label: `Negativo · ${A.corto}`, data: filas.map(f => esPct ? f.pNeg : f.neg), backgroundColor: '#ef4444' }, redondo),
+                Object.assign({ label: `Negativo · ${B.corto}`, data: fb.map(f => esPct ? f.pNeg : f.neg), backgroundColor: 'rgba(239, 68, 68, 0.35)' }, redondo)
               ]
             },
             options: {
-              responsive: true,
-              maintainAspectRatio: false,
+              responsive: true, maintainAspectRatio: false,
               scales: {
                 x: { grid: { display: false }, border: { display: false } },
                 y: Object.assign({ beginAtZero: true, grid: { color: GRID }, border: { display: false } },
@@ -373,14 +437,13 @@
             data: {
               labels: etiquetas,
               datasets: [
-                { label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e', borderRadius: 6, borderSkipped: false },
-                { label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444', borderRadius: 6, borderSkipped: false },
-                { label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8', borderRadius: 6, borderSkipped: false }
+                Object.assign({ label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e' }, redondo),
+                Object.assign({ label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444' }, redondo),
+                Object.assign({ label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8' }, redondo)
               ]
             },
             options: {
-              responsive: true,
-              maintainAspectRatio: false,
+              responsive: true, maintainAspectRatio: false,
               scales: {
                 x: { grid: { display: false }, border: { display: false } },
                 y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } }
@@ -402,9 +465,7 @@
               ]
             },
             options: {
-              indexAxis: 'y',
-              responsive: true,
-              maintainAspectRatio: false,
+              indexAxis: 'y', responsive: true, maintainAspectRatio: false,
               scales: {
                 x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
                 y: { stacked: true, grid: { display: false }, border: { display: false } }
@@ -415,33 +476,111 @@
         }
       }
 
+      // ===== Emociones =====
+      function dibujarEmociones() {
+        if (graficoEmo) graficoEmo.destroy();
+        const sinNeutra = document.getElementById('chkSinEmocion').checked;
+        const nombres = nombresUltima().filter(n => D(n).emociones);
+        const caja = document.getElementById('cajaEmociones');
+        if (!nombres.length) {
+          caja.innerHTML = '<p class="muted">Todavía no hay datos de emociones: corré el bot con la versión nueva.</p>';
+          return;
+        }
+        if (!document.getElementById('graficoEmociones')) caja.innerHTML = '<canvas id="graficoEmociones"></canvas>';
+        caja.style.height = (nombres.length * 52 + 90) + 'px';
+        const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
+        const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
+        graficoEmo = new Chart(document.getElementById('graficoEmociones'), {
+          type: 'bar',
+          data: {
+            labels: nombres.map(n => D(n).pocos_datos ? n + ' *' : n),
+            datasets: lista.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
+          },
+          options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            scales: {
+              x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
+              y: { stacked: true, grid: { display: false }, border: { display: false } }
+            },
+            plugins: {
+              legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
+              tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
+            }
+          }
+        });
+      }
+
       // ===== Tarjetas por dirigente =====
       function dibujarGrilla() {
         const filas = filasDe(opcion(estado.fuente));
-        document.getElementById('grilla').innerHTML = filas.map(f => `
-          <div class="dir">
-            <div class="top">
-              <div class="nombre">${esc(f.nombre)}</div>
-              <div class="total">${f.total} comentarios</div>
-            </div>
-            <div class="barra">
-              <span style="width:${f.pPos}%; background: var(--pos);"></span>
-              <span style="width:${f.pNeu}%; background: var(--neu);"></span>
-              <span style="width:${f.pNeg}%; background: var(--neg);"></span>
-            </div>
-            <div class="porcentajes">
-              <span class="pos">${f.pPos}% pos.</span>
-              <span class="neu">${f.pNeu}% neu.</span>
-              <span class="neg">${f.pNeg}% neg.</span>
-            </div>
-            ${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}
-          </div>`).join('') || '<p class="muted">No hay dirigentes para mostrar con estos filtros.</p>';
+        document.getElementById('grilla').innerHTML = filas.map(f => {
+          const d = D(f.nombre);
+          let emoTxt = '';
+          if (d.emociones) {
+            const p = emocionesPct(f.nombre, true);
+            const top = Object.entries(p).sort((a, b) => b[1] - a[1])[0];
+            if (top && top[1] > 0) {
+              const e = EMOCIONES.find(x => x[0] === top[0]);
+              emoTxt = `<div class="emo">Emoción predominante: <strong style="color:${e[2]}">${e[1]} ${top[1]}%</strong></div>`;
+            }
+          }
+          const mini = [];
+          if (d.alcance) mini.push(`👁 ${fmtNum(d.alcance.vistas)} vistas`);
+          if (d.comentarios && d.agresivos !== undefined) mini.push(`⚠️ ${pct(d.agresivos, d.comentarios)}% agresivo`);
+          if (d.polemica) mini.push(`💬 ${String(d.polemica.promedio).replace('.', ',')} resp./coment.`);
+          const temas = (d.temas || []).slice(0, 5).map(t => `<span class="tag">${esc(t[0])}</span>`).join('');
+          return `
+            <div class="dir">
+              <div class="top">
+                <div class="nombre">${esc(f.nombre)}</div>
+                <div class="total">${f.total} comentarios</div>
+              </div>
+              <div class="barra">
+                <span style="width:${f.pPos}%; background: var(--pos);"></span>
+                <span style="width:${f.pNeu}%; background: var(--neu);"></span>
+                <span style="width:${f.pNeg}%; background: var(--neg);"></span>
+              </div>
+              <div class="porcentajes">
+                <span class="pos">${f.pPos}% pos.</span>
+                <span class="neu">${f.pNeu}% neu.</span>
+                <span class="neg">${f.pNeg}% neg.</span>
+              </div>
+              ${emoTxt}
+              ${mini.length ? `<div class="mini">${mini.map(m => `<span>${m}</span>`).join('')}</div>` : ''}
+              ${temas ? `<div class="tags">${temas}</div>` : ''}
+              ${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}
+            </div>`;
+        }).join('') || '<p class="muted">No hay dirigentes para mostrar con estos filtros.</p>';
       }
 
-      // ===== Evolucion en el tiempo =====
+      // ===== Tabla de indicadores =====
+      function dibujarIndicadores() {
+        const filasHtml = nombresUltima().map(n => {
+          const d = D(n);
+          const c = d.comentarios || 0;
+          const ironicos = (d.comentarios_descartados || {}).ironia || 0;
+          const pl = d.ponderado_likes || {};
+          const tPl = (pl.POS || 0) + (pl.NEG || 0) + (pl.NEU || 0);
+          const ti = d.titulos || {};
+          const tTi = (ti.POS || 0) + (ti.NEG || 0) + (ti.NEU || 0);
+          const guion = '<span class="muted">—</span>';
+          return `
+            <tr>
+              <td><strong>${esc(n)}</strong>${d.pocos_datos ? ' <span class="muted">*</span>' : ''}</td>
+              <td>${d.agresivos !== undefined && c ? pct(d.agresivos, c) + '%' : guion}</td>
+              <td>${d.emociones ? pct(ironicos, c + ironicos) + '%' : guion}</td>
+              <td>${tPl ? `<span class="pos">${pct(pl.POS || 0, tPl)}%</span> / <span class="neg">${pct(pl.NEG || 0, tPl)}%</span>` : guion}</td>
+              <td>${tTi ? `<span class="pos">${pct(ti.POS || 0, tTi)}%</span> / <span class="neg">${pct(ti.NEG || 0, tTi)}%</span> <span class="muted">(${tTi})</span>` : guion}</td>
+              <td>${d.alcance ? fmtNum(d.alcance.vistas) : guion}</td>
+              <td>${d.polemica ? String(d.polemica.promedio).replace('.', ',') : guion}</td>
+            </tr>`;
+        }).join('');
+        document.getElementById('tablaIndicadores').innerHTML = filasHtml || '<tr><td colspan="7" class="muted">Sin datos</td></tr>';
+      }
+
+      // ===== Evolucion =====
       const selEvo = document.getElementById('selEvolucion');
-      selEvo.innerHTML = '<option value="__todos">Todos (% negativo)</option>' +
-        todosNombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      selEvo.innerHTML = '<option value="__todos">Todos (% negativo)</option>' + todosNombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
       const pctDe = (d, k) => {
         if (!d) return null;
         const t = (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
@@ -454,39 +593,30 @@
         const caja = document.getElementById('cajaEvolucion');
         const aviso = document.getElementById('evoAviso');
         if (hist.length < 2) {
-          aviso.textContent = 'El gráfico aparece cuando hay al menos dos corridas para comparar: cada vez que corras el bot se suma un punto.';
+          aviso.textContent = 'El gráfico aparece cuando hay al menos dos corridas con el método actual: cada vez que corras el bot se suma un punto.';
           caja.style.display = 'none';
           return;
         }
         caja.style.display = 'block';
-        aviso.textContent = 'Cada punto es una actualización del bot.' + (incluirAnterior ? ' Los puntos marcados con "(ant.)" usan el método anterior.' : '');
+        aviso.textContent = 'Cada punto es una actualización del bot.' + (incluirAnterior ? ' Los puntos marcados con "(ant.)" usan un método anterior.' : '');
         const fechas = hist.map(h => h.fecha + ((h.metodo || 1) !== METODO_ACTUAL ? ' (ant.)' : ''));
         const valor = selEvo.value;
         let datasets;
         if (valor === '__todos') {
           datasets = todosNombres.filter(n => estado.visibles.has(n)).map(n => {
             const i = todosNombres.indexOf(n);
-            return {
-              label: n,
-              data: hist.map(h => pctDe((h.datos || {})[n], 'NEG')),
-              borderColor: COLORES[i % COLORES.length],
-              backgroundColor: COLORES[i % COLORES.length],
-              tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
-            };
+            return { label: n, data: hist.map(h => pctDe((h.datos || {})[n], 'NEG')), borderColor: COLORES[i % COLORES.length], backgroundColor: COLORES[i % COLORES.length], tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3 };
           });
         } else {
           datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
-            label: l,
-            data: hist.map(h => pctDe((h.datos || {})[valor], k)),
-            borderColor: c, backgroundColor: c, tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
+            label: l, data: hist.map(h => pctDe((h.datos || {})[valor], k)), borderColor: c, backgroundColor: c, tension: 0.35, spanGaps: true, borderWidth: 2.5, pointRadius: 3
           }));
         }
         graficoEvo = new Chart(document.getElementById('graficoEvolucion'), {
           type: 'line',
           data: { labels: fechas, datasets },
           options: {
-            responsive: true,
-            maintainAspectRatio: false,
+            responsive: true, maintainAspectRatio: false,
             scales: {
               x: { grid: { display: false }, border: { display: false } },
               y: { min: 0, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
@@ -501,7 +631,7 @@
       selEvo.addEventListener('change', dibujarEvolucion);
       document.getElementById('chkAnterior').addEventListener('change', dibujarEvolucion);
 
-      // ===== Placa para Instagram (sin logo, Montserrat ExtraBold) =====
+      // ===== Placa para Instagram =====
       const FUENTE = '"Montserrat", Arial, sans-serif';
       function partir(ctx, texto, ancho) {
         const palabras = texto.split(' ');
@@ -518,21 +648,16 @@
       function ajustarFuente(ctx, texto, tamano, peso, anchoMax) {
         let t = tamano;
         ctx.font = `${peso} ${t}px ${FUENTE}`;
-        while (ctx.measureText(texto).width > anchoMax && t > 14) {
-          t -= 1;
-          ctx.font = `${peso} ${t}px ${FUENTE}`;
-        }
+        while (ctx.measureText(texto).width > anchoMax && t > 14) { t -= 1; ctx.font = `${peso} ${t}px ${FUENTE}`; }
       }
       let ultimaPlaca = '';
       function dibujarPlaca() {
         const A = opcion(estado.fuente);
         const historia = document.getElementById('plFormato').value === 'historia';
-        const W = 1080, H = historia ? 1920 : 1350;
-        const M = 70;
+        const W = 1080, H = historia ? 1920 : 1350, M = 70;
         const cv = document.createElement('canvas');
         cv.width = W; cv.height = H;
         const ctx = cv.getContext('2d');
-
         const fondo = ctx.createLinearGradient(0, 0, 0, H);
         fondo.addColorStop(0, '#151515');
         fondo.addColorStop(1, '#000000');
@@ -547,8 +672,7 @@
         const tamTitulo = historia ? 70 : 62;
         ctx.fillStyle = '#ffffff';
         ctx.font = `800 ${tamTitulo}px ${FUENTE}`;
-        partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - M * 2)
-          .forEach(l => { y += tamTitulo * 1.12; ctx.fillText(l, M, y); });
+        partir(ctx, document.getElementById('plTitulo').value.toUpperCase(), W - M * 2).forEach(l => { y += tamTitulo * 1.12; ctx.fillText(l, M, y); });
         y += historia ? 90 : 60;
 
         const lista = filasDe(A).filter(f => f.total > 0);
@@ -566,7 +690,6 @@
           ctx.fillStyle = '#9ca3af';
           ctx.font = `700 ${Math.round(alto * 0.18)}px ${FUENTE}`;
           ctx.fillText(`${f.total} comentarios`, M, top + alto * 0.7);
-
           const largo = Math.max(anchoMax * f.total / maxTotal, 8);
           const altoBarra = alto * 0.38, yBarra = top + alto * 0.12;
           let x = xBarra;
@@ -602,9 +725,7 @@
         ctx.textAlign = 'center';
         ctx.fillStyle = '#9ca3af';
         ctx.font = `400 22px ${FUENTE}`;
-        const cuando = A.id === 'acum' && acum
-          ? `acumulado de ${acum.dias} días`
-          : `${periodo.toLowerCase()} · ${String(A.corto).split(' ')[0]}`;
+        const cuando = A.id === 'acum' && acum ? `acumulado de ${acum.dias} días` : `${periodo.toLowerCase()} · ${String(A.corto).split(' ')[0]}`;
         const hayPocos = lista.some(f => f.pocos);
         const yFuente = historia ? H - 140 : H - 90;
         ctx.fillText(`Fuente: comentarios de YouTube (${cuando})`, W / 2, yFuente);
@@ -628,7 +749,9 @@
       function render() {
         dibujarKpis();
         dibujarGrafico();
+        dibujarEmociones();
         dibujarGrilla();
+        dibujarIndicadores();
         dibujarEvolucion();
         dibujarPlaca();
       }
@@ -638,40 +761,39 @@
           .then(dibujarPlaca).catch(() => null);
       }
 
-      // ===== Fuentes por dirigente (ultima corrida) =====
+      // ===== Fuentes por dirigente =====
       const textosDescarte = {
         menciona_otros: 'Nombraban a otro dirigente o figura (no se puede atribuir el tono)',
+        ironia: 'Comentarios irónicos (el tono no se puede leer literal)',
         mismo_autor: 'Misma persona comentando otra vez',
         texto_repetido: 'Texto repetido (posible copia y pega)',
         cuenta_nueva: `Cuentas creadas hace menos de ${diasCuenta} días`,
         tope_canal: `Superaban el tope de ${tope} por canal`
       };
-      const textosVideos = {
-        canal_extranjero: 'Videos de canales de otro país',
-        canal_oficial: 'Videos del canal propio del dirigente'
-      };
-      const listaEjemplos = lista => (lista || [])
-        .map(e => `<li>“${esc(e.texto)}” <span class="muted">👍 ${esc(e.likes)}</span></li>`).join('') || '<li>Sin ejemplos</li>';
+      const textosVideos = { canal_extranjero: 'Videos de canales de otro país', canal_oficial: 'Videos del canal propio del dirigente' };
+      const listaEjemplos = lista => (lista || []).map(e => `<li>“${esc(e.texto)}” <span class="muted">👍 ${esc(e.likes)}</span></li>`).join('') || '<li>Sin ejemplos</li>';
       document.getElementById('fuentes').innerHTML = Object.keys(detalle).map(nombre => {
         const det = detalle[nombre];
-        const canales = Object.entries(det.canales || {})
-          .map(([c, n]) => `<li>${esc(c)}: ${n}</li>`).join('') || '<li>Sin datos</li>';
+        const canales = Object.entries(det.canales || {}).map(([c, n]) => `<li>${esc(c)}: ${n}</li>`).join('') || '<li>Sin datos</li>';
         const destacados = (det.videos_destacados || [])
-          .map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.titulo)}</a> <span class="muted">(${esc(v.canal)} · ${esc(v.comentarios)} comentarios)</span></li>`).join('') || '<li>Sin datos</li>';
+          .map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.titulo)}</a> <span class="muted">(${esc(v.canal)} · ${esc(v.comentarios)} comentarios${v.vistas ? ' · ' + fmtNum(v.vistas) + ' vistas' : ''})</span></li>`).join('') || '<li>Sin datos</li>';
         const ejemplos = det.ejemplos || {};
-        const desc = Object.entries(det.comentarios_descartados || {})
-          .filter(([, n]) => n > 0)
+        const temas = (det.temas || []).map(t => `<span class="tag">${esc(t[0])} · ${t[1]}</span>`).join('');
+        const discutido = det.polemica && det.polemica.mas_discutido && det.polemica.mas_discutido.texto
+          ? `<ul><li>“${esc(det.polemica.mas_discutido.texto)}” <span class="muted">💬 ${esc(det.polemica.mas_discutido.respuestas)} respuestas</span></li></ul>` : '<ul><li>Sin datos</li></ul>';
+        const desc = Object.entries(det.comentarios_descartados || {}).filter(([, n]) => n > 0)
           .map(([k, n]) => `<li>${esc(textosDescarte[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
-        const vids = Object.entries(det.videos_descartados || {})
-          .filter(([, n]) => n > 0)
+        const vids = Object.entries(det.videos_descartados || {}).filter(([, n]) => n > 0)
           .map(([k, n]) => `<li>${esc(textosVideos[k] || k)}: ${n}</li>`).join('') || '<li>Ninguno</li>';
         return `
           <details>
             <summary><span>${esc(nombre)} <span class="muted">· ${esc(det.comentarios)} comentarios</span></span></summary>
             <div class="detalle">
+              <strong>Temas más repetidos</strong>${temas ? `<div class="tags">${temas}</div>` : '<ul><li>Sin datos</li></ul>'}
               <strong>Videos con más conversación</strong><ul>${destacados}</ul>
               <strong class="pos">Comentarios positivos más votados</strong><ul>${listaEjemplos(ejemplos.positivos)}</ul>
               <strong class="neg">Comentarios negativos más votados</strong><ul>${listaEjemplos(ejemplos.negativos)}</ul>
+              <strong>Comentario más discutido</strong>${discutido}
               <strong>Canales usados</strong><ul>${canales}</ul>
               <strong>Comentarios descartados</strong><ul>${desc}</ul>
               <strong>Videos descartados</strong><ul>${vids}</ul>
@@ -682,10 +804,11 @@
       // ===== Metodo =====
       const diasAcum = acum ? acum.dias : 30;
       document.getElementById('metodo').innerHTML = `
-        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono. Un modelo de inteligencia artificial en español clasifica cada comentario como positivo, negativo o neutral.</p>
+        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
+        <p>Modelos de inteligencia artificial en español clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
-        <p>El <strong>acumulado</strong> junta todas las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez, para que los dirigentes con poca conversación sumen volumen.</p>
-        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población. El modelo mide el tono del comentario y puede confundir ironías, por eso es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
+        <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
+        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población, y los modelos pueden equivocarse. Es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
     }).catch(err => {
       console.error(err);
       document.getElementById('meta').textContent = 'Error al cargar los datos';

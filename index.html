@@ -34,9 +34,16 @@
 
     header { text-align: center; margin-bottom: 26px; }
     .etiqueta { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--rojo); border: 1px solid rgba(255, 45, 45, 0.4); background: rgba(255, 45, 45, 0.08); padding: 6px 14px; border-radius: 999px; }
-    h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; margin: 14px 0 6px; letter-spacing: -1px; }
+    h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; margin: 14px 0 6px; letter-spacing: -1px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .bandera-titulo { width: 52px; height: 35px; border-radius: 6px; object-fit: cover; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); }
     .sub { color: var(--suave); margin: 0 0 6px; font-size: 15px; }
     .meta { color: var(--suave); font-size: 13px; }
+    .paises { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px auto 12px; }
+    .pais { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--borde); background: rgba(255, 255, 255, 0.04); color: var(--suave); font-weight: 600; font-size: 13px; text-decoration: none; font-family: inherit; }
+    .pais img { width: 22px; height: 15px; border-radius: 3px; object-fit: cover; }
+    a.pais:hover { color: #fff; border-color: rgba(255, 255, 255, 0.25); }
+    .pais.activo { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.55); color: #fff; }
+    .pais.sin { opacity: 0.35; cursor: not-allowed; }
     h3 { margin: 0; font-size: 18px; font-weight: 700; }
     a { color: #7dd3fc; }
 
@@ -117,11 +124,13 @@
   <div class="container">
     <header>
       <span class="etiqueta">MONITOR POLÍTICO</span>
-      <h1>Clima de opinión</h1>
-      <p class="sub">Qué dicen los comentarios de YouTube sobre cada dirigente argentino</p>
+      <h1 id="titulo">Clima de opinión</h1>
+      <p class="sub" id="subtitulo">Qué dicen los comentarios de YouTube sobre cada dirigente</p>
+      <nav class="paises" id="tabsPais"></nav>
       <div class="meta" id="meta">Cargando…</div>
     </header>
 
+    <div id="contenido">
     <div class="card">
       <h3>Filtros</h3>
       <div class="controles">
@@ -248,6 +257,7 @@
       <h3>Cómo se mide</h3>
       <div class="nota" id="metodo"></div>
     </div>
+    </div>
   </div>
 
   <script>
@@ -289,17 +299,54 @@
       emociones: 'Emociones en los comentarios',
       evolucion: '% de comentarios negativos en cada actualización'
     };
+    const NOMBRES_PAISES = { ar: 'Argentina', es: 'España', co: 'Colombia', us: 'Estados Unidos', br: 'Brasil', it: 'Italia', py: 'Paraguay', ve: 'Venezuela' };
+    const bandera = codigo => `https://flagcdn.com/w80/${codigo}.png`;
     let grafico = null, graficoEvo = null;
 
     Chart.defaults.font.family = '"Montserrat", system-ui, sans-serif';
     Chart.defaults.color = '#cbd5e1';
     const GRID = 'rgba(255, 255, 255, 0.06)';
 
+    // ===== Pais elegido (desde el link, ej: ?pais=es) =====
+    const PAIS = (new URLSearchParams(location.search).get('pais') || 'ar').toLowerCase().replace(/[^a-z]/g, '') || 'ar';
+    const BASE = `datos/${PAIS}/`;
+    function cargar(archivo, porDefecto) {
+      return fetch(BASE + archivo + sinCache)
+        .then(r => { if (!r.ok) throw new Error('sin archivo'); return r.json(); })
+        .catch(() => PAIS === 'ar'
+          ? fetch(archivo + sinCache).then(r => r.ok ? r.json() : porDefecto).catch(() => porDefecto)
+          : porDefecto);
+    }
+
     Promise.all([
-      fetch('datos.json' + sinCache).then(r => r.json()),
-      fetch('info.json' + sinCache).then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch('historial.json' + sinCache).then(r => r.ok ? r.json() : []).catch(() => [])
-    ]).then(([datos, info, historial]) => {
+      cargar('datos.json', null),
+      cargar('info.json', null),
+      cargar('historial.json', []),
+      fetch('datos/paises.json' + sinCache).then(r => r.ok ? r.json() : {}).catch(() => ({}))
+    ]).then(([datos, info, historial, paises]) => {
+      // ===== Pestañas de paises con bandera =====
+      const lista = {};
+      Object.entries(NOMBRES_PAISES).forEach(([c, n]) => { lista[c] = { nombre: n }; });
+      Object.entries(paises || {}).forEach(([c, p]) => { lista[c] = Object.assign({}, lista[c] || {}, p); });
+      if (!lista.ar.actualizado) lista.ar.actualizado = 'ok';
+      document.getElementById('tabsPais').innerHTML = Object.entries(lista).map(([c, p]) => {
+        const contenido = `<img src="${bandera(c)}" alt="" loading="lazy"><span>${esc(p.nombre || c)}</span>`;
+        if (c === PAIS) return `<span class="pais activo">${contenido}</span>`;
+        if (!p.actualizado) return `<span class="pais sin" title="Todavía sin datos: corré el bot con este país">${contenido}</span>`;
+        return `<a class="pais" href="?pais=${esc(c)}">${contenido}</a>`;
+      }).join('');
+
+      const NOMBRE_PAIS = (info && info.pais) || (lista[PAIS] && lista[PAIS].nombre) || PAIS.toUpperCase();
+      document.title = `Monitor Político · ${NOMBRE_PAIS}`;
+      document.getElementById('titulo').innerHTML = `<img class="bandera-titulo" src="${bandera(PAIS)}" alt=""><span>${esc(NOMBRE_PAIS)}</span>`;
+      document.getElementById('subtitulo').textContent = `Clima de opinión en los comentarios de YouTube sobre sus dirigentes`;
+
+      if (!datos) {
+        document.getElementById('meta').textContent = `Todavía no hay datos de ${NOMBRE_PAIS}. Corré el bot eligiendo este país.`;
+        document.getElementById('contenido').style.display = 'none';
+        return;
+      }
+
       if (!Array.isArray(historial)) historial = [];
       const METODO_ACTUAL = (info && info.metodo) || 1;
       const detalle = (info && info.detalle) || {};
@@ -376,7 +423,6 @@
         claves.forEach(k => { r[k] = pct(e[k] || 0, total); });
         return r;
       }
-      // Emocion ajustada por cantidad (sobre comentarios con emocion clara)
       const totalesEmo = { _total: 0 };
       Object.values(detalle).forEach(d => {
         Object.entries(d.emociones || {}).forEach(([k, v]) => {
@@ -468,7 +514,6 @@
         const masPos = mayor(filas, 'pos');
         const masNeg = mayor(filas, 'neg');
         const total = filas.reduce((a, f) => a + f.total, 0);
-
         const conEmo = nombresUltima().filter(n => D(n).emociones);
         const mayorEmo = emo => {
           let mejor = null;
@@ -480,7 +525,6 @@
         };
         const masEnojo = mayorEmo('enojo');
         const masAlegria = mayorEmo('alegria');
-
         const kpi = (lbl, valor, det, color) => `
           <div class="card kpi">
             <div class="lbl">${lbl}</div>
@@ -514,7 +558,7 @@
         if (modo === 'emociones') {
           const sinNeutra = document.getElementById('chkSinEmocion').checked;
           const nombres = nombresUltima().filter(n => D(n).emociones);
-          if (!nombres.length) return { vacio: true, nota: 'Todavía no hay datos de emociones: corré el bot con la versión nueva.' };
+          if (!nombres.length) return { vacio: true, nota: 'Todavía no hay datos de emociones para este país.' };
           const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
           const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
           return {
@@ -750,6 +794,7 @@
       const plTipo = document.getElementById('plTipo');
       const plTitulo = document.getElementById('plTitulo');
       plTitulo.value = TITULOS_PLACA.resumen;
+      document.getElementById('plBajada').value = `MONITOR POLÍTICO · ${NOMBRE_PAIS.toUpperCase()}`;
 
       function partir(ctx, texto, ancho) {
         const palabras = texto.split(' ');
@@ -902,7 +947,7 @@
         else if (tipo === 'evolucion') cuando = 'actualizaciones del monitor';
         else cuando = A.id === 'acum' && acum ? `acumulado de ${acum.dias} días` : `${periodo.toLowerCase()} · ${String(A.corto).split(' ')[0]}`;
         const yPie = historia ? H - 150 : H - 100;
-        ctx.fillText(`Fuente: comentarios de YouTube (${cuando})`, W / 2, yPie);
+        ctx.fillText(`Fuente: comentarios de YouTube en ${NOMBRE_PAIS} (${cuando})`, W / 2, yPie);
         ctx.fillText(`${NOTAS_PLACA[tipo]} · No es una encuesta` + (hayPocos ? ' · * Pocos datos' : ''), W / 2, yPie + 32);
 
         ultimaPlaca = cv.toDataURL('image/png');
@@ -923,7 +968,7 @@
         a.remove();
       }
       document.getElementById('plDescargar').addEventListener('click', () => {
-        descargar(`monitor-politico-${plTipo.value}-${document.getElementById('plFormato').value}.png`);
+        descargar(`monitor-${PAIS}-${plTipo.value}-${document.getElementById('plFormato').value}.png`);
       });
       document.getElementById('plTodas').addEventListener('click', async () => {
         const original = plTipo.value;
@@ -934,7 +979,7 @@
           plTipo.value = tipos[i];
           plTitulo.value = TITULOS_PLACA[tipos[i]];
           dibujarPlaca();
-          descargar(`monitor-politico-${i + 1}-${tipos[i]}-${document.getElementById('plFormato').value}.png`);
+          descargar(`monitor-${PAIS}-${i + 1}-${tipos[i]}-${document.getElementById('plFormato').value}.png`);
           await new Promise(r => setTimeout(r, 600));
         }
         plTipo.value = original;
@@ -1000,12 +1045,12 @@
       // ===== Metodo =====
       const diasAcum = acum ? acum.dias : 30;
       document.getElementById('metodo').innerHTML = `
-        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
-        <p>Modelos de inteligencia artificial en español clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
-        <p>Los <strong>porcentajes ajustados</strong> (de tono y de emociones) le suman a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada. Es la forma más justa de comparar dirigentes con distinta cantidad de comentarios.</p>
+        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente de ${esc(NOMBRE_PAIS)} y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
+        <p>Modelos de inteligencia artificial en el idioma del país clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
+        <p>Los <strong>porcentajes ajustados</strong> (de tono y de emociones) le suman a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
         <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
-        <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población, y los modelos pueden equivocarse. Es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;
+        <p><strong>Esto no es una encuesta</strong>, y los resultados de distintos países no se comparan entre sí: cada país se mide con su idioma, sus canales y su forma de comentar. Sirve para comparar dirigentes dentro de un mismo país.</p>`;
     }).catch(err => {
       console.error(err);
       document.getElementById('meta').textContent = 'Error al cargar los datos';

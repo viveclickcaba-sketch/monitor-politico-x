@@ -53,8 +53,8 @@
     .check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--texto); margin-top: 14px; cursor: pointer; }
 
     .cabecera { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .botones { display: flex; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde); border-radius: 999px; padding: 4px; }
-    .botones button { background: transparent; color: var(--suave); border: none; padding: 7px 16px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; }
+    .botones { display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde); border-radius: 999px; padding: 4px; }
+    .botones button { background: transparent; color: var(--suave); border: none; padding: 7px 14px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; }
     .botones button.activo { background: var(--rojo); color: #fff; }
     select, input[type="text"] { background: rgba(255, 255, 255, 0.05); color: var(--texto); border: 1px solid var(--borde); border-radius: 12px; padding: 10px 12px; font-family: inherit; font-size: 14px; width: 100%; }
     select option { background: #111; }
@@ -137,19 +137,15 @@
       <div class="cabecera">
         <h3>Comparativa por dirigente</h3>
         <div class="botones">
-          <button id="btnCantidad" class="activo">Cantidad</button>
+          <button id="btnAjustado" class="activo">Ajustado</button>
+          <button id="btnCantidad">Cantidad</button>
           <button id="btnPorcentaje">Porcentaje</button>
+          <button id="btnEmociones">Emociones</button>
         </div>
       </div>
+      <label class="check" id="filaSinEmocion" style="margin-top: 0; margin-bottom: 12px; display: none;"><input type="checkbox" id="chkSinEmocion" checked> Dejar afuera los comentarios sin emoción clara</label>
       <div class="grafico" id="cajaGrafico"><canvas id="graficoBarras"></canvas></div>
-      <p class="muted" id="notaGrafico"></p>
-    </div>
-
-    <div class="card">
-      <h3>Emociones por dirigente</h3>
-      <p class="muted">Porcentaje de comentarios según la emoción que expresan. Datos de la última corrida.</p>
-      <label class="check" style="margin-top: 0;"><input type="checkbox" id="chkSinEmocion" checked> Dejar afuera los comentarios sin emoción clara</label>
-      <div class="grafico" id="cajaEmociones" style="margin-top: 14px;"><canvas id="graficoEmociones"></canvas></div>
+      <p class="muted" id="notaGrafico" style="line-height: 1.6;"></p>
     </div>
 
     <div class="card">
@@ -235,6 +231,7 @@
       if (n >= 1e3) return Math.round(n / 1e3) + ' mil';
       return String(n);
     };
+    const COLCHON = 30; // comentarios "de promedio" que se suman para ajustar
     const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
     const EMOCIONES = [
       ['enojo', 'Enojo', '#ef4444'],
@@ -246,7 +243,7 @@
       ['sin_emocion_clara', 'Sin emoción clara', '#6b7280']
     ];
     const ROJO_PLACA = '#ff0000';
-    let grafico = null, graficoEvo = null, graficoEmo = null;
+    let grafico = null, graficoEvo = null;
 
     Chart.defaults.font.family = '"Montserrat", system-ui, sans-serif';
     Chart.defaults.color = '#cbd5e1';
@@ -303,21 +300,32 @@
       const todosNombres = [];
       [datos, ...opciones.map(o => o.datos)].forEach(d => Object.keys(d || {}).forEach(n => { if (!todosNombres.includes(n)) todosNombres.push(n); }));
 
-      const estado = { fuente: opciones[0].id, comparar: '', modo: 'cantidad', visibles: new Set(todosNombres), ocultarPocos: false };
+      const estado = { fuente: opciones[0].id, comparar: '', modo: 'ajustado', visibles: new Set(todosNombres), ocultarPocos: false };
 
+      // Promedio general de una opcion (todos los dirigentes), base del ajuste
+      function promedioGeneral(op) {
+        let pos = 0, neg = 0, total = 0;
+        Object.values(op.datos || {}).forEach(d => {
+          pos += d.POS || 0; neg += d.NEG || 0;
+          total += (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
+        });
+        return { pos: total ? pos / total : 0, neg: total ? neg / total : 0 };
+      }
       function fila(op, n) {
         const d = (op.datos || {})[n] || {};
         const pos = d.POS || 0, neg = d.NEG || 0, neu = d.NEU || 0;
         const total = pos + neg + neu;
         const pocos = op.pocos && op.pocos[n] !== undefined ? op.pocos[n] : total < 50;
-        return { nombre: n, pos, neg, neu, total, pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total), pocos };
+        const g = promedioGeneral(op);
+        const aPos = Math.round((pos + COLCHON * g.pos) / (total + COLCHON) * 1000) / 10;
+        const aNeg = Math.round((neg + COLCHON * g.neg) / (total + COLCHON) * 1000) / 10;
+        return { nombre: n, pos, neg, neu, total, pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total), aPos, aNeg, pocos };
       }
       function filasDe(op) {
         return todosNombres.filter(n => estado.visibles.has(n)).map(n => fila(op, n)).filter(f => !(estado.ocultarPocos && f.pocos));
       }
       function nombresUltima() {
-        return todosNombres.filter(n => estado.visibles.has(n) && detalle[n])
-          .filter(n => !(estado.ocultarPocos && D(n).pocos_datos));
+        return todosNombres.filter(n => estado.visibles.has(n) && detalle[n]).filter(n => !(estado.ocultarPocos && D(n).pocos_datos));
       }
       function emocionesPct(n, sinNeutra) {
         const e = D(n).emociones || {};
@@ -355,19 +363,20 @@
       }
       dibujarChips();
       document.getElementById('chkPocos').addEventListener('change', e => { estado.ocultarPocos = e.target.checked; render(); });
-      document.getElementById('btnCantidad').addEventListener('click', () => { estado.modo = 'cantidad'; render(); });
-      document.getElementById('btnPorcentaje').addEventListener('click', () => { estado.modo = 'porcentaje'; render(); });
-      document.getElementById('chkSinEmocion').addEventListener('change', dibujarEmociones);
+      const MODOS = { btnAjustado: 'ajustado', btnCantidad: 'cantidad', btnPorcentaje: 'porcentaje', btnEmociones: 'emociones' };
+      Object.entries(MODOS).forEach(([id, modo]) => {
+        document.getElementById(id).addEventListener('click', () => { estado.modo = modo; dibujarGrafico(); });
+      });
+      document.getElementById('chkSinEmocion').addEventListener('change', dibujarGrafico);
 
       // ===== Marcadores =====
       function dibujarKpis() {
         const A = opcion(estado.fuente);
         const filas = filasDe(A).filter(f => f.total > 0);
-        const confiables = filas.filter(f => !f.pocos);
         const mayor = (lista, clave) => lista.length ? lista.reduce((a, b) => (b[clave] > a[clave] ? b : a)) : null;
         const masMencionado = mayor(filas, 'total');
-        const masPctPos = mayor(confiables, 'pPos');
-        const masPctNeg = mayor(confiables, 'pNeg');
+        const masAjPos = mayor(filas, 'aPos');
+        const masAjNeg = mayor(filas, 'aNeg');
         const masPos = mayor(filas, 'pos');
         const masNeg = mayor(filas, 'neg');
         const total = filas.reduce((a, f) => a + f.total, 0);
@@ -380,35 +389,111 @@
         document.getElementById('kpis').innerHTML =
           kpi('Comentarios', total, esc(A.etiqueta)) +
           kpi('Más mencionado', masMencionado ? esc(masMencionado.nombre) : '—', masMencionado ? `${masMencionado.total} comentarios` : '') +
-          kpi('Mayor % positivo', masPctPos ? esc(masPctPos.nombre) : '—', masPctPos ? `${masPctPos.pPos}% · ${masPctPos.pos} de ${masPctPos.total} comentarios` : 'Sin datos suficientes', 'var(--pos)') +
+          kpi('Mayor % positivo (ajustado)', masAjPos ? esc(masAjPos.nombre) : '—', masAjPos ? `${masAjPos.aPos}% ajustado · ${masAjPos.pos} de ${masAjPos.total} comentarios` : '', 'var(--pos)') +
           kpi('Más comentarios positivos', masPos ? esc(masPos.nombre) : '—', masPos ? `${masPos.pos} comentarios positivos` : '', 'var(--pos)') +
-          kpi('Mayor % negativo', masPctNeg ? esc(masPctNeg.nombre) : '—', masPctNeg ? `${masPctNeg.pNeg}% · ${masPctNeg.neg} de ${masPctNeg.total} comentarios` : 'Sin datos suficientes', 'var(--neg)') +
+          kpi('Mayor % negativo (ajustado)', masAjNeg ? esc(masAjNeg.nombre) : '—', masAjNeg ? `${masAjNeg.aNeg}% ajustado · ${masAjNeg.neg} de ${masAjNeg.total} comentarios` : '', 'var(--neg)') +
           kpi('Más comentarios negativos', masNeg ? esc(masNeg.nombre) : '—', masNeg ? `${masNeg.neg} comentarios negativos` : '', 'var(--neg)');
       }
 
-      // ===== Grafico principal =====
+      // ===== Grafico principal (4 pestañas) =====
       function dibujarGrafico() {
-        if (grafico) grafico.destroy();
+        if (grafico) { grafico.destroy(); grafico = null; }
+        const modo = estado.modo;
+        Object.entries(MODOS).forEach(([id, m]) => document.getElementById(id).classList.toggle('activo', m === modo));
+        document.getElementById('filaSinEmocion').style.display = modo === 'emociones' ? 'flex' : 'none';
+
         const A = opcion(estado.fuente);
         const B = estado.comparar && estado.comparar !== estado.fuente ? opcion(estado.comparar) : null;
-        const filas = filasDe(A);
-        const esPct = estado.modo === 'porcentaje';
         const caja = document.getElementById('cajaGrafico');
         const nota = document.getElementById('notaGrafico');
-        document.getElementById('btnCantidad').classList.toggle('activo', !esPct);
-        document.getElementById('btnPorcentaje').classList.toggle('activo', esPct);
-        const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
+        const canvas = document.getElementById('graficoBarras');
         const leyenda = { labels: { usePointStyle: true, pointStyle: 'circle' } };
-        const tooltipPct = { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } };
         const redondo = { borderRadius: 6, borderSkipped: false };
+        const ejesPct = {
+          x: { grid: { display: false }, border: { display: false } },
+          y: { beginAtZero: true, suggestedMax: 60, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
+        };
 
+        // --- Emociones (ultima corrida) ---
+        if (modo === 'emociones') {
+          const sinNeutra = document.getElementById('chkSinEmocion').checked;
+          const nombres = nombresUltima().filter(n => D(n).emociones);
+          if (!nombres.length) {
+            caja.style.height = '80px';
+            nota.textContent = 'Todavía no hay datos de emociones: corré el bot con la versión nueva.';
+            return;
+          }
+          caja.style.height = (nombres.length * 52 + 90) + 'px';
+          const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
+          const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
+          nota.textContent = 'Porcentaje de comentarios según la emoción que expresan. Datos de la última corrida (no cambia con el filtro de fechas). * Pocos datos.';
+          grafico = new Chart(canvas, {
+            type: 'bar',
+            data: {
+              labels: nombres.map(n => D(n).pocos_datos ? n + ' *' : n),
+              datasets: lista.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
+            },
+            options: {
+              indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+              scales: {
+                x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
+                y: { stacked: true, grid: { display: false }, border: { display: false } }
+              },
+              plugins: { legend: leyenda, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } }
+            }
+          });
+          return;
+        }
+
+        const filas = filasDe(A);
+        const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
+
+        // --- Ajustado ---
+        if (modo === 'ajustado') {
+          caja.style.height = '420px';
+          const datasets = [
+            Object.assign({ label: B ? `Positivo · ${A.corto}` : 'Positivo ajustado', data: filas.map(f => f.aPos), backgroundColor: '#22c55e', filas }, redondo),
+            Object.assign({ label: B ? `Negativo · ${A.corto}` : 'Negativo ajustado', data: filas.map(f => f.aNeg), backgroundColor: '#ef4444', filas }, redondo)
+          ];
+          if (B) {
+            const fb = filas.map(f => fila(B, f.nombre));
+            datasets.splice(1, 0, Object.assign({ label: `Positivo · ${B.corto}`, data: fb.map(f => f.aPos), backgroundColor: 'rgba(34, 197, 94, 0.35)', filas: fb }, redondo));
+            datasets.push(Object.assign({ label: `Negativo · ${B.corto}`, data: fb.map(f => f.aNeg), backgroundColor: 'rgba(239, 68, 68, 0.35)', filas: fb }, redondo));
+          }
+          let texto = `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.`;
+          if (B) texto += ` Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}.` + (A.metodo !== B.metodo ? ' Atención: métodos distintos, la comparación no es exacta.' : '');
+          nota.textContent = texto;
+          grafico = new Chart(canvas, {
+            type: 'bar',
+            data: { labels: etiquetas, datasets },
+            options: {
+              responsive: true, maintainAspectRatio: false, scales: ejesPct,
+              plugins: {
+                legend: leyenda,
+                tooltip: {
+                  callbacks: {
+                    label: c => {
+                      const f = c.dataset.filas[c.dataIndex];
+                      const esPos = c.dataset.label.startsWith('Positivo');
+                      const real = esPos ? f.pPos : f.pNeg;
+                      const cant = esPos ? f.pos : f.neg;
+                      return `${c.dataset.label}: ${c.raw}% (real ${real}%, ${cant} de ${f.total} comentarios)`;
+                    }
+                  }
+                }
+              }
+            }
+          });
+          return;
+        }
+
+        const esPct = modo === 'porcentaje';
+        // --- Comparacion de fechas (cantidad o porcentaje) ---
         if (B) {
           const fb = filas.map(f => fila(B, f.nombre));
           caja.style.height = '420px';
-          let texto = `Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}. * Pocos datos.`;
-          if (A.metodo !== B.metodo) texto += ' Atención: las dos opciones usan métodos distintos, la comparación no es exacta.';
-          nota.textContent = texto;
-          grafico = new Chart(document.getElementById('graficoBarras'), {
+          nota.textContent = `Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}. * Pocos datos.` + (A.metodo !== B.metodo ? ' Atención: métodos distintos, la comparación no es exacta.' : '');
+          grafico = new Chart(canvas, {
             type: 'bar',
             data: {
               labels: etiquetas,
@@ -421,18 +506,18 @@
             },
             options: {
               responsive: true, maintainAspectRatio: false,
-              scales: {
-                x: { grid: { display: false }, border: { display: false } },
-                y: Object.assign({ beginAtZero: true, grid: { color: GRID }, border: { display: false } },
-                  esPct ? { max: 100, ticks: { callback: v => v + '%' } } : {})
-              },
-              plugins: { legend: leyenda, tooltip: esPct ? tooltipPct : {} }
+              scales: esPct ? ejesPct : { x: { grid: { display: false }, border: { display: false } }, y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } } },
+              plugins: { legend: leyenda, tooltip: esPct ? { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } : {} }
             }
           });
-        } else if (!esPct) {
+          return;
+        }
+
+        // --- Cantidad ---
+        if (!esPct) {
           caja.style.height = '400px';
           nota.textContent = 'La altura de cada barra es la cantidad de comentarios. * Pocos datos: resultado poco confiable.';
-          grafico = new Chart(document.getElementById('graficoBarras'), {
+          grafico = new Chart(canvas, {
             type: 'bar',
             data: {
               labels: etiquetas,
@@ -444,57 +529,25 @@
             },
             options: {
               responsive: true, maintainAspectRatio: false,
-              scales: {
-                x: { grid: { display: false }, border: { display: false } },
-                y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } }
-              },
+              scales: { x: { grid: { display: false }, border: { display: false } }, y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } } },
               plugins: { legend: leyenda }
             }
           });
-        } else {
-          caja.style.height = (filas.length * 50 + 70) + 'px';
-          nota.textContent = 'Cada barra suma 100%: sirve para comparar dirigentes aunque de algunos se hable mucho más. * Pocos datos: resultado poco confiable.';
-          grafico = new Chart(document.getElementById('graficoBarras'), {
-            type: 'bar',
-            data: {
-              labels: etiquetas,
-              datasets: [
-                { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
-                { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
-                { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
-              ]
-            },
-            options: {
-              indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-              scales: {
-                x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
-                y: { stacked: true, grid: { display: false }, border: { display: false } }
-              },
-              plugins: { legend: leyenda, tooltip: tooltipPct }
-            }
-          });
-        }
-      }
-
-      // ===== Emociones =====
-      function dibujarEmociones() {
-        if (graficoEmo) graficoEmo.destroy();
-        const sinNeutra = document.getElementById('chkSinEmocion').checked;
-        const nombres = nombresUltima().filter(n => D(n).emociones);
-        const caja = document.getElementById('cajaEmociones');
-        if (!nombres.length) {
-          caja.innerHTML = '<p class="muted">Todavía no hay datos de emociones: corré el bot con la versión nueva.</p>';
           return;
         }
-        if (!document.getElementById('graficoEmociones')) caja.innerHTML = '<canvas id="graficoEmociones"></canvas>';
-        caja.style.height = (nombres.length * 52 + 90) + 'px';
-        const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
-        const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
-        graficoEmo = new Chart(document.getElementById('graficoEmociones'), {
+
+        // --- Porcentaje ---
+        caja.style.height = (filas.length * 50 + 70) + 'px';
+        nota.textContent = 'Cada barra suma 100%. Ojo: con pocos comentarios el porcentaje puede exagerar; para comparar, usá la pestaña Ajustado. * Pocos datos.';
+        grafico = new Chart(canvas, {
           type: 'bar',
           data: {
-            labels: nombres.map(n => D(n).pocos_datos ? n + ' *' : n),
-            datasets: lista.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
+            labels: etiquetas,
+            datasets: [
+              { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
+              { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
+              { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
+            ]
           },
           options: {
             indexAxis: 'y', responsive: true, maintainAspectRatio: false,
@@ -502,10 +555,7 @@
               x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
               y: { stacked: true, grid: { display: false }, border: { display: false } }
             },
-            plugins: {
-              legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
-              tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
-            }
+            plugins: { legend: leyenda, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } }
           }
         });
       }
@@ -524,7 +574,7 @@
               emoTxt = `<div class="emo">Emoción predominante: <strong style="color:${e[2]}">${e[1]} ${top[1]}%</strong></div>`;
             }
           }
-          const mini = [];
+          const mini = [`📊 ${f.aPos}% pos. / ${f.aNeg}% neg. ajustado`];
           if (d.alcance) mini.push(`👁 ${fmtNum(d.alcance.vistas)} vistas`);
           if (d.comentarios && d.agresivos !== undefined) mini.push(`⚠️ ${pct(d.agresivos, d.comentarios)}% agresivo`);
           if (d.polemica) mini.push(`💬 ${String(d.polemica.promedio).replace('.', ',')} resp./coment.`);
@@ -546,7 +596,7 @@
                 <span class="neg">${f.pNeg}% neg.</span>
               </div>
               ${emoTxt}
-              ${mini.length ? `<div class="mini">${mini.map(m => `<span>${m}</span>`).join('')}</div>` : ''}
+              <div class="mini">${mini.map(m => `<span>${m}</span>`).join('')}</div>
               ${temas ? `<div class="tags">${temas}</div>` : ''}
               ${f.pocos ? '<span class="aviso">Pocos datos</span>' : ''}
             </div>`;
@@ -749,7 +799,6 @@
       function render() {
         dibujarKpis();
         dibujarGrafico();
-        dibujarEmociones();
         dibujarGrilla();
         dibujarIndicadores();
         dibujarEvolucion();
@@ -806,6 +855,7 @@
       document.getElementById('metodo').innerHTML = `
         <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
         <p>Modelos de inteligencia artificial en español clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
+        <p>El <strong>porcentaje ajustado</strong> le suma a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada. Es la forma más justa de comparar dirigentes con distinta cantidad de comentarios.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
         <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
         <p><strong>Esto no es una encuesta.</strong> Refleja el clima en los comentarios de YouTube, que no representan a toda la población, y los modelos pueden equivocarse. Es más útil comparar dirigentes entre sí que leer cada número por separado.</p>`;

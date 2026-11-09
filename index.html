@@ -225,6 +225,7 @@
     const sinCache = '?v=' + Date.now();
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const pct = (n, t) => t ? Math.round(n * 1000 / t) / 10 : 0;
+    const r1 = n => Math.round(n * 10) / 10;
     const fmtNum = n => {
       n = Number(n) || 0;
       if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.', ',') + ' M';
@@ -232,6 +233,7 @@
       return String(n);
     };
     const COLCHON = 30; // comentarios "de promedio" que se suman para ajustar
+    const COLOR_PROMEDIO = '#38bdf8';
     const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
     const EMOCIONES = [
       ['enojo', 'Enojo', '#ef4444'],
@@ -304,12 +306,10 @@
 
       // Promedio general de una opcion (todos los dirigentes), base del ajuste
       function promedioGeneral(op) {
-        let pos = 0, neg = 0, total = 0;
-        Object.values(op.datos || {}).forEach(d => {
-          pos += d.POS || 0; neg += d.NEG || 0;
-          total += (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
-        });
-        return { pos: total ? pos / total : 0, neg: total ? neg / total : 0 };
+        let pos = 0, neg = 0, neu = 0;
+        Object.values(op.datos || {}).forEach(d => { pos += d.POS || 0; neg += d.NEG || 0; neu += d.NEU || 0; });
+        const total = pos + neg + neu;
+        return { pos: total ? pos / total : 0, neg: total ? neg / total : 0, neu: total ? neu / total : 0 };
       }
       function fila(op, n) {
         const d = (op.datos || {})[n] || {};
@@ -317,9 +317,15 @@
         const total = pos + neg + neu;
         const pocos = op.pocos && op.pocos[n] !== undefined ? op.pocos[n] : total < 50;
         const g = promedioGeneral(op);
-        const aPos = Math.round((pos + COLCHON * g.pos) / (total + COLCHON) * 1000) / 10;
-        const aNeg = Math.round((neg + COLCHON * g.neg) / (total + COLCHON) * 1000) / 10;
-        return { nombre: n, pos, neg, neu, total, pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total), aPos, aNeg, pocos };
+        const aj = (n, p) => r1((n + COLCHON * p) / (total + COLCHON) * 100);
+        const aPos = aj(pos, g.pos), aNeg = aj(neg, g.neg), aNeu = aj(neu, g.neu);
+        const pPos = pct(pos, total), pNeg = pct(neg, total), pNeu = pct(neu, total);
+        return {
+          nombre: n, pos, neg, neu, total, pPos, pNeg, pNeu, aPos, aNeg, aNeu, pocos,
+          prom: r1(total / 3),
+          pProm: total ? r1((pPos + pNeg + pNeu) / 3) : 0,
+          aProm: r1((aPos + aNeg + aNeu) / 3)
+        };
       }
       function filasDe(op) {
         return todosNombres.filter(n => estado.visibles.has(n)).map(n => fila(op, n)).filter(f => !(estado.ocultarPocos && f.pocos));
@@ -395,7 +401,7 @@
           kpi('Más comentarios negativos', masNeg ? esc(masNeg.nombre) : '—', masNeg ? `${masNeg.neg} comentarios negativos` : '', 'var(--neg)');
       }
 
-      // ===== Grafico principal (4 pestañas) =====
+      // ===== Grafico principal (4 pestañas, todo en barras verticales) =====
       function dibujarGrafico() {
         if (grafico) { grafico.destroy(); grafico = null; }
         const modo = estado.modo;
@@ -407,14 +413,15 @@
         const caja = document.getElementById('cajaGrafico');
         const nota = document.getElementById('notaGrafico');
         const canvas = document.getElementById('graficoBarras');
+        caja.style.height = '420px';
         const leyenda = { labels: { usePointStyle: true, pointStyle: 'circle' } };
         const redondo = { borderRadius: 6, borderSkipped: false };
-        const ejesPct = {
-          x: { grid: { display: false }, border: { display: false } },
-          y: { beginAtZero: true, suggestedMax: 60, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
-        };
+        const ejeX = { grid: { display: false }, border: { display: false } };
+        const ejesCant = { x: ejeX, y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } } };
+        const ejesPct = { x: ejeX, y: { beginAtZero: true, suggestedMax: 60, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } } };
+        const barra = (label, data, color, extra) => Object.assign({ label, data, backgroundColor: color }, redondo, extra || {});
 
-        // --- Emociones (ultima corrida) ---
+        // --- Emociones (ultima corrida), columnas verticales apiladas ---
         if (modo === 'emociones') {
           const sinNeutra = document.getElementById('chkSinEmocion').checked;
           const nombres = nombresUltima().filter(n => D(n).emociones);
@@ -423,10 +430,9 @@
             nota.textContent = 'Todavía no hay datos de emociones: corré el bot con la versión nueva.';
             return;
           }
-          caja.style.height = (nombres.length * 52 + 90) + 'px';
           const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
           const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
-          nota.textContent = 'Porcentaje de comentarios según la emoción que expresan. Datos de la última corrida (no cambia con el filtro de fechas). * Pocos datos.';
+          nota.textContent = 'Cada columna suma 100%, repartido entre las emociones de los comentarios. Datos de la última corrida (no cambia con el filtro de fechas). * Pocos datos.';
           grafico = new Chart(canvas, {
             type: 'bar',
             data: {
@@ -434,10 +440,10 @@
               datasets: lista.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
             },
             options: {
-              indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+              responsive: true, maintainAspectRatio: false,
               scales: {
-                x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
-                y: { stacked: true, grid: { display: false }, border: { display: false } }
+                x: { stacked: true, grid: { display: false }, border: { display: false } },
+                y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } }
               },
               plugins: { legend: leyenda, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } }
             }
@@ -447,22 +453,28 @@
 
         const filas = filasDe(A);
         const etiquetas = filas.map(f => f.pocos ? f.nombre + ' *' : f.nombre);
+        const textoComparar = B ? ` Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}.` + (A.metodo !== B.metodo ? ' Atención: métodos distintos, la comparación no es exacta.' : '') : '';
 
         // --- Ajustado ---
         if (modo === 'ajustado') {
-          caja.style.height = '420px';
-          const datasets = [
-            Object.assign({ label: B ? `Positivo · ${A.corto}` : 'Positivo ajustado', data: filas.map(f => f.aPos), backgroundColor: '#22c55e', filas }, redondo),
-            Object.assign({ label: B ? `Negativo · ${A.corto}` : 'Negativo ajustado', data: filas.map(f => f.aNeg), backgroundColor: '#ef4444', filas }, redondo)
-          ];
+          let datasets;
           if (B) {
             const fb = filas.map(f => fila(B, f.nombre));
-            datasets.splice(1, 0, Object.assign({ label: `Positivo · ${B.corto}`, data: fb.map(f => f.aPos), backgroundColor: 'rgba(34, 197, 94, 0.35)', filas: fb }, redondo));
-            datasets.push(Object.assign({ label: `Negativo · ${B.corto}`, data: fb.map(f => f.aNeg), backgroundColor: 'rgba(239, 68, 68, 0.35)', filas: fb }, redondo));
+            datasets = [
+              barra(`Positivo · ${A.corto}`, filas.map(f => f.aPos), '#22c55e', { filas, tipo: 'pos' }),
+              barra(`Positivo · ${B.corto}`, fb.map(f => f.aPos), 'rgba(34, 197, 94, 0.35)', { filas: fb, tipo: 'pos' }),
+              barra(`Negativo · ${A.corto}`, filas.map(f => f.aNeg), '#ef4444', { filas, tipo: 'neg' }),
+              barra(`Negativo · ${B.corto}`, fb.map(f => f.aNeg), 'rgba(239, 68, 68, 0.35)', { filas: fb, tipo: 'neg' })
+            ];
+          } else {
+            datasets = [
+              barra('Positivo', filas.map(f => f.aPos), '#22c55e', { filas, tipo: 'pos' }),
+              barra('Negativo', filas.map(f => f.aNeg), '#ef4444', { filas, tipo: 'neg' }),
+              barra('Neutral', filas.map(f => f.aNeu), '#94a3b8', { filas, tipo: 'neu' }),
+              barra('Promedio', filas.map(f => f.aProm), COLOR_PROMEDIO, { filas, tipo: 'prom' })
+            ];
           }
-          let texto = `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.`;
-          if (B) texto += ` Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}.` + (A.metodo !== B.metodo ? ' Atención: métodos distintos, la comparación no es exacta.' : '');
-          nota.textContent = texto;
+          nota.textContent = `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.` + textoComparar;
           grafico = new Chart(canvas, {
             type: 'bar',
             data: { labels: etiquetas, datasets },
@@ -474,9 +486,10 @@
                   callbacks: {
                     label: c => {
                       const f = c.dataset.filas[c.dataIndex];
-                      const esPos = c.dataset.label.startsWith('Positivo');
-                      const real = esPos ? f.pPos : f.pNeg;
-                      const cant = esPos ? f.pos : f.neg;
+                      const t = c.dataset.tipo;
+                      if (t === 'prom') return `${c.dataset.label}: ${c.raw}% (promedio de las tres barras)`;
+                      const real = t === 'pos' ? f.pPos : t === 'neg' ? f.pNeg : f.pNeu;
+                      const cant = t === 'pos' ? f.pos : t === 'neg' ? f.neg : f.neu;
                       return `${c.dataset.label}: ${c.raw}% (real ${real}%, ${cant} de ${f.total} comentarios)`;
                     }
                   }
@@ -488,74 +501,50 @@
         }
 
         const esPct = modo === 'porcentaje';
-        // --- Comparacion de fechas (cantidad o porcentaje) ---
+
+        // --- Cantidad o Porcentaje, comparando dos fechas ---
         if (B) {
           const fb = filas.map(f => fila(B, f.nombre));
-          caja.style.height = '420px';
-          nota.textContent = `Colores plenos: ${A.etiqueta}. Colores claros: ${B.etiqueta}. * Pocos datos.` + (A.metodo !== B.metodo ? ' Atención: métodos distintos, la comparación no es exacta.' : '');
+          nota.textContent = (esPct ? 'Porcentaje de comentarios.' : 'Cantidad de comentarios.') + textoComparar + ' * Pocos datos.';
           grafico = new Chart(canvas, {
             type: 'bar',
             data: {
               labels: etiquetas,
               datasets: [
-                Object.assign({ label: `Positivo · ${A.corto}`, data: filas.map(f => esPct ? f.pPos : f.pos), backgroundColor: '#22c55e' }, redondo),
-                Object.assign({ label: `Positivo · ${B.corto}`, data: fb.map(f => esPct ? f.pPos : f.pos), backgroundColor: 'rgba(34, 197, 94, 0.35)' }, redondo),
-                Object.assign({ label: `Negativo · ${A.corto}`, data: filas.map(f => esPct ? f.pNeg : f.neg), backgroundColor: '#ef4444' }, redondo),
-                Object.assign({ label: `Negativo · ${B.corto}`, data: fb.map(f => esPct ? f.pNeg : f.neg), backgroundColor: 'rgba(239, 68, 68, 0.35)' }, redondo)
+                barra(`Positivo · ${A.corto}`, filas.map(f => esPct ? f.pPos : f.pos), '#22c55e'),
+                barra(`Positivo · ${B.corto}`, fb.map(f => esPct ? f.pPos : f.pos), 'rgba(34, 197, 94, 0.35)'),
+                barra(`Negativo · ${A.corto}`, filas.map(f => esPct ? f.pNeg : f.neg), '#ef4444'),
+                barra(`Negativo · ${B.corto}`, fb.map(f => esPct ? f.pNeg : f.neg), 'rgba(239, 68, 68, 0.35)')
               ]
             },
             options: {
               responsive: true, maintainAspectRatio: false,
-              scales: esPct ? ejesPct : { x: { grid: { display: false }, border: { display: false } }, y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } } },
+              scales: esPct ? ejesPct : ejesCant,
               plugins: { legend: leyenda, tooltip: esPct ? { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } : {} }
             }
           });
           return;
         }
 
-        // --- Cantidad ---
-        if (!esPct) {
-          caja.style.height = '400px';
-          nota.textContent = 'La altura de cada barra es la cantidad de comentarios. * Pocos datos: resultado poco confiable.';
-          grafico = new Chart(canvas, {
-            type: 'bar',
-            data: {
-              labels: etiquetas,
-              datasets: [
-                Object.assign({ label: 'Positivo', data: filas.map(f => f.pos), backgroundColor: '#22c55e' }, redondo),
-                Object.assign({ label: 'Negativo', data: filas.map(f => f.neg), backgroundColor: '#ef4444' }, redondo),
-                Object.assign({ label: 'Neutral', data: filas.map(f => f.neu), backgroundColor: '#94a3b8' }, redondo)
-              ]
-            },
-            options: {
-              responsive: true, maintainAspectRatio: false,
-              scales: { x: { grid: { display: false }, border: { display: false } }, y: { beginAtZero: true, grid: { color: GRID }, border: { display: false } } },
-              plugins: { legend: leyenda }
-            }
-          });
-          return;
-        }
-
-        // --- Porcentaje ---
-        caja.style.height = (filas.length * 50 + 70) + 'px';
-        nota.textContent = 'Cada barra suma 100%. Ojo: con pocos comentarios el porcentaje puede exagerar; para comparar, usá la pestaña Ajustado. * Pocos datos.';
+        // --- Cantidad o Porcentaje, sin comparar ---
+        nota.textContent = esPct
+          ? 'Porcentaje de comentarios de cada tipo. La barra celeste es el promedio de las otras tres. Ojo: con pocos comentarios el porcentaje puede exagerar; para comparar, usá la pestaña Ajustado. * Pocos datos.'
+          : 'La altura de cada barra es la cantidad de comentarios. La barra celeste es el promedio de las otras tres (total dividido 3). * Pocos datos: resultado poco confiable.';
         grafico = new Chart(canvas, {
           type: 'bar',
           data: {
             labels: etiquetas,
             datasets: [
-              { label: 'Positivo', data: filas.map(f => f.pPos), backgroundColor: '#22c55e' },
-              { label: 'Neutral', data: filas.map(f => f.pNeu), backgroundColor: '#94a3b8' },
-              { label: 'Negativo', data: filas.map(f => f.pNeg), backgroundColor: '#ef4444' }
+              barra('Positivo', filas.map(f => esPct ? f.pPos : f.pos), '#22c55e'),
+              barra('Negativo', filas.map(f => esPct ? f.pNeg : f.neg), '#ef4444'),
+              barra('Neutral', filas.map(f => esPct ? f.pNeu : f.neu), '#94a3b8'),
+              barra('Promedio', filas.map(f => esPct ? f.pProm : f.prom), COLOR_PROMEDIO)
             ]
           },
           options: {
-            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-            scales: {
-              x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID }, border: { display: false } },
-              y: { stacked: true, grid: { display: false }, border: { display: false } }
-            },
-            plugins: { legend: leyenda, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } }
+            responsive: true, maintainAspectRatio: false,
+            scales: esPct ? ejesPct : ejesCant,
+            plugins: { legend: leyenda, tooltip: esPct ? { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } } : {} }
           }
         });
       }

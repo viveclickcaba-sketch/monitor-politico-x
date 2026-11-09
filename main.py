@@ -14,6 +14,7 @@ API_KEY = os.getenv("YOUTUBE_API_KEY")
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 URL_WEB = "https://viveclickcaba-sketch.github.io/monitor-politico-x/"
+METODO = 2
 
 if not API_KEY:
     print("ERROR: falta la clave YOUTUBE_API_KEY en los secretos de GitHub.")
@@ -35,6 +36,10 @@ POLITICOS = {
     "Bregman":  {"busqueda": "Myriam Bregman",     "palabras": ["bregman", "myriam"]},
 }
 
+# Otras figuras: si un comentario las nombra, no se cuenta
+# (no se puede saber a quien va dirigido el tono)
+OTROS_NOMBRES = ["caputo", "karina", "adorni", "villarruel", "sturzenegger", "pettovello", "francos", "espert"]
+
 # ============================================================
 # CONFIGURACION
 # ============================================================
@@ -43,6 +48,7 @@ COMENTARIOS_POR_VIDEO = 300
 MAX_COMENTARIOS_POR_CANAL = 20
 DIAS_HACIA_ATRAS = 7
 DIAS_CUENTA_NUEVA = 30
+DIAS_ACUMULADO = 30
 MINIMO_COMENTARIOS = 50
 MINIMO_CANALES = 5
 EJEMPLOS_POR_TIPO = 3
@@ -65,6 +71,10 @@ def normalizar(texto):
     return re.sub(r"\s+", " ", texto).strip()
 
 
+def menciona(texto_norm, palabras):
+    return any(re.search(r"\b" + re.escape(p), texto_norm) for p in palabras)
+
+
 def enviar_telegram(texto):
     datos = urllib.parse.urlencode({
         "chat_id": TELEGRAM_CHAT_ID,
@@ -76,6 +86,16 @@ def enviar_telegram(texto):
         print("Aviso enviado por Telegram")
     except Exception as e:
         print(f"No se pudo enviar el aviso por Telegram ({e})")
+
+
+def leer_json(ruta, por_defecto):
+    if os.path.exists(ruta):
+        try:
+            with open(ruta, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return por_defecto
+    return por_defecto
 
 
 # Informacion de canales (pais y fecha de creacion), guardada para no repetir consultas
@@ -185,6 +205,7 @@ analyzer = create_analyzer(task="sentiment", lang="es")
 resultados = {p: {"POS": 0, "NEG": 0, "NEU": 0} for p in POLITICOS}
 detalle = {}
 ya_analizados = {}
+ids_por_politico = {p: [] for p in POLITICOS}
 limite_cuenta_nueva = datetime.now(timezone.utc) - timedelta(days=DIAS_CUENTA_NUEVA)
 
 for nombre, config in POLITICOS.items():
@@ -196,7 +217,8 @@ for nombre, config in POLITICOS.items():
         continue
 
     videos_descartados = {"canal_extranjero": 0, "canal_oficial": 0}
-    descartes = {"mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0}
+    descartes = {"menciona_otros": 0, "mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0}
+    otros_politicos = [c["palabras"] for n, c in POLITICOS.items() if n != nombre]
 
     # 1) Filtrar videos de canales extranjeros u oficiales del dirigente
     cargar_canales([v[1] for v in videos])
@@ -224,7 +246,7 @@ for nombre, config in POLITICOS.items():
         "comentarios": conteo.get(video_id, 0),
     } for video_id, canal, titulo in destacados]
 
-    # 3) Juntar comentarios que lo mencionan, sin autores ni textos repetidos
+    # 3) Juntar comentarios que lo nombran SOLO a el, sin autores ni textos repetidos
     candidatos = {}
     vistos_cid, vistos_autor, vistos_texto = set(), set(), set()
     for video_id, canal, titulo in validos:
@@ -233,7 +255,10 @@ for nombre, config in POLITICOS.items():
                 continue
             vistos_cid.add(cid)
             norm = normalizar(texto)
-            if not any(palabra in norm for palabra in config["palabras"]):
+            if not menciona(norm, config["palabras"]):
+                continue
+            if any(menciona(norm, palabras) for palabras in otros_politicos) or menciona(norm, OTROS_NOMBRES):
+                descartes["menciona_otros"] += 1
                 continue
             if autor in vistos_autor:
                 descartes["mismo_autor"] += 1
@@ -267,6 +292,7 @@ for nombre, config in POLITICOS.items():
             sentimiento = ya_analizados[cid]
             resultados[nombre][sentimiento] += 1
             analizados_politico.append((sentimiento, likes, texto))
+            ids_por_politico[nombre].append(cid)
         if aceptados:
             canales[canal] = len(aceptados)
             contados += len(aceptados)
@@ -303,18 +329,65 @@ if total == 0:
     sys.exit(1)
 
 hora_ar = datetime.now(timezone(timedelta(hours=-3)))
+hoy = hora_ar.strftime("%Y-%m-%d")
+limite_acum = (hora_ar - timedelta(days=DIAS_ACUMULADO)).strftime("%Y-%m-%d")
 
 # ============================================================
-# GUARDAR DATOS
+# ACUMULADO: cada comentario cuenta una sola vez (ultimos 30 dias)
+# ============================================================
+acumulado = leer_json("acumulado.json", {})
+for nombre, ids in ids_por_politico.items():
+    registro = acumulado.setdefault(nombre, {})
+    for cid in ids:
+        if cid not in registro:
+            registro[cid] = {"s": ya_analizados[cid], "f": hoy}
+for nombre in list(acumulado.keys()):
+    acumulado[nombre] = {cid: v for cid, v in acumulado[nombre].items() if v.get("f", "") >= limite_acum}
+
+datos_acumulados = {}
+for nombre in POLITICOS:
+    conteo = {"POS": 0, "NEG": 0, "NEU": 0}
+    for v in acumulado.get(nombre, {}).values():
+        if v.get("s") in conteo:
+            conteo[v["s"]] += 1
+    datos_acumulados[nombre] = conteo
+
+with open("acumulado.json", "w", encoding="utf-8") as f:
+    json.dump(acumulado, f, ensure_ascii=False)
+
+# ============================================================
+# HISTORIAL
+# ============================================================
+historial = leer_json("historial.json", [])
+anterior = historial[-1] if historial else None
+historial.append({
+    "fecha": hora_ar.strftime("%d/%m %H:%M"),
+    "fecha_completa": hora_ar.strftime("%d/%m/%Y %H:%M"),
+    "fecha_iso": hoy,
+    "metodo": METODO,
+    "datos": resultados,
+    "pocos_datos": {n: d["pocos_datos"] for n, d in detalle.items()},
+})
+historial = historial[-MAX_HISTORIAL:]
+with open("historial.json", "w", encoding="utf-8") as f:
+    json.dump(historial, f, ensure_ascii=False, indent=2)
+
+corridas_acumuladas = sum(1 for h in historial if h.get("metodo") == METODO and h.get("fecha_iso", "") >= limite_acum)
+
+# ============================================================
+# DATOS DE ESTA CORRIDA E INFO GENERAL
 # ============================================================
 with open("datos.json", "w", encoding="utf-8") as f:
     json.dump(resultados, f, ensure_ascii=False, indent=2)
 
 info = {
     "actualizado": hora_ar.strftime("%d/%m/%Y %H:%M"),
+    "metodo": METODO,
     "fuente": "Comentarios de YouTube",
     "periodo": f"Videos de los ultimos {DIAS_HACIA_ATRAS} dias",
     "filtros": {
+        "solo_un_dirigente_por_comentario": True,
+        "otros_nombres_excluidos": OTROS_NOMBRES,
         "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
         "un_comentario_por_persona": True,
         "sin_textos_repetidos": True,
@@ -323,38 +396,22 @@ info = {
     },
     "minimo_confiable": {"comentarios": MINIMO_COMENTARIOS, "canales": MINIMO_CANALES},
     "total_comentarios": total,
+    "acumulado": {
+        "dias": DIAS_ACUMULADO,
+        "corridas": corridas_acumuladas,
+        "datos": datos_acumulados,
+        "pocos_datos": {n: sum(d.values()) < MINIMO_COMENTARIOS for n, d in datos_acumulados.items()},
+    },
     "detalle": detalle,
 }
 with open("info.json", "w", encoding="utf-8") as f:
     json.dump(info, f, ensure_ascii=False, indent=2)
 
 # ============================================================
-# HISTORIAL
-# ============================================================
-historial = []
-if os.path.exists("historial.json"):
-    try:
-        with open("historial.json", encoding="utf-8") as f:
-            historial = json.load(f)
-    except Exception:
-        historial = []
-anterior = historial[-1] if historial else None
-
-historial.append({
-    "fecha": hora_ar.strftime("%d/%m %H:%M"),
-    "fecha_completa": hora_ar.strftime("%d/%m/%Y %H:%M"),
-    "datos": resultados,
-    "pocos_datos": {n: d["pocos_datos"] for n, d in detalle.items()},
-})
-historial = historial[-MAX_HISTORIAL:]
-with open("historial.json", "w", encoding="utf-8") as f:
-    json.dump(historial, f, ensure_ascii=False, indent=2)
-
-# ============================================================
 # AVISO POR TELEGRAM SI HAY CAMBIOS FUERTES
 # ============================================================
 cambios = []
-if anterior:
+if anterior and anterior.get("metodo") == METODO:
     for nombre in resultados:
         previo = anterior.get("datos", {}).get(nombre)
         if not previo:
@@ -382,4 +439,4 @@ if cambios:
 else:
     print("Sin cambios fuertes respecto de la corrida anterior")
 
-print(f"Listo: {total} comentarios analizados. Datos guardados en datos.json, info.json e historial.json")
+print(f"Listo: {total} comentarios en esta corrida. Acumulado de {corridas_acumuladas} corrida(s) con el metodo nuevo.")

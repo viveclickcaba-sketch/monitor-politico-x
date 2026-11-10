@@ -1,0 +1,42 @@
+[
+  {
+    "fecha": "10/11 13:00",
+    "fecha_completa": "10/11/2026 13:00",
+    "fecha_iso": "2026-11-10",
+    "metodo": 3,
+    "datos": {
+      "Lula": {
+        "POS": 77,
+        "NEG": 21,
+        "NEU": 46
+      },
+      "Flávio Bolsonaro": {
+        "POS": 48,
+        "NEG": 51,
+        "NEU": 45
+      },
+      "Jair Bolsonaro": {
+        "POS": 68,
+        "NEG": 6,
+        "NEU": 4
+      },
+      "Tarcísio": {
+        "POS": 26,
+        "NEG": 47,
+        "NEU": 40
+      },
+      "Haddad": {
+        "POS": 2,
+        "NEG": 9,
+        "NEU": 11
+      }
+    },
+    "pocos_datos": {
+      "Lula": false,
+      "Flávio Bolsonaro": false,
+      "Jair Bolsonaro": false,
+      "Tarcísio": false,
+      "Haddad": true
+    }
+  }
+]

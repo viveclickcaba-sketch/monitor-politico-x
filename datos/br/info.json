@@ -1,0 +1,896 @@
+{
+  "pais": "Brasil",
+  "codigo": "br",
+  "idioma": "pt",
+  "actualizado": "10/11/2026 13:00",
+  "metodo": 3,
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "filtros": {
+    "solo_un_dirigente_por_comentario": true,
+    "otros_nombres_excluidos": [
+      "michelle",
+      "moraes",
+      "eduardo bolsonaro",
+      "alckmin",
+      "ciro gomes"
+    ],
+    "ironia_excluida": false,
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "modelos": {
+    "emociones": true,
+    "agresividad": true,
+    "ironia": false
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 501,
+  "acumulado": {
+    "dias": 30,
+    "corridas": 1,
+    "datos": {
+      "Lula": {
+        "POS": 77,
+        "NEG": 21,
+        "NEU": 46
+      },
+      "Flávio Bolsonaro": {
+        "POS": 48,
+        "NEG": 51,
+        "NEU": 45
+      },
+      "Jair Bolsonaro": {
+        "POS": 68,
+        "NEG": 6,
+        "NEU": 4
+      },
+      "Tarcísio": {
+        "POS": 26,
+        "NEG": 47,
+        "NEU": 40
+      },
+      "Haddad": {
+        "POS": 2,
+        "NEG": 9,
+        "NEU": 11
+      }
+    },
+    "pocos_datos": {
+      "Lula": false,
+      "Flávio Bolsonaro": false,
+      "Jair Bolsonaro": false,
+      "Tarcísio": false,
+      "Haddad": true
+    }
+  },
+  "detalle": {
+    "Lula": {
+      "videos": 16,
+      "comentarios": 144,
+      "pocos_datos": false,
+      "canales": {
+        "Instituto Conhecimento Liberta": 20,
+        "g1": 20,
+        "Guilherme Boulos": 20,
+        "Mídia NINJA": 20,
+        "Rede TVT": 20,
+        "Corte de Pauta": 14,
+        "Paralelo News": 12,
+        "Jovem Pan News": 5,
+        "SBT News": 5,
+        "Itatiaia": 5,
+        "Dr. Sandro Gonçalves": 1,
+        "NOVO 30": 1,
+        "Band Jornalismo": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 3
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 9,
+        "mismo_autor": 4,
+        "texto_repetido": 6,
+        "cuenta_nueva": 1,
+        "tope_canal": 57,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Em pronunciamento na TV, Lula defende responsabilidade fiscal sem detalhar medidas #shorts #g1",
+          "canal": "g1",
+          "url": "https://www.youtube.com/watch?v=oIZKkq2JIMc",
+          "comentarios": 617,
+          "vistas": 75319
+        },
+        {
+          "titulo": "Lula ganhou 10 milhões de votos em 21 dias. Flávio tem razão em duvidar?",
+          "canal": "Corte de Pauta",
+          "url": "https://www.youtube.com/watch?v=m8VYYa2C_z8",
+          "comentarios": 396,
+          "vistas": 339203
+        },
+        {
+          "titulo": "VÍDEO de LULA em EVENTO chama ATENÇÃO - SERIA um CLONE ou SÓSIA de LULA DURANTE EVENTO com JANJA?",
+          "canal": "Paralelo News",
+          "url": "https://www.youtube.com/watch?v=qq9bG600870",
+          "comentarios": 331,
+          "vistas": 49700
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Muito bom! Parabéns ao governo do presidente Lula! ❤",
+            "likes": 36
+          },
+          {
+            "texto": "Deus e contigo Lula nosso presidente ❤",
+            "likes": 32
+          },
+          {
+            "texto": "Melhor Presidente de todos os tempos. Não foge a luta. Não abandona seu país. Salve Lula!",
+            "likes": 21
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Lula não consegue fazer superávit.\nVai continuar endividando absurdamente o Brasil e aumentando impostos para pagar juros da dívida pública que ele cria.\n\nO brasileiro não entende que só se pode gastar oque se tem .\nSe gasta oque é emprestado, precisa pagar com juros..\n\nO brasile",
+            "likes": 5
+          },
+          {
+            "texto": "Depois da urna  eletrônica o PT ganhou todas as eleições, exceto uma porque o Lula estava preso.20 anos de aparelhamento do Estado e roubalheira. Quem ousa enfrentar o sistema é perseguido e cancelado.",
+            "likes": 4
+          },
+          {
+            "texto": "Dane-se os tais \"Mercadus\"...querem viver do rentismo às custas de quem trabalha pra sustentá-los. Rachadinha gangster não detalhou nada do que faria. Só disse que cortaria 250 bilhões mas manteria tudo o que Lula tem gasto com os mais pobres. Mentiroso. Combinou isso com os abut",
+            "likes": 3
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 3,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 140
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 370,
+        "NEG": 46,
+        "NEU": 144
+      },
+      "alcance": {
+        "videos": 16,
+        "vistas": 1482189,
+        "likes_videos": 35893
+      },
+      "polemica": {
+        "respuestas": 60,
+        "promedio": 0.42,
+        "mas_discutido": {
+          "texto": "Melhor Presidente de todos os tempos. Não foge a luta. Não abandona seu país. Salve Lula!",
+          "respuestas": 10
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 16
+      },
+      "temas": [
+        [
+          "presidente",
+          55
+        ],
+        [
+          "deus",
+          19
+        ],
+        [
+          "nosso",
+          18
+        ],
+        [
+          "parabens",
+          18
+        ],
+        [
+          "sempre",
+          15
+        ],
+        [
+          "abencoe",
+          10
+        ],
+        [
+          "melhor",
+          9
+        ],
+        [
+          "viva",
+          8
+        ],
+        [
+          "governo",
+          7
+        ],
+        [
+          "estamos",
+          7
+        ],
+        [
+          "hoje",
+          6
+        ],
+        [
+          "pais",
+          6
+        ]
+      ]
+    },
+    "Flávio Bolsonaro": {
+      "videos": 20,
+      "comentarios": 144,
+      "pocos_datos": false,
+      "canales": {
+        "Revista Oeste": 20,
+        "Pri & Ma": 20,
+        "Marco Feliciano": 20,
+        "Plantão esquerda(Marquinho)": 17,
+        "Mídia NINJA": 14,
+        "Metrópoles": 11,
+        "UOL": 10,
+        "CartaCapital": 9,
+        "Politizando": 7,
+        "MARCOS EDUARDO 🎙": 5,
+        "Canal Questionamentos": 4,
+        "Grupo Midia BRASIL": 2,
+        "O Três News": 2,
+        "O POVO": 2,
+        "Plantão Brasil (Thiago dos Reis)": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 31,
+        "mismo_autor": 6,
+        "texto_repetido": 1,
+        "cuenta_nueva": 1,
+        "tope_canal": 45,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "REVELADO CRlME BILIONÁRIO DE FLÁVIO BOLSONARO!! LIGAÇÃO COM PCC!! MOTIVO DA FUGA DESCOBERTO!!",
+          "canal": "Plantão Brasil (Thiago dos Reis)",
+          "url": "https://www.youtube.com/watch?v=auV4150iQfM",
+          "comentarios": 1528,
+          "vistas": 398864
+        },
+        {
+          "titulo": "Ministro Flavio Dino STF muito perto de prender Flavio Bolsonaro!",
+          "canal": "Plantão esquerda(Marquinho)",
+          "url": "https://www.youtube.com/watch?v=UUxQVqxCEcQ",
+          "comentarios": 1144,
+          "vistas": 124497
+        },
+        {
+          "titulo": "😂Flávio jurou que ia arrasar na entrevista ao NY Times e acabou se constrangendo internacionalmente😂",
+          "canal": "Mídia NINJA",
+          "url": "https://www.youtube.com/watch?v=3wAmIPQuEpM",
+          "comentarios": 940,
+          "vistas": 513524
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Que alegria ver o NY Times fazendo jornalismo de verdade e ver Flávio mostrando o golpista que ele é.",
+            "likes": 650
+          },
+          {
+            "texto": "Parabéns Flávio Bolsonaro 🎉🎉🎉🎉",
+            "likes": 36
+          },
+          {
+            "texto": "EU sou favor presidente Flávio vai Pará outros países também isso é bom",
+            "likes": 26
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "A proposta de governo do Flávio Bostanaro é passar vergonha MUNDIAL",
+            "likes": 94
+          },
+          {
+            "texto": "Quero chamar a atenção para a cena . O local , com candelabros dourados , pratos finos , taças de cristal , talheres de grife , rodeados de homens com smokes caríssimos , mulheres com jóias e pompa de Hollywood. Agora a pergunta , como o Flávio conseguiu pagar por tudo isso ? O c",
+            "likes": 77
+          },
+          {
+            "texto": "Mostrou-se ao que veio com as rachadinhas do Rio. E as condecorações dos cabeças do escritório do crime no Rio também! Persona não grata ao povo de bem! Esse Sr.Flávio Bolsonaro tem que acertar sua conduta com a justiça e sair da cena política.",
+            "likes": 22
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 1,
+        "enojo": 2,
+        "sorpresa": 1,
+        "asco": 0,
+        "miedo": 4,
+        "sin_emocion_clara": 135
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 921,
+        "NEG": 328,
+        "NEU": 233
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 1853661,
+        "likes_videos": 102363
+      },
+      "polemica": {
+        "respuestas": 71,
+        "promedio": 0.49,
+        "mas_discutido": {
+          "texto": "Quero chamar a atenção para a cena . O local , com candelabros dourados , pratos finos , taças de cristal , talheres de grife , rodeados de homens com smokes caríssimos , mulheres com jóias e pompa de Hollywood. Agora a ",
+          "respuestas": 24
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 1,
+        "NEU": 18
+      },
+      "temas": [
+        [
+          "deus",
+          14
+        ],
+        [
+          "presidente",
+          13
+        ],
+        [
+          "certissimo",
+          9
+        ],
+        [
+          "dino",
+          9
+        ],
+        [
+          "rachadinha",
+          7
+        ],
+        [
+          "justica",
+          7
+        ],
+        [
+          "parabens",
+          7
+        ],
+        [
+          "dinheiro",
+          7
+        ],
+        [
+          "nosso",
+          6
+        ],
+        [
+          "ainda",
+          6
+        ],
+        [
+          "abencoe",
+          6
+        ],
+        [
+          "autorizo",
+          6
+        ]
+      ]
+    },
+    "Jair Bolsonaro": {
+      "videos": 19,
+      "comentarios": 78,
+      "pocos_datos": false,
+      "canales": {
+        "Francisco Mello Oficial": 20,
+        "@brasilpovo&cia": 20,
+        "Carlos Bolsonaro": 20,
+        "Pri & Ma": 9,
+        "Poder360": 4,
+        "Ronny Teles": 2,
+        "Notícias 24h Oficial": 1,
+        "Itatiaia": 1,
+        "Dois Pesos, Duas Medidas": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 9,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 35,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Novas atualizações sobre a saúde do Presidente Jair Bolsonaro.",
+          "canal": "Carlos Bolsonaro",
+          "url": "https://www.youtube.com/watch?v=IJmxjjxYBZ4",
+          "comentarios": 1931,
+          "vistas": 61835
+        },
+        {
+          "titulo": "🔴 JAIR BOLSONARO FAZ PEDIDO URGENTE",
+          "canal": "Pri & Ma",
+          "url": "https://www.youtube.com/watch?v=HvYsIUbu1G0",
+          "comentarios": 1587,
+          "vistas": 303203
+        },
+        {
+          "titulo": "Estamos com vocês Carlos e Jair Bolsonaro",
+          "canal": "@brasilpovo&cia",
+          "url": "https://www.youtube.com/watch?v=e1Dnt4xwe0U",
+          "comentarios": 1246,
+          "vistas": 66242
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "DEUS ABENÇOE NOSSO PRESIDENTE JAIR BOLSONARO",
+            "likes": 215
+          },
+          {
+            "texto": "Jair Bolsonaro. O melhor Presidente de todos os tempos.😊😊",
+            "likes": 206
+          },
+          {
+            "texto": "Presidente Jair Messias Bolsonaro que JESUS Cristo o abençoe, abundantemente. \nO MELHOR Presidente da República Federativa do BRASIl de todos os tempos.",
+            "likes": 159
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "É MUITA SAUDADE DO NOSSO MELHOR PRESIDENTE DO BRASIL,JAIR MESSIAS BOLSONARO, GRANDE HOMEM HONRADO E É UMA COVARDIA O QUE TÃO FAZENDO COM ELE 🤔😭😭😭😭",
+            "likes": 1
+          },
+          {
+            "texto": "NAO ACEITAMOS BETS.  SOMOS THIAGO DOS REIS  FICA SOMOS FAVORÁVEL JAIR BUSSONARO NO. XADREZ",
+            "likes": 1
+          },
+          {
+            "texto": "O tempo está mostrando que muitas histórias foram inventadas para tentar desmoralizar Jair BOLSONARO e tentar destruir o Bolsonarismo, mas isso não vai acontecer. Perdeu mané!",
+            "likes": 1
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 2,
+        "tristeza": 4,
+        "enojo": 3,
+        "sorpresa": 1,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 68
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 1012,
+        "NEG": 10,
+        "NEU": 15
+      },
+      "alcance": {
+        "videos": 19,
+        "vistas": 1555880,
+        "likes_videos": 90800
+      },
+      "polemica": {
+        "respuestas": 14,
+        "promedio": 0.18,
+        "mas_discutido": {
+          "texto": "Jair Bolsonaro. O melhor Presidente de todos os tempos.😊😊",
+          "respuestas": 7
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 1,
+        "NEU": 9
+      },
+      "temas": [
+        [
+          "messias",
+          41
+        ],
+        [
+          "deus",
+          38
+        ],
+        [
+          "presidente",
+          35
+        ],
+        [
+          "nosso",
+          30
+        ],
+        [
+          "abencoe",
+          26
+        ],
+        [
+          "sempre",
+          17
+        ],
+        [
+          "familia",
+          13
+        ],
+        [
+          "carlos",
+          13
+        ],
+        [
+          "melhor",
+          12
+        ],
+        [
+          "proteja",
+          10
+        ],
+        [
+          "saude",
+          9
+        ],
+        [
+          "vida",
+          8
+        ]
+      ]
+    },
+    "Tarcísio": {
+      "videos": 19,
+      "comentarios": 113,
+      "pocos_datos": false,
+      "canales": {
+        "Antonio Donato": 20,
+        "Mídia NINJA": 20,
+        "Inevitável Cortes": 20,
+        "MADERADA BRASIL": 20,
+        "Cortes do Mamãe Falei": 16,
+        "Política e Afins": 8,
+        "MBL - Movimento Brasil Livre": 6,
+        "BRADO": 1,
+        "Cortes Trezoitão": 1,
+        "Jovem Pan News": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 19,
+        "mismo_autor": 8,
+        "texto_repetido": 8,
+        "cuenta_nueva": 4,
+        "tope_canal": 82,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "🚨A incompetência de Tarcísio entrega até cachoeira dentro do metrô!🚨",
+          "canal": "Mídia NINJA",
+          "url": "https://www.youtube.com/watch?v=8j4Bh5SCRzc",
+          "comentarios": 2975,
+          "vistas": 265975
+        },
+        {
+          "titulo": "VIOLÊNCIA NO BRAZ-SP A POLÍCIA DE TARCÍSIO DE FREITAS MALTRATANDO TRABALHADORES",
+          "canal": "MADERADA BRASIL",
+          "url": "https://www.youtube.com/watch?v=PbLZ4STWWEU",
+          "comentarios": 662,
+          "vistas": 59981
+        },
+        {
+          "titulo": "Donato Na Cola do Tarcísio - Governador aumenta gasolina: estelionato eleitoral",
+          "canal": "Antonio Donato",
+          "url": "https://www.youtube.com/watch?v=XeX2-up6OYc",
+          "comentarios": 482,
+          "vistas": 202271
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Que maravilhas são as obras de Tarcísio de Freitas! Parabéns para quem o reelegeu.",
+            "likes": 188
+          },
+          {
+            "texto": "Na media geral eu acredito que o Tarcísio tá sendo melhor que teve",
+            "likes": 78
+          },
+          {
+            "texto": "PARABÉNS TARCÍSIO CUMPRINDO SUA PROMESSA DE CAMPANHA",
+            "likes": 57
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Parabéns aos idiotas que votaram no Tarcísio...",
+            "likes": 145
+          },
+          {
+            "texto": "Pior que muitos desses que estão apanhando da corrupta PM ,votaram no Tarcísio!",
+            "likes": 56
+          },
+          {
+            "texto": "Está na hora de Tarcísio, Moro, Deltan, se desligarem totalmente do bolsonarismo para ajudarem a extirpar esse cancro e passarem à luta buscando extirpar o lulismo, outro cancro que prejudica o Brasil.",
+            "likes": 51
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 113
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 599,
+        "NEG": 477,
+        "NEU": 230
+      },
+      "alcance": {
+        "videos": 19,
+        "vistas": 864188,
+        "likes_videos": 43225
+      },
+      "polemica": {
+        "respuestas": 90,
+        "promedio": 0.8,
+        "mas_discutido": {
+          "texto": "Na media geral eu acredito que o Tarcísio tá sendo melhor que teve",
+          "respuestas": 24
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 6,
+        "NEU": 12
+      },
+      "temas": [
+        [
+          "parabens",
+          13
+        ],
+        [
+          "paulo",
+          10
+        ],
+        [
+          "renan",
+          9
+        ],
+        [
+          "cara",
+          8
+        ],
+        [
+          "governador",
+          7
+        ],
+        [
+          "votaram",
+          7
+        ],
+        [
+          "direita",
+          7
+        ],
+        [
+          "votar",
+          6
+        ],
+        [
+          "voto",
+          6
+        ],
+        [
+          "metro",
+          4
+        ],
+        [
+          "vota",
+          4
+        ],
+        [
+          "politico",
+          4
+        ]
+      ]
+    },
+    "Haddad": {
+      "videos": 20,
+      "comentarios": 22,
+      "pocos_datos": true,
+      "canales": {
+        "Professor Leonardo": 20,
+        "Ventura em Cortes [OFICIAL]": 1,
+        "CNN Brasil": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 8,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 3,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Padilha rebate dirigentes de futebol que pedem volta das bets no STF",
+          "canal": "TV Fórum",
+          "url": "https://www.youtube.com/watch?v=sRfXYuI2rQU",
+          "comentarios": 451,
+          "vistas": 56773
+        },
+        {
+          "titulo": "💣BOMBA! LULA ESCOLHEU MINISTRO!? Haddad acabou?",
+          "canal": "Professor Leonardo",
+          "url": "https://www.youtube.com/watch?v=ELPcr9VQYe4",
+          "comentarios": 213,
+          "vistas": 63195
+        },
+        {
+          "titulo": "FACHIN ARQUIVA INQUÉRITO DAS FAKE NEWS APÓS SETE ANOS - ICL N1 - 10/11/26",
+          "canal": "Instituto Conhecimento Liberta",
+          "url": "https://www.youtube.com/watch?v=Oz2tE44hLKs",
+          "comentarios": 33,
+          "vistas": 3145
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "O Dariu é ótimo! O Haddad não quer mais a fazenda. O Haddad vai pra segurança pública. Ele fez a carbono oculto e ele precisa de visibilidade ao povo e não do mercado. Daqui a 4 anos ele tem que está bem cotado. Colocar aquele promotor é uma furada. Ele já está jurado e não vai p",
+            "likes": 5
+          },
+          {
+            "texto": "Gosto do Dario, porque ele comunica bem com os políticos e com a população. Haddad vai pro ministério da educação, acho que o perfil dele é melhor, sem muita pressão da mídia.",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Eduardo Moreira, Haddad, Mantega e uma professora da USP... É senhores, não vai ser facil",
+            "likes": 8
+          },
+          {
+            "texto": "Tá louco, Haddad não dá não. Só fez merdinha na economia.",
+            "likes": 5
+          },
+          {
+            "texto": "Engraçado é que o Ministro Haddad, não boicota os impostos dessas empresas de direita.",
+            "likes": 1
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 22
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 7,
+        "NEG": 23,
+        "NEU": 50
+      },
+      "alcance": {
+        "videos": 20,
+        "vistas": 156532,
+        "likes_videos": 14846
+      },
+      "polemica": {
+        "respuestas": 11,
+        "promedio": 0.5,
+        "mas_discutido": {
+          "texto": "Tá louco, Haddad não dá não. Só fez merdinha na economia.",
+          "respuestas": 6
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 3,
+        "NEU": 12
+      },
+      "temas": [
+        [
+          "fazenda",
+          4
+        ],
+        [
+          "economia",
+          3
+        ],
+        [
+          "acho",
+          3
+        ],
+        [
+          "dario",
+          3
+        ],
+        [
+          "quer",
+          2
+        ],
+        [
+          "devia",
+          2
+        ],
+        [
+          "voltar",
+          2
+        ],
+        [
+          "educacao",
+          2
+        ],
+        [
+          "gestor",
+          2
+        ],
+        [
+          "colocar",
+          2
+        ],
+        [
+          "mercado",
+          2
+        ],
+        [
+          "ministerio",
+          2
+        ]
+      ]
+    }
+  }
+}

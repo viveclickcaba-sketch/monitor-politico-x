@@ -21,7 +21,9 @@
   },
   "br": {
     "nombre": "Brasil",
-    "idioma": "pt"
+    "idioma": "pt",
+    "actualizado": "10/11/2026 13:00",
+    "total_comentarios": 501
   },
   "it": {
     "nombre": "Italia",

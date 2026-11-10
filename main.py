@@ -31,7 +31,9 @@ if not API_KEY:
 # "palabras": como lo escribe la gente (minuscula, sin tildes)
 #   - una palabra normal tambien detecta derivados (ej. "milei" -> "mileista")
 #   - si empieza con "=" se detecta solo la palabra exacta (ej. "=petro" no cuenta "petroleo")
+#   - si empieza con "~" se busca tal cual, respetando la ñ (ej. "~peña" no cuenta "pena")
 # "otros": figuras que, si aparecen en el comentario, hacen que no se cuente
+# "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
 # ============================================================
 PAISES = {
     "ar": {
@@ -86,11 +88,11 @@ PAISES = {
     "br": {
         "nombre": "Brasil", "idioma": "pt", "region": "BR", "videos": 20, "paginas": 2,
         "politicos": {
-            "Lula":             {"busqueda": "Lula",              "palabras": ["=lula"]},
-            "Flávio Bolsonaro": {"busqueda": "Flávio Bolsonaro",  "palabras": ["flavio"]},
-            "Jair Bolsonaro":   {"busqueda": "Jair Bolsonaro",    "palabras": ["=jair"]},
+            "Lula":             {"busqueda": "Lula",                "palabras": ["=lula"]},
+            "Flávio Bolsonaro": {"busqueda": "Flávio Bolsonaro",    "palabras": ["flavio"]},
+            "Jair Bolsonaro":   {"busqueda": "Jair Bolsonaro",      "palabras": ["=jair"]},
             "Tarcísio":         {"busqueda": "Tarcísio de Freitas", "palabras": ["tarcisio"]},
-            "Haddad":           {"busqueda": "Fernando Haddad",   "palabras": ["haddad"]},
+            "Haddad":           {"busqueda": "Fernando Haddad",     "palabras": ["haddad"]},
         },
         "otros": ["michelle", "moraes", "eduardo bolsonaro", "alckmin", "ciro gomes"],
     },
@@ -106,24 +108,24 @@ PAISES = {
         "otros": ["renzi", "calenda", "vannacci", "draghi", "mattarella"],
     },
     "py": {
-        "nombre": "Paraguay", "idioma": "es", "region": "PY", "videos": 20, "paginas": 2,
+        "nombre": "Paraguay", "idioma": "es", "region": "PY", "videos": 25, "paginas": 3, "dias": 14,
         "politicos": {
-            "Santiago Peña": {"busqueda": "Santiago Peña",       "palabras": ["santiago pena", "santi pena", "presidente pena"]},
-            "Cartes":        {"busqueda": "Horacio Cartes",      "palabras": ["cartes"]},
-            "Efraín Alegre": {"busqueda": "Efraín Alegre",       "palabras": ["efrain"]},
-            "Payo Cubas":    {"busqueda": "Payo Cubas",          "palabras": ["=payo", "cubas"]},
-            "Mario Abdo":    {"busqueda": "Mario Abdo Benítez",  "palabras": ["=abdo", "marito"]},
+            "Santiago Peña": {"busqueda": "Santiago Peña",      "palabras": ["santiago pena", "santi pena", "presidente pena", "~peña"]},
+            "Cartes":        {"busqueda": "Horacio Cartes",     "palabras": ["cartes"]},
+            "Efraín Alegre": {"busqueda": "Efraín Alegre",      "palabras": ["efrain", "=alegre"]},
+            "Payo Cubas":    {"busqueda": "Payo Cubas",         "palabras": ["=payo", "cubas"]},
+            "Mario Abdo":    {"busqueda": "Mario Abdo Benítez", "palabras": ["=abdo", "marito"]},
         },
         "otros": ["lugo", "nakayama", "velazquez"],
     },
     "ve": {
         "nombre": "Venezuela", "idioma": "es", "region": "VE", "videos": 20, "paginas": 2,
         "politicos": {
-            "Delcy Rodríguez":  {"busqueda": "Delcy Rodríguez",        "palabras": ["delcy"]},
+            "Delcy Rodríguez":      {"busqueda": "Delcy Rodríguez",      "palabras": ["delcy"]},
             "María Corina Machado": {"busqueda": "María Corina Machado", "palabras": ["machado", "maria corina", "=mcm"]},
-            "Edmundo González": {"busqueda": "Edmundo González",       "palabras": ["edmundo"]},
-            "Maduro":           {"busqueda": "Nicolás Maduro",         "palabras": ["=maduro"]},
-            "Diosdado Cabello": {"busqueda": "Diosdado Cabello",       "palabras": ["diosdado"]},
+            "Edmundo González":     {"busqueda": "Edmundo González",     "palabras": ["edmundo"]},
+            "Maduro":               {"busqueda": "Nicolás Maduro",       "palabras": ["=maduro"]},
+            "Diosdado Cabello":     {"busqueda": "Diosdado Cabello",     "palabras": ["diosdado"]},
         },
         "otros": ["jorge rodriguez", "padrino", "capriles", "guaido"],
     },
@@ -144,11 +146,14 @@ TEMAS_POR_DIRIGENTE = 12
 MAX_HISTORIAL = 200
 UMBRAL_ALERTA = 15
 EXCLUIR_IRONIA = True
+# El detector de ironia solo se usa donde funciona bien (en portugues marcaba todo como ironico)
+IDIOMAS_CON_IRONIA = {"es"}
 
 EMOCIONES = {
     "joy": "alegria", "sadness": "tristeza", "anger": "enojo", "surprise": "sorpresa",
     "disgust": "asco", "fear": "miedo", "others": "sin_emocion_clara",
 }
+TONOS = ("POS", "NEG", "NEU")
 
 STOPWORDS = {
     "es": set("""
@@ -202,14 +207,25 @@ def normalizar(texto):
     return re.sub(r"\s+", " ", texto).strip()
 
 
-def menciona(texto_norm, palabras):
+def menciona(texto_norm, palabras, texto_crudo=""):
+    crudo = unicodedata.normalize("NFC", texto_crudo.lower()) if texto_crudo else ""
     for p in palabras:
-        if p.startswith("="):
+        if p.startswith("~"):
+            if crudo and re.search(r"(?<!\w)" + re.escape(p[1:]), crudo):
+                return True
+        elif p.startswith("="):
             if re.search(r"\b" + re.escape(p[1:]) + r"\b", texto_norm):
                 return True
         elif re.search(r"\b" + re.escape(p), texto_norm):
             return True
     return False
+
+
+def etiqueta(salida, validas, por_defecto):
+    """Toma la salida de un modelo (texto o lista) y devuelve una etiqueta valida."""
+    if isinstance(salida, (list, tuple)):
+        salida = salida[0] if salida else por_defecto
+    return salida if salida in validas else por_defecto
 
 
 def leer_json(ruta, por_defecto):
@@ -279,7 +295,11 @@ def modelos_para(idioma):
     modelos["sentimiento"] = cargar_modelo("sentiment", idioma)
     modelos["emocion"] = cargar_modelo("emotion", idioma)
     modelos["odio"] = cargar_modelo("hate_speech", idioma)
-    modelos["ironia"] = cargar_modelo("irony", idioma)
+    if idioma in IDIOMAS_CON_IRONIA:
+        modelos["ironia"] = cargar_modelo("irony", idioma)
+    else:
+        print(f"  (Detector de ironia desactivado para '{idioma}')")
+        modelos["ironia"] = None
     return modelos
 
 
@@ -288,23 +308,23 @@ def analizar(texto, m):
     r = {"i": False}
     if m.get("ironia"):
         try:
-            r["i"] = m["ironia"].predict(t).output == "ironic"
+            r["i"] = etiqueta(m["ironia"].predict(t).output, ("ironic", "not ironic"), "not ironic") == "ironic"
         except Exception:
             r["i"] = False
     if r["i"] and EXCLUIR_IRONIA:
         return r
-    r["s"] = m["sentimiento"].predict(t).output
+    r["s"] = etiqueta(m["sentimiento"].predict(t).output, TONOS, "NEU")
     r["e"] = "others"
     if m.get("emocion"):
         try:
-            r["e"] = m["emocion"].predict(t).output
+            r["e"] = etiqueta(m["emocion"].predict(t).output, tuple(EMOCIONES.keys()), "others")
         except Exception:
             r["e"] = "others"
     r["a"] = False
     if m.get("odio"):
         try:
             salida = m["odio"].predict(t).output
-            salida = salida if isinstance(salida, list) else [salida]
+            salida = salida if isinstance(salida, (list, tuple)) else [salida]
             r["a"] = any(x in ("aggressive", "hateful") for x in salida)
         except Exception:
             r["a"] = False
@@ -339,8 +359,8 @@ def cargar_canales(ids):
             info_canales.setdefault(i, {"pais": None, "creado": None})
 
 
-def buscar_videos(busqueda, region, idioma, cantidad):
-    desde = (datetime.now(timezone.utc) - timedelta(days=DIAS_HACIA_ATRAS)).strftime("%Y-%m-%dT%H:%M:%SZ")
+def buscar_videos(busqueda, region, idioma, cantidad, dias):
+    desde = (datetime.now(timezone.utc) - timedelta(days=dias)).strftime("%Y-%m-%dT%H:%M:%SZ")
     datos = llamar_youtube("search", {
         "part": "snippet",
         "q": busqueda,
@@ -428,7 +448,6 @@ def procesar_pais(codigo, cfg):
     print("=" * 60)
     os.makedirs(os.path.join(CARPETA, codigo), exist_ok=True)
 
-    # Argentina: la primera vez, traer historial y acumulado de la version anterior
     if codigo == "ar":
         for archivo in ("historial.json", "acumulado.json"):
             if not os.path.exists(ruta("ar", archivo)) and os.path.exists(archivo):
@@ -439,16 +458,17 @@ def procesar_pais(codigo, cfg):
         print("  No hay modelo de tono para este idioma. Se saltea el pais.")
         return False
 
+    dias = cfg.get("dias", DIAS_HACIA_ATRAS)
     politicos = cfg["politicos"]
     otros_nombres = cfg.get("otros", [])
     stop = STOPWORDS.get(cfg["idioma"], set())
-    excluir_temas = set(p.lstrip("=") for p in otros_nombres)
+    excluir_temas = set()
+    for o in otros_nombres:
+        excluir_temas.update(normalizar(o).split())
     for c in politicos.values():
         for p in c["palabras"]:
-            excluir_temas.update(p.lstrip("=").split())
+            excluir_temas.update(normalizar(p.lstrip("=~")).split())
         excluir_temas.update(normalizar(c["busqueda"]).split())
-    for o in otros_nombres:
-        excluir_temas.update(o.split())
 
     comentarios_max = cfg["paginas"] * 100
     resultados = {p: {"POS": 0, "NEG": 0, "NEU": 0} for p in politicos}
@@ -460,7 +480,7 @@ def procesar_pais(codigo, cfg):
     for nombre, config in politicos.items():
         print(f"Buscando videos de {config['busqueda']}...")
         try:
-            videos = buscar_videos(config["busqueda"], cfg["region"], cfg["idioma"], cfg["videos"])
+            videos = buscar_videos(config["busqueda"], cfg["region"], cfg["idioma"], cfg["videos"], dias)
         except Exception as e:
             print(f"  Error al buscar videos: {e}")
             continue
@@ -504,9 +524,9 @@ def procesar_pais(codigo, cfg):
         # 3) Tono de los titulos que lo nombran
         titulos = {"POS": 0, "NEG": 0, "NEU": 0}
         for video_id, canal, titulo in validos:
-            if menciona(normalizar(titulo), config["palabras"]):
+            if menciona(normalizar(titulo), config["palabras"], titulo):
                 try:
-                    titulos[m["sentimiento"].predict(titulo[:300]).output] += 1
+                    titulos[etiqueta(m["sentimiento"].predict(titulo[:300]).output, TONOS, "NEU")] += 1
                 except Exception:
                     pass
 
@@ -519,9 +539,9 @@ def procesar_pais(codigo, cfg):
                     continue
                 vistos_cid.add(cid)
                 norm = normalizar(texto)
-                if not menciona(norm, config["palabras"]):
+                if not menciona(norm, config["palabras"], texto):
                     continue
-                if any(menciona(norm, palabras) for palabras in otros_politicos) or menciona(norm, otros_nombres):
+                if any(menciona(norm, palabras, texto) for palabras in otros_politicos) or menciona(norm, otros_nombres, texto):
                     descartes["menciona_otros"] += 1
                     continue
                 if autor in vistos_autor:
@@ -671,11 +691,11 @@ def procesar_pais(codigo, cfg):
         "actualizado": hora_ar.strftime("%d/%m/%Y %H:%M"),
         "metodo": METODO,
         "fuente": "Comentarios de YouTube",
-        "periodo": f"Videos de los ultimos {DIAS_HACIA_ATRAS} dias",
+        "periodo": f"Videos de los ultimos {dias} dias",
         "filtros": {
             "solo_un_dirigente_por_comentario": True,
             "otros_nombres_excluidos": otros_nombres,
-            "ironia_excluida": EXCLUIR_IRONIA,
+            "ironia_excluida": EXCLUIR_IRONIA and m.get("ironia") is not None,
             "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
             "un_comentario_por_persona": True,
             "sin_textos_repetidos": True,
@@ -699,7 +719,6 @@ def procesar_pais(codigo, cfg):
     }
     guardar_json(ruta(codigo, "info.json"), info)
 
-    # Argentina: copia en la raiz para que la web actual siga funcionando
     if codigo == "ar":
         for archivo in ("datos.json", "info.json", "historial.json", "acumulado.json"):
             shutil.copy(ruta("ar", archivo), archivo)

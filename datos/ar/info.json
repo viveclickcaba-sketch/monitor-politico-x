@@ -1,0 +1,1295 @@
+{
+  "pais": "Argentina",
+  "codigo": "ar",
+  "idioma": "es",
+  "actualizado": "09/11/2026 22:04",
+  "metodo": 3,
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "filtros": {
+    "solo_un_dirigente_por_comentario": true,
+    "otros_nombres_excluidos": [
+      "caputo",
+      "karina",
+      "adorni",
+      "villarruel",
+      "sturzenegger",
+      "pettovello",
+      "francos",
+      "espert"
+    ],
+    "ironia_excluida": true,
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "modelos": {
+    "emociones": true,
+    "agresividad": true,
+    "ironia": true
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 256,
+  "acumulado": {
+    "dias": 30,
+    "corridas": 3,
+    "datos": {
+      "Milei": {
+        "POS": 30,
+        "NEG": 135,
+        "NEU": 29
+      },
+      "Massa": {
+        "POS": 2,
+        "NEG": 21,
+        "NEU": 7
+      },
+      "Kicillof": {
+        "POS": 26,
+        "NEG": 40,
+        "NEU": 13
+      },
+      "Macri": {
+        "POS": 3,
+        "NEG": 36,
+        "NEU": 4
+      },
+      "Bullrich": {
+        "POS": 2,
+        "NEG": 29,
+        "NEU": 4
+      },
+      "Cristina": {
+        "POS": 23,
+        "NEG": 55,
+        "NEU": 29
+      },
+      "Grabois": {
+        "POS": 0,
+        "NEG": 10,
+        "NEU": 1
+      },
+      "Bregman": {
+        "POS": 6,
+        "NEG": 4,
+        "NEU": 1
+      }
+    },
+    "pocos_datos": {
+      "Milei": false,
+      "Massa": true,
+      "Kicillof": false,
+      "Macri": true,
+      "Bullrich": true,
+      "Cristina": false,
+      "Grabois": true,
+      "Bregman": true
+    }
+  },
+  "detalle": {
+    "Milei": {
+      "videos": 15,
+      "comentarios": 78,
+      "pocos_datos": false,
+      "canales": {
+        "El Cronista": 16,
+        "LA NACION": 15,
+        "Revolución Popular Noticias": 14,
+        "eltrece": 12,
+        "Derecha Diario TV": 9,
+        "El Destape": 6,
+        "Perspectiva Progresista": 3,
+        "CLARÍN": 3
+      },
+      "videos_descartados": {
+        "canal_extranjero": 10,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 10,
+        "mismo_autor": 7,
+        "texto_repetido": 1,
+        "cuenta_nueva": 4,
+        "tope_canal": 34,
+        "ironia": 27
+      },
+      "videos_destacados": [
+        {
+          "titulo": "DISCURSOS DEL PAPA LEÓN XIV y JAVIER MILEI en el PALACIO LIBERTAD | Cadena Nacional 8/11/26",
+          "canal": "El Cronista",
+          "url": "https://www.youtube.com/watch?v=vfiGDaMM6cI",
+          "comentarios": 425,
+          "vistas": 102418
+        },
+        {
+          "titulo": "🚨AHORA | TIEMBLAN LOS HERMANOS MILEI: ORDENAN REABRIR LA CAUSA POR LA ESTAFA $LIBRA",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=zGTz-o0t1hY",
+          "comentarios": 266,
+          "vistas": 219800
+        },
+        {
+          "titulo": "Paco Olveira: \"Hay un enfrentamiento claro entre el gobierno de Milei y la Iglesia como institución\"",
+          "canal": "El Destape",
+          "url": "https://www.youtube.com/watch?v=WYAReV1fZMA",
+          "comentarios": 158,
+          "vistas": 54043
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Mileiii recibiste una buena clase de economía te hablo en tu cara graciass PAPA ❤❤🇦🇷🇦🇷🇦🇷🇦🇷👏👏👏",
+            "likes": 19
+          },
+          {
+            "texto": "❤DIOS NOS BENDIJO AL PUEBLO DE BIEN: MILEI PRESIDENTE ❤VLLCÍ",
+            "likes": 19
+          },
+          {
+            "texto": "XFAVOR LO PRIMERO DARLE LA GRACIAS A DIOS POR DARNOS SU BENDICIÓN DE UN BUEN PRESIDENTE COMO ÉL SEÑOR MILEI VIVA LA LIBERTAD CARAJO VAMOS MILEI 2027 ES LO QUE VOTAMOS EL PUEBLO ARGENTINO XFAVOR GRACIAS AMÉN ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤",
+            "likes": 16
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "los hnos milei buscan escapar de la justicia  que vergonzoso es todo esto 😮",
+            "likes": 74
+          },
+          {
+            "texto": "ESPERO QUE HAYA ENTENDIDO LO QUE FUE DIRECTO A MILEI  POBRESA DISCAPACIDAD  HOSPITALES ESCUELAS Y UNION POR LOS MAS DEBILES",
+            "likes": 47
+          },
+          {
+            "texto": "Que le paso MILEI, no era que Francisco era el embajador del maligno en la tierra ocupando el trono de Dios, que basura .",
+            "likes": 33
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 15,
+        "tristeza": 1,
+        "enojo": 25,
+        "sorpresa": 0,
+        "asco": 2,
+        "miedo": 0,
+        "sin_emocion_clara": 35
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 113,
+        "NEG": 352,
+        "NEU": 62
+      },
+      "alcance": {
+        "videos": 15,
+        "vistas": 600383,
+        "likes_videos": 13421
+      },
+      "polemica": {
+        "respuestas": 98,
+        "promedio": 1.26,
+        "mas_discutido": {
+          "texto": "ESPERO QUE HAYA ENTENDIDO LO QUE FUE DIRECTO A MILEI  POBRESA DISCAPACIDAD  HOSPITALES ESCUELAS Y UNION POR LOS MAS DEBILES",
+          "respuestas": 19
+        }
+      },
+      "titulos": {
+        "POS": 4,
+        "NEG": 4,
+        "NEU": 7
+      },
+      "temas": [
+        [
+          "papa",
+          14
+        ],
+        [
+          "presidente",
+          11
+        ],
+        [
+          "discurso",
+          10
+        ],
+        [
+          "gracias",
+          7
+        ],
+        [
+          "dios",
+          7
+        ],
+        [
+          "pueblo",
+          5
+        ],
+        [
+          "cara",
+          4
+        ],
+        [
+          "leon",
+          4
+        ],
+        [
+          "francisco",
+          4
+        ],
+        [
+          "viva",
+          4
+        ],
+        [
+          "ojala",
+          4
+        ],
+        [
+          "falso",
+          3
+        ]
+      ]
+    },
+    "Massa": {
+      "videos": 25,
+      "comentarios": 24,
+      "pocos_datos": true,
+      "canales": {
+        "LA ROSCA Y LA PELOTA": 19,
+        "LA NACION": 2,
+        "UNItvShorts": 1,
+        "A24com": 1,
+        "Herrero Liberal  ": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 23,
+        "mismo_autor": 3,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 26,
+        "ironia": 4
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MILEI TE MINTIÓ, MASSA NO: TODO LO QUE TE HABÍA ADVERTIDO SERGIO MASSA Y NO QUISISTE CREER",
+          "canal": "LA ROSCA Y LA PELOTA",
+          "url": "https://www.youtube.com/watch?v=oWXf48qHcrE",
+          "comentarios": 869,
+          "vistas": 210772
+        },
+        {
+          "titulo": "UN POCO DE RUIDO! Programa #159 Hoy \" ENRIQUE MAZA\"",
+          "canal": "Un Poco De Ruido",
+          "url": "https://www.youtube.com/watch?v=Yuvz3YpHbpY",
+          "comentarios": 205,
+          "vistas": 451224
+        },
+        {
+          "titulo": "¿Y KICILLOF?🚨 BOMBAZO: MASSA Y CRISTINA BUSCAN AL ESTRATEGA DE LULA PARA DERROTAR A MILEI",
+          "canal": "Herrero Liberal  ",
+          "url": "https://www.youtube.com/watch?v=57K_tCeir5M",
+          "comentarios": 105,
+          "vistas": 9033
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Siii Massa tenía muchas razon❤",
+            "likes": 2
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Massa te quedaste cortó en los aumentos",
+            "likes": 104
+          },
+          {
+            "texto": "Massa tenia raazon votaron loco suelto sin patria ni oh honor😮",
+            "likes": 51
+          },
+          {
+            "texto": "Yo te vote Massa pero estoy viviendo en un pais de BOLUDOS  querian ser millonarios  gracias",
+            "likes": 32
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 7,
+        "sorpresa": 1,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 15
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 3,
+        "NEG": 244,
+        "NEU": 129
+      },
+      "alcance": {
+        "videos": 25,
+        "vistas": 713997,
+        "likes_videos": 17667
+      },
+      "polemica": {
+        "respuestas": 20,
+        "promedio": 0.83,
+        "mas_discutido": {
+          "texto": "Massa te quedaste cortó en los aumentos",
+          "respuestas": 8
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 9,
+        "NEU": 9
+      },
+      "temas": [
+        [
+          "corto",
+          3
+        ],
+        [
+          "verdad",
+          3
+        ],
+        [
+          "razon",
+          3
+        ],
+        [
+          "decia",
+          3
+        ],
+        [
+          "gobierno",
+          2
+        ],
+        [
+          "nadie",
+          2
+        ],
+        [
+          "loco",
+          2
+        ],
+        [
+          "jamas",
+          2
+        ],
+        [
+          "tantas",
+          2
+        ],
+        [
+          "argentino",
+          2
+        ],
+        [
+          "cara",
+          1
+        ],
+        [
+          "ultima",
+          1
+        ]
+      ]
+    },
+    "Kicillof": {
+      "videos": 25,
+      "comentarios": 56,
+      "pocos_datos": false,
+      "canales": {
+        "Adrián Ackerman": 15,
+        "Revolución Popular Noticias": 11,
+        "Agarra la Pala América": 7,
+        "A24com": 6,
+        "Perfil": 5,
+        "eltrece": 4,
+        "Cadena 3 Argentina": 2,
+        "LA NACION": 2,
+        "La Opinión Austral": 1,
+        "EZZE TV": 1,
+        "eltresTV": 1,
+        "Carnaval Stream": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 6,
+        "mismo_autor": 3,
+        "texto_repetido": 7,
+        "cuenta_nueva": 1,
+        "tope_canal": 0,
+        "ironia": 18
+      },
+      "videos_destacados": [
+        {
+          "titulo": "EXPONGO A PERIODISTA K Y LOS MILLONES DE PAUTA DE KICILLOF A EL DESTAPE",
+          "canal": "Marco Palazzo",
+          "url": "https://www.youtube.com/watch?v=KTdMVKIwnqQ",
+          "comentarios": 409,
+          "vistas": 59838
+        },
+        {
+          "titulo": "SEGUN KICILLOF, EL PAPA LEON XIV LO VOTARÍA A ÉL #javiermilei",
+          "canal": "Adrián Ackerman",
+          "url": "https://www.youtube.com/watch?v=ZagfioWjyPs",
+          "comentarios": 351,
+          "vistas": 30252
+        },
+        {
+          "titulo": "KICILLOF AL ÁNGULO 😂",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=QVJLX1zyhvc",
+          "comentarios": 127,
+          "vistas": 47363
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Axel Kicillof presidente ❤❤❤",
+            "likes": 33
+          },
+          {
+            "texto": "AXEL PRESIDENTE",
+            "likes": 9
+          },
+          {
+            "texto": "Axel Presidente el único y el mejor !!!!❤❤❤❤❤❤",
+            "likes": 8
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Kicillof acumula ñoquis, por eso no le alcanza la plata.\nEs mi opinión...",
+            "likes": 54
+          },
+          {
+            "texto": "Estoy es una burrada más de kicillof. Pero me encantaría saber que piensan los obispos y curas argentinos.",
+            "likes": 28
+          },
+          {
+            "texto": "Ojalá Kicillof no haya abierto la boca así no nos deja en vergüenza",
+            "likes": 20
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 8,
+        "tristeza": 0,
+        "enojo": 22,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 25
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 97,
+        "NEG": 189,
+        "NEU": 74
+      },
+      "alcance": {
+        "videos": 25,
+        "vistas": 335234,
+        "likes_videos": 11218
+      },
+      "polemica": {
+        "respuestas": 43,
+        "promedio": 0.77,
+        "mas_discutido": {
+          "texto": "Axel Presidente el único y el mejor !!!!❤❤❤❤❤❤",
+          "respuestas": 6
+        }
+      },
+      "titulos": {
+        "POS": 6,
+        "NEG": 9,
+        "NEU": 9
+      },
+      "temas": [
+        [
+          "presidente",
+          8
+        ],
+        [
+          "provincia",
+          8
+        ],
+        [
+          "papa",
+          8
+        ],
+        [
+          "gobernador",
+          4
+        ],
+        [
+          "verguenza",
+          4
+        ],
+        [
+          "dios",
+          4
+        ],
+        [
+          "aires",
+          3
+        ],
+        [
+          "buenos",
+          3
+        ],
+        [
+          "plata",
+          3
+        ],
+        [
+          "deja",
+          3
+        ],
+        [
+          "politica",
+          3
+        ],
+        [
+          "deberia",
+          3
+        ]
+      ]
+    },
+    "Macri": {
+      "videos": 22,
+      "comentarios": 26,
+      "pocos_datos": true,
+      "canales": {
+        "C5N": 8,
+        "Revolución Popular Noticias": 5,
+        "Las Fuerzas del Pueblo": 4,
+        "El Cronista": 3,
+        "LA ROSCA Y LA PELOTA": 2,
+        "Diario Todo Jujuy": 1,
+        "Radio Mitre": 1,
+        "EZZE TV": 1,
+        "Apoyocordoba": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 3
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 15,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 8
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MAURICIO MACRI: \"No soy MILEISTA\"",
+          "canal": "C5N",
+          "url": "https://www.youtube.com/watch?v=IX8rnIah-18",
+          "comentarios": 256,
+          "vistas": 55252
+        },
+        {
+          "titulo": "Las negociaciones de Macri con Florentino Perez previo a la polemica final entre Boca - Real Madrid",
+          "canal": "Un Poco de Clips ",
+          "url": "https://www.youtube.com/watch?v=FDVP4I7zx6A",
+          "comentarios": 119,
+          "vistas": 22336
+        },
+        {
+          "titulo": "Macri fue a la calle a sacarse fotos y le pidieron que devuelva el préstamo con el FMI",
+          "canal": "Las Fuerzas del Pueblo",
+          "url": "https://www.youtube.com/watch?v=Jcf5OAF1vdQ",
+          "comentarios": 77,
+          "vistas": 17438
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Vamos macri te queremos",
+            "likes": 1
+          },
+          {
+            "texto": "Vamos\n\n\nVAMOS  MAURICIO MACRI  UN CABALLERO  !",
+            "likes": 0
+          },
+          {
+            "texto": "Aguante macri. El mejor presidente de la historia.",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Generaciones enteras los Macri enriquecidos por todos nosotros!! Que paguen ko que deben",
+            "likes": 29
+          },
+          {
+            "texto": "El mafioso más grande de todos el rey del escape el dueño de la justicia Macri",
+            "likes": 7
+          },
+          {
+            "texto": "El problema fue Prat Gay inventor del gradualismo, asegurando q creceríamos  al 4% anual que licuaría el gasto. Termino con un déficit del 5% de cuenta corriente que al no poder financiarse produjo una corrida terminal en abril 2018. Además había una gran soberbia en Macri y algu",
+            "likes": 4
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 3,
+        "tristeza": 0,
+        "enojo": 20,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 2
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 4,
+        "NEG": 79,
+        "NEU": 11
+      },
+      "alcance": {
+        "videos": 22,
+        "vistas": 202122,
+        "likes_videos": 3641
+      },
+      "polemica": {
+        "respuestas": 4,
+        "promedio": 0.15,
+        "mas_discutido": {
+          "texto": "No hay gobierno mas korrupto sino de la lines peroncha, zurda, nunca dejaron gobernar lo que realmente eligio el pueblo, modificando hasta las elecciones, modo de artimañas para ganar, Tibio Macri y otros de ideologia di",
+          "respuestas": 2
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 12,
+        "NEU": 8
+      },
+      "temas": [
+        [
+          "gobierno",
+          3
+        ],
+        [
+          "dolares",
+          3
+        ],
+        [
+          "millones",
+          3
+        ],
+        [
+          "fondo",
+          3
+        ],
+        [
+          "ademas",
+          2
+        ],
+        [
+          "cuenta",
+          2
+        ],
+        [
+          "anda",
+          2
+        ],
+        [
+          "tibio",
+          2
+        ],
+        [
+          "sino",
+          2
+        ],
+        [
+          "gobernar",
+          2
+        ],
+        [
+          "justicia",
+          2
+        ],
+        [
+          "correo",
+          2
+        ]
+      ]
+    },
+    "Bullrich": {
+      "videos": 22,
+      "comentarios": 14,
+      "pocos_datos": true,
+      "canales": {
+        "Revolución Popular Noticias": 4,
+        "El Camino Del Liberalismo": 4,
+        "Doña Libertaria": 3,
+        "LA NACION": 2,
+        "Super Libertaria": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 3,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 17,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 6
+      },
+      "videos_destacados": [
+        {
+          "titulo": "BOMBAZO | ¿ECHAN a PATRICIA BULLRICH después de la visita del Papa Leon XIV?",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=vrysd8ztWAo",
+          "comentarios": 54,
+          "vistas": 37195
+        },
+        {
+          "titulo": "La CRISIS POLÍTICA más GRAVE del GOBIERNO: Podrían ECHAR a BULLRICH",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=sCrOhdzC2FI",
+          "comentarios": 41,
+          "vistas": 69249
+        },
+        {
+          "titulo": "BOMBA ATÓMICA ¿Después de la visita del Papa BULLRICH... ¿AFUERAAA?",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=bQIiTfZ9EBY",
+          "comentarios": 37,
+          "vistas": 15142
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Vamos Patricia y equipo, den el paso, asi sabemos quien es quien. Y sino, a trabajar senadora y demas, que hay mucho x hacer.",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Y es así,  pero todos sabemos que la señora Bullrich tiene otras intenciones , y no exactamente es de hacer crecer a tooodo un país,.sino de crecer ella , una lástima,  yo apostaba por ella y el presidente como formula, pero se ve que no cae lejos de lo que fue Villacruel",
+            "likes": 22
+          },
+          {
+            "texto": "Dan asco los Bullrichistas saboteando al gobierno en este momento.  Es un asco pedirle las Paso a gran Presidente que tiene la suerte de tener Argentina que, por lo que veo se merece a los gobernantes corruptos que tuvo y que obviamente quieren seguir robando financiados por los ",
+            "likes": 17
+          },
+          {
+            "texto": "Lo único que tiene que hacer Bullrich es pedir a gobernadores e intendentes que paren con la pauta y ñoquis y  bajen impuestos",
+            "likes": 11
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 1,
+        "enojo": 7,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 5
+      },
+      "agresivos": 1,
+      "ponderado_likes": {
+        "POS": 1,
+        "NEG": 74,
+        "NEU": 25
+      },
+      "alcance": {
+        "videos": 22,
+        "vistas": 201341,
+        "likes_videos": 2866
+      },
+      "polemica": {
+        "respuestas": 3,
+        "promedio": 0.21,
+        "mas_discutido": {
+          "texto": "Y es así,  pero todos sabemos que la señora Bullrich tiene otras intenciones , y no exactamente es de hacer crecer a tooodo un país,.sino de crecer ella , una lástima,  yo apostaba por ella y el presidente como formula, ",
+          "respuestas": 2
+        }
+      },
+      "titulos": {
+        "POS": 2,
+        "NEG": 6,
+        "NEU": 14
+      },
+      "temas": [
+        [
+          "presidente",
+          5
+        ],
+        [
+          "paso",
+          3
+        ],
+        [
+          "poder",
+          3
+        ],
+        [
+          "derecha",
+          2
+        ],
+        [
+          "gobierno",
+          2
+        ],
+        [
+          "economia",
+          2
+        ],
+        [
+          "sino",
+          2
+        ],
+        [
+          "sabemos",
+          2
+        ],
+        [
+          "momento",
+          2
+        ],
+        [
+          "acompanar",
+          2
+        ],
+        [
+          "proxima",
+          1
+        ],
+        [
+          "postularse",
+          1
+        ]
+      ]
+    },
+    "Cristina": {
+      "videos": 24,
+      "comentarios": 48,
+      "pocos_datos": true,
+      "canales": {
+        "Perfil": 12,
+        "El Peluca Milei": 11,
+        "Las Fuerzas de La Pala": 6,
+        "Mate con Mote": 5,
+        "Revolución Popular Noticias": 4,
+        "Break Point Noticias": 3,
+        "PRESIDEN TA": 3,
+        "LA NACION": 2,
+        "Claves": 2
+      },
+      "videos_descartados": {
+        "canal_extranjero": 1,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 11,
+        "mismo_autor": 3,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 0,
+        "ironia": 23
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Cristina Kirchner fotos al lado del diputado encargado de las milicias digitales de Lula",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=Dh34x06zNJo",
+          "comentarios": 325,
+          "vistas": 85928
+        },
+        {
+          "titulo": "Cristina Kirchner saludó a los manifestantes que se acercaron en la previa a la Marcha del Orgullo",
+          "canal": "Perfil",
+          "url": "https://www.youtube.com/watch?v=_Rj1ISsen00",
+          "comentarios": 218,
+          "vistas": 30409
+        },
+        {
+          "titulo": "Algunos se olvidan que CRISTINA KIRCHNER está presa POR CHORRA",
+          "canal": "El Peluca Milei",
+          "url": "https://www.youtube.com/watch?v=RuddOXFHI2I",
+          "comentarios": 190,
+          "vistas": 28316
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Bendiciones Cristina soy de Uruguay amén 🙏",
+            "likes": 14
+          },
+          {
+            "texto": "Te quiero Cristinaaaa !!! ❤❤❤",
+            "likes": 5
+          },
+          {
+            "texto": "Cristina ÚNICA LÍDER POLÍTICA, LIBRE y  Presidenta te amamos ❤❤❤❤",
+            "likes": 3
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Todos kirchneristas con sueldos pagos x él kirchnerismo y gobernadores e intendentes también!! Militando la mentira.",
+            "likes": 78
+          },
+          {
+            "texto": "Golpe bajísimo lo que hizo Cristina con el pueblo Argentino 😮😮😮😮",
+            "likes": 24
+          },
+          {
+            "texto": "CRISTINA NO ROBO .... NOOOOOSSSSS ROBO .. QUE NO ES LA MISMA COSA .. Y NOS ROBO A TODOS INCLUYENDO A LOS BOLUDOS QUE LA DEFIENDEN",
+            "likes": 22
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 11,
+        "tristeza": 3,
+        "enojo": 19,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 1,
+        "sin_emocion_clara": 14
+      },
+      "agresivos": 4,
+      "ponderado_likes": {
+        "POS": 44,
+        "NEG": 223,
+        "NEU": 66
+      },
+      "alcance": {
+        "videos": 24,
+        "vistas": 308418,
+        "likes_videos": 9770
+      },
+      "polemica": {
+        "respuestas": 66,
+        "promedio": 1.38,
+        "mas_discutido": {
+          "texto": "Cuando habrá uno de la  derecha preso, siempre le toca a los peronistas llevar el mote de ladrón y los verdaderos ladrones siguen impunes. Defender a los pobres  cuesta ésto. Esta mujer es un ejemplo de lucha y ahora tie",
+          "respuestas": 13
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 12,
+        "NEU": 12
+      },
+      "temas": [
+        [
+          "libre",
+          6
+        ],
+        [
+          "jueces",
+          4
+        ],
+        [
+          "robo",
+          3
+        ],
+        [
+          "pueblo",
+          3
+        ],
+        [
+          "presidenta",
+          3
+        ],
+        [
+          "odio",
+          3
+        ],
+        [
+          "kirchnerismo",
+          3
+        ],
+        [
+          "hablando",
+          3
+        ],
+        [
+          "gobierno",
+          2
+        ],
+        [
+          "volver",
+          2
+        ],
+        [
+          "fuerza",
+          2
+        ],
+        [
+          "trabajo",
+          2
+        ]
+      ]
+    },
+    "Grabois": {
+      "videos": 21,
+      "comentarios": 9,
+      "pocos_datos": true,
+      "canales": {
+        "Agarra la Pala América": 5,
+        "El Destape": 2,
+        "Las Fuerzas del Pueblo": 1,
+        "Mate con Mote": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 4
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 1,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 12
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Papa hizo un milagro en Argentina Grabois se bañó",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=-5yJpQOMVdE",
+          "comentarios": 948,
+          "vistas": 177928
+        },
+        {
+          "titulo": "NAVARRO Y GRABOIS EXPUSIERON EL PROYECTO K SIN FILTROS: “VOLVER A REPOBLAR LA PATRIA,",
+          "canal": "Agarra la Pala América",
+          "url": "https://www.youtube.com/watch?v=daB44XZAcb8",
+          "comentarios": 178,
+          "vistas": 11253
+        },
+        {
+          "titulo": "MAJUL DESTROZÓ AL KUKA GRABOIS, QUE FOGONEA HACERLE UN GOLPE A MILEI TRAS LA CAIDA DE PEÑA",
+          "canal": "El Camino Del Liberalismo",
+          "url": "https://www.youtube.com/watch?v=W0NWBQu784Q",
+          "comentarios": 49,
+          "vistas": 28703
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "texto": "Que asco este tipo 🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮grabois dona tu sueldo y todo lo que nos robaste!!! Y después preso",
+            "likes": 9
+          },
+          {
+            "texto": "las mismas medidas de la antigua union sovietca que quebro, medidas que solo le aseguran votos a grabobis, medidas clientelistas para ganar votos pero que no sirven de nada al pais, orque grabois siendo presidente todas las empresas salen corriendo de la argentina, entonces sobra",
+            "likes": 3
+          },
+          {
+            "texto": "Que grande es grabois.  Lo aprecio mucho y es un  poco de esperanza cuesta tanto creer en la maldad que tienen los Donal y los libertarios  no tienen una sola idea de mejorar el planeta solo destruyen y festejan el mal.",
+            "likes": 3
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 7,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 2
+      },
+      "agresivos": 1,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 27,
+        "NEU": 8
+      },
+      "alcance": {
+        "videos": 21,
+        "vistas": 261779,
+        "likes_videos": 8712
+      },
+      "polemica": {
+        "respuestas": 1,
+        "promedio": 0.11,
+        "mas_discutido": {
+          "texto": "**Por más JUAN GRABOIS en la política Argentina !! 👏👏👏👏\"*",
+          "respuestas": 1
+        }
+      },
+      "titulos": {
+        "POS": 3,
+        "NEG": 10,
+        "NEU": 8
+      },
+      "temas": [
+        [
+          "preso",
+          2
+        ],
+        [
+          "llorando",
+          1
+        ],
+        [
+          "termina",
+          1
+        ],
+        [
+          "dona",
+          1
+        ],
+        [
+          "sueldo",
+          1
+        ],
+        [
+          "tipo",
+          1
+        ],
+        [
+          "robaste",
+          1
+        ],
+        [
+          "asco",
+          1
+        ],
+        [
+          "familia",
+          1
+        ],
+        [
+          "robados",
+          1
+        ],
+        [
+          "sacarle",
+          1
+        ],
+        [
+          "politicos",
+          1
+        ]
+      ]
+    },
+    "Bregman": {
+      "videos": 25,
+      "comentarios": 1,
+      "pocos_datos": true,
+      "canales": {
+        "laberinto stream": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 0,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "¡BRUTAL ATAQUE TRANSFÓBICO EN PALERMO! Atacaron a mujeres trans y lo filmaron",
+          "canal": "Telenoche",
+          "url": "https://www.youtube.com/watch?v=ZL6nJVMCtT0",
+          "comentarios": 291,
+          "vistas": 55366
+        },
+        {
+          "titulo": "🔥 ¡Kicillof toca el 50% en el Voto Cantado! 🗳️",
+          "canal": "voto cantado",
+          "url": "https://www.youtube.com/watch?v=IZtX0s93-wI",
+          "comentarios": 15,
+          "vistas": 1181
+        },
+        {
+          "titulo": "¿HAY UNIDAD PARA ENFRENTAR A MILEI?",
+          "canal": "laberinto stream",
+          "url": "https://www.youtube.com/watch?v=qxL-7UEmADI",
+          "comentarios": 6,
+          "vistas": 1305
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Grande Myriam. ❤",
+            "likes": 0
+          }
+        ],
+        "negativos": []
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 0
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 1,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 25,
+        "vistas": 81971,
+        "likes_videos": 918
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 7
+      },
+      "temas": [
+        [
+          "grande",
+          1
+        ]
+      ]
+    }
+  }
+}

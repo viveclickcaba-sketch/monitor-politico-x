@@ -1,7 +1,9 @@
 {
   "ar": {
     "nombre": "Argentina",
-    "idioma": "es"
+    "idioma": "es",
+    "actualizado": "09/11/2026 22:04",
+    "total_comentarios": 256
   },
   "es": {
     "nombre": "España",

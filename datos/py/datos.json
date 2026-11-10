@@ -1,0 +1,27 @@
+{
+  "Santiago Peña": {
+    "POS": 0,
+    "NEG": 16,
+    "NEU": 3
+  },
+  "Cartes": {
+    "POS": 2,
+    "NEG": 17,
+    "NEU": 4
+  },
+  "Efraín Alegre": {
+    "POS": 0,
+    "NEG": 0,
+    "NEU": 0
+  },
+  "Payo Cubas": {
+    "POS": 0,
+    "NEG": 9,
+    "NEU": 1
+  },
+  "Mario Abdo": {
+    "POS": 0,
+    "NEG": 0,
+    "NEU": 0
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "fecha": "09/11 21:05",
+    "fecha_completa": "09/11/2026 21:05",
+    "fecha_iso": "2026-11-09",
+    "metodo": 3,
+    "datos": {
+      "Santiago Peña": {
+        "POS": 0,
+        "NEG": 16,
+        "NEU": 3
+      },
+      "Cartes": {
+        "POS": 2,
+        "NEG": 17,
+        "NEU": 4
+      },
+      "Efraín Alegre": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "Payo Cubas": {
+        "POS": 0,
+        "NEG": 9,
+        "NEU": 1
+      },
+      "Mario Abdo": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      }
+    },
+    "pocos_datos": {
+      "Santiago Peña": true,
+      "Cartes": true,
+      "Efraín Alegre": true,
+      "Payo Cubas": true,
+      "Mario Abdo": true
+    }
+  }
+]

@@ -1,0 +1,675 @@
+{
+  "pais": "Paraguay",
+  "codigo": "py",
+  "idioma": "es",
+  "actualizado": "09/11/2026 21:05",
+  "metodo": 3,
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "filtros": {
+    "solo_un_dirigente_por_comentario": true,
+    "otros_nombres_excluidos": [
+      "lugo",
+      "nakayama",
+      "velazquez"
+    ],
+    "ironia_excluida": true,
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "modelos": {
+    "emociones": true,
+    "agresividad": true,
+    "ironia": true
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 52,
+  "acumulado": {
+    "dias": 30,
+    "corridas": 1,
+    "datos": {
+      "Santiago Peña": {
+        "POS": 0,
+        "NEG": 16,
+        "NEU": 3
+      },
+      "Cartes": {
+        "POS": 2,
+        "NEG": 17,
+        "NEU": 4
+      },
+      "Efraín Alegre": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "Payo Cubas": {
+        "POS": 0,
+        "NEG": 9,
+        "NEU": 1
+      },
+      "Mario Abdo": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      }
+    },
+    "pocos_datos": {
+      "Santiago Peña": true,
+      "Cartes": true,
+      "Efraín Alegre": true,
+      "Payo Cubas": true,
+      "Mario Abdo": true
+    }
+  },
+  "detalle": {
+    "Santiago Peña": {
+      "videos": 14,
+      "comentarios": 19,
+      "pocos_datos": true,
+      "canales": {
+        "ABC TV Paraguay": 17,
+        "Ñanduti": 2
+      },
+      "videos_descartados": {
+        "canal_extranjero": 6,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 1,
+        "mismo_autor": 5,
+        "texto_repetido": 0,
+        "cuenta_nueva": 2,
+        "tope_canal": 5,
+        "ironia": 4
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Fiscalía analiza detonar la bóveda de Peña o trasladar a la exprimera dama a la mansión",
+          "canal": "ABC TV Paraguay",
+          "url": "https://www.youtube.com/watch?v=La0DA93Vv8Q",
+          "comentarios": 274,
+          "vistas": 51717
+        },
+        {
+          "titulo": "Decretan prisión preventiva para Santiago Peña",
+          "canal": "ABC TV Paraguay",
+          "url": "https://www.youtube.com/watch?v=qrBy8xTU_5I",
+          "comentarios": 264,
+          "vistas": 145309
+        },
+        {
+          "titulo": "Santiago Peña ya se encuentra en la fiscalía",
+          "canal": "Telefuturo - Prensa ",
+          "url": "https://www.youtube.com/watch?v=pOfAFZfbuoI",
+          "comentarios": 160,
+          "vistas": 51992
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "texto": "Si Santiago Peña goza de privilegios y no enfrenta las consecuencias que corresponderían ante las denuncias en su contra, ¿cómo pretendemos avanzar como país? Las leyes deben aplicarse a todos por igual, sin importar el cargo que ocupen. Si quienes gobiernan no rinden cuentas ant",
+            "likes": 26
+          },
+          {
+            "texto": "Tan mentiroso cara dura  no esta vien en su cabal este tipo de santi peña",
+            "likes": 23
+          },
+          {
+            "texto": "Santiago Peña dijo que iba a contar su verdad y esa verdad iba a incomodar a muchos. Cuando lo hará?",
+            "likes": 9
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 1,
+        "enojo": 11,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 6
+      },
+      "agresivos": 1,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 105,
+        "NEU": 8
+      },
+      "alcance": {
+        "videos": 14,
+        "vistas": 612295,
+        "likes_videos": 5990
+      },
+      "polemica": {
+        "respuestas": 12,
+        "promedio": 0.63,
+        "mas_discutido": {
+          "texto": "Santiago Peña dijo que iba a contar su verdad y esa verdad iba a incomodar a muchos. Cuando lo hará?",
+          "respuestas": 4
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 9
+      },
+      "temas": [
+        [
+          "justicia",
+          3
+        ],
+        [
+          "privilegios",
+          3
+        ],
+        [
+          "pueblo",
+          3
+        ],
+        [
+          "momento",
+          2
+        ],
+        [
+          "dios",
+          2
+        ],
+        [
+          "llevan",
+          2
+        ],
+        [
+          "politicos",
+          2
+        ],
+        [
+          "fiscales",
+          2
+        ],
+        [
+          "delincuente",
+          2
+        ],
+        [
+          "cabal",
+          1
+        ],
+        [
+          "cara",
+          1
+        ],
+        [
+          "dura",
+          1
+        ]
+      ]
+    },
+    "Cartes": {
+      "videos": 16,
+      "comentarios": 23,
+      "pocos_datos": true,
+      "canales": {
+        "ABC TV Paraguay": 17,
+        "NPYoficial": 3,
+        "Bruno Masi": 2,
+        "Telefuturo - Prensa ": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 4,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 3,
+        "mismo_autor": 6,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 8,
+        "ironia": 8
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Horacio Cartes publica carta a Santiago Peña: \"Que no haya impunidad para nadie\"",
+          "canal": "ABC TV Paraguay",
+          "url": "https://www.youtube.com/watch?v=9eoaV-N6Au8",
+          "comentarios": 191,
+          "vistas": 69048
+        },
+        {
+          "titulo": "HC acompaña juicio político a Santiago Peña: \"No estaremos del lado del latrocinio de fondos\"",
+          "canal": "ABC TV Paraguay",
+          "url": "https://www.youtube.com/watch?v=Pa4dmNhiOfk",
+          "comentarios": 156,
+          "vistas": 29767
+        },
+        {
+          "titulo": "Leite \"Peña es chicanero, malintencionado, va a ir a llorar en alguna embajada y hacer todo el show\"",
+          "canal": "Ñanduti",
+          "url": "https://www.youtube.com/watch?v=XBwfGFmj3Xw",
+          "comentarios": 106,
+          "vistas": 29057
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Muy bien DON HORACIO CARTES ASI SE habla si se le roba ala clase  hombrera sacrificada  hojala que caigan todos y no unos cuánto nomás  por qué como dice Bukele la plata alcanza si no se roban",
+            "likes": 0
+          },
+          {
+            "texto": "Fuera de toda broma, lo único que puedo creer. Y tal vez soy tan inocente, pero creo que después que el señor Cartes sufrió esa enfermedad que casi lo mata, algo cambió en el. Y ahora está tratando de todas formas arreglar todas las cagadas que se mandó en este país. Ojalá sea as",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Pero si Horacio Cartes era el mentor de Santy Peña. Y ahora lo traiciona cuando las cosas van mal jajaja estos políticos no tienen ni un poco de escrúpulos",
+            "likes": 20
+          },
+          {
+            "texto": "Cartes tiene que ser detenido ahora mismo yaaaaaaa el es el mal",
+            "likes": 15
+          },
+          {
+            "texto": "Es todos política, Cartes es el mafioso y narcotraficante más grande del Paraguay, este escándalo fue dirijido y organizado x el mismo Cartes",
+            "likes": 15
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 1,
+        "enojo": 8,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 13
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 2,
+        "NEG": 109,
+        "NEU": 4
+      },
+      "alcance": {
+        "videos": 16,
+        "vistas": 223730,
+        "likes_videos": 2097
+      },
+      "polemica": {
+        "respuestas": 15,
+        "promedio": 0.65,
+        "mas_discutido": {
+          "texto": "Hacer leña del árbol caído. Muy predecible el Sr Cartes. O sea, si Peña nunca lo hubiera dado la espalda, lo de UENO BANK nunca hubiera sucedido?.",
+          "respuestas": 7
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 7
+      },
+      "temas": [
+        [
+          "fuera",
+          3
+        ],
+        [
+          "habla",
+          2
+        ],
+        [
+          "carta",
+          2
+        ],
+        [
+          "nadie",
+          2
+        ],
+        [
+          "colorado",
+          2
+        ],
+        [
+          "responsable",
+          2
+        ],
+        [
+          "manos",
+          2
+        ],
+        [
+          "alguien",
+          2
+        ],
+        [
+          "ueno",
+          2
+        ],
+        [
+          "justicia",
+          2
+        ],
+        [
+          "politica",
+          2
+        ],
+        [
+          "alcanza",
+          1
+        ]
+      ]
+    },
+    "Efraín Alegre": {
+      "videos": 3,
+      "comentarios": 0,
+      "pocos_datos": true,
+      "canales": {},
+      "videos_descartados": {
+        "canal_extranjero": 17,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 0,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "🏛️🔥Efraín Alegre exigió a los senadores definir el juicio político sin rodeos.",
+          "canal": "Click Digital",
+          "url": "https://www.youtube.com/watch?v=ylJbh-VUKeg",
+          "comentarios": 4,
+          "vistas": 1464
+        },
+        {
+          "titulo": "Divorced and Jobless at 35, She Started Over From Nothing—and Became Stronger Than Ever!!",
+          "canal": "SheWorld TV",
+          "url": "https://www.youtube.com/watch?v=C1LbOuo82Zw",
+          "comentarios": 4,
+          "vistas": 6107
+        },
+        {
+          "titulo": "TRANSMISIÓN EN VIVO",
+          "canal": "MEGA TV",
+          "url": "https://www.youtube.com/watch?v=-P6SZ7YX3KM",
+          "comentarios": 0,
+          "vistas": 7197
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": []
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 0
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 3,
+        "vistas": 14768,
+        "likes_videos": 110
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 1
+      },
+      "temas": []
+    },
+    "Payo Cubas": {
+      "videos": 13,
+      "comentarios": 10,
+      "pocos_datos": true,
+      "canales": {
+        "NPYoficial": 8,
+        "Telefuturo - Prensa ": 1,
+        "Te Lo Cuenta Víctor Hugo ": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 7,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 1,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 2
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Al grito de \"vendido\" manifestantes echaron a Payo Cubas",
+          "canal": "NPYoficial",
+          "url": "https://www.youtube.com/watch?v=5dTUVtVR3Cs",
+          "comentarios": 90,
+          "vistas": 30611
+        },
+        {
+          "titulo": "Payo Cubas fue retirado a rastras durante una manifestación ​",
+          "canal": "La Mañana de cada Día",
+          "url": "https://www.youtube.com/watch?v=ORXOc7jlxsE",
+          "comentarios": 20,
+          "vistas": 13759
+        },
+        {
+          "titulo": "MANIFESTANTES EXPULSAN AL \"MILEI PARAGUAYO\" DE LAS PROTESTAS  POR UENO BANK",
+          "canal": "Te Lo Cuenta Víctor Hugo ",
+          "url": "https://www.youtube.com/watch?v=PW4JOQnp6fU",
+          "comentarios": 10,
+          "vistas": 1445
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "texto": "Que tipo más perverso este payo si se dan cuenta en sus microgestos hasta se burlaba de los manifestantes, hasta gozaba de que le increparan.",
+            "likes": 3
+          },
+          {
+            "texto": "Hicieron muy bien por Payo ahora tiren Huevos a Chanti porque le perjudica ron mucho a la gente 😢😢",
+            "likes": 2
+          },
+          {
+            "texto": "No este es un patriota ...grande payo este fue el presidente electo ..fue robados x el narco los otros vendido asta a el lo cagaron",
+            "likes": 2
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 2,
+        "enojo": 2,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 5
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 19,
+        "NEU": 9
+      },
+      "alcance": {
+        "videos": 13,
+        "vistas": 257007,
+        "likes_videos": 641
+      },
+      "polemica": {
+        "respuestas": 1,
+        "promedio": 0.1,
+        "mas_discutido": {
+          "texto": "Cruzada Nacional esta muerto como partido. Perdió credibilidad y confianza. Pero nos dio una gran representante que es la Sra. Yolanda. Lastima que esta siguiendo el mismo camino divisor que Payo al presentarse como cand",
+          "respuestas": 1
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 10,
+        "NEU": 2
+      },
+      "temas": [
+        [
+          "politica",
+          2
+        ],
+        [
+          "muerto",
+          2
+        ],
+        [
+          "perdio",
+          2
+        ],
+        [
+          "gran",
+          2
+        ],
+        [
+          "yolanda",
+          2
+        ],
+        [
+          "camino",
+          2
+        ],
+        [
+          "politicamente",
+          1
+        ],
+        [
+          "aceptar",
+          1
+        ],
+        [
+          "supo",
+          1
+        ],
+        [
+          "afin",
+          1
+        ],
+        [
+          "ganaron",
+          1
+        ],
+        [
+          "cartista",
+          1
+        ]
+      ]
+    },
+    "Mario Abdo": {
+      "videos": 16,
+      "comentarios": 0,
+      "pocos_datos": true,
+      "canales": {},
+      "videos_descartados": {
+        "canal_extranjero": 4,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 0,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Renunció el Presidente de Paraguay",
+          "canal": "La Gente TV Tierra del Fuego",
+          "url": "https://www.youtube.com/watch?v=poM_teELJRs",
+          "comentarios": 1,
+          "vistas": 580
+        },
+        {
+          "titulo": "EL OBSERVADOR - CONDUCE CARLOS BENÍTEZ",
+          "canal": "El Observador Py",
+          "url": "https://www.youtube.com/watch?v=Gx3Z8VdXJQA",
+          "comentarios": 1,
+          "vistas": 1568
+        },
+        {
+          "titulo": "EL OBSERVADOR - CONDUCE CARLOS BENÍTEZ",
+          "canal": "El Observador Py",
+          "url": "https://www.youtube.com/watch?v=VSWt7VJVb_Q",
+          "comentarios": 0,
+          "vistas": 952
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": []
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 0
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 16,
+        "vistas": 18257,
+        "likes_videos": 156
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "temas": []
+    }
+  }
+}

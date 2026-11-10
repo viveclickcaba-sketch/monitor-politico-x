@@ -27,7 +27,9 @@
   },
   "py": {
     "nombre": "Paraguay",
-    "idioma": "es"
+    "idioma": "es",
+    "actualizado": "09/11/2026 21:05",
+    "total_comentarios": 52
   },
   "ve": {
     "nombre": "Venezuela",

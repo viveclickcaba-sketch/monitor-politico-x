@@ -32,23 +32,36 @@ if not API_KEY:
 #   - una palabra normal tambien detecta derivados (ej. "milei" -> "mileista")
 #   - si empieza con "=" se detecta solo la palabra exacta (ej. "=petro" no cuenta "petroleo")
 #   - si empieza con "~" se busca tal cual, respetando la ñ (ej. "~peña" no cuenta "pena")
+# "compartidas": palabras que cuentan para varios dirigentes a la vez
+#   - "quitar": nombres completos que se sacan antes de buscar la palabra compartida
 # "otros": figuras que, si aparecen en el comentario, hacen que no se cuente
+# "videos": videos por dirigente (buscar 40 cuesta lo mismo que buscar 20)
+# "paginas": paginas de 100 comentarios por video
 # "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
 # ============================================================
 PAISES = {
     "ar": {
-        "nombre": "Argentina", "idioma": "es", "region": "AR", "videos": 25, "paginas": 3,
+        "nombre": "Argentina", "idioma": "es", "region": "AR", "videos": 40, "paginas": 4,
         "politicos": {
-            "Milei":    {"busqueda": "Javier Milei",      "palabras": ["milei"]},
-            "Massa":    {"busqueda": "Sergio Massa",      "palabras": ["massa"]},
-            "Kicillof": {"busqueda": "Axel Kicillof",     "palabras": ["kicillof", "kiciloff", "kicilof", "axel"]},
-            "Macri":    {"busqueda": "Mauricio Macri",    "palabras": ["macri"]},
-            "Bullrich": {"busqueda": "Patricia Bullrich", "palabras": ["bullrich", "patricia"]},
-            "Cristina": {"busqueda": "Cristina Kirchner", "palabras": ["cristina", "cfk", "kirchner"]},
-            "Grabois":  {"busqueda": "Juan Grabois",      "palabras": ["grabois"]},
-            "Bregman":  {"busqueda": "Myriam Bregman",    "palabras": ["bregman", "myriam"]},
+            "Milei":           {"busqueda": "Javier Milei",        "palabras": ["milei"]},
+            "Massa":           {"busqueda": "Sergio Massa",        "palabras": ["massa"]},
+            "Kicillof":        {"busqueda": "Axel Kicillof",       "palabras": ["kicillof", "kiciloff", "kicilof", "axel"]},
+            "Macri":           {"busqueda": "Mauricio Macri",      "palabras": ["macri"]},
+            "Bullrich":        {"busqueda": "Patricia Bullrich",   "palabras": ["bullrich", "patricia"]},
+            "Cristina":        {"busqueda": "Cristina Kirchner",   "palabras": ["cristina", "cfk"]},
+            "Máximo Kirchner": {"busqueda": "Máximo Kirchner",     "palabras": ["maximo kirchner"]},
+            "Villarruel":      {"busqueda": "Victoria Villarruel", "palabras": ["villarruel", "villaruel"]},
+            "Grabois":         {"busqueda": "Juan Grabois",        "palabras": ["grabois"]},
+            "Bregman":         {"busqueda": "Myriam Bregman",      "palabras": ["bregman", "myriam"]},
         },
-        "otros": ["caputo", "karina", "adorni", "villarruel", "sturzenegger", "pettovello", "francos", "espert"],
+        "compartidas": [
+            {
+                "dirigentes": ["Cristina", "Máximo Kirchner"],
+                "palabras": ["kirchner"],
+                "quitar": ["cristina kirchner", "maximo kirchner"],
+            },
+        ],
+        "otros": ["caputo", "karina", "adorni", "sturzenegger", "pettovello", "francos", "espert"],
     },
     "es": {
         "nombre": "España", "idioma": "es", "region": "ES", "videos": 20, "paginas": 2,
@@ -221,6 +234,26 @@ def menciona(texto_norm, palabras, texto_crudo=""):
     return False
 
 
+def quitar_frases(texto_norm, frases):
+    for f in frases:
+        texto_norm = re.sub(r"\b" + re.escape(f) + r"\b", " ", texto_norm)
+    return texto_norm
+
+
+def menciona_dirigente(nombre, texto_norm, texto_crudo, politicos, compartidas, ignorar_grupos_de=None):
+    """True si el texto nombra a ese dirigente (por sus palabras o por una palabra compartida)."""
+    if menciona(texto_norm, politicos[nombre]["palabras"], texto_crudo):
+        return True
+    for grupo in compartidas:
+        if nombre not in grupo["dirigentes"]:
+            continue
+        if ignorar_grupos_de and ignorar_grupos_de in grupo["dirigentes"]:
+            continue
+        if menciona(quitar_frases(texto_norm, grupo.get("quitar", [])), grupo["palabras"]):
+            return True
+    return False
+
+
 def etiqueta(salida, validas, por_defecto):
     """Toma la salida de un modelo (texto o lista) y devuelve una etiqueta valida."""
     if isinstance(salida, (list, tuple)):
@@ -369,7 +402,7 @@ def buscar_videos(busqueda, region, idioma, cantidad, dias):
         "publishedAfter": desde,
         "regionCode": region,
         "relevanceLanguage": idioma,
-        "maxResults": cantidad,
+        "maxResults": min(cantidad, 50),
     })
     videos = []
     for item in datos.get("items", []):
@@ -460,6 +493,7 @@ def procesar_pais(codigo, cfg):
 
     dias = cfg.get("dias", DIAS_HACIA_ATRAS)
     politicos = cfg["politicos"]
+    compartidas = cfg.get("compartidas", [])
     otros_nombres = cfg.get("otros", [])
     stop = STOPWORDS.get(cfg["idioma"], set())
     excluir_temas = set()
@@ -469,6 +503,9 @@ def procesar_pais(codigo, cfg):
         for p in c["palabras"]:
             excluir_temas.update(normalizar(p.lstrip("=~")).split())
         excluir_temas.update(normalizar(c["busqueda"]).split())
+    for grupo in compartidas:
+        for p in grupo["palabras"]:
+            excluir_temas.update(normalizar(p.lstrip("=~")).split())
 
     comentarios_max = cfg["paginas"] * 100
     resultados = {p: {"POS": 0, "NEG": 0, "NEU": 0} for p in politicos}
@@ -487,7 +524,7 @@ def procesar_pais(codigo, cfg):
 
         videos_descartados = {"canal_extranjero": 0, "canal_oficial": 0}
         descartes = {"menciona_otros": 0, "mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0, "ironia": 0}
-        otros_politicos = [c["palabras"] for n, c in politicos.items() if n != nombre]
+        otros_dirigentes = [n for n in politicos if n != nombre]
 
         # 1) Filtrar canales extranjeros u oficiales
         cargar_canales([v[1] for v in videos])
@@ -524,7 +561,7 @@ def procesar_pais(codigo, cfg):
         # 3) Tono de los titulos que lo nombran
         titulos = {"POS": 0, "NEG": 0, "NEU": 0}
         for video_id, canal, titulo in validos:
-            if menciona(normalizar(titulo), config["palabras"], titulo):
+            if menciona_dirigente(nombre, normalizar(titulo), titulo, politicos, compartidas):
                 try:
                     titulos[etiqueta(m["sentimiento"].predict(titulo[:300]).output, TONOS, "NEU")] += 1
                 except Exception:
@@ -539,9 +576,13 @@ def procesar_pais(codigo, cfg):
                     continue
                 vistos_cid.add(cid)
                 norm = normalizar(texto)
-                if not menciona(norm, config["palabras"], texto):
+                if not menciona_dirigente(nombre, norm, texto, politicos, compartidas):
                     continue
-                if any(menciona(norm, palabras, texto) for palabras in otros_politicos) or menciona(norm, otros_nombres, texto):
+                nombra_otro = any(
+                    menciona_dirigente(o, norm, texto, politicos, compartidas, ignorar_grupos_de=nombre)
+                    for o in otros_dirigentes
+                )
+                if nombra_otro or menciona(norm, otros_nombres, texto):
                     descartes["menciona_otros"] += 1
                     continue
                 if autor in vistos_autor:
@@ -695,6 +736,7 @@ def procesar_pais(codigo, cfg):
         "filtros": {
             "solo_un_dirigente_por_comentario": True,
             "otros_nombres_excluidos": otros_nombres,
+            "palabras_compartidas": [{"dirigentes": g["dirigentes"], "palabras": g["palabras"]} for g in compartidas],
             "ironia_excluida": EXCLUIR_IRONIA and m.get("ironia") is not None,
             "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
             "un_comentario_por_persona": True,

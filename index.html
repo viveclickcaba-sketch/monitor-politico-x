@@ -53,6 +53,18 @@
     .kpi .valor { font-size: 32px; font-weight: 800; margin: 10px 0 4px; line-height: 1.05; }
     .kpi .det { font-size: 13px; color: var(--suave); }
 
+    .ranking { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 14px; }
+    .ranking h4 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .ranking ol { list-style: none; margin: 0; padding: 0; }
+    .ranking li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--borde); }
+    .ranking li:last-child { border-bottom: none; }
+    .ranking .puesto { width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13px; background: rgba(255, 255, 255, 0.06); color: var(--suave); }
+    .lista-pos li:first-child .puesto { background: var(--pos); color: #04150a; }
+    .lista-neg li:first-child .puesto { background: var(--neg); color: #fff; }
+    .ranking .rn { flex: 1; font-weight: 700; line-height: 1.3; }
+    .ranking .rc { font-size: 12px; color: var(--suave); font-weight: 500; }
+    .ranking .rv { font-weight: 800; font-size: 16px; }
+
     .controles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
     .controles label, .form label { display: grid; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--suave); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -61,6 +73,8 @@
     .check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--texto); margin-top: 14px; cursor: pointer; }
 
     .cabecera { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .evo-controles { display: flex; flex-wrap: wrap; gap: 8px; }
+    .evo-controles select { width: auto; }
     .botones { display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--borde); border-radius: 999px; padding: 4px; }
     .botones button { background: transparent; color: var(--suave); border: none; padding: 7px 14px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: inherit; }
     .botones button.activo { background: var(--rojo); color: #fff; }
@@ -74,6 +88,7 @@
     .dir .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
     .dir .nombre { font-size: 20px; font-weight: 800; }
     .dir .total { font-size: 12px; color: var(--suave); white-space: nowrap; }
+    .dir .vacio { margin: 14px 0 4px; font-size: 13px; color: var(--suave); }
     .barra { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255, 255, 255, 0.06); margin: 14px 0 12px; }
     .barra span { display: block; height: 100%; }
     .porcentajes { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
@@ -159,6 +174,21 @@
     <div class="kpis" id="kpis"></div>
 
     <div class="card">
+      <h3>Ranking</h3>
+      <p class="muted" id="notaRanking"></p>
+      <div class="ranking">
+        <div>
+          <h4 class="pos">Más positivo</h4>
+          <ol class="lista-pos" id="rankPos"></ol>
+        </div>
+        <div>
+          <h4 class="neg">Más negativo</h4>
+          <ol class="lista-neg" id="rankNeg"></ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
       <div class="cabecera">
         <h3>Comparativa por dirigente</h3>
         <div class="botones">
@@ -177,6 +207,23 @@
       <h3>Dirigente por dirigente</h3>
       <p class="muted">El tono responde a los filtros de arriba. Emoción, temas y demás indicadores son de la última corrida.</p>
       <div class="grilla" id="grilla"></div>
+    </div>
+
+    <div class="card">
+      <div class="cabecera">
+        <h3>Evolución en el tiempo</h3>
+        <div class="evo-controles">
+          <select id="selEvolucion"></select>
+          <select id="selMetricaEvo">
+            <option value="NEG">% negativo</option>
+            <option value="POS">% positivo</option>
+          </select>
+        </div>
+      </div>
+      <label class="check" id="filaPromEvo" style="margin-top: 0;"><input type="checkbox" id="chkPromEvo"> Mostrar el promedio acumulado (suaviza los saltos entre corridas)</label>
+      <label class="check" style="margin-top: 8px; margin-bottom: 10px;"><input type="checkbox" id="chkAnterior"> Incluir corridas de métodos anteriores</label>
+      <p class="muted" id="evoAviso"></p>
+      <div class="grafico" id="cajaEvolucion" style="height: 380px;"><canvas id="graficoEvolucion"></canvas></div>
     </div>
 
     <div class="card">
@@ -199,18 +246,8 @@
         </table>
       </div>
       <p class="muted" style="margin-top: 14px; line-height: 1.6;">
-        <strong>Agresivos:</strong> comentarios con lenguaje hostil o insultante. <strong>Irónicos:</strong> comentarios detectados como ironía, que quedan afuera del tono. <strong>Tono con likes:</strong> positivo y negativo dándole más peso a los comentarios más votados. <strong>Tono de títulos:</strong> cómo presentan los canales al dirigente en los títulos de sus videos. <strong>Polémica:</strong> promedio de respuestas por comentario.
+        <strong>Agresivos:</strong> comentarios con lenguaje hostil o insultante. <strong>Irónicos:</strong> comentarios detectados como ironía, que quedan afuera del tono (solo en países de habla hispana). <strong>Tono con likes:</strong> positivo y negativo dándole más peso a los comentarios más votados. <strong>Tono de títulos:</strong> cómo presentan los canales al dirigente en los títulos de sus videos. <strong>Polémica:</strong> promedio de respuestas por comentario.
       </p>
-    </div>
-
-    <div class="card">
-      <div class="cabecera">
-        <h3>Evolución en el tiempo</h3>
-        <select id="selEvolucion" style="width: auto;"></select>
-      </div>
-      <label class="check" style="margin-top: 0; margin-bottom: 10px;"><input type="checkbox" id="chkAnterior"> Incluir corridas de métodos anteriores</label>
-      <p class="muted" id="evoAviso"></p>
-      <div class="grafico" id="cajaEvolucion" style="height: 360px;"><canvas id="graficoEvolucion"></canvas></div>
     </div>
 
     <div class="card">
@@ -272,7 +309,7 @@
       return String(n);
     };
     const COLCHON = 30;
-    const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc'];
+    const COLORES = ['#38bdf8', '#f472b6', '#facc15', '#a78bfa', '#fb923c', '#34d399', '#f87171', '#e5e7eb', '#60a5fa', '#c084fc', '#2dd4bf', '#fda4af'];
     const EMOCIONES = [
       ['enojo', 'Enojo', '#ef4444'],
       ['asco', 'Asco', '#84cc16'],
@@ -289,7 +326,7 @@
       cantidad: '¿DE QUIÉN SE HABLA MÁS EN YOUTUBE?',
       porcentaje: '¿CÓMO SE REPARTEN LOS COMENTARIOS?',
       emociones: '¿QUÉ EMOCIONES DESPIERTA CADA DIRIGENTE?',
-      evolucion: 'ASÍ CAMBIÓ EL NEGATIVO DE CADA DIRIGENTE'
+      evolucion: 'ASÍ CAMBIÓ LA IMAGEN DE CADA DIRIGENTE'
     };
     const NOTAS_PLACA = {
       resumen: 'Largo de la barra = cantidad de comentarios',
@@ -297,7 +334,7 @@
       cantidad: 'Cantidad de comentarios',
       porcentaje: 'Porcentaje de comentarios',
       emociones: 'Emociones en los comentarios',
-      evolucion: '% de comentarios negativos en cada actualización'
+      evolucion: '% de comentarios en cada actualización'
     };
     const NOMBRES_PAISES = { ar: 'Argentina', es: 'España', co: 'Colombia', us: 'Estados Unidos', br: 'Brasil', it: 'Italia', py: 'Paraguay', ve: 'Venezuela' };
     const bandera = codigo => `https://flagcdn.com/w80/${codigo}.png`;
@@ -307,7 +344,6 @@
     Chart.defaults.color = '#cbd5e1';
     const GRID = 'rgba(255, 255, 255, 0.06)';
 
-    // ===== Pais elegido (desde el link, ej: ?pais=es) =====
     const PAIS = (new URLSearchParams(location.search).get('pais') || 'ar').toLowerCase().replace(/[^a-z]/g, '') || 'ar';
     const BASE = `datos/${PAIS}/`;
     function cargar(archivo, porDefecto) {
@@ -339,7 +375,7 @@
       const NOMBRE_PAIS = (info && info.pais) || (lista[PAIS] && lista[PAIS].nombre) || PAIS.toUpperCase();
       document.title = `Monitor Político · ${NOMBRE_PAIS}`;
       document.getElementById('titulo').innerHTML = `<img class="bandera-titulo" src="${bandera(PAIS)}" alt=""><span>${esc(NOMBRE_PAIS)}</span>`;
-      document.getElementById('subtitulo').textContent = `Clima de opinión en los comentarios de YouTube sobre sus dirigentes`;
+      document.getElementById('subtitulo').textContent = 'Clima de opinión en los comentarios de YouTube sobre sus dirigentes';
 
       if (!datos) {
         document.getElementById('meta').textContent = `Todavía no hay datos de ${NOMBRE_PAIS}. Corré el bot eligiendo este país.`;
@@ -406,11 +442,12 @@
         const d = (op.datos || {})[n] || {};
         const pos = d.POS || 0, neg = d.NEG || 0, neu = d.NEU || 0;
         const total = pos + neg + neu;
+        const sinDatos = total === 0;
         const pocos = op.pocos && op.pocos[n] !== undefined ? op.pocos[n] : total < 50;
         const g = promedioGeneral(op);
-        const aj = (x, p) => r1((x + COLCHON * p) / (total + COLCHON) * 100);
+        const aj = (x, p) => sinDatos ? null : r1((x + COLCHON * p) / (total + COLCHON) * 100);
         return {
-          nombre: n, pos, neg, neu, total, pocos,
+          nombre: n, pos, neg, neu, total, pocos, sinDatos,
           pPos: pct(pos, total), pNeg: pct(neg, total), pNeu: pct(neu, total),
           aPos: aj(pos, g.pos), aNeg: aj(neg, g.neg), aNeu: aj(neu, g.neu)
         };
@@ -435,6 +472,7 @@
         const e = D(n).emociones;
         if (!e) return null;
         const total = Object.entries(e).filter(([k]) => k !== 'sin_emocion_clara').reduce((a, [, v]) => a + v, 0);
+        if (!total) return null;
         const g = totalesEmo._total ? (totalesEmo[emo] || 0) / totalesEmo._total : 0;
         return { aj: r1(((e[emo] || 0) + COLCHON * g) / (total + COLCHON) * 100), cant: e[emo] || 0, total };
       }
@@ -448,10 +486,11 @@
         if (estado.orden === 'original') return nombres.slice();
         const A = opcion(estado.fuente);
         const valor = n => {
+          const f = fila(A, n);
           switch (estado.orden) {
-            case 'repercusion': return fila(A, n).total;
-            case 'positivo': return fila(A, n).aPos;
-            case 'negativo': return fila(A, n).aNeg;
+            case 'repercusion': return f.total;
+            case 'positivo': return f.aPos === null ? -1 : f.aPos;
+            case 'negativo': return f.aNeg === null ? -1 : f.aNeg;
             case 'enojo': { const e = emocionAjustada(n, 'enojo'); return e ? e.aj : -1; }
             case 'alegria': { const e = emocionAjustada(n, 'alegria'); return e ? e.aj : -1; }
             case 'vistas': return (D(n).alcance || {}).vistas || 0;
@@ -469,7 +508,6 @@
         return ordenar(todosNombres.filter(n => estado.visibles.has(n) && detalle[n]).filter(n => !(estado.ocultarPocos && D(n).pocos_datos)));
       }
 
-      // ===== Encabezado =====
       document.getElementById('meta').textContent = info
         ? `Última actualización ${info.actualizado} · ${info.fuente} · ${periodo}`
         : 'Sin información de actualización';
@@ -542,6 +580,22 @@
           kpi('Genera más alegría', masAlegria ? esc(masAlegria.nombre) : '—', masAlegria ? `${masAlegria.aj}% ajustado · ${masAlegria.cant} de ${masAlegria.total} con emoción` : 'Sin datos de emociones', '#22c55e');
       }
 
+      // ===== Ranking =====
+      function dibujarRanking() {
+        const A = opcion(estado.fuente);
+        const filas = filasDe(A).filter(f => f.total > 0);
+        const item = (f, i, clave, clase) => `
+          <li>
+            <span class="puesto">${i + 1}</span>
+            <span class="rn">${esc(f.nombre)}${f.pocos ? ' <span class="muted">*</span>' : ''}<br><span class="rc">${f.total} comentarios</span></span>
+            <span class="rv ${clase}">${f[clave]}%</span>
+          </li>`;
+        const vacio = '<li class="muted">Sin datos para mostrar</li>';
+        document.getElementById('rankPos').innerHTML = filas.slice().sort((a, b) => b.aPos - a.aPos).map((f, i) => item(f, i, 'aPos', 'pos')).join('') || vacio;
+        document.getElementById('rankNeg').innerHTML = filas.slice().sort((a, b) => b.aNeg - a.aNeg).map((f, i) => item(f, i, 'aNeg', 'neg')).join('') || vacio;
+        document.getElementById('notaRanking').textContent = `Según el porcentaje ajustado por cantidad de comentarios · ${A.etiqueta}. * Pocos datos: resultado poco confiable.`;
+      }
+
       // ===== Configuracion de los graficos (web y placas) =====
       function configPrincipal(modo) {
         const A = opcion(estado.fuente);
@@ -557,17 +611,17 @@
 
         if (modo === 'emociones') {
           const sinNeutra = document.getElementById('chkSinEmocion').checked;
-          const nombres = nombresUltima().filter(n => D(n).emociones);
+          const nombres = nombresUltima().filter(n => D(n).emociones && (D(n).comentarios || 0) > 0);
           if (!nombres.length) return { vacio: true, nota: 'Todavía no hay datos de emociones para este país.' };
           const porcentajes = nombres.map(n => emocionesPct(n, sinNeutra));
-          const lista = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
+          const listaEmo = EMOCIONES.filter(e => !(sinNeutra && e[0] === 'sin_emocion_clara'));
           return {
             nota: 'Cada columna suma 100%, repartido entre las emociones de los comentarios. Datos de la última corrida (no cambia con el filtro de fechas).' + textoOrden + ' * Pocos datos.',
             config: {
               type: 'bar',
               data: {
                 labels: nombres.map(n => D(n).pocos_datos ? n + ' *' : n),
-                datasets: lista.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
+                datasets: listaEmo.map(([k, l, c]) => ({ label: l, data: porcentajes.map(p => p[k]), backgroundColor: c }))
               },
               options: {
                 responsive: true, maintainAspectRatio: false,
@@ -598,7 +652,7 @@
             barra('Neutral', filas.map(f => f.aNeu), '#94a3b8', { filas, tipo: 'neu' })
           ];
           return {
-            nota: `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Tocá una barra para ver el porcentaje real y la cantidad.` + textoComparar + textoOrden,
+            nota: `Porcentaje ajustado por cantidad: a cada dirigente se le suman ${COLCHON} comentarios con el promedio general, así los que tienen pocos comentarios no muestran porcentajes exagerados. Los dirigentes sin comentarios aparecen sin barras. Tocá una barra para ver el porcentaje real y la cantidad.` + textoComparar + textoOrden,
             config: {
               type: 'bar',
               data: { labels: etiquetas, datasets },
@@ -624,15 +678,16 @@
         }
 
         const esPct = modo === 'porcentaje';
+        const valorPct = (f, v) => f.sinDatos ? null : v;
         const datasets = B ? [
-          barra(`Positivo · ${A.corto}`, filas.map(f => esPct ? f.pPos : f.pos), '#22c55e'),
-          barra(`Positivo · ${B.corto}`, fb.map(f => esPct ? f.pPos : f.pos), 'rgba(34, 197, 94, 0.35)'),
-          barra(`Negativo · ${A.corto}`, filas.map(f => esPct ? f.pNeg : f.neg), '#ef4444'),
-          barra(`Negativo · ${B.corto}`, fb.map(f => esPct ? f.pNeg : f.neg), 'rgba(239, 68, 68, 0.35)')
+          barra(`Positivo · ${A.corto}`, filas.map(f => esPct ? valorPct(f, f.pPos) : f.pos), '#22c55e'),
+          barra(`Positivo · ${B.corto}`, fb.map(f => esPct ? valorPct(f, f.pPos) : f.pos), 'rgba(34, 197, 94, 0.35)'),
+          barra(`Negativo · ${A.corto}`, filas.map(f => esPct ? valorPct(f, f.pNeg) : f.neg), '#ef4444'),
+          barra(`Negativo · ${B.corto}`, fb.map(f => esPct ? valorPct(f, f.pNeg) : f.neg), 'rgba(239, 68, 68, 0.35)')
         ] : [
-          barra('Positivo', filas.map(f => esPct ? f.pPos : f.pos), '#22c55e'),
-          barra('Negativo', filas.map(f => esPct ? f.pNeg : f.neg), '#ef4444'),
-          barra('Neutral', filas.map(f => esPct ? f.pNeu : f.neu), '#94a3b8')
+          barra('Positivo', filas.map(f => esPct ? valorPct(f, f.pPos) : f.pos), '#22c55e'),
+          barra('Negativo', filas.map(f => esPct ? valorPct(f, f.pNeg) : f.neg), '#ef4444'),
+          barra('Neutral', filas.map(f => esPct ? valorPct(f, f.pNeu) : f.neu), '#94a3b8')
         ];
         return {
           nota: (esPct
@@ -650,12 +705,21 @@
         };
       }
 
+      // ===== Evolucion =====
       const selEvo = document.getElementById('selEvolucion');
-      selEvo.innerHTML = '<option value="__todos">Todos (% negativo)</option>' + todosNombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      const selMetricaEvo = document.getElementById('selMetricaEvo');
+      selEvo.innerHTML = '<option value="__todos">Todos los dirigentes</option>' + todosNombres.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
       const pctDe = (d, k) => {
         if (!d) return null;
         const t = (d.POS || 0) + (d.NEG || 0) + (d.NEU || 0);
         return t ? Math.round((d[k] || 0) * 1000 / t) / 10 : null;
+      };
+      const promedioAcumulado = serie => {
+        let suma = 0, n = 0;
+        return serie.map(v => {
+          if (v !== null && v !== undefined) { suma += v; n++; }
+          return n ? r1(suma / n) : null;
+        });
       };
       function configEvolucion() {
         const incluirAnterior = document.getElementById('chkAnterior').checked;
@@ -663,16 +727,31 @@
         if (hist.length < 2) return null;
         const fechas = hist.map(h => h.fecha + ((h.metodo || 1) !== METODO_ACTUAL ? ' (ant.)' : ''));
         const valor = selEvo.value;
+        const linea = { tension: 0.35, spanGaps: true, borderWidth: 3, pointRadius: 4 };
         let datasets;
         if (valor === '__todos') {
+          const k = selMetricaEvo.value;
+          const usarProm = document.getElementById('chkPromEvo').checked;
           datasets = ordenar(todosNombres.filter(n => estado.visibles.has(n))).map(n => {
             const i = todosNombres.indexOf(n);
-            return { label: n, data: hist.map(h => pctDe((h.datos || {})[n], 'NEG')), borderColor: COLORES[i % COLORES.length], backgroundColor: COLORES[i % COLORES.length], tension: 0.35, spanGaps: true, borderWidth: 3, pointRadius: 4 };
+            const serie = hist.map(h => pctDe((h.datos || {})[n], k));
+            return Object.assign({
+              label: n,
+              data: usarProm ? promedioAcumulado(serie) : serie,
+              borderColor: COLORES[i % COLORES.length],
+              backgroundColor: COLORES[i % COLORES.length]
+            }, linea);
           });
         } else {
-          datasets = [['POS', 'Positivo', '#22c55e'], ['NEG', 'Negativo', '#ef4444'], ['NEU', 'Neutral', '#94a3b8']].map(([k, l, c]) => ({
-            label: l, data: hist.map(h => pctDe((h.datos || {})[valor], k)), borderColor: c, backgroundColor: c, tension: 0.35, spanGaps: true, borderWidth: 3, pointRadius: 4
-          }));
+          const pos = hist.map(h => pctDe((h.datos || {})[valor], 'POS'));
+          const neg = hist.map(h => pctDe((h.datos || {})[valor], 'NEG'));
+          const punteada = { tension: 0.35, spanGaps: true, borderWidth: 2, pointRadius: 0, borderDash: [7, 6] };
+          datasets = [
+            Object.assign({ label: 'Positivo', data: pos, borderColor: '#22c55e', backgroundColor: '#22c55e' }, linea),
+            Object.assign({ label: 'Negativo', data: neg, borderColor: '#ef4444', backgroundColor: '#ef4444' }, linea),
+            Object.assign({ label: 'Promedio acumulado positivo', data: promedioAcumulado(pos), borderColor: 'rgba(34, 197, 94, 0.75)', backgroundColor: 'rgba(34, 197, 94, 0.75)' }, punteada),
+            Object.assign({ label: 'Promedio acumulado negativo', data: promedioAcumulado(neg), borderColor: 'rgba(239, 68, 68, 0.75)', backgroundColor: 'rgba(239, 68, 68, 0.75)' }, punteada)
+          ];
         }
         return {
           type: 'line',
@@ -685,7 +764,7 @@
             },
             plugins: {
               legend: { labels: { usePointStyle: true, pointStyle: 'circle' } },
-              tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.raw}%` } }
+              tooltip: { callbacks: { label: c => c.raw === null ? `${c.dataset.label}: sin datos` : `${c.dataset.label}: ${c.raw}%` } }
             }
           }
         };
@@ -705,6 +784,9 @@
       // ===== Evolucion en la web =====
       function dibujarEvolucion() {
         if (graficoEvo) { graficoEvo.destroy(); graficoEvo = null; }
+        const esTodos = selEvo.value === '__todos';
+        selMetricaEvo.style.display = esTodos ? '' : 'none';
+        document.getElementById('filaPromEvo').style.display = esTodos ? 'flex' : 'none';
         const caja = document.getElementById('cajaEvolucion');
         const aviso = document.getElementById('evoAviso');
         const config = configEvolucion();
@@ -715,17 +797,33 @@
         }
         caja.style.display = 'block';
         const incluirAnterior = document.getElementById('chkAnterior').checked;
-        aviso.textContent = 'Cada punto es una actualización del bot.' + (incluirAnterior ? ' Los puntos marcados con "(ant.)" usan un método anterior.' : '');
+        aviso.textContent = (esTodos
+          ? `Cada punto es una actualización del bot. Se muestra el ${selMetricaEvo.value === 'POS' ? '% positivo' : '% negativo'} de cada dirigente${document.getElementById('chkPromEvo').checked ? ', como promedio acumulado hasta cada fecha' : ''}.`
+          : 'Líneas llenas: cada actualización. Líneas punteadas: promedio acumulado de todas las corridas hasta esa fecha, que muestra la tendencia sin los saltos de cada semana.')
+          + (incluirAnterior ? ' Los puntos marcados con "(ant.)" usan un método anterior.' : '');
         graficoEvo = new Chart(document.getElementById('graficoEvolucion'), config);
       }
-      selEvo.addEventListener('change', () => { dibujarEvolucion(); dibujarPlaca(); });
-      document.getElementById('chkAnterior').addEventListener('change', () => { dibujarEvolucion(); dibujarPlaca(); });
+      ['selEvolucion', 'selMetricaEvo', 'chkPromEvo', 'chkAnterior'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => { dibujarEvolucion(); dibujarPlaca(); });
+      });
 
       // ===== Tarjetas por dirigente =====
       function dibujarGrilla() {
         const filas = filasDe(opcion(estado.fuente));
         document.getElementById('grilla').innerHTML = filas.map(f => {
           const d = D(f.nombre);
+          if (f.sinDatos) {
+            const miniVacio = d.alcance ? `<div class="mini"><span>👁 ${fmtNum(d.alcance.vistas)} vistas en ${d.alcance.videos} videos</span></div>` : '';
+            return `
+              <div class="dir">
+                <div class="top">
+                  <div class="nombre">${esc(f.nombre)}</div>
+                  <div class="total">0 comentarios</div>
+                </div>
+                <p class="vacio">Sin comentarios en este período.</p>
+                ${miniVacio}
+              </div>`;
+          }
           let emoTxt = '';
           if (d.emociones) {
             const p = emocionesPct(f.nombre, true);
@@ -775,15 +873,16 @@
           const ti = d.titulos || {};
           const tTi = (ti.POS || 0) + (ti.NEG || 0) + (ti.NEU || 0);
           const guion = '<span class="muted">—</span>';
+          const hayIronia = info && info.modelos ? info.modelos.ironia : true;
           return `
             <tr>
               <td><strong>${esc(n)}</strong>${d.pocos_datos ? ' <span class="muted">*</span>' : ''}</td>
               <td>${d.agresivos !== undefined && c ? pct(d.agresivos, c) + '%' : guion}</td>
-              <td>${d.emociones ? pct(ironicos, c + ironicos) + '%' : guion}</td>
+              <td>${hayIronia && d.emociones && (c + ironicos) ? pct(ironicos, c + ironicos) + '%' : guion}</td>
               <td>${tPl ? `<span class="pos">${pct(pl.POS || 0, tPl)}%</span> / <span class="neg">${pct(pl.NEG || 0, tPl)}%</span>` : guion}</td>
               <td>${tTi ? `<span class="pos">${pct(ti.POS || 0, tTi)}%</span> / <span class="neg">${pct(ti.NEG || 0, tTi)}%</span> <span class="muted">(${tTi})</span>` : guion}</td>
               <td>${d.alcance ? fmtNum(d.alcance.vistas) : guion}</td>
-              <td>${d.polemica ? String(d.polemica.promedio).replace('.', ',') : guion}</td>
+              <td>${d.polemica && c ? String(d.polemica.promedio).replace('.', ',') : guion}</td>
             </tr>`;
         }).join('');
         document.getElementById('tablaIndicadores').innerHTML = filasHtml || '<tr><td colspan="7" class="muted">Sin datos</td></tr>';
@@ -990,10 +1089,11 @@
       // ===== Dibujar todo =====
       function render() {
         dibujarKpis();
+        dibujarRanking();
         dibujarGrafico();
         dibujarGrilla();
-        dibujarIndicadores();
         dibujarEvolucion();
+        dibujarIndicadores();
         dibujarPlaca();
       }
       render();
@@ -1044,12 +1144,13 @@
 
       // ===== Metodo =====
       const diasAcum = acum ? acum.dias : 30;
+      const compartidas = (filtros.palabras_compartidas || []).map(g => `“${g.palabras.join('”, “')}” cuenta para ${g.dirigentes.join(' y ')}`).join('; ');
       document.getElementById('metodo').innerHTML = `
-        <p>Se buscan los videos de YouTube más relevantes de la última semana sobre cada dirigente de ${esc(NOMBRE_PAIS)} y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.</p>
-        <p>Modelos de inteligencia artificial en el idioma del país clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. Los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
-        <p>Los <strong>porcentajes ajustados</strong> (de tono y de emociones) le suman a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada.</p>
+        <p>Se buscan los videos de YouTube más relevantes del período sobre cada dirigente de ${esc(NOMBRE_PAIS)} y se analizan solo los comentarios que lo nombran <strong>a él o ella solamente</strong>: si un comentario menciona a otro dirigente o figura política, no se cuenta, porque no se puede saber a quién va dirigido el tono.${compartidas ? ` Excepción: ${esc(compartidas)}, porque se refiere a un espacio que comparten.` : ''}</p>
+        <p>Modelos de inteligencia artificial en el idioma del país clasifican cada comentario según su <strong>tono</strong> (positivo, negativo o neutral), su <strong>emoción</strong> (enojo, alegría, tristeza, miedo, sorpresa, asco o ninguna clara) y si usa <strong>lenguaje agresivo</strong>. En los países de habla hispana, los comentarios detectados como <strong>irónicos</strong> quedan afuera del tono, porque su sentido real suele ser el opuesto al literal.</p>
+        <p>Los <strong>porcentajes ajustados</strong> (de tono y de emociones) le suman a cada dirigente ${COLCHON} comentarios con el promedio general de todos. Así, quien tiene muchos comentarios casi no cambia, y quien tiene pocos no aparece con porcentajes extremos que no significan nada. Los dirigentes sin comentarios en un período no se ubican en el ranking.</p>
         <p>Para reducir distorsiones se cuenta un solo comentario por persona, se descartan textos repetidos y cuentas creadas hace menos de ${diasCuenta} días, se excluyen canales de otros países y los canales propios de cada dirigente, y ningún canal puede aportar más de ${tope} comentarios por dirigente.</p>
-        <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
+        <p>El <strong>acumulado</strong> junta las corridas de los últimos ${diasAcum} días contando cada comentario una sola vez. El <strong>promedio acumulado</strong> de la evolución promedia todas las corridas hasta cada fecha. El <strong>tono con likes</strong> le da más peso a los comentarios más votados, y el <strong>tono de títulos</strong> muestra cómo presentan los canales a cada dirigente.</p>
         <p><strong>Esto no es una encuesta</strong>, y los resultados de distintos países no se comparan entre sí: cada país se mide con su idioma, sus canales y su forma de comentar. Sirve para comparar dirigentes dentro de un mismo país.</p>`;
     }).catch(err => {
       console.error(err);

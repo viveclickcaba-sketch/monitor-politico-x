@@ -1,8 +1,8 @@
 {
   "Milei": {
-    "POS": 17,
-    "NEG": 75,
-    "NEU": 14
+    "POS": 22,
+    "NEG": 79,
+    "NEU": 12
   },
   "Massa": {
     "POS": 1,
@@ -10,24 +10,24 @@
     "NEU": 6
   },
   "Kicillof": {
-    "POS": 47,
-    "NEG": 64,
-    "NEU": 20
+    "POS": 13,
+    "NEG": 48,
+    "NEU": 11
   },
   "Macri": {
-    "POS": 4,
-    "NEG": 67,
-    "NEU": 6
+    "POS": 3,
+    "NEG": 64,
+    "NEU": 5
   },
   "Bullrich": {
-    "POS": 2,
-    "NEG": 14,
-    "NEU": 4
+    "POS": 0,
+    "NEG": 11,
+    "NEU": 1
   },
   "Cristina": {
-    "POS": 21,
-    "NEG": 59,
-    "NEU": 26
+    "POS": 19,
+    "NEG": 50,
+    "NEU": 25
   },
   "Máximo Kirchner": {
     "POS": 2,
@@ -36,16 +36,16 @@
   },
   "Villarruel": {
     "POS": 7,
-    "NEG": 40,
+    "NEG": 39,
     "NEU": 15
   },
   "Grabois": {
-    "POS": 6,
+    "POS": 5,
     "NEG": 21,
     "NEU": 4
   },
   "Bregman": {
-    "POS": 1,
+    "POS": 0,
     "NEG": 0,
     "NEU": 0
   }

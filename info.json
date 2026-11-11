@@ -2,7 +2,7 @@
   "pais": "Argentina",
   "codigo": "ar",
   "idioma": "es",
-  "actualizado": "11/11/2026 15:29",
+  "actualizado": "11/11/2026 16:10",
   "metodo": 3,
   "fuente": "Comentarios de YouTube",
   "periodo": "Videos de los ultimos 7 dias",
@@ -44,14 +44,14 @@
     "comentarios": 50,
     "canales": 5
   },
-  "total_comentarios": 564,
+  "total_comentarios": 484,
   "acumulado": {
     "dias": 30,
-    "corridas": 8,
+    "corridas": 9,
     "datos": {
       "Milei": {
-        "POS": 42,
-        "NEG": 234,
+        "POS": 50,
+        "NEG": 242,
         "NEU": 42
       },
       "Massa": {
@@ -60,13 +60,13 @@
         "NEU": 7
       },
       "Kicillof": {
-        "POS": 84,
-        "NEG": 88,
-        "NEU": 33
+        "POS": 88,
+        "NEG": 91,
+        "NEU": 35
       },
       "Macri": {
         "POS": 4,
-        "NEG": 75,
+        "NEG": 79,
         "NEU": 8
       },
       "Bullrich": {
@@ -76,7 +76,7 @@
       },
       "Cristina": {
         "POS": 41,
-        "NEG": 101,
+        "NEG": 103,
         "NEU": 44
       },
       "Máximo Kirchner": {
@@ -116,58 +116,57 @@
   "detalle": {
     "Milei": {
       "videos": 25,
-      "comentarios": 106,
+      "comentarios": 113,
       "pocos_datos": false,
       "canales": {
         "LA NACION": 15,
         "El Cronista": 15,
-        "El Destape": 14,
-        "Derecha Diario TV": 12,
+        "El Destape": 13,
+        "eltrece": 12,
+        "Derecha Diario TV": 11,
         "Perspectiva Progresista": 10,
+        "NICO ZAPATA": 9,
         "Revolución Popular Noticias": 9,
-        "NICO ZAPATA": 8,
-        "CLARÍN": 5,
+        "Ciudadano news": 5,
         "A24com": 4,
-        "eltrece": 4,
-        "Ciudadano news": 3,
-        "Argentina 12": 3,
+        "CLARÍN": 4,
+        "Mate con Mote": 3,
         "Crónica TV": 2,
-        "C5N": 1,
-        "Diario Todo Jujuy": 1
+        "C5N": 1
       },
       "videos_descartados": {
         "canal_extranjero": 15,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "menciona_otros": 10,
-        "mismo_autor": 8,
-        "texto_repetido": 3,
-        "cuenta_nueva": 2,
-        "tope_canal": 57,
-        "ironia": 45
+        "menciona_otros": 11,
+        "mismo_autor": 10,
+        "texto_repetido": 6,
+        "cuenta_nueva": 3,
+        "tope_canal": 68,
+        "ironia": 69
       },
       "videos_destacados": [
         {
           "titulo": "DISCURSOS DEL PAPA LEÓN XIV y JAVIER MILEI en el PALACIO LIBERTAD | Cadena Nacional 8/11/26",
           "canal": "El Cronista",
           "url": "https://www.youtube.com/watch?v=vfiGDaMM6cI",
-          "comentarios": 525,
-          "vistas": 149657
+          "comentarios": 526,
+          "vistas": 149931
         },
         {
-          "titulo": "Habla Javier Milei tras la llegada del Papa: \"Recibir a León es muy conmovedor\"",
-          "canal": "LA NACION",
-          "url": "https://www.youtube.com/watch?v=a2bxDC2wY1k",
-          "comentarios": 167,
-          "vistas": 44006
+          "titulo": "Los kukas dicen que Milei despejó el cielo con un botón por llega del Papa",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=WftFgW6Z1OE",
+          "comentarios": 463,
+          "vistas": 34914
         },
         {
-          "titulo": "🇦🇷✝️ Javier Milei saludó a sacerdotes tras la multitudinaria misa del Papa León XIV",
-          "canal": "Derecha Diario TV",
-          "url": "https://www.youtube.com/watch?v=polny2HGCEo",
-          "comentarios": 163,
-          "vistas": 25148
+          "titulo": "COMO OLVIDAR ESTA JOYITA #milei #argentina",
+          "canal": "NICO ZAPATA",
+          "url": "https://www.youtube.com/watch?v=1y89PS5wh3U",
+          "comentarios": 168,
+          "vistas": 35950
         }
       ],
       "ejemplos": {
@@ -177,11 +176,11 @@
             "likes": 24
           },
           {
-            "texto": "XFAVOR LO PRIMERO DARLE LA GRACIAS A DIOS POR DARNOS SU BENDICIÓN DE UN BUEN PRESIDENTE COMO ÉL SEÑOR MILEI VIVA LA LIBERTAD CARAJO VAMOS MILEI 2027 ES LO QUE VOTAMOS EL PUEBLO ARGENTINO XFAVOR GRACIAS AMÉN ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤",
-            "likes": 20
+            "texto": "El presidente Milei es muy sensible,que bueno despidió de manera muy sentida al Santo Padre por esta importante visita. Ahora lo esperamos en Perú",
+            "likes": 24
           },
           {
-            "texto": "❤DIOS NOS BENDIJO AL PUEBLO DE BIEN: MILEI PRESIDENTE ❤VLLCÍ",
+            "texto": "XFAVOR LO PRIMERO DARLE LA GRACIAS A DIOS POR DARNOS SU BENDICIÓN DE UN BUEN PRESIDENTE COMO ÉL SEÑOR MILEI VIVA LA LIBERTAD CARAJO VAMOS MILEI 2027 ES LO QUE VOTAMOS EL PUEBLO ARGENTINO XFAVOR GRACIAS AMÉN ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤",
             "likes": 20
           }
         ],
@@ -201,37 +200,37 @@
         ]
       },
       "emociones": {
-        "alegria": 17,
-        "tristeza": 3,
+        "alegria": 23,
+        "tristeza": 4,
         "enojo": 37,
         "sorpresa": 0,
-        "asco": 3,
+        "asco": 2,
         "miedo": 0,
-        "sin_emocion_clara": 46
+        "sin_emocion_clara": 47
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 141,
-        "NEG": 378,
-        "NEU": 97
+        "POS": 165,
+        "NEG": 388,
+        "NEU": 95
       },
       "alcance": {
         "videos": 25,
-        "vistas": 671814,
-        "likes_videos": 20871
+        "vistas": 696847,
+        "likes_videos": 22954
       },
       "polemica": {
-        "respuestas": 110,
-        "promedio": 1.04,
+        "respuestas": 113,
+        "promedio": 1.0,
         "mas_discutido": {
           "texto": "ESPERO QUE HAYA ENTENDIDO LO QUE FUE DIRECTO A MILEI  POBRESA DISCAPACIDAD  HOSPITALES ESCUELAS Y UNION POR LOS MAS DEBILES",
           "respuestas": 22
         }
       },
       "titulos": {
-        "POS": 5,
-        "NEG": 7,
-        "NEU": 12
+        "POS": 4,
+        "NEG": 6,
+        "NEU": 13
       },
       "temas": [
         [
@@ -240,46 +239,46 @@
         ],
         [
           "presidente",
-          17
+          20
         ],
         [
           "pueblo",
-          12
+          13
         ],
         [
           "discurso",
           12
         ],
         [
-          "dios",
-          9
+          "gracias",
+          11
         ],
         [
-          "gracias",
-          9
+          "dios",
+          10
         ],
         [
           "viva",
-          6
+          7
+        ],
+        [
+          "corazon",
+          5
         ],
         [
           "gobierno",
-          6
-        ],
-        [
-          "cara",
           5
         ],
         [
-          "leon",
-          5
-        ],
-        [
-          "tipo",
+          "querido",
           4
         ],
         [
-          "senor",
+          "grande",
+          4
+        ],
+        [
+          "cara",
           4
         ]
       ]
@@ -301,7 +300,7 @@
         "mismo_autor": 2,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
-        "tope_canal": 44,
+        "tope_canal": 43,
         "ironia": 2
       },
       "videos_destacados": [
@@ -309,8 +308,8 @@
           "titulo": "MILEI TE MINTIÓ, MASSA NO: TODO LO QUE TE HABÍA ADVERTIDO SERGIO MASSA Y NO QUISISTE CREER",
           "canal": "LA ROSCA Y LA PELOTA",
           "url": "https://www.youtube.com/watch?v=oWXf48qHcrE",
-          "comentarios": 903,
-          "vistas": 221930
+          "comentarios": 904,
+          "vistas": 222036
         },
         {
           "titulo": "💣 ICARDI INVESTIGADO POR LESIONES: HABLA MAURO SZETA",
@@ -324,7 +323,7 @@
           "canal": "Un Poco De Ruido",
           "url": "https://www.youtube.com/watch?v=3OWn0ScxnVo",
           "comentarios": 348,
-          "vistas": 344902
+          "vistas": 346090
         }
       ],
       "ejemplos": {
@@ -352,22 +351,22 @@
       "emociones": {
         "alegria": 3,
         "tristeza": 0,
-        "enojo": 4,
+        "enojo": 5,
         "sorpresa": 1,
         "asco": 0,
         "miedo": 0,
-        "sin_emocion_clara": 12
+        "sin_emocion_clara": 11
       },
       "agresivos": 0,
       "ponderado_likes": {
         "POS": 20,
-        "NEG": 260,
+        "NEG": 275,
         "NEU": 106
       },
       "alcance": {
         "videos": 27,
-        "vistas": 1254277,
-        "likes_videos": 24492
+        "vistas": 1260214,
+        "likes_videos": 24660
       },
       "polemica": {
         "respuestas": 18,
@@ -379,24 +378,24 @@
       },
       "titulos": {
         "POS": 1,
-        "NEG": 7,
+        "NEG": 6,
         "NEU": 7
       },
       "temas": [
         [
-          "verdad",
+          "corto",
           3
         ],
         [
-          "decia",
-          2
-        ],
-        [
-          "jamas",
-          2
-        ],
-        [
           "loco",
+          2
+        ],
+        [
+          "verdad",
+          2
+        ],
+        [
+          "decia",
           2
         ],
         [
@@ -404,11 +403,11 @@
           2
         ],
         [
-          "tantas",
+          "jamas",
           2
         ],
         [
-          "corto",
+          "tantas",
           2
         ],
         [
@@ -416,251 +415,247 @@
           2
         ],
         [
-          "cuanta",
-          2
+          "boludos",
+          1
         ],
         [
           "querian",
           1
         ],
         [
-          "vote",
+          "gracias",
           1
         ],
         [
-          "gracias",
+          "vote",
           1
         ]
       ]
     },
     "Kicillof": {
       "videos": 38,
-      "comentarios": 131,
+      "comentarios": 72,
       "pocos_datos": false,
       "canales": {
         "Mate con Mote": 20,
-        "CLARÍN": 18,
-        "C5N": 17,
-        "Adrián Ackerman": 16,
-        "Radio Con Vos 89.9": 13,
-        "Revolución Popular Noticias": 10,
-        "A24com": 8,
-        "El Destape": 7,
-        "Las Fuerzas de La Pala": 5,
-        "eltrece": 4,
-        "LA NACION": 3,
+        "C5N": 9,
+        "CLARÍN": 8,
+        "Agarra la Pala América": 7,
+        "A24com": 6,
+        "Revolución Popular Noticias": 4,
+        "Las Fuerzas de La Pala": 4,
+        "Adrián Ackerman": 4,
         "Carnicero Libertario": 2,
         "La Opinión Austral": 2,
-        "ls clipping": 2,
-        "Cadena 3 Argentina": 1,
-        "Arquitecto del Pensar ": 1,
-        "Sentido Común Argentino": 1,
-        "Fuera el PJ de Córdoba 🚫": 1
+        "eltrece": 2,
+        "El Destape": 2,
+        "Laca Stream": 1,
+        "LA ROSCA Y LA PELOTA": 1
       },
       "videos_descartados": {
         "canal_extranjero": 2,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "menciona_otros": 37,
-        "mismo_autor": 35,
-        "texto_repetido": 70,
-        "cuenta_nueva": 2,
-        "tope_canal": 151,
-        "ironia": 29
+        "menciona_otros": 16,
+        "mismo_autor": 7,
+        "texto_repetido": 1,
+        "cuenta_nueva": 0,
+        "tope_canal": 5,
+        "ironia": 15
       },
       "videos_destacados": [
         {
           "titulo": "EXPONGO A PERIODISTA K Y LOS MILLONES DE PAUTA DE KICILLOF A EL DESTAPE",
           "canal": "Marco Palazzo",
           "url": "https://www.youtube.com/watch?v=KTdMVKIwnqQ",
-          "comentarios": 506,
-          "vistas": 78566
+          "comentarios": 507,
+          "vistas": 78753
         },
         {
           "titulo": "Axel Kicillof llegó a Luján",
           "canal": "C5N",
           "url": "https://www.youtube.com/watch?v=P04ZW2h8afM",
-          "comentarios": 493,
-          "vistas": 62975
+          "comentarios": 505,
+          "vistas": 65149
         },
         {
           "titulo": "KICILLOF QUEDÓ DESCOLOCADO: NO ENTENDÍA NI UNA PREGUNTA DE LOS PERIODISTAS.#AGARRALAPALA",
           "canal": "Las Fuerzas de La Pala",
           "url": "https://www.youtube.com/watch?v=4jjwVuk0QLc",
-          "comentarios": 432,
-          "vistas": 60787
+          "comentarios": 433,
+          "vistas": 61016
         }
       ],
       "ejemplos": {
         "positivos": [
           {
-            "texto": "AXEL QUE LINDO VERTE TOMAR UN MATE QUE TE COMPARTE UNA PERSONA QUE NO CONOCES,ESO ES HUMILDAD💪❣️🇦🇷✌️",
-            "likes": 100
-          },
-          {
-            "texto": "Fuerza Axel estamos con vos   Dios te cubra con su manto sagrado a vos y tu familia ❤❤❤❤❤❤❤❤❤❤",
-            "likes": 98
-          },
-          {
             "texto": "QUE GRANDE GOBERNADOR AXEL KICILOFF MUCHA GENTE TE QUIERE❤❤❤❤😊",
-            "likes": 72
+            "likes": 77
+          },
+          {
+            "texto": "Axel Kicillof presidente ❤❤❤",
+            "likes": 33
+          },
+          {
+            "texto": "Vamos Presidente Axel Kicillof!!!❤",
+            "likes": 16
           }
         ],
         "negativos": [
           {
             "texto": "KICILOF  ES UN LADRON, PORQUÉ  TRATÓ TAN MAL A LA POLICIA",
-            "likes": 57
+            "likes": 59
+          },
+          {
+            "texto": "Kicillof acumula ñoquis, por eso no le alcanza la plata.\nEs mi opinión...",
+            "likes": 55
           },
           {
             "texto": "XFAVOR URGENTE PRESO AL SEÑOR KICILLOF",
             "likes": 49
-          },
-          {
-            "texto": "En Pinamar una oficial de la policía de la provincia se suicidó y Kicillof no se entera",
-            "likes": 39
           }
         ]
       },
       "emociones": {
-        "alegria": 35,
-        "tristeza": 2,
-        "enojo": 43,
+        "alegria": 11,
+        "tristeza": 1,
+        "enojo": 35,
         "sorpresa": 0,
-        "asco": 1,
+        "asco": 2,
         "miedo": 0,
-        "sin_emocion_clara": 50
+        "sin_emocion_clara": 23
       },
       "agresivos": 1,
       "ponderado_likes": {
-        "POS": 892,
-        "NEG": 360,
-        "NEU": 253
+        "POS": 184,
+        "NEG": 378,
+        "NEU": 101
       },
       "alcance": {
         "videos": 38,
-        "vistas": 761691,
-        "likes_videos": 32458
+        "vistas": 626767,
+        "likes_videos": 30157
       },
       "polemica": {
-        "respuestas": 85,
-        "promedio": 0.65,
+        "respuestas": 31,
+        "promedio": 0.43,
         "mas_discutido": {
-          "texto": "AXEL QUE LINDO VERTE TOMAR UN MATE QUE TE COMPARTE UNA PERSONA QUE NO CONOCES,ESO ES HUMILDAD💪❣️🇦🇷✌️",
-          "respuestas": 16
+          "texto": "Señor Kicillof , por favor Corten con el Odio y Violencia !!! Trabajen con Honestidad y Honradez  para bien de Todos los Argentinos !!! El Papa LEÓN XIV , no es Político , viene a Sembrar Paz y Unión ..... 🙏🇦🇷🥲",
+          "respuestas": 6
         }
       },
       "titulos": {
         "POS": 8,
         "NEG": 15,
-        "NEU": 14
+        "NEU": 12
       },
       "temas": [
         [
+          "provincia",
+          11
+        ],
+        [
           "presidente",
-          22
+          10
+        ],
+        [
+          "gobernador",
+          7
         ],
         [
           "papa",
-          20
-        ],
-        [
-          "gracias",
-          12
-        ],
-        [
-          "provincia",
-          8
-        ],
-        [
-          "grande",
           7
         ],
         [
-          "dios",
-          7
+          "buenos",
+          5
+        ],
+        [
+          "aires",
+          5
         ],
         [
           "verguenza",
-          7
+          5
         ],
         [
-          "leon",
-          6
+          "policia",
+          4
         ],
         [
-          "pueblo",
-          6
-        ],
-        [
-          "fuerza",
-          6
+          "policias",
+          4
         ],
         [
           "gobierno",
-          6
+          3
         ],
         [
-          "favor",
-          5
+          "deja",
+          3
+        ],
+        [
+          "politico",
+          3
         ]
       ]
     },
     "Macri": {
-      "videos": 37,
-      "comentarios": 77,
+      "videos": 36,
+      "comentarios": 72,
       "pocos_datos": false,
       "canales": {
         "Lucas Schmidt": 16,
-        "Canal EY! | Streaming": 16,
-        "C5N": 8,
+        "Canal EY! | Streaming": 15,
         "El Cronista": 7,
+        "Revolución Popular Noticias": 7,
         "A24com": 7,
-        "Revolución Popular Noticias": 6,
         "Las Fuerzas del Pueblo": 4,
         "Agarra la Pala América": 2,
+        "LA NACION": 2,
         "La Política en Frases": 2,
-        "LA ROSCA Y LA PELOTA": 2,
         "Radio La Red AM 910": 2,
+        "LA ROSCA Y LA PELOTA": 2,
+        "Claves": 2,
         "Radio Mitre": 1,
         "Diario Todo Jujuy": 1,
-        "EZZE TV": 1,
         "Apoyocordoba": 1,
         "Carnaval Stream": 1
       },
       "videos_descartados": {
-        "canal_extranjero": 0,
+        "canal_extranjero": 1,
         "canal_oficial": 3
       },
       "comentarios_descartados": {
-        "menciona_otros": 30,
+        "menciona_otros": 27,
         "mismo_autor": 2,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 23,
-        "ironia": 15
+        "ironia": 17
       },
       "videos_destacados": [
         {
           "titulo": "🔴  ¡VERGÜENZA AJENA!",
           "canal": "Canal EY! | Streaming",
           "url": "https://www.youtube.com/watch?v=lmlzoAe2Di0",
-          "comentarios": 407,
-          "vistas": 38116
-        },
-        {
-          "titulo": "MAURICIO MACRI: \"No soy MILEISTA\"",
-          "canal": "C5N",
-          "url": "https://www.youtube.com/watch?v=IX8rnIah-18",
-          "comentarios": 257,
-          "vistas": 56973
+          "comentarios": 409,
+          "vistas": 38336
         },
         {
           "titulo": "BOCA ES CAMPEÓN, Y RIQUELME LE GANO UNA BATALLA IMPORTANTÍSIMA AL MACRISMO | Reacción Lucas Schmidt",
           "canal": "Lucas Schmidt",
           "url": "https://www.youtube.com/watch?v=LS2jQiQtriw",
           "comentarios": 145,
-          "vistas": 14558
+          "vistas": 14571
+        },
+        {
+          "titulo": "Macri fue a la calle a sacarse fotos y le pidieron que devuelva el préstamo con el FMI",
+          "canal": "Las Fuerzas del Pueblo",
+          "url": "https://www.youtube.com/watch?v=Jcf5OAF1vdQ",
+          "comentarios": 77,
+          "vistas": 17650
         }
       ],
       "ejemplos": {
@@ -674,7 +669,7 @@
             "likes": 0
           },
           {
-            "texto": "Aguante macri. El mejor presidente de la historia.",
+            "texto": "Así es, más allá de los errores de Román ya como presidente, creo que al final encontró el camino que no fue nada fácil pero es lógico tratandose de Boca. Estoy segura que nunca le haría daño a Boca porque su amor y entrega por la institución son genuinas.Por favor la gente como ",
             "likes": 0
           }
         ],
@@ -684,38 +679,38 @@
             "likes": 36
           },
           {
-            "texto": "Generaciones enteras los Macri enriquecidos por todos nosotros!! Que paguen ko que deben",
-            "likes": 30
-          },
-          {
             "texto": "Macri es mafia",
             "likes": 22
+          },
+          {
+            "texto": "Si hablamos de macri tenemos que hablar de un nivel delincuencial como nunca antes ni después vio nuestra patria",
+            "likes": 20
           }
         ]
       },
       "emociones": {
-        "alegria": 3,
+        "alegria": 2,
         "tristeza": 1,
-        "enojo": 46,
+        "enojo": 43,
         "sorpresa": 0,
-        "asco": 2,
+        "asco": 1,
         "miedo": 0,
         "sin_emocion_clara": 25
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 5,
-        "NEG": 290,
-        "NEU": 20
+        "POS": 4,
+        "NEG": 271,
+        "NEU": 9
       },
       "alcance": {
-        "videos": 37,
-        "vistas": 313424,
-        "likes_videos": 7788
+        "videos": 36,
+        "vistas": 304891,
+        "likes_videos": 7797
       },
       "polemica": {
-        "respuestas": 68,
-        "promedio": 0.88,
+        "respuestas": 66,
+        "promedio": 0.92,
         "mas_discutido": {
           "texto": "Comparar a macri dirigente,con riquelme dirigente..es cas un insulto..es tan grande la diferencia q le lleva macri dirigente a riquelme dirigente,q es casi como comparar un BMW con un chevrolet corsa, fin.",
           "respuestas": 29
@@ -723,8 +718,8 @@
       },
       "titulos": {
         "POS": 2,
-        "NEG": 17,
-        "NEU": 12
+        "NEG": 14,
+        "NEU": 11
       },
       "temas": [
         [
@@ -732,11 +727,7 @@
           8
         ],
         [
-          "millones",
-          6
-        ],
-        [
-          "gobierno",
+          "papa",
           5
         ],
         [
@@ -744,15 +735,11 @@
           5
         ],
         [
-          "fondo",
+          "millones",
           5
         ],
         [
-          "ademas",
-          4
-        ],
-        [
-          "papa",
+          "gobierno",
           4
         ],
         [
@@ -760,11 +747,15 @@
           4
         ],
         [
+          "politica",
+          4
+        ],
+        [
           "justicia",
           4
         ],
         [
-          "dolares",
+          "chorro",
           4
         ],
         [
@@ -774,33 +765,35 @@
         [
           "favor",
           4
+        ],
+        [
+          "roman",
+          4
         ]
       ]
     },
     "Bullrich": {
       "videos": 38,
-      "comentarios": 20,
+      "comentarios": 12,
       "pocos_datos": true,
       "canales": {
-        "Revolución Popular Noticias": 4,
-        "A24com": 4,
-        "El Camino Del Liberalismo": 4,
-        "La Política Online": 3,
-        "LA ROSCA Y LA PELOTA": 2,
-        "Super Libertaria": 2,
-        "Martin “Negro” Almeida": 1
+        "Revolución Popular Noticias": 3,
+        "A24com": 3,
+        "El Camino Del Liberalismo": 3,
+        "La Política Online": 2,
+        "Super Libertaria": 1
       },
       "videos_descartados": {
         "canal_extranjero": 2,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "menciona_otros": 16,
+        "menciona_otros": 9,
         "mismo_autor": 0,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 0,
-        "ironia": 9
+        "ironia": 7
       },
       "videos_destacados": [
         {
@@ -808,34 +801,25 @@
           "canal": "La Política Online",
           "url": "https://www.youtube.com/watch?v=quril3-Evpw",
           "comentarios": 171,
-          "vistas": 75785
-        },
-        {
-          "titulo": "WADO DE PEDRO LE SACÓ LA CARETA A BULLRICH EN EL SENADO:",
-          "canal": "Revolución Popular Noticias",
-          "url": "https://www.youtube.com/watch?v=P5aVAlnjAvI",
-          "comentarios": 75,
-          "vistas": 36110
+          "vistas": 76008
         },
         {
           "titulo": "🔴 LA REBELIÓN DE PATRICIA BULLRICH: LA FOTO QUE ENFURECIÓ A LOS HERMANOS MILEI",
           "canal": "A24com",
           "url": "https://www.youtube.com/watch?v=V7AiKLh-WDA",
           "comentarios": 60,
-          "vistas": 19653
+          "vistas": 19660
+        },
+        {
+          "titulo": "BOMBAZO | ¿ECHAN a PATRICIA BULLRICH después de la visita del Papa Leon XIV?",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=vrysd8ztWAo",
+          "comentarios": 56,
+          "vistas": 39292
         }
       ],
       "ejemplos": {
-        "positivos": [
-          {
-            "texto": "Que se hagan las Paso!!!! Vamos Patricia!!!!",
-            "likes": 4
-          },
-          {
-            "texto": "Estoy con Patricia ❤",
-            "likes": 1
-          }
-        ],
+        "positivos": [],
         "negativos": [
           {
             "texto": "Y es así,  pero todos sabemos que la señora Bullrich tiene otras intenciones , y no exactamente es de hacer crecer a tooodo un país,.sino de crecer ella , una lástima,  yo apostaba por ella y el presidente como formula, pero se ve que no cae lejos de lo que fue Villacruel",
@@ -846,34 +830,34 @@
             "likes": 11
           },
           {
-            "texto": "SERIA HORRIBLE, UNA TREMENDA TRACION DE PATRICIA BULLRICH, SERIA EL  MAS GRANDE DE LA HISTORIA DE MI HERMOSA ARGENTINA. NO, NO NO ES POSIBLE, NO LO PUEDO CREER. SERIA EL PEOR ERROR POLITICO DE BULLRICH.",
-            "likes": 5
+            "texto": "Más allá del mamarracho que es Bullrich....lastimar? La figura presencia la están lastimando los impresentables que están en el gobierno jajaja",
+            "likes": 8
           }
         ]
       },
       "emociones": {
-        "alegria": 2,
+        "alegria": 0,
         "tristeza": 1,
-        "enojo": 9,
+        "enojo": 8,
         "sorpresa": 0,
         "asco": 1,
         "miedo": 0,
-        "sin_emocion_clara": 7
+        "sin_emocion_clara": 2
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 7,
-        "NEG": 59,
-        "NEU": 29
+        "POS": 0,
+        "NEG": 63,
+        "NEU": 14
       },
       "alcance": {
         "videos": 38,
-        "vistas": 358007,
-        "likes_videos": 5496
+        "vistas": 340346,
+        "likes_videos": 4887
       },
       "polemica": {
-        "respuestas": 25,
-        "promedio": 1.25,
+        "respuestas": 24,
+        "promedio": 2.0,
         "mas_discutido": {
           "texto": "Que manera de tirar fruta en el video ajja 🤣. Los fondos de inversión miran el superavit y la motosierra, no si Bullrich está enojada o le gritaron en el Senado. Amenazar con que va a estallar el riesgo país porque se ro",
           "respuestas": 21
@@ -881,40 +865,20 @@
       },
       "titulos": {
         "POS": 2,
-        "NEG": 20,
-        "NEU": 15
+        "NEG": 18,
+        "NEU": 18
       },
       "temas": [
-        [
-          "presidente",
-          4
-        ],
-        [
-          "economia",
-          3
-        ],
         [
           "rompe",
           2
         ],
         [
-          "derecha",
+          "economia",
           2
         ],
         [
-          "paso",
-          2
-        ],
-        [
-          "votos",
-          2
-        ],
-        [
-          "idea",
-          2
-        ],
-        [
-          "politica",
+          "gobierno",
           2
         ],
         [
@@ -922,7 +886,19 @@
           2
         ],
         [
+          "politica",
+          2
+        ],
+        [
+          "presidente",
+          2
+        ],
+        [
           "equivocaron",
+          1
+        ],
+        [
+          "cara",
           1
         ],
         [
@@ -930,20 +906,27 @@
           1
         ],
         [
-          "cara",
+          "fondos",
+          1
+        ],
+        [
+          "bloque",
+          1
+        ],
+        [
+          "debilidad",
           1
         ]
       ]
     },
     "Cristina": {
       "videos": 40,
-      "comentarios": 106,
+      "comentarios": 94,
       "pocos_datos": false,
       "canales": {
         "NICO ZAPATA": 16,
-        "Argentina 12": 14,
         "Perfil": 13,
-        "El Destape": 13,
+        "Argentina 12": 13,
         "Revolución Popular Noticias": 11,
         "El Peluca Milei": 11,
         "HectorFernandezok": 7,
@@ -951,6 +934,7 @@
         "Break Point Noticias": 6,
         "Las Fuerzas de La Pala": 4,
         "Agarra la Pala América": 3,
+        "Basta de Verso": 2,
         "Mirada libertaria": 1,
         "La Retaguardia": 1
       },
@@ -959,34 +943,34 @@
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "menciona_otros": 19,
+        "menciona_otros": 15,
         "mismo_autor": 20,
         "texto_repetido": 2,
         "cuenta_nueva": 0,
-        "tope_canal": 29,
-        "ironia": 53
+        "tope_canal": 32,
+        "ironia": 49
       },
       "videos_destacados": [
         {
           "titulo": "¡ESPECTACULAR! NENE BAITEÓ EN VIVO A CRISTINA PÉREZ y la dejó re caliente: \"VIVA PERÓN\"",
           "canal": "Revolución Popular Noticias",
           "url": "https://www.youtube.com/watch?v=e9hJ7fpVpvE",
-          "comentarios": 347,
-          "vistas": 82758
+          "comentarios": 361,
+          "vistas": 85956
         },
         {
-          "titulo": "💥 ¡ESTALLÓ POR ESTO! DENTE ENLOQUECIÓ Y SE LA AGARRÓ CON UN VECINO POR LLEVAR UNA REMERA DE CRISTINA",
-          "canal": "El Destape",
-          "url": "https://www.youtube.com/watch?v=N0R1blKYb1s",
-          "comentarios": 314,
-          "vistas": 52018
+          "titulo": "Kirchneristas dicen que el Papa copió a Cristina Kirchner por salir al balcón jaja",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=pFcfel82ufE",
+          "comentarios": 233,
+          "vistas": 13227
         },
         {
           "titulo": "“Cuando la democracia no genera progreso, la gente empieza a cuestionar el sistema político”",
           "canal": "Argentina 12",
           "url": "https://www.youtube.com/watch?v=qq5mos5gNic",
           "comentarios": 229,
-          "vistas": 46460
+          "vistas": 46463
         }
       ],
       "ejemplos": {
@@ -1020,28 +1004,28 @@
         ]
       },
       "emociones": {
-        "alegria": 29,
-        "tristeza": 4,
-        "enojo": 38,
+        "alegria": 26,
+        "tristeza": 3,
+        "enojo": 34,
         "sorpresa": 0,
         "asco": 1,
         "miedo": 2,
-        "sin_emocion_clara": 32
+        "sin_emocion_clara": 28
       },
-      "agresivos": 7,
+      "agresivos": 5,
       "ponderado_likes": {
-        "POS": 141,
-        "NEG": 361,
-        "NEU": 273
+        "POS": 138,
+        "NEG": 358,
+        "NEU": 271
       },
       "alcance": {
         "videos": 40,
-        "vistas": 502483,
-        "likes_videos": 16574
+        "vistas": 460545,
+        "likes_videos": 15980
       },
       "polemica": {
-        "respuestas": 116,
-        "promedio": 1.09,
+        "respuestas": 107,
+        "promedio": 1.14,
         "mas_discutido": {
           "texto": "Cuando habrá uno de la  derecha preso, siempre le toca a los peronistas llevar el mote de ladrón y los verdaderos ladrones siguen impunes. Defender a los pobres  cuesta ésto. Esta mujer es un ejemplo de lucha y ahora tie",
           "respuestas": 13
@@ -1049,17 +1033,17 @@
       },
       "titulos": {
         "POS": 3,
-        "NEG": 18,
-        "NEU": 16
+        "NEG": 19,
+        "NEU": 15
       },
       "temas": [
         [
           "libre",
-          14
+          13
         ],
         [
           "pueblo",
-          9
+          10
         ],
         [
           "presidenta",
@@ -1067,14 +1051,6 @@
         ],
         [
           "gobierno",
-          6
-        ],
-        [
-          "kirchneristas",
-          5
-        ],
-        [
-          "inocente",
           5
         ],
         [
@@ -1082,11 +1058,19 @@
           5
         ],
         [
-          "robo",
+          "inocente",
           5
         ],
         [
           "kirchnerista",
+          4
+        ],
+        [
+          "kirchneristas",
+          4
+        ],
+        [
+          "robo",
           4
         ],
         [
@@ -1109,8 +1093,8 @@
       "pocos_datos": true,
       "canales": {
         "Cruce Argento": 3,
-        "Agarrá La Pala": 2,
         "MDZ": 2,
+        "Agarrá La Pala": 2,
         "Mate con Mote": 1,
         "Basta de Verso": 1,
         "Revolución Popular Noticias": 1
@@ -1125,7 +1109,7 @@
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 0,
-        "ironia": 4
+        "ironia": 3
       },
       "videos_destacados": [
         {
@@ -1133,21 +1117,21 @@
           "canal": "Cruce Argento",
           "url": "https://www.youtube.com/watch?v=vvJ7kMgbQOk",
           "comentarios": 222,
-          "vistas": 104059
+          "vistas": 104364
         },
         {
           "titulo": "Kukas el papa va a visitar a Máximo y a Cristina Kirchner",
           "canal": "Mate con Mote",
           "url": "https://www.youtube.com/watch?v=EfMVPqBpSw0",
-          "comentarios": 179,
-          "vistas": 8223
+          "comentarios": 186,
+          "vistas": 8438
         },
         {
           "titulo": "CENSURARON EL MÓVIL DE LN+ TRAS APARICIÓN DE NANCY PAZOS, MÁXIMO KIRCHNER Y MAYRA MENDOZA EN LUJÁN",
           "canal": "Agarrá La Pala",
           "url": "https://www.youtube.com/watch?v=LW3A21an-Ec",
-          "comentarios": 137,
-          "vistas": 6293
+          "comentarios": 144,
+          "vistas": 7904
         }
       ],
       "ejemplos": {
@@ -1193,8 +1177,8 @@
       },
       "alcance": {
         "videos": 39,
-        "vistas": 313650,
-        "likes_videos": 11407
+        "vistas": 316628,
+        "likes_videos": 11570
       },
       "polemica": {
         "respuestas": 2,
@@ -1219,11 +1203,11 @@
           2
         ],
         [
-          "kirchnerista",
+          "pobre",
           1
         ],
         [
-          "pobre",
+          "kirchnerista",
           1
         ],
         [
@@ -1235,11 +1219,19 @@
           1
         ],
         [
-          "falopa",
+          "falopero",
           1
         ],
         [
-          "falopero",
+          "tomo",
+          1
+        ],
+        [
+          "loco",
+          1
+        ],
+        [
+          "falopa",
           1
         ],
         [
@@ -1247,25 +1239,17 @@
           1
         ],
         [
-          "fumaba",
-          1
-        ],
-        [
           "podia",
-          1
-        ],
-        [
-          "tomo",
           1
         ]
       ]
     },
     "Villarruel": {
       "videos": 40,
-      "comentarios": 62,
+      "comentarios": 61,
       "pocos_datos": false,
       "canales": {
-        "Agarrá La Pala": 18,
+        "Agarrá La Pala": 17,
         "Radio Mitre": 16,
         "Revolución Popular Noticias": 14,
         "A24com": 3,
@@ -1285,29 +1269,29 @@
         "texto_repetido": 3,
         "cuenta_nueva": 0,
         "tope_canal": 27,
-        "ironia": 18
+        "ironia": 19
       },
       "videos_destacados": [
         {
           "titulo": "DISCURSOS DEL PAPA LEÓN XIV y JAVIER MILEI en el PALACIO LIBERTAD | Cadena Nacional 8/11/26",
           "canal": "El Cronista",
           "url": "https://www.youtube.com/watch?v=vfiGDaMM6cI",
-          "comentarios": 525,
-          "vistas": 149657
+          "comentarios": 526,
+          "vistas": 149987
         },
         {
           "titulo": "Victoria Villarruel explicó por qué no estuvo en la misa del papa León XIV: “Nunca recibimos el QR”",
           "canal": "Radio Mitre",
           "url": "https://www.youtube.com/watch?v=lbrEUPsZ7vc",
           "comentarios": 431,
-          "vistas": 111181
+          "vistas": 111687
         },
         {
           "titulo": "Victoria Villarruel opinó sobre el discurso del papa León XIV",
           "canal": "C5N",
           "url": "https://www.youtube.com/watch?v=YKkZhrQiq3Y",
           "comentarios": 345,
-          "vistas": 216598
+          "vistas": 217286
         }
       ],
       "ejemplos": {
@@ -1342,7 +1326,7 @@
       },
       "emociones": {
         "alegria": 9,
-        "tristeza": 3,
+        "tristeza": 2,
         "enojo": 28,
         "sorpresa": 0,
         "asco": 0,
@@ -1352,17 +1336,17 @@
       "agresivos": 10,
       "ponderado_likes": {
         "POS": 53,
-        "NEG": 305,
-        "NEU": 126
+        "NEG": 301,
+        "NEU": 127
       },
       "alcance": {
         "videos": 40,
-        "vistas": 1640946,
-        "likes_videos": 27815
+        "vistas": 1645214,
+        "likes_videos": 27906
       },
       "polemica": {
         "respuestas": 22,
-        "promedio": 0.35,
+        "promedio": 0.36,
         "mas_discutido": {
           "texto": "Se vio en la tv!! El PAPA fue directo a Villarruel",
           "respuestas": 4
@@ -1419,19 +1403,19 @@
           3
         ],
         [
-          "grande",
+          "invitada",
           3
         ]
       ]
     },
     "Grabois": {
       "videos": 36,
-      "comentarios": 31,
+      "comentarios": 30,
       "pocos_datos": true,
       "canales": {
-        "Cenital": 16,
+        "Cenital": 14,
         "Agarra la Pala América": 5,
-        "Mate con Mote": 4,
+        "Mate con Mote": 5,
         "El Destape": 2,
         "Las Fuerzas de La Pala": 2,
         "Agarrá La Pala": 1,
@@ -1442,34 +1426,34 @@
         "canal_oficial": 4
       },
       "comentarios_descartados": {
-        "menciona_otros": 7,
-        "mismo_autor": 3,
+        "menciona_otros": 6,
+        "mismo_autor": 4,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
-        "tope_canal": 4,
-        "ironia": 16
+        "tope_canal": 6,
+        "ironia": 18
       },
       "videos_destacados": [
         {
           "titulo": "Papa hizo un milagro en Argentina Grabois se bañó",
           "canal": "Mate con Mote",
           "url": "https://www.youtube.com/watch?v=-5yJpQOMVdE",
-          "comentarios": 1264,
-          "vistas": 332590
+          "comentarios": 1266,
+          "vistas": 332793
         },
         {
           "titulo": "GRABOIS: \"LO DE 'HAGAN LÍO' ME ENCANTA. NO ME TIENTES, LEÓN\" - 540º",
           "canal": "Cenital",
           "url": "https://www.youtube.com/watch?v=D4-nyc0SuPg",
-          "comentarios": 184,
-          "vistas": 47624
+          "comentarios": 188,
+          "vistas": 50148
         },
         {
           "titulo": "NAVARRO Y GRABOIS EXPUSIERON EL PROYECTO K SIN FILTROS: “VOLVER A REPOBLAR LA PATRIA,",
           "canal": "Agarra la Pala América",
           "url": "https://www.youtube.com/watch?v=daB44XZAcb8",
           "comentarios": 179,
-          "vistas": 11432
+          "vistas": 11429
         }
       ],
       "ejemplos": {
@@ -1509,22 +1493,22 @@
         "sorpresa": 1,
         "asco": 0,
         "miedo": 0,
-        "sin_emocion_clara": 11
+        "sin_emocion_clara": 10
       },
       "agresivos": 2,
       "ponderado_likes": {
-        "POS": 16,
-        "NEG": 62,
+        "POS": 15,
+        "NEG": 61,
         "NEU": 12
       },
       "alcance": {
         "videos": 36,
-        "vistas": 673229,
-        "likes_videos": 18050
+        "vistas": 677496,
+        "likes_videos": 18130
       },
       "polemica": {
         "respuestas": 10,
-        "promedio": 0.32,
+        "promedio": 0.33,
         "mas_discutido": {
           "texto": "Ya me quedé sin palabras para expresar mi gratitud. Lo único que sirve en este país es Grabois",
           "respuestas": 4
@@ -1549,19 +1533,7 @@
           2
         ],
         [
-          "palabras",
-          1
-        ],
-        [
           "sirve",
-          1
-        ],
-        [
-          "unico",
-          1
-        ],
-        [
-          "quede",
           1
         ],
         [
@@ -1569,30 +1541,40 @@
           1
         ],
         [
+          "palabras",
+          1
+        ],
+        [
+          "unico",
+          1
+        ],
+        [
           "gratitud",
           1
         ],
         [
+          "quede",
+          1
+        ],
+        [
+          "hombre",
+          1
+        ],
+        [
+          "catolica",
+          1
+        ],
+        [
           "increible",
-          1
-        ],
-        [
-          "consulta",
-          1
-        ],
-        [
-          "iglesia",
           1
         ]
       ]
     },
     "Bregman": {
       "videos": 24,
-      "comentarios": 1,
+      "comentarios": 0,
       "pocos_datos": true,
-      "canales": {
-        "laberinto stream": 1
-      },
+      "canales": {},
       "videos_descartados": {
         "canal_extranjero": 1,
         "canal_oficial": 0
@@ -1625,20 +1607,15 @@
           "canal": "voto cantado",
           "url": "https://www.youtube.com/watch?v=151j4Yjpc_o",
           "comentarios": 9,
-          "vistas": 1355
+          "vistas": 1358
         }
       ],
       "ejemplos": {
-        "positivos": [
-          {
-            "texto": "Grande Myriam. ❤",
-            "likes": 0
-          }
-        ],
+        "positivos": [],
         "negativos": []
       },
       "emociones": {
-        "alegria": 1,
+        "alegria": 0,
         "tristeza": 0,
         "enojo": 0,
         "sorpresa": 0,
@@ -1648,18 +1625,18 @@
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 1,
+        "POS": 0,
         "NEG": 0,
         "NEU": 0
       },
       "alcance": {
         "videos": 24,
-        "vistas": 25528,
-        "likes_videos": 830
+        "vistas": 26001,
+        "likes_videos": 834
       },
       "polemica": {
         "respuestas": 0,
-        "promedio": 0.0,
+        "promedio": 0,
         "mas_discutido": {
           "texto": "",
           "respuestas": 0
@@ -1670,12 +1647,7 @@
         "NEG": 2,
         "NEU": 6
       },
-      "temas": [
-        [
-          "grande",
-          1
-        ]
-      ]
+      "temas": []
     }
   }
 }

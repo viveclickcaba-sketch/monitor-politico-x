@@ -43,16 +43,16 @@ PAISES = {
     "ar": {
         "nombre": "Argentina", "idioma": "es", "region": "AR", "videos": 40, "paginas": 4,
         "politicos": {
-            "Milei":           {"busqueda": "Javier Milei",        "palabras": ["milei"]},
-            "Massa":           {"busqueda": "Sergio Massa",        "palabras": ["massa"]},
-            "Kicillof":        {"busqueda": "Axel Kicillof",       "palabras": ["kicillof", "kiciloff", "kicilof", "axel"]},
-            "Macri":           {"busqueda": "Mauricio Macri",      "palabras": ["macri"]},
-            "Bullrich":        {"busqueda": "Patricia Bullrich",   "palabras": ["bullrich", "patricia"]},
-            "Cristina":        {"busqueda": "Cristina Kirchner",   "palabras": ["cristina", "cfk"]},
+            "Milei":           {"busqueda": "Javier Milei",        "palabras": ["javier milei", "milei"]},
+            "Massa":           {"busqueda": "Sergio Massa",        "palabras": ["sergio massa", "massa"]},
+            "Kicillof":        {"busqueda": "Axel Kicillof",       "palabras": ["axel kicillof", "kicillof", "kiciloff", "kicilof"]},
+            "Macri":           {"busqueda": "Mauricio Macri",      "palabras": ["mauricio macri", "macri"]},
+            "Bullrich":        {"busqueda": "Patricia Bullrich",   "palabras": ["patricia bullrich", "bullrich"]},
+            "Cristina":        {"busqueda": "Cristina Kirchner",   "palabras": ["cristina kirchner", "cristina", "cfk"]},
             "Máximo Kirchner": {"busqueda": "Máximo Kirchner",     "palabras": ["maximo kirchner"]},
-            "Villarruel":      {"busqueda": "Victoria Villarruel", "palabras": ["villarruel", "villaruel"]},
-            "Grabois":         {"busqueda": "Juan Grabois",        "palabras": ["grabois"]},
-            "Bregman":         {"busqueda": "Myriam Bregman",      "palabras": ["bregman", "myriam"]},
+            "Villarruel":      {"busqueda": "Victoria Villarruel", "palabras": ["victoria villarruel", "villarruel", "villaruel"]},
+            "Grabois":         {"busqueda": "Juan Grabois",        "palabras": ["juan grabois", "grabois"]},
+            "Bregman":         {"busqueda": "Myriam Bregman",      "palabras": ["myriam bregman", "bregman"]},
         },
         "compartidas": [
             {

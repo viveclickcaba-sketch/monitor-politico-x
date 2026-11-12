@@ -1,0 +1,4592 @@
+{
+  "pais": "Venezuela",
+  "codigo": "ve",
+  "idioma": "es",
+  "actualizado": "12/11/2026 13:43",
+  "metodo": 4,
+  "fuente": "Comentarios de YouTube",
+  "periodo": "Videos de los ultimos 7 dias",
+  "filtros": {
+    "solo_un_dirigente_por_comentario": true,
+    "otros_nombres_excluidos": [
+      "jorge rodriguez",
+      "padrino",
+      "capriles",
+      "guaido"
+    ],
+    "palabras_compartidas": [],
+    "ironia_excluida": true,
+    "tope_por_canal": 20,
+    "un_comentario_por_persona": true,
+    "sin_textos_repetidos": true,
+    "cuentas_nuevas_excluidas_dias": 30,
+    "sin_canales_extranjeros_ni_oficiales": true
+  },
+  "modelos": {
+    "emociones": true,
+    "agresividad": true,
+    "ironia": true
+  },
+  "minimo_confiable": {
+    "comentarios": 50,
+    "canales": 5
+  },
+  "total_comentarios": 147,
+  "acumulado": {
+    "dias": 30,
+    "corridas": 1,
+    "datos": {
+      "Delcy Rodríguez": {
+        "POS": 3,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "María Corina Machado": {
+        "POS": 48,
+        "NEG": 7,
+        "NEU": 9
+      },
+      "Edmundo González": {
+        "POS": 3,
+        "NEG": 6,
+        "NEU": 9
+      },
+      "Maduro": {
+        "POS": 0,
+        "NEG": 16,
+        "NEU": 4
+      },
+      "Diosdado Cabello": {
+        "POS": 4,
+        "NEG": 28,
+        "NEU": 9
+      }
+    },
+    "pocos_datos": {
+      "Delcy Rodríguez": true,
+      "María Corina Machado": false,
+      "Edmundo González": true,
+      "Maduro": true,
+      "Diosdado Cabello": true
+    }
+  },
+  "detalle": {
+    "Delcy Rodríguez": {
+      "videos": 10,
+      "comentarios": 4,
+      "pocos_datos": true,
+      "canales": {
+        "Desde Venezuela por Luigino Bracci Roa @Lubrio": 3,
+        "Venezolana de Televisión ": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 10,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 2,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 1
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Delcy Rodríguez firma acuerdo de entendimiento con ExxonMobil, 9 de noviembre de 2026",
+          "canal": "Desde Venezuela por Luigino Bracci Roa @Lubrio",
+          "url": "https://www.youtube.com/watch?v=ii7mBXTb9ck",
+          "comentarios": 48,
+          "vistas": 10174
+        },
+        {
+          "titulo": "Delcy Rodríguez llega a Türkiye/Turquía para participar en la Cumbre Climática COP31",
+          "canal": "Desde Venezuela por Luigino Bracci Roa @Lubrio",
+          "url": "https://www.youtube.com/watch?v=mYDvpIBqWZ0",
+          "comentarios": 15,
+          "vistas": 9869
+        },
+        {
+          "titulo": "Presidenta Delcy Rodríguez interviene en la COP31 en Türkiye",
+          "canal": "Venezolana de Televisión ",
+          "url": "https://www.youtube.com/watch?v=a6vMQQ38xkE",
+          "comentarios": 12,
+          "vistas": 3827
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando pa' lante. !!",
+            "likes": 4
+          },
+          {
+            "texto": "Buenos días bendiciones y excelente semana. La ley del reboté,  tanto nadar para morir en la orilla eso le pasó a la ExxonMobil, ojo simplemente como cultura popular, por qué yo todo lo que le convenga a Venezuela bendiciones para todos nosotros y para Delcy bendecida todo lo bue",
+            "likes": 0
+          },
+          {
+            "texto": "LA DIPLOMACIA DE PAZ BOLIVARIANA Y COOPERACION BILATERAL BRASIL VENEZUELA ESTADOS SOBERANOS DE LAS NACIONES UNIIDAS REAFIRMACION DE LOS LAZOS DE AMISTAD Y HERMANDAD LULA DA SILVA Y LA PRESIDENTA DE VENEZUELA DELCYELOINA",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Apoyo a DELCY, pero me parece que comete un error, cuando estando en el exterior no nombra  a la patria por su nombre REPUBLICA BOLIVARIANA DE VENEZUELA",
+            "likes": 0
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 2,
+        "tristeza": 0,
+        "enojo": 1,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 1
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 7,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 10,
+        "vistas": 46646,
+        "likes_videos": 1015
+      },
+      "polemica": {
+        "respuestas": 2,
+        "promedio": 0.5,
+        "mas_discutido": {
+          "texto": "Buenos días bendiciones y excelente semana. La ley del reboté,  tanto nadar para morir en la orilla eso le pasó a la ExxonMobil, ojo simplemente como cultura popular, por qué yo todo lo que le convenga a Venezuela bendic",
+          "respuestas": 1
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 2,
+        "NEU": 8
+      },
+      "temas": [
+        [
+          "bolivariana",
+          2
+        ],
+        [
+          "excelente",
+          2
+        ],
+        [
+          "presidenta",
+          2
+        ],
+        [
+          "error",
+          1
+        ],
+        [
+          "nombra",
+          1
+        ],
+        [
+          "apoyo",
+          1
+        ],
+        [
+          "patria",
+          1
+        ],
+        [
+          "nombre",
+          1
+        ],
+        [
+          "parece",
+          1
+        ],
+        [
+          "republica",
+          1
+        ],
+        [
+          "estando",
+          1
+        ],
+        [
+          "exterior",
+          1
+        ]
+      ]
+    },
+    "María Corina Machado": {
+      "videos": 8,
+      "comentarios": 64,
+      "pocos_datos": false,
+      "canales": {
+        "Neptali Figueroa": 19,
+        "Venezuela En Vivo": 19,
+        "Vente Venezuela": 18,
+        "Armando Pulido": 4,
+        "Kilómetro Noticias": 4
+      },
+      "videos_descartados": {
+        "canal_extranjero": 12,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 7,
+        "mismo_autor": 34,
+        "texto_repetido": 4,
+        "cuenta_nueva": 1,
+        "tope_canal": 168,
+        "ironia": 4
+      },
+      "videos_destacados": [
+        {
+          "titulo": "¡MARÍA CORINA SACÓ A DELCY Y A DINORAH DEL JUEGO! | Neptali Figueroa.",
+          "canal": "Neptali Figueroa",
+          "url": "https://www.youtube.com/watch?v=Al_DpkR-evk",
+          "comentarios": 1047,
+          "vistas": 130284
+        },
+        {
+          "titulo": "María Corina en la Igl. San Bernardino, Caracas. ¡La lucha es espiritual! 🙏",
+          "canal": "Vente Venezuela",
+          "url": "https://www.youtube.com/watch?v=WcvC8Qosqp4",
+          "comentarios": 308,
+          "vistas": 138008
+        },
+        {
+          "titulo": "🏅María Corina Machado recibe el Premio Sebastián Piñera: estas fueron sus palabras",
+          "canal": "Vente Venezuela",
+          "url": "https://www.youtube.com/watch?v=IPEcZ6f65W0",
+          "comentarios": 150,
+          "vistas": 19055
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "Muchas bendiciones estimada María Corina",
+            "likes": 25
+          },
+          {
+            "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+            "likes": 18
+          },
+          {
+            "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+            "likes": 16
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Prisión para María Corina Machado, dejen la cobardía",
+            "likes": 2
+          },
+          {
+            "texto": "Totalmente de acuerdo Neptali en la CIA. Hay alguien comiendo callado por la mala información que le dieron al Precidente Trump y la pagó coro… por otro lado aunque el logro alcanzado por los trabajadores de Guayan no es lo ideal!!! Pero es un logro y que debe hacerse a nivel nac",
+            "likes": 2
+          },
+          {
+            "texto": "Me duele por María Corina. Pero Venezuela no  va  más al grano. Limpien primero a Miraflores  como lo hizo. Buquele con el poder de . Dios, y después. Saborearan lo que tanto . sueñan. Saqum esos pactos. Satánicos. de  Miraflores",
+            "likes": 1
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 42,
+        "tristeza": 2,
+        "enojo": 4,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 16
+      },
+      "agresivos": 1,
+      "ponderado_likes": {
+        "POS": 245,
+        "NEG": 13,
+        "NEU": 23
+      },
+      "alcance": {
+        "videos": 8,
+        "vistas": 386309,
+        "likes_videos": 25792
+      },
+      "polemica": {
+        "respuestas": 2,
+        "promedio": 0.03,
+        "mas_discutido": {
+          "texto": "Prisión para María Corina Machado, dejen la cobardía",
+          "respuestas": 1
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 0,
+        "NEU": 7
+      },
+      "temas": [
+        [
+          "dios",
+          24
+        ],
+        [
+          "bendiga",
+          15
+        ],
+        [
+          "final",
+          14
+        ],
+        [
+          "gracias",
+          10
+        ],
+        [
+          "lider",
+          9
+        ],
+        [
+          "libertad",
+          9
+        ],
+        [
+          "bendiciones",
+          9
+        ],
+        [
+          "premio",
+          9
+        ],
+        [
+          "felicidades",
+          8
+        ],
+        [
+          "merecido",
+          7
+        ],
+        [
+          "querida",
+          5
+        ],
+        [
+          "muchas",
+          5
+        ]
+      ]
+    },
+    "Edmundo González": {
+      "videos": 9,
+      "comentarios": 18,
+      "pocos_datos": true,
+      "canales": {
+        "El Mundo Informa": 7,
+        "Muhammad Fahad": 6,
+        "Codigo58": 2,
+        "Kennedy_gonzales": 1,
+        "EL BUNKER DIGITAL": 1,
+        "El venezolano 02": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 11,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 9,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 0
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MACHADO Y EDMUNDO PREPARAN UNA CARTA PARA EL CONGRESO ESTA SEMANA",
+          "canal": "Muhammad Fahad",
+          "url": "https://www.youtube.com/watch?v=Ul7j0A3kIXk",
+          "comentarios": 45,
+          "vistas": 26583
+        },
+        {
+          "titulo": "MACHADO NUNCA LO HABÍA PUESTO TAN CLARO: EDMUNDO ENTRA SI RUBIO NO DA FECHA DE ELECCIONES",
+          "canal": "El Mundo Informa",
+          "url": "https://www.youtube.com/watch?v=BCBSFpzeECQ",
+          "comentarios": 44,
+          "vistas": 35318
+        },
+        {
+          "titulo": "🔴EN VIVO: MARIA CORINA Y EDMUNDO GONZALEZ ANUNCIO URGENTE",
+          "canal": "EL BUNKER DIGITAL",
+          "url": "https://www.youtube.com/watch?v=LkFYaMa91w0",
+          "comentarios": 25,
+          "vistas": 55060
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+            "likes": 1
+          },
+          {
+            "texto": "Libertad para Venezuela, Edmundo presidente ❤️",
+            "likes": 1
+          },
+          {
+            "texto": "Dios ayude Edmundo el presidente de Venezuela elegido x el pueblo de venezuela",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Qué ya terminen con la Juramentación de Edmundo González si el es el que ganó",
+            "likes": 5
+          },
+          {
+            "texto": "Me parece que es obligatorio que respeten nuestra decisión EDMUNDO GONZALEZ URRUTIA PRESIDENTE DE VENEZUELA LEGAL,   tiene que asumir su cargo que  le dimos nosotros EL PUEBLO, lo queremos gobernando...",
+            "likes": 3
+          },
+          {
+            "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL ÚNICO PERJUDICADO SON LOS CIUDADANOS VE",
+            "likes": 1
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 3,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 15
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 5,
+        "NEG": 15,
+        "NEU": 27
+      },
+      "alcance": {
+        "videos": 9,
+        "vistas": 128988,
+        "likes_videos": 2452
+      },
+      "polemica": {
+        "respuestas": 1,
+        "promedio": 0.06,
+        "mas_discutido": {
+          "texto": "Qué ya terminen con la Juramentación de Edmundo González si el es el que ganó",
+          "respuestas": 1
+        }
+      },
+      "titulos": {
+        "POS": 1,
+        "NEG": 0,
+        "NEU": 8
+      },
+      "temas": [
+        [
+          "presidente",
+          9
+        ],
+        [
+          "pueblo",
+          5
+        ],
+        [
+          "venezolanos",
+          4
+        ],
+        [
+          "urrutia",
+          3
+        ],
+        [
+          "legal",
+          2
+        ],
+        [
+          "elecciones",
+          2
+        ],
+        [
+          "juramentacion",
+          2
+        ],
+        [
+          "gano",
+          2
+        ],
+        [
+          "electo",
+          2
+        ],
+        [
+          "dios",
+          2
+        ],
+        [
+          "poder",
+          2
+        ],
+        [
+          "mayoria",
+          2
+        ]
+      ]
+    },
+    "Maduro": {
+      "videos": 4,
+      "comentarios": 20,
+      "pocos_datos": true,
+      "canales": {
+        "Impacto Venezuela": 20
+      },
+      "videos_descartados": {
+        "canal_extranjero": 16,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 7,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 17,
+        "ironia": 1
+      },
+      "videos_destacados": [
+        {
+          "titulo": "CAPTURA EN DISPUTA: ESCÁNDALO EN EL CAPITOLIO POR MADURO | 🔴 NOTICIAS VENEZUELA HOY 2026",
+          "canal": "Impacto Venezuela",
+          "url": "https://www.youtube.com/watch?v=g9MC22i_Yd0",
+          "comentarios": 259,
+          "vistas": 150286
+        },
+        {
+          "titulo": "Nicolás Maduro se vuelca al judaísmo ✡️",
+          "canal": "Black Maps",
+          "url": "https://www.youtube.com/watch?v=WkzE4VJdco0",
+          "comentarios": 5,
+          "vistas": 1139
+        },
+        {
+          "titulo": "¿Puede la defensa frenar el juicio de Maduro?",
+          "canal": "Hambre de saber",
+          "url": "https://www.youtube.com/watch?v=LqSAM2wee6E",
+          "comentarios": 3,
+          "vistas": 538
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "texto": "Que el FBI investigue a ese congresista ya que pudieron haberle pagado millones de dólares la gente de maduro para q presentara esa ridiculez. Ojo con eso",
+            "likes": 17
+          },
+          {
+            "texto": "Ni chavez vive, y maduro se PUDRIRA en la CÁRCEL!!!",
+            "likes": 16
+          },
+          {
+            "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que los del régimen compran a todos los que ",
+            "likes": 12
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 13,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 7
+      },
+      "agresivos": 3,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 65,
+        "NEU": 8
+      },
+      "alcance": {
+        "videos": 4,
+        "vistas": 154202,
+        "likes_videos": 2504
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 4
+      },
+      "temas": [
+        [
+          "cilia",
+          7
+        ],
+        [
+          "flores",
+          5
+        ],
+        [
+          "millones",
+          3
+        ],
+        [
+          "eeuu",
+          3
+        ],
+        [
+          "venezolanos",
+          3
+        ],
+        [
+          "juicio",
+          3
+        ],
+        [
+          "pagar",
+          3
+        ],
+        [
+          "carcel",
+          2
+        ],
+        [
+          "regimen",
+          2
+        ],
+        [
+          "congresista",
+          2
+        ],
+        [
+          "hicieron",
+          2
+        ],
+        [
+          "caso",
+          2
+        ]
+      ]
+    },
+    "Diosdado Cabello": {
+      "videos": 13,
+      "comentarios": 41,
+      "pocos_datos": true,
+      "canales": {
+        "Impacto Venezuela": 17,
+        "Neptali Figueroa": 11,
+        "Armando Pulido": 7,
+        "Reportajes Venezuela TV": 5,
+        "Agencia Occidental de Noticias": 1
+      },
+      "videos_descartados": {
+        "canal_extranjero": 7,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "menciona_otros": 14,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 3,
+        "tope_canal": 0,
+        "ironia": 6
+      },
+      "videos_destacados": [
+        {
+          "titulo": "¡DIOSDADO SE VA A PANAMÁ! | Neptali Figueroa.",
+          "canal": "Neptali Figueroa",
+          "url": "https://www.youtube.com/watch?v=qMzCSlBE2f8",
+          "comentarios": 425,
+          "vistas": 91860
+        },
+        {
+          "titulo": "DIOSDADO AMENAZA: ¿INVESTIGACIONES CONTRA LA OPOSICIÓN? | 🔴 NOTICIAS VENEZUELA HOY 2026",
+          "canal": "Impacto Venezuela",
+          "url": "https://www.youtube.com/watch?v=pXEkNR5XZqE",
+          "comentarios": 192,
+          "vistas": 155697
+        },
+        {
+          "titulo": "EN VIVO | Diosdado Cabello ofrece DECLARACIONES, 10 de noviembre de 2026.",
+          "canal": "Reportajes Venezuela TV",
+          "url": "https://www.youtube.com/watch?v=_FTF8eP54iU",
+          "comentarios": 79,
+          "vistas": 38734
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "texto": "DIOSDADO VENCEREMOS!,!",
+            "likes": 7
+          },
+          {
+            "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+            "likes": 0
+          },
+          {
+            "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+            "likes": 0
+          }
+        ],
+        "negativos": [
+          {
+            "texto": "Nojodaaa pero hasta cuándo Diosdado va estar haciendo arreglos para salir de Venezuela ... Hasta cuándo nojodaaa",
+            "likes": 26
+          },
+          {
+            "texto": "Diosdado ojo en carupáno mucho descontento , agua sálada , calles y aceras rotas  , pendientes",
+            "likes": 2
+          },
+          {
+            "texto": "Diosdado \nMientras mas hablas de nuestra próxima presidenta \nMas  popularidad le  das quien te quiere en Venezuela nadie yo siendo tu aprovecho y me vou pa China",
+            "likes": 2
+          }
+        ]
+      },
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 1,
+        "enojo": 20,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 18
+      },
+      "agresivos": 3,
+      "ponderado_likes": {
+        "POS": 11,
+        "NEG": 68,
+        "NEU": 35
+      },
+      "alcance": {
+        "videos": 13,
+        "vistas": 376681,
+        "likes_videos": 12256
+      },
+      "polemica": {
+        "respuestas": 6,
+        "promedio": 0.15,
+        "mas_discutido": {
+          "texto": "Diosdado \nMientras mas hablas de nuestra próxima presidenta \nMas  popularidad le  das quien te quiere en Venezuela nadie yo siendo tu aprovecho y me vou pa China",
+          "respuestas": 3
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 9
+      },
+      "temas": [
+        [
+          "nadie",
+          5
+        ],
+        [
+          "narcotrafico",
+          5
+        ],
+        [
+          "recompensa",
+          4
+        ],
+        [
+          "senor",
+          4
+        ],
+        [
+          "neptali",
+          4
+        ],
+        [
+          "millones",
+          3
+        ],
+        [
+          "delincuente",
+          3
+        ],
+        [
+          "tipo",
+          3
+        ],
+        [
+          "justicia",
+          3
+        ],
+        [
+          "dios",
+          3
+        ],
+        [
+          "saludos",
+          2
+        ],
+        [
+          "carcel",
+          2
+        ]
+      ]
+    }
+  },
+  "temas_lista": {
+    "Inflación y precios": [
+      "inflacion",
+      "=precio",
+      "=precios",
+      "carestia",
+      "=caro",
+      "=caros"
+    ],
+    "Dólar": [
+      "dolar",
+      "devalua",
+      "=cepo"
+    ],
+    "FMI y deuda": [
+      "=fmi",
+      "fondo monetario",
+      "deuda",
+      "endeud"
+    ],
+    "Jubilaciones": [
+      "jubila",
+      "pension",
+      "=abuelos"
+    ],
+    "Salarios y empleo": [
+      "salario",
+      "sueldo",
+      "desemple",
+      "=empleo",
+      "=empleos",
+      "despid",
+      "paritaria",
+      "=trabajo",
+      "=laburo"
+    ],
+    "Tarifas y servicios": [
+      "tarifa",
+      "=luz",
+      "=gas",
+      "factura",
+      "=boleto",
+      "transporte"
+    ],
+    "Impuestos": [
+      "impuesto",
+      "=iva",
+      "retenciones",
+      "=afip",
+      "=arca"
+    ],
+    "Ajuste y recortes": [
+      "ajuste",
+      "motosierra",
+      "recorte",
+      "=casta",
+      "deficit"
+    ],
+    "Corrupción": [
+      "corrup",
+      "chorro",
+      "=robo",
+      "=robaron",
+      "=roban",
+      "ladron",
+      "coima",
+      "=presa",
+      "=preso",
+      "=carcel"
+    ],
+    "Justicia": [
+      "justicia",
+      "=juez",
+      "=jueza",
+      "jueces",
+      "fiscal",
+      "tribunal",
+      "condena"
+    ],
+    "Inseguridad": [
+      "insegur",
+      "delincu",
+      "=delito",
+      "=delitos",
+      "=crimen",
+      "narco",
+      "=policia"
+    ],
+    "Educación": [
+      "educacion",
+      "universidad",
+      "=escuela",
+      "=escuelas",
+      "docente",
+      "maestr"
+    ],
+    "Salud": [
+      "=salud",
+      "hospital",
+      "medicamento",
+      "=medicos",
+      "prepaga",
+      "=pami"
+    ],
+    "Pobreza": [
+      "pobreza",
+      "=pobres",
+      "=hambre",
+      "comedor",
+      "=planes",
+      "planero",
+      "indigen"
+    ],
+    "Elecciones": [
+      "eleccion",
+      "=votar",
+      "=voto",
+      "=votos",
+      "votaron",
+      "candidat",
+      "=urnas",
+      "=fraude"
+    ],
+    "Medios y periodistas": [
+      "periodist",
+      "=medios",
+      "=prensa",
+      "ensobrad"
+    ]
+  },
+  "temas_mencionados": [
+    {
+      "clave": "Inseguridad",
+      "total": 15,
+      "tono": {
+        "POS": 0,
+        "NEG": 10,
+        "NEU": 5
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 9,
+          "POS": 0,
+          "NEG": 7,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 5,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 2
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Será que Diosdado se va  investigar el mismo lo digo por el narcotráfico?",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 21
+        },
+        {
+          "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 12
+        },
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "El régimen siempre usará tramas oscuras para justificar represión, más aún, Diosdado Cabello, que sí está claramente señalado por narcotráfico, homicidio y cualquier crímen imaginable y sobre quién pesa recompensas; se afincará en este tipo",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "El caso de Maduro y Cilia flores no es un juicio político,  están acusados de narcotraficantes,  terrorismo y trafico de armas,  es decir un caso profundamente penal del cual no podrán salir y tendrán que pagar",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Buenos días Mildred,gracias por informar.Maduro es un delincuentes con  muchos cargos en contra por lo tanto será enjuiciado por la ⚖️ justicia Norteamericana.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "Justicia",
+      "total": 10,
+      "tono": {
+        "POS": 2,
+        "NEG": 5,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 4,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 1
+        },
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Diosdado Cabello": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 2,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Hola es la mano de Dios haciendo justicia, cuando actuamos con malas intenciones cosechan esa siembra. María Corina no se ve ni se le escucha hablando mal ni poniendo apodos a nadie es muy respetuosa. Yl le ha faltado el respecto con apodos",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Que Felicidades a Maria Corina es un honor y se merece el reconocimiento DIOS cilme de muchas bendiciones,de la salud y nucha fortaleza para que siga luchando hasta el final, por la libertad y justicia, saludos de una ecuatoriana y desde Ec",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Buenos días Mildred,gracias por informar.Maduro es un delincuentes con  muchos cargos en contra por lo tanto será enjuiciado por la ⚖️ justicia Norteamericana.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "MADURO Y CILIA FLORES LIBERTAD,LA JUEZA DE EEUU DEL CASO FEDERALE ES DE LA IZQUIERDA,POR LO TANTO VAN A LIBRAR A NICOLÁS, TREMENDO PALO JJJJJJJJJJJJJJ 😂😂🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪 INCREÍBLE INCREÍBLE, AHORA QUIÉN AGUANTA A NICOLÁS Y CILIA FLORES, VAN A",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Maduro tiene millones de cargos con la justicia nacional e internacional, com va a quedar libre??",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Seguramente lo hagan como siempre lo han hecho sin pruebas ni testimonios reales por qué sabemos que todo se lo inventan mi pregunta es por ese tipo sigue al frente del ministerio de justicia siendo que el está comprando si tiene vínculos c",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "De acuerdo en que a veces para lograr los objetivos hay que ceder espacio.\nSin Diosdado en la película, las condiciones son mejores para nosotros.\nDespués se verá que la vida y la justicia tiene para él, la libertad total es la prioridad.\nQ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "Corrupción",
+      "total": 7,
+      "tono": {
+        "POS": 0,
+        "NEG": 7,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 4,
+          "POS": 0,
+          "NEG": 4,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Ni chavez vive, y maduro se PUDRIRA en la CÁRCEL!!!",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 16
+        },
+        {
+          "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 12
+        },
+        {
+          "texto": "Carcel para el CC1 Diosdado cabello 25 millones de recompensa también requerido en chile por el caso Ojeda criminal cabello.. no engañas a nadie abusador vas preso si o si no te salvará nadie..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Sabroso Maduro tenía que pensar en todo el daño que le hizo a todos los venezolanos, merece 100 años de carcel hasta que se seque. No hay sacerdote que le de paz.",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Y este tipo aún está libre? Diosdado hace rato está listo para la cárcel en estados unidos",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "Elecciones",
+      "total": 6,
+      "tono": {
+        "POS": 3,
+        "NEG": 1,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Edmundo González": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Juramentación para5 Edmundo y que mande por el tiempo que le corresponde y cuando se le termine el tiempo de gobierno que se hagan las nuevas elecciones 11:53",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "Felicidades para nuestra María Corina Machado! Cada vez más y más validan tu lucha.. pronto nos tocará a nosotros en las urnas electorales reconocer tu labor incansable. Gracias ❤❤️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Arriba MARIA CORINA MACHADO todos a votar en nombre de Dios",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "TODOS RESTEADOS CON MARÍA CORINA MACHADO SIEMPRE URGE ELECCIONES YÁ FREEDOM LIBERTAD CON ELLA POR SIEMPRE APOYO TOTAL FECHA YÁ ELLA SERÁ NUESTRA PRIMERA PRESIDENTA LEGÍTIMA Primeramente Dios y la virgen tengo fé que así será creo y confío e",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "El pueblo voto por Edmundo el 28/07/24 y el 29/024 asesinaron a civiles y militares para perpetuarse en el poder hasta el final",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "Salarios y empleo",
+      "total": 3,
+      "tono": {
+        "POS": 2,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Totalmente de acuerdo Neptali en la CIA. Hay alguien comiendo callado por la mala información que le dieron al Precidente Trump y la pagó coro… por otro lado aunque el logro alcanzado por los trabajadores de Guayan no es lo ideal!!! Pero es",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Saludos bendiciones para todos ustedes María Corina hasta el final ecxelente trabajo",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "Salud",
+      "total": 3,
+      "tono": {
+        "POS": 2,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Que Felicidades a Maria Corina es un honor y se merece el reconocimiento DIOS cilme de muchas bendiciones,de la salud y nucha fortaleza para que siga luchando hasta el final, por la libertad y justicia, saludos de una ecuatoriana y desde Ec",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "Dólar",
+      "total": 3,
+      "tono": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Que el FBI investigue a ese congresista ya que pudieron haberle pagado millones de dólares la gente de maduro para q presentara esa ridiculez. Ojo con eso",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 17
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Al parecer Diosdado Cabelllo se olvida que es el quien tiene una orden de captura por narco trafico,  que es el por quien se ofrece  una recompensa de $ 25 millones de dólares!",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "Educación",
+      "total": 2,
+      "tono": {
+        "POS": 1,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Reciban un gran gran abrazo y felicitaciones de tofo corazón por este nuevo reconocimiento a María Corina Machado \nPremio Honoris Causa de la Universidad Siglo XXI de la Argentina. Bravo bravo 👏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "Jubilaciones",
+      "total": 1,
+      "tono": {
+        "POS": 0,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Totalmente de acuerdo Neptali en la CIA. Hay alguien comiendo callado por la mala información que le dieron al Precidente Trump y la pagó coro… por otro lado aunque el logro alcanzado por los trabajadores de Guayan no es lo ideal!!! Pero es",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 2
+        }
+      ]
+    },
+    {
+      "clave": "Tarifas y servicios",
+      "total": 1,
+      "tono": {
+        "POS": 0,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        }
+      ]
+    }
+  ],
+  "nube": [
+    {
+      "clave": "dios",
+      "total": 29,
+      "tono": {
+        "POS": 24,
+        "NEG": 2,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 24,
+          "POS": 20,
+          "NEG": 1,
+          "NEU": 3
+        },
+        "Diosdado Cabello": {
+          "total": 3,
+          "POS": 2,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 18
+        },
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "La Firmeza  ,su fe en Dios y su gran amor  a nuestra  Venezuela la convierten  en ése  Símbolo y Camino  que todos  los vzlanos de Bien hemos  decidido  seguir. Hasta el  final  con MCM. Dios te cuide!!!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 15
+        },
+        {
+          "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Mildred...no soporto ver a Diosdado...es increíble las Náuseas qué me produce...que hombrecillo tal Faaalsooooo...hablando de Narcotrafico...x Dios",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Dios ayude Edmundo el presidente de Venezuela elegido x el pueblo de venezuela",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "bendiga",
+      "total": 18,
+      "tono": {
+        "POS": 17,
+        "NEG": 0,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 15,
+          "POS": 14,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 18
+        },
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "Se lo merece todo felicitaciones María Corina  Dios te bendiga siempre ati  y Alós toyos",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 9
+        },
+        {
+          "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "final",
+      "total": 15,
+      "tono": {
+        "POS": 12,
+        "NEG": 2,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 14,
+          "POS": 12,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "La Firmeza  ,su fe en Dios y su gran amor  a nuestra  Venezuela la convierten  en ése  Símbolo y Camino  que todos  los vzlanos de Bien hemos  decidido  seguir. Hasta el  final  con MCM. Dios te cuide!!!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 15
+        },
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Excelente con María Corina Machado hasta el final 👏👏👏, Viva Venezuela libre 🇻🇪🇻🇪🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "El pueblo voto por Edmundo el 28/07/24 y el 29/024 asesinaron a civiles y militares para perpetuarse en el poder hasta el final",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "libertad",
+      "total": 13,
+      "tono": {
+        "POS": 9,
+        "NEG": 2,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 9,
+          "POS": 7,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "María Corina felicidades y muchas bendiciones por otro premio más que se suma, bien merecido lo tienes por tu gran lucha y esfuerzo por la Libertad de nuestra amada Venezuela🙏❤️💪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Libertad para Venezuela, Edmundo presidente ❤️",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "MADURO Y CILIA FLORES LIBERTAD,LA JUEZA DE EEUU DEL CASO FEDERALE ES DE LA IZQUIERDA,POR LO TANTO VAN A LIBRAR A NICOLÁS, TREMENDO PALO JJJJJJJJJJJJJJ 😂😂🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪 INCREÍBLE INCREÍBLE, AHORA QUIÉN AGUANTA A NICOLÁS Y CILIA FLORES, VAN A",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Decente y que son las iguanas, eso dicen, Nicolás maduro y su cilia flores deben pagar por sus crimenes, ahora sí, quieren que siguen por ellos y los presos que todavía permanecen en venezyela maltratados por este mal gobierno en las manos ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "De acuerdo en que a veces para lograr los objetivos hay que ceder espacio.\nSin Diosdado en la película, las condiciones son mejores para nosotros.\nDespués se verá que la vida y la justicia tiene para él, la libertad total es la prioridad.\nQ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "venezolanos",
+      "total": 13,
+      "tono": {
+        "POS": 5,
+        "NEG": 5,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 5,
+          "POS": 5,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 4,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Ahora los quieren soltar los Demócratas de EEUU, supuestamente por inmunidad presidencial 😮... Señores hagan algo muy simple, comprueben que Maduro es de origen colombiano y listo, se acabó el juicio y Venezuela y los venezolanos contentos ",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Excelente análisis, muchas gracias! Los venezolanos de bien, queremos a María Corina en la presidencia y eso va a suceder en cualquier momento!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Si EDMUNDO GONZÁLEZ URUTIA Fue elegido por los venezolanos el  es el que debe estar en Miraflores",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Querida María Corina, los venezolanos no te queremos criticando a hombres como BUKELE. Te queremos superandolo 💪🇻🇪💪🇺🇸🇺🇸🇺🇸",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Edmundo González és el presidente electo por la mayoría de los venezolanos fuera y dentro del país",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "Ése Diputado de EEUU Que defiende a el Sr Maduró no tiene Moral ni le importa las Penurias económicas y sociales que estamos pasando los Venezolanos 😡 😡😡",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Sabroso Maduro tenía que pensar en todo el daño que le hizo a todos los venezolanos, merece 100 años de carcel hasta que se seque. No hay sacerdote que le de paz.",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "presidente",
+      "total": 13,
+      "tono": {
+        "POS": 5,
+        "NEG": 5,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "Edmundo González": {
+          "total": 9,
+          "POS": 3,
+          "NEG": 3,
+          "NEU": 3
+        },
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "Felicidades Maria Corina 🥳 presidente, bien merecido premio! Te amamos 🩵",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 9
+        },
+        {
+          "texto": "Me parece que es obligatorio que respeten nuestra decisión EDMUNDO GONZALEZ URRUTIA PRESIDENTE DE VENEZUELA LEGAL,   tiene que asumir su cargo que  le dimos nosotros EL PUEBLO, lo queremos gobernando...",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 3
+        },
+        {
+          "texto": "EN ELECCIONES PRESIDENCIALES DEL 28 DE JULIO DE 2024... POR VOTACIÓN POPULAR FUE ELECTO EDMUNDO GONZÁLES URRUTIA COMO PRESIDENTE ELECTO DE VENEZUELA... DIOS LO BENDIGA Y LE CONCEDA MUY BUENA SALUD A EL Y A TODA SU HONORABLE FAMILIA.",
+          "dirigente": "Edmundo González",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Los miles de millones de la narco-dictadura están comprando conciencias?\n La falta absoluta no declarada no debería ser problema.  Estados Unidos no reconoce a Maduro como presidente desde el gobierno de Biden.  Suficiente para desechar tod",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Pero porque un sólo delincuente es tan importante y les tienen tanto miedo sigo insistiendo quien carajo es Diosdado el sólo tiene el país trancado que será si fuera presidente sería peor el miedo que maldición hay en Venezuela ❤️🇮🇱❤️🇮🇱❤️🇮🇱",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "gracias",
+      "total": 11,
+      "tono": {
+        "POS": 8,
+        "NEG": 0,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 10,
+          "POS": 8,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Felicidades para nuestra María Corina Machado! Cada vez más y más validan tu lucha.. pronto nos tocará a nosotros en las urnas electorales reconocer tu labor incansable. Gracias ❤❤️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Buenos días Mildred,gracias por informar.Maduro es un delincuentes con  muchos cargos en contra por lo tanto será enjuiciado por la ⚖️ justicia Norteamericana.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "bendiciones",
+      "total": 10,
+      "tono": {
+        "POS": 9,
+        "NEG": 0,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 9,
+          "POS": 8,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Muchas bendiciones estimada María Corina",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 25
+        },
+        {
+          "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 18
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Buenos días bendiciones y excelente semana. La ley del reboté,  tanto nadar para morir en la orilla eso le pasó a la ExxonMobil, ojo simplemente como cultura popular, por qué yo todo lo que le convenga a Venezuela bendiciones para todos nos",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "lider",
+      "total": 9,
+      "tono": {
+        "POS": 7,
+        "NEG": 1,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 9,
+          "POS": 7,
+          "NEG": 1,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Excelente reconocimiento a nuestra líder María Corina,bien merecido",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Bien merecido reconocimiento a nuestra líder y premio Nobel de la paz Maria Corina Machado! Dios te bendiga grandemente!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 3
+        }
+      ]
+    },
+    {
+      "clave": "premio",
+      "total": 9,
+      "tono": {
+        "POS": 9,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 9,
+          "POS": 9,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 18
+        },
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Eres maravillosa María Corina Dioen tu debido tiempo tdara tu premio\nDe ser  la libertadora de Venezuela\nes",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        }
+      ]
+    },
+    {
+      "clave": "pueblo",
+      "total": 9,
+      "tono": {
+        "POS": 2,
+        "NEG": 5,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "Edmundo González": {
+          "total": 5,
+          "POS": 1,
+          "NEG": 3,
+          "NEU": 1
+        },
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Me parece que es obligatorio que respeten nuestra decisión EDMUNDO GONZALEZ URRUTIA PRESIDENTE DE VENEZUELA LEGAL,   tiene que asumir su cargo que  le dimos nosotros EL PUEBLO, lo queremos gobernando...",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 3
+        },
+        {
+          "texto": "Totalmente de acuerdo mi querido Nepalí, en ese sentido no hay discusión ni dudas nuestra María Corina es la única que tiene el liderazgo la moral y la confianza de la mayoría del pueblo venezolano y más allá.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Edmundo González Urrutia es el presidente legal porque lo eligió el pueblo venezolano 😊😊🎉🎉 las actas de Panamá lo comfirman",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "TODOS RESTEADOS CON MARÍA CORINA MACHADO SIEMPRE URGE ELECCIONES YÁ FREEDOM LIBERTAD CON ELLA POR SIEMPRE APOYO TOTAL FECHA YÁ ELLA SERÁ NUESTRA PRIMERA PRESIDENTA LEGÍTIMA Primeramente Dios y la virgen tengo fé que así será creo y confío e",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "El ronco no conoce al pueblo estos no salen de cuatro paredes María Corina arrazó las primarias acabando con la falsa oposición y después remata el 24 de julio 2024 con un 70% enterró al PSUV y la oposición Alacrán es decir no tiene problem",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "cilia",
+      "total": 8,
+      "tono": {
+        "POS": 1,
+        "NEG": 6,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 7,
+          "POS": 0,
+          "NEG": 6,
+          "NEU": 1
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Maduro y Cilia no salen más nunca tienen que pagar lo que hicieron, ese congresista está vendiendo al régimen de Venezuela",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Buenos días bendiciones y excelente semana. La ley del reboté,  tanto nadar para morir en la orilla eso le pasó a la ExxonMobil, ojo simplemente como cultura popular, por qué yo todo lo que le convenga a Venezuela bendiciones para todos nos",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "El caso de Maduro y Cilia flores no es un juicio político,  están acusados de narcotraficantes,  terrorismo y trafico de armas,  es decir un caso profundamente penal del cual no podrán salir y tendrán que pagar",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "El juicio continúa y maduro y cilia les va a tocar lo mismo que a Manuel Antonio Noriega",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "felicidades",
+      "total": 8,
+      "tono": {
+        "POS": 8,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 8,
+          "POS": 8,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Felicidades Maria Corina 🥳 presidente, bien merecido premio! Te amamos 🩵",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 9
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "María Corina felicidades y muchas bendiciones por otro premio más que se suma, bien merecido lo tienes por tu gran lucha y esfuerzo por la Libertad de nuestra amada Venezuela🙏❤️💪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        }
+      ]
+    },
+    {
+      "clave": "neptali",
+      "total": 8,
+      "tono": {
+        "POS": 2,
+        "NEG": 3,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 2,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 4,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 2
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "DON NEPTALÍ, UD. TIENE QUE SER SENADOR DE LA REPÚBLICA EN EL GOBIERNO DE MARÍA CORINA MACHADO PARISCA.  DEFIENDE A VENEZUELA CON TODO SU CORAZÓN Y TODO SU AMOR. DIOS ME LO BENDIGA Y PROTEJA SIEMPRE.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 6
+        },
+        {
+          "texto": "Ma. Machado premio NOBEL DE LA PAZ, NO LO OLVIDE,,,DESDE PERÚ ABRAZO NEPTALI",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "Neptali en Turquía hay una región donde hay gente como Diosdado cabello pero si se resbala lo dan de baja,..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "❤❤❤ASI ES PROFESOR SR. NEPTALI, COMO UD., DICE ASI PASARA ESE DIOSDADO PAGARA TARDE o TEMPRANO. 😮😮😮😮",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "gobierno",
+      "total": 8,
+      "tono": {
+        "POS": 1,
+        "NEG": 3,
+        "NEU": 4
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "DON NEPTALÍ, UD. TIENE QUE SER SENADOR DE LA REPÚBLICA EN EL GOBIERNO DE MARÍA CORINA MACHADO PARISCA.  DEFIENDE A VENEZUELA CON TODO SU CORAZÓN Y TODO SU AMOR. DIOS ME LO BENDIGA Y PROTEJA SIEMPRE.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 6
+        },
+        {
+          "texto": "Juramentación para5 Edmundo y que mande por el tiempo que le corresponde y cuando se le termine el tiempo de gobierno que se hagan las nuevas elecciones 11:53",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Sr neptalt ud tiene que ser el asesor de maria corina en el gobierno.",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Los miles de millones de la narco-dictadura están comprando conciencias?\n La falta absoluta no declarada no debería ser problema.  Estados Unidos no reconoce a Maduro como presidente desde el gobierno de Biden.  Suficiente para desechar tod",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Decente y que son las iguanas, eso dicen, Nicolás maduro y su cilia flores deben pagar por sus crimenes, ahora sí, quieren que siguen por ellos y los presos que todavía permanecen en venezyela maltratados por este mal gobierno en las manos ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Diosdado Cabello habla de lavado de dinero y narcotráfico con el Tren del Llano, pero lo hace porque esa banda operaba en las costas de Paria, en el estado Sucre, donde él estuvo hace unos días, y además funcionaban con el apoyo del mismo g",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "justicia",
+      "total": 8,
+      "tono": {
+        "POS": 2,
+        "NEG": 3,
+        "NEU": 3
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Diosdado Cabello": {
+          "total": 3,
+          "POS": 1,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Hola es la mano de Dios haciendo justicia, cuando actuamos con malas intenciones cosechan esa siembra. María Corina no se ve ni se le escucha hablando mal ni poniendo apodos a nadie es muy respetuosa. Yl le ha faltado el respecto con apodos",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Que Felicidades a Maria Corina es un honor y se merece el reconocimiento DIOS cilme de muchas bendiciones,de la salud y nucha fortaleza para que siga luchando hasta el final, por la libertad y justicia, saludos de una ecuatoriana y desde Ec",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Buenos días Mildred,gracias por informar.Maduro es un delincuentes con  muchos cargos en contra por lo tanto será enjuiciado por la ⚖️ justicia Norteamericana.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "Maduro tiene millones de cargos con la justicia nacional e internacional, com va a quedar libre??",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Seguramente lo hagan como siempre lo han hecho sin pruebas ni testimonios reales por qué sabemos que todo se lo inventan mi pregunta es por ese tipo sigue al frente del ministerio de justicia siendo que el está comprando si tiene vínculos c",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "De acuerdo en que a veces para lograr los objetivos hay que ceder espacio.\nSin Diosdado en la película, las condiciones son mejores para nosotros.\nDespués se verá que la vida y la justicia tiene para él, la libertad total es la prioridad.\nQ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "nadie",
+      "total": 8,
+      "tono": {
+        "POS": 0,
+        "NEG": 6,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 5,
+          "POS": 0,
+          "NEG": 5,
+          "NEU": 0
+        },
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 2
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "❤ María Corina NO papiere con nadie 👋💯",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "Diosdado \nMientras mas hablas de nuestra próxima presidenta \nMas  popularidad le  das quien te quiere en Venezuela nadie yo siendo tu aprovecho y me vou pa China",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Hola es la mano de Dios haciendo justicia, cuando actuamos con malas intenciones cosechan esa siembra. María Corina no se ve ni se le escucha hablando mal ni poniendo apodos a nadie es muy respetuosa. Yl le ha faltado el respecto con apodos",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Carcel para el CC1 Diosdado cabello 25 millones de recompensa también requerido en chile por el caso Ojeda criminal cabello.. no engañas a nadie abusador vas preso si o si no te salvará nadie..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Decente y que son las iguanas, eso dicen, Nicolás maduro y su cilia flores deben pagar por sus crimenes, ahora sí, quieren que siguen por ellos y los presos que todavía permanecen en venezyela maltratados por este mal gobierno en las manos ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Ya nadie le para  a Diosdado está desesperado .",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "libre",
+      "total": 7,
+      "tono": {
+        "POS": 4,
+        "NEG": 2,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 3,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente con María Corina Machado hasta el final 👏👏👏, Viva Venezuela libre 🇻🇪🇻🇪🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Viva MCM Dios la bendiga siempre 🙏🏼🫂🇻🇪💯 viva Venezuela libre hasta el final 🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Grande María Corina !! Hasta el final por una Venezuela libre!! Desde Colombia, con el Tigre y nuestra patria milagro avanzando, SOLIDARIDAD CON NUESTRO QUERIDO PAÍS HERMANO. ❤❤❤",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Maduro tiene millones de cargos con la justicia nacional e internacional, com va a quedar libre??",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Desde Puerto Ordaz Edo Bolívar Venezuela 🆘🇻🇪 libre jamás volverán ésos Narcos Terrorrista Maduro,Cilia Flores,muertes a inocentes por pensar distinto,presos inocentes,por Maduro dónde violaban,torturas peor de Hitler.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "Y este tipo aún está libre? Diosdado hace rato está listo para la cárcel en estados unidos",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "merecido",
+      "total": 7,
+      "tono": {
+        "POS": 7,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 7,
+          "POS": 7,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Felicidades Maria Corina 🥳 presidente, bien merecido premio! Te amamos 🩵",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 9
+        },
+        {
+          "texto": "Excelente reconocimiento a nuestra líder María Corina,bien merecido",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        }
+      ]
+    },
+    {
+      "clave": "millones",
+      "total": 6,
+      "tono": {
+        "POS": 0,
+        "NEG": 6,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Que el FBI investigue a ese congresista ya que pudieron haberle pagado millones de dólares la gente de maduro para q presentara esa ridiculez. Ojo con eso",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 17
+        },
+        {
+          "texto": "Carcel para el CC1 Diosdado cabello 25 millones de recompensa también requerido en chile por el caso Ojeda criminal cabello.. no engañas a nadie abusador vas preso si o si no te salvará nadie..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Maduro tiene millones de cargos con la justicia nacional e internacional, com va a quedar libre??",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Los miles de millones de la narco-dictadura están comprando conciencias?\n La falta absoluta no declarada no debería ser problema.  Estados Unidos no reconoce a Maduro como presidente desde el gobierno de Biden.  Suficiente para desechar tod",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Al parecer Diosdado Cabelllo se olvida que es el quien tiene una orden de captura por narco trafico,  que es el por quien se ofrece  una recompensa de $ 25 millones de dólares!",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "excelente",
+      "total": 5,
+      "tono": {
+        "POS": 5,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 3,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Delcy Rodríguez": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente reconocimiento a nuestra líder María Corina,bien merecido",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Excelente con María Corina Machado hasta el final 👏👏👏, Viva Venezuela libre 🇻🇪🇻🇪🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Excelente análisis, muchas gracias! Los venezolanos de bien, queremos a María Corina en la presidencia y eso va a suceder en cualquier momento!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Buenos días bendiciones y excelente semana. La ley del reboté,  tanto nadar para morir en la orilla eso le pasó a la ExxonMobil, ojo simplemente como cultura popular, por qué yo todo lo que le convenga a Venezuela bendiciones para todos nos",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "felicitaciones",
+      "total": 5,
+      "tono": {
+        "POS": 5,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Se lo merece todo felicitaciones María Corina  Dios te bendiga siempre ati  y Alós toyos",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 9
+        },
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Reciban un gran gran abrazo y felicitaciones de tofo corazón por este nuevo reconocimiento a María Corina Machado \nPremio Honoris Causa de la Universidad Siglo XXI de la Argentina. Bravo bravo 👏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Felicitaciones a nuestra querida Maria Corina Machado lider Venezolana que se ha ganado el respeto internacional. Viva!!!! Hasta el final!!!!! 😊Dios te Bendiga 🙏 siempre 🙏 ♥️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "querida",
+      "total": 5,
+      "tono": {
+        "POS": 4,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 5,
+          "POS": 4,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "Felicitaciones a nuestra querida Maria Corina Machado lider Venezolana que se ha ganado el respeto internacional. Viva!!!! Hasta el final!!!!! 😊Dios te Bendiga 🙏 siempre 🙏 ♥️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Querida María Corina, los venezolanos no te queremos criticando a hombres como BUKELE. Te queremos superandolo 💪🇻🇪💪🇺🇸🇺🇸🇺🇸",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "muchas",
+      "total": 5,
+      "tono": {
+        "POS": 5,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 5,
+          "POS": 5,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Muchas bendiciones estimada María Corina",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 25
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "María Corina felicidades y muchas bendiciones por otro premio más que se suma, bien merecido lo tienes por tu gran lucha y esfuerzo por la Libertad de nuestra amada Venezuela🙏❤️💪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        }
+      ]
+    },
+    {
+      "clave": "debe",
+      "total": 5,
+      "tono": {
+        "POS": 1,
+        "NEG": 3,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 12
+        },
+        {
+          "texto": "Totalmente de acuerdo Neptali en la CIA. Hay alguien comiendo callado por la mala información que le dieron al Precidente Trump y la pagó coro… por otro lado aunque el logro alcanzado por los trabajadores de Guayan no es lo ideal!!! Pero es",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Si EDMUNDO GONZÁLEZ URUTIA Fue elegido por los venezolanos el  es el que debe estar en Miraflores",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Sin desperdicio! cada palabra, cada idea, su convicción, nos demuestran que es la Líder que debe llevar el timón en nuestro país, se ha preparado para luchar por la libertad y el progreso de los Ciudadanos Venezolanos. Hasta el final contig",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Diosdado no es nadie en Venezuela es un estorbo público que debe ser sacado lo antes posible.",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "saludos",
+      "total": 5,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 3,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Saludos bendiciones para todos ustedes María Corina hasta el final ecxelente trabajo",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Que Felicidades a Maria Corina es un honor y se merece el reconocimiento DIOS cilme de muchas bendiciones,de la salud y nucha fortaleza para que siga luchando hasta el final, por la libertad y justicia, saludos de una ecuatoriana y desde Ec",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Saludos camarada Diosdado ayúdame con el material para terminar el local para trabajar con las bicicletas",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "panama",
+      "total": 5,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Edmundo González": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Kilómetro Los Chavista dicen  que María Corina Machado no tiene seguidores 😂😂😂 ellos son unos los supiste que Daniela Cabello compro 3 apartamentos en una zona exclusiva de Panamá",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Edmundo González Urrutia es el presidente legal porque lo eligió el pueblo venezolano 😊😊🎉🎉 las actas de Panamá lo comfirman",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Si así como tú sigues a María Corina Machado te siguieran cuando llegas a Panamá en helicóptero o cuando llegas a Apure a supervisar tus negocios",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "De acuerdo en que a veces para lograr los objetivos hay que ceder espacio.\nSin Diosdado en la película, las condiciones son mejores para nosotros.\nDespués se verá que la vida y la justicia tiene para él, la libertad total es la prioridad.\nQ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "presos",
+      "total": 5,
+      "tono": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Si correcto tenía q llegar la máxima líder María corina machado para poner orden viene la libertad prosperidad justicia los delincuentes del gobierno irán todos presos es cuestión de tiempo tienen muchos delitos gracias neptali por orientar",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 2
+        },
+        {
+          "texto": "Desde Puerto Ordaz Edo Bolívar Venezuela 🆘🇻🇪 libre jamás volverán ésos Narcos Terrorrista Maduro,Cilia Flores,muertes a inocentes por pensar distinto,presos inocentes,por Maduro dónde violaban,torturas peor de Hitler.",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "Decente y que son las iguanas, eso dicen, Nicolás maduro y su cilia flores deben pagar por sus crimenes, ahora sí, quieren que siguen por ellos y los presos que todavía permanecen en venezyela maltratados por este mal gobierno en las manos ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "El Señor Diosdado deberia tener verguenza para acusar a presos politicos, con semejante cementerio que tiene por delante, este individuo CARECE DE AUTORIDAD MORAL. MATON SINVERGUENZA.",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Neptali al criminal Diosdado le van a dar todo lo que pida,,hasta su pasaporte al infierno, y nadie dice nada de los presos  políticos secuestrados ,no hay ningún preso político familiar de Dinorath para que le pueda doler",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "reconocimiento",
+      "total": 5,
+      "tono": {
+        "POS": 5,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 5,
+          "POS": 5,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente reconocimiento a nuestra líder María Corina,bien merecido",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Bien merecido reconocimiento a nuestra líder y premio Nobel de la paz Maria Corina Machado! Dios te bendiga grandemente!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 3
+        },
+        {
+          "texto": "Te veo siempre Desde Córdoba, Argentina y yo sabía q hoy le entregaban ese reconocimiento a María Corina. Te felicito, sos el único q dió la noticia, Sos el primero en saber todo. Gracias",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        }
+      ]
+    },
+    {
+      "clave": "flores",
+      "total": 5,
+      "tono": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 5,
+          "POS": 0,
+          "NEG": 4,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "El caso de Maduro y Cilia flores no es un juicio político,  están acusados de narcotraficantes,  terrorismo y trafico de armas,  es decir un caso profundamente penal del cual no podrán salir y tendrán que pagar",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "MADURO Y CILIA FLORES LIBERTAD,LA JUEZA DE EEUU DEL CASO FEDERALE ES DE LA IZQUIERDA,POR LO TANTO VAN A LIBRAR A NICOLÁS, TREMENDO PALO JJJJJJJJJJJJJJ 😂😂🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪 INCREÍBLE INCREÍBLE, AHORA QUIÉN AGUANTA A NICOLÁS Y CILIA FLORES, VAN A",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Cadena perpetua a Maduro  y  Cilia Flores",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "narcotrafico",
+      "total": 5,
+      "tono": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 5,
+          "POS": 0,
+          "NEG": 3,
+          "NEU": 2
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Será que Diosdado se va  investigar el mismo lo digo por el narcotráfico?",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 21
+        },
+        {
+          "texto": "El régimen siempre usará tramas oscuras para justificar represión, más aún, Diosdado Cabello, que sí está claramente señalado por narcotráfico, homicidio y cualquier crímen imaginable y sobre quién pesa recompensas; se afincará en este tipo",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Mildred...no soporto ver a Diosdado...es increíble las Náuseas qué me produce...que hombrecillo tal Faaalsooooo...hablando de Narcotrafico...x Dios",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "nombre",
+      "total": 4,
+      "tono": {
+        "POS": 2,
+        "NEG": 2,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 2,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Te BENDECIMOS EN EL NOMBRE de JESÚS MARÍA CORINA MACHADO POR EL EJEMPLO PARA LAS NUEVAS GENERACIONES.LA PERSEVERANCIA POR SER ESFORZADA  VALIENTE Y HONESTIDAD .SE LLEGA Y EL AMOR AL PRÓJIMO EN ACCIÓN.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 8
+        },
+        {
+          "texto": "Arriba MARIA CORINA MACHADO todos a votar en nombre de Dios",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Apoyo a DELCY, pero me parece que comete un error, cuando estando en el exterior no nombra  a la patria por su nombre REPUBLICA BOLIVARIANA DE VENEZUELA",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Lo cómico del Mion del mazo no día hora minutos segundos que no nombre a María Corina y la Sra ni lo nombra al Mion este es insignificante para ella!",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "presidenta",
+      "total": 4,
+      "tono": {
+        "POS": 2,
+        "NEG": 1,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Delcy Rodríguez": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Diosdado \nMientras mas hablas de nuestra próxima presidenta \nMas  popularidad le  das quien te quiere en Venezuela nadie yo siendo tu aprovecho y me vou pa China",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "LA DIPLOMACIA DE PAZ BOLIVARIANA Y COOPERACION BILATERAL BRASIL VENEZUELA ESTADOS SOBERANOS DE LAS NACIONES UNIIDAS REAFIRMACION DE LOS LAZOS DE AMISTAD Y HERMANDAD LULA DA SILVA Y LA PRESIDENTA DE VENEZUELA DELCYELOINA",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "TODOS RESTEADOS CON MARÍA CORINA MACHADO SIEMPRE URGE ELECCIONES YÁ FREEDOM LIBERTAD CON ELLA POR SIEMPRE APOYO TOTAL FECHA YÁ ELLA SERÁ NUESTRA PRIMERA PRESIDENTA LEGÍTIMA Primeramente Dios y la virgen tengo fé que así será creo y confío e",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "siga",
+      "total": 4,
+      "tono": {
+        "POS": 3,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Que Felicidades a Maria Corina es un honor y se merece el reconocimiento DIOS cilme de muchas bendiciones,de la salud y nucha fortaleza para que siga luchando hasta el final, por la libertad y justicia, saludos de una ecuatoriana y desde Ec",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Tramas oscuras han utilizado siempre; pero que Diosdado reflexione sobre esto: Que curioso que un sujeto que ha sido investigado y tiene sobre su cabeza una recompensa por su captura, siga amenazando? Que raro que teniendola adentro no la p",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "viva",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente con María Corina Machado hasta el final 👏👏👏, Viva Venezuela libre 🇻🇪🇻🇪🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Viva MCM Dios la bendiga siempre 🙏🏼🫂🇻🇪💯 viva Venezuela libre hasta el final 🇻🇪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Felicitaciones a nuestra querida Maria Corina Machado lider Venezolana que se ha ganado el respeto internacional. Viva!!!! Hasta el final!!!!! 😊Dios te Bendiga 🙏 siempre 🙏 ♥️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "libertadora",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Eres maravillosa María Corina Dioen tu debido tiempo tdara tu premio\nDe ser  la libertadora de Venezuela\nes",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Buenas noches hermano Rafael 🙏🏻👋 a nivel mundial MCM es reconocida como la mujer de hierro, Mujer Valiente, de Valores y Principios 👏🏻👏🏻👏🏻 Firme, comprometida, aparte de Todos los Honores bien merecidos 🙏🏻🇻🇪😍 Nuestra LIBERTADORA 🫶🏻❤️🇻🇪Dios ",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "Dios te continúe bendiciendo María Corina, nuestra libertadora de una Venezuela que pronto volverá a ser la nación pujante y luchadora, forjadores de los mejores talentos que han salido por el mundo poniendo en alto a nuestra Venezuela. Des",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        }
+      ]
+    },
+    {
+      "clave": "eres",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "Eres maravillosa María Corina Dioen tu debido tiempo tdara tu premio\nDe ser  la libertadora de Venezuela\nes",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        }
+      ]
+    },
+    {
+      "clave": "premios",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Más y más premios bien merecidos mi querida María Corina, una demostración que eres digna de ser nuestra próxima Presidente. Dios te bendiga 🙏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 16
+        },
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        }
+      ]
+    },
+    {
+      "clave": "nobel",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Dios te bendiga MCM premio Nobel de La Paz y merecedora de todas las bendiciones y distinciones que el mundo te da",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 18
+        },
+        {
+          "texto": "Saludos fraternos Vente Venezuela otro homenaje merecido para nuestra lider María Corina Machado Parisca Premio Nobel de la Paz 2025 hoy ví un video de 2010 como María Corina desde ese entonces luchando por la libertad prosperidad democráci",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 10
+        },
+        {
+          "texto": "Bien merecido reconocimiento a nuestra líder y premio Nobel de la paz Maria Corina Machado! Dios te bendiga grandemente!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 3
+        }
+      ]
+    },
+    {
+      "clave": "pronto",
+      "total": 4,
+      "tono": {
+        "POS": 3,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Felicidades para nuestra María Corina Machado! Cada vez más y más validan tu lucha.. pronto nos tocará a nosotros en las urnas electorales reconocer tu labor incansable. Gracias ❤❤️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Dios te continúe bendiciendo María Corina, nuestra libertadora de una Venezuela que pronto volverá a ser la nación pujante y luchadora, forjadores de los mejores talentos que han salido por el mundo poniendo en alto a nuestra Venezuela. Des",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Ya diosdado no puede involucrar inocentes él sabe que el poder no lo tiene ya .. el si es un corructo que pronto pagará por su mal",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "mujer",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 4,
+          "POS": 4,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "María Corina Machado es una mujer muy preparada...con los pies bien puestos sobre la tierra...",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Cada día estoy más orgullosa de ser Venezolana... gracias María Corina por tanto gracias por llevar nuestro país en alto gracias por tu esfuerzo y dedicación para con nosotros los Venezolanos...MCM mujer resiliente merecedora de todos los p",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 5
+        },
+        {
+          "texto": "Muchas felicidades María Corina, te mereces esta distinción y muchos más premios internacionales, porque eres una mujer brillante, íntegra, transparente, incorruptible, decente, honesta, por eso siempre serás ORGULLO VENEZOLANO! Mil bendici",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        }
+      ]
+    },
+    {
+      "clave": "proteja",
+      "total": 4,
+      "tono": {
+        "POS": 4,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 3,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "DON NEPTALÍ, UD. TIENE QUE SER SENADOR DE LA REPÚBLICA EN EL GOBIERNO DE MARÍA CORINA MACHADO PARISCA.  DEFIENDE A VENEZUELA CON TODO SU CORAZÓN Y TODO SU AMOR. DIOS ME LO BENDIGA Y PROTEJA SIEMPRE.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 6
+        },
+        {
+          "texto": "Buenas noches hermano Rafael 🙏🏻👋 a nivel mundial MCM es reconocida como la mujer de hierro, Mujer Valiente, de Valores y Principios 👏🏻👏🏻👏🏻 Firme, comprometida, aparte de Todos los Honores bien merecidos 🙏🏻🇻🇪😍 Nuestra LIBERTADORA 🫶🏻❤️🇻🇪Dios ",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "La Santísima Trinidad y la Santísima Virgen María de Coromoto, te Bendiga María Corina .Proteja e ilumine tu Camino.Felicidades❤",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "moral",
+      "total": 4,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Maria Corina Machado,      junto  a   un  extraordinario  equipo    de   asesores   y  servidores  públicos,    sacaran    a   Venezuela    de  esta   debacle  económica,   moral   y  espiritual,      en    que  se encuentra  actualmente   ",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 5
+        },
+        {
+          "texto": "Totalmente de acuerdo mi querido Nepalí, en ese sentido no hay discusión ni dudas nuestra María Corina es la única que tiene el liderazgo la moral y la confianza de la mayoría del pueblo venezolano y más allá.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Ése Diputado de EEUU Que defiende a el Sr Maduró no tiene Moral ni le importa las Penurias económicas y sociales que estamos pasando los Venezolanos 😡 😡😡",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "El Señor Diosdado deberia tener verguenza para acusar a presos politicos, con semejante cementerio que tiene por delante, este individuo CARECE DE AUTORIDAD MORAL. MATON SINVERGUENZA.",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "hecho",
+      "total": 4,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Maria Corina Machado,      junto  a   un  extraordinario  equipo    de   asesores   y  servidores  públicos,    sacaran    a   Venezuela    de  esta   debacle  económica,   moral   y  espiritual,      en    que  se encuentra  actualmente   ",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 5
+        },
+        {
+          "texto": "Que así sea!! Es un hecho y está consumado.. Grande María Corina.. Grande  los US A.. Grande Venezuela",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "No me diga que Diosdado desnuda a la sayona,,, y dónde están las leyes venezolanas? Cómo dejan entrar a ese personaje con la cara muy lavada, como si no hubiera hecho nada,,,pa'colmo ahora Diosdado la desnuda???Cosas veredes Sancho!!",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Seguramente lo hagan como siempre lo han hecho sin pruebas ni testimonios reales por qué sabemos que todo se lo inventan mi pregunta es por ese tipo sigue al frente del ministerio de justicia siendo que el está comprando si tiene vínculos c",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "poder",
+      "total": 4,
+      "tono": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Edmundo González": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 1
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Lomas mejor es q Edmundo tome el poder ya",
+          "dirigente": "Edmundo González",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "Me duele por María Corina. Pero Venezuela no  va  más al grano. Limpien primero a Miraflores  como lo hizo. Buquele con el poder de . Dios, y después. Saborearan lo que tanto . sueñan. Saqum esos pactos. Satánicos. de  Miraflores",
+          "dirigente": "María Corina Machado",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "El pueblo voto por Edmundo el 28/07/24 y el 29/024 asesinaron a civiles y militares para perpetuarse en el poder hasta el final",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Ya diosdado no puede involucrar inocentes él sabe que el poder no lo tiene ya .. el si es un corructo que pronto pagará por su mal",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "unico",
+      "total": 4,
+      "tono": {
+        "POS": 2,
+        "NEG": 2,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Las palabras de MCM paran los pelos 👏🏼👏🏼👏🏼👏🏼 verla hablar con esa sonrisa lo único que uno puede pensar es: Vergasion quiero verla recibir la Presidencia YAAAAAAAA",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 12
+        },
+        {
+          "texto": "Te veo siempre Desde Córdoba, Argentina y yo sabía q hoy le entregaban ese reconocimiento a María Corina. Te felicito, sos el único q dió la noticia, Sos el primero en saber todo. Gracias",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "YO PERSONALMENTE CREO QUE ESTE TEMA SOLAMENTE LE COMENTÉ AL PUEBLO QUE YA ELIGIÓ COMO PRESIDENTE AL DOCTOR EDMUNDO GONZALEZ COMO PRESIDENTE CON LA MAYORIA Y TIENEN LAS ACTAS ORIGINALES REPOSAN ENEL BANCO DE PANAMÁ MÁS ACCIONES ,  POR QUE EL",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Eso es lo que han tenido que hacer desde el 4 de Enero 2026 no haberse puesto a inventar pendejadas de “mesa de negociación” que para lo único que ha servido es para negociar beneficios para el régimen y los Venezolanos seguimos bien jodido",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "regimen",
+      "total": 4,
+      "tono": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 12
+        },
+        {
+          "texto": "Maduro y Cilia no salen más nunca tienen que pagar lo que hicieron, ese congresista está vendiendo al régimen de Venezuela",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "El régimen siempre usará tramas oscuras para justificar represión, más aún, Diosdado Cabello, que sí está claramente señalado por narcotráfico, homicidio y cualquier crímen imaginable y sobre quién pesa recompensas; se afincará en este tipo",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Eso es lo que han tenido que hacer desde el 4 de Enero 2026 no haberse puesto a inventar pendejadas de “mesa de negociación” que para lo único que ha servido es para negociar beneficios para el régimen y los Venezolanos seguimos bien jodido",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "carcel",
+      "total": 4,
+      "tono": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 2,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Ni chavez vive, y maduro se PUDRIRA en la CÁRCEL!!!",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 16
+        },
+        {
+          "texto": "Carcel para el CC1 Diosdado cabello 25 millones de recompensa también requerido en chile por el caso Ojeda criminal cabello.. no engañas a nadie abusador vas preso si o si no te salvará nadie..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Sabroso Maduro tenía que pensar en todo el daño que le hizo a todos los venezolanos, merece 100 años de carcel hasta que se seque. No hay sacerdote que le de paz.",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Y este tipo aún está libre? Diosdado hace rato está listo para la cárcel en estados unidos",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "eeuu",
+      "total": 4,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Ahora los quieren soltar los Demócratas de EEUU, supuestamente por inmunidad presidencial 😮... Señores hagan algo muy simple, comprueben que Maduro es de origen colombiano y listo, se acabó el juicio y Venezuela y los venezolanos contentos ",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "Ése Diputado de EEUU Que defiende a el Sr Maduró no tiene Moral ni le importa las Penurias económicas y sociales que estamos pasando los Venezolanos 😡 😡😡",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "MADURO Y CILIA FLORES LIBERTAD,LA JUEZA DE EEUU DEL CASO FEDERALE ES DE LA IZQUIERDA,POR LO TANTO VAN A LIBRAR A NICOLÁS, TREMENDO PALO JJJJJJJJJJJJJJ 😂😂🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪🇻🇪 INCREÍBLE INCREÍBLE, AHORA QUIÉN AGUANTA A NICOLÁS Y CILIA FLORES, VAN A",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "EEUU DE VERDAD DICE QUE DA 25.000.000 POR DIOSDADO Y LO DEJA LIBRE. SALUDOS SEÑOR NEPTALY MIS RESPETO Y SALUDOS.  DIOS LE BENDIGA SIEMPRE",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "juicio",
+      "total": 4,
+      "tono": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Maduro": {
+          "total": 3,
+          "POS": 0,
+          "NEG": 2,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Ahora los quieren soltar los Demócratas de EEUU, supuestamente por inmunidad presidencial 😮... Señores hagan algo muy simple, comprueben que Maduro es de origen colombiano y listo, se acabó el juicio y Venezuela y los venezolanos contentos ",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 3
+        },
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "El caso de Maduro y Cilia flores no es un juicio político,  están acusados de narcotraficantes,  terrorismo y trafico de armas,  es decir un caso profundamente penal del cual no podrán salir y tendrán que pagar",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "El juicio continúa y maduro y cilia les va a tocar lo mismo que a Manuel Antonio Noriega",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "recompensa",
+      "total": 4,
+      "tono": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 4,
+          "POS": 0,
+          "NEG": 4,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Carcel para el CC1 Diosdado cabello 25 millones de recompensa también requerido en chile por el caso Ojeda criminal cabello.. no engañas a nadie abusador vas preso si o si no te salvará nadie..",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "Tramas oscuras han utilizado siempre; pero que Diosdado reflexione sobre esto: Que curioso que un sujeto que ha sido investigado y tiene sobre su cabeza una recompensa por su captura, siga amenazando? Que raro que teniendola adentro no la p",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Más extraño es que Diosdado este aún con recompensa por su cabeza y no se lo llevan",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "senor",
+      "total": 4,
+      "tono": {
+        "POS": 1,
+        "NEG": 3,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Diosdado Cabello": {
+          "total": 4,
+          "POS": 1,
+          "NEG": 3,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Cómo hacemos SEÑOR Neptali para no volver al saber de Diosdado cabello y familia, saqueadores torturadores represores asesinos llevaron al país a la quiebra sin luz, sin Agua, sin salud, sin educación, robaron trillones de dólares robados a",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 1
+        },
+        {
+          "texto": "El Señor Diosdado deberia tener verguenza para acusar a presos politicos, con semejante cementerio que tiene por delante, este individuo CARECE DE AUTORIDAD MORAL. MATON SINVERGUENZA.",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Ese señor diosdado es el calter de los soler y en Miraflores están los secuaces",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "apoyo",
+      "total": 3,
+      "tono": {
+        "POS": 0,
+        "NEG": 1,
+        "NEU": 2
+      },
+      "por_dirigente": {
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Apoyo a DELCY, pero me parece que comete un error, cuando estando en el exterior no nombra  a la patria por su nombre REPUBLICA BOLIVARIANA DE VENEZUELA",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "TODOS RESTEADOS CON MARÍA CORINA MACHADO SIEMPRE URGE ELECCIONES YÁ FREEDOM LIBERTAD CON ELLA POR SIEMPRE APOYO TOTAL FECHA YÁ ELLA SERÁ NUESTRA PRIMERA PRESIDENTA LEGÍTIMA Primeramente Dios y la virgen tengo fé que así será creo y confío e",
+          "dirigente": "María Corina Machado",
+          "tono": "NEU",
+          "likes": 0
+        },
+        {
+          "texto": "Diosdado Cabello habla de lavado de dinero y narcotráfico con el Tren del Llano, pero lo hace porque esa banda operaba en las costas de Paria, en el estado Sucre, donde él estuvo hace unos días, y además funcionaban con el apoyo del mismo g",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEU",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "patria",
+      "total": 3,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Apoyo a DELCY, pero me parece que comete un error, cuando estando en el exterior no nombra  a la patria por su nombre REPUBLICA BOLIVARIANA DE VENEZUELA",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Grande María Corina !! Hasta el final por una Venezuela libre!! Desde Colombia, con el Tigre y nuestra patria milagro avanzando, SOLIDARIDAD CON NUESTRO QUERIDO PAÍS HERMANO. ❤❤❤",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "buen",
+      "total": 3,
+      "tono": {
+        "POS": 2,
+        "NEG": 0,
+        "NEU": 1
+      },
+      "por_dirigente": {
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 0,
+          "NEU": 1
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Excelente noticias !!...mis abrazos y felicitaciones a mi Presidenta Delcy Rodriguez. Siga con su buen trabajo y su excelente equipo de trabajo. Mis felicitaciones al muchacho Oliver Blanco, que ahora es el Canciller. Siga asi hijo. Echando",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 4
+        },
+        {
+          "texto": "En cuanto a maduro quien lo defienda le dieron un buen dinerito y no son 30 ni 100$",
+          "dirigente": "Maduro",
+          "tono": "NEU",
+          "likes": 1
+        },
+        {
+          "texto": "Buen día paisanos Dios los bendiga y proteja esperemos que el par de nefasto que están en New York no los suelten y la caída de Diosdado sea pronto",
+          "dirigente": "Diosdado Cabello",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "estados",
+      "total": 3,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "Delcy Rodríguez": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "LA DIPLOMACIA DE PAZ BOLIVARIANA Y COOPERACION BILATERAL BRASIL VENEZUELA ESTADOS SOBERANOS DE LAS NACIONES UNIIDAS REAFIRMACION DE LOS LAZOS DE AMISTAD Y HERMANDAD LULA DA SILVA Y LA PRESIDENTA DE VENEZUELA DELCYELOINA",
+          "dirigente": "Delcy Rodríguez",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Los miles de millones de la narco-dictadura están comprando conciencias?\n La falta absoluta no declarada no debería ser problema.  Estados Unidos no reconoce a Maduro como presidente desde el gobierno de Biden.  Suficiente para desechar tod",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        },
+        {
+          "texto": "Y este tipo aún está libre? Diosdado hace rato está listo para la cárcel en estados unidos",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "internacional",
+      "total": 3,
+      "tono": {
+        "POS": 1,
+        "NEG": 2,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 1,
+          "POS": 1,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        },
+        "Diosdado Cabello": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "No hay justicia  porque esta?Sra.  Es una traidora  a la patria q pidió  la destrucción  de la economía  de todos los venezolanos  a través  de las sanciones  las cuales nos tienen sun electricidad  estancamiento  y bloqueo  internacional  ",
+          "dirigente": "Diosdado Cabello",
+          "tono": "NEG",
+          "likes": 2
+        },
+        {
+          "texto": "Felicitaciones a nuestra querida Maria Corina Machado lider Venezolana que se ha ganado el respeto internacional. Viva!!!! Hasta el final!!!!! 😊Dios te Bendiga 🙏 siempre 🙏 ♥️",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        },
+        {
+          "texto": "Maduro tiene millones de cargos con la justicia nacional e internacional, com va a quedar libre??",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "gran",
+      "total": 3,
+      "tono": {
+        "POS": 3,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 3,
+          "POS": 3,
+          "NEG": 0,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "La Firmeza  ,su fe en Dios y su gran amor  a nuestra  Venezuela la convierten  en ése  Símbolo y Camino  que todos  los vzlanos de Bien hemos  decidido  seguir. Hasta el  final  con MCM. Dios te cuide!!!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 15
+        },
+        {
+          "texto": "María Corina felicidades y muchas bendiciones por otro premio más que se suma, bien merecido lo tienes por tu gran lucha y esfuerzo por la Libertad de nuestra amada Venezuela🙏❤️💪",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 2
+        },
+        {
+          "texto": "Reciban un gran gran abrazo y felicitaciones de tofo corazón por este nuevo reconocimiento a María Corina Machado \nPremio Honoris Causa de la Universidad Siglo XXI de la Argentina. Bravo bravo 👏",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        }
+      ]
+    },
+    {
+      "clave": "queremos",
+      "total": 3,
+      "tono": {
+        "POS": 2,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Edmundo González": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Me parece que es obligatorio que respeten nuestra decisión EDMUNDO GONZALEZ URRUTIA PRESIDENTE DE VENEZUELA LEGAL,   tiene que asumir su cargo que  le dimos nosotros EL PUEBLO, lo queremos gobernando...",
+          "dirigente": "Edmundo González",
+          "tono": "NEG",
+          "likes": 3
+        },
+        {
+          "texto": "Excelente análisis, muchas gracias! Los venezolanos de bien, queremos a María Corina en la presidencia y eso va a suceder en cualquier momento!",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Querida María Corina, los venezolanos no te queremos criticando a hombres como BUKELE. Te queremos superandolo 💪🇻🇪💪🇺🇸🇺🇸🇺🇸",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    },
+    {
+      "clave": "persona",
+      "total": 3,
+      "tono": {
+        "POS": 2,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "por_dirigente": {
+        "María Corina Machado": {
+          "total": 2,
+          "POS": 2,
+          "NEG": 0,
+          "NEU": 0
+        },
+        "Maduro": {
+          "total": 1,
+          "POS": 0,
+          "NEG": 1,
+          "NEU": 0
+        }
+      },
+      "ejemplos": [
+        {
+          "texto": "Todos los que defienden al maldito corruptos asesinos narcotraficante y criminal de lesa humanidad debe ser investigado porque no es posible que una persona de bien pueda defender a una porquería como a maduro y sus camaradas recuerden que ",
+          "dirigente": "Maduro",
+          "tono": "NEG",
+          "likes": 12
+        },
+        {
+          "texto": "Así  es , con MCM no puede competir ninguna otra persona. Es única elegida en el Cielo y en la tierra.",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 1
+        },
+        {
+          "texto": "Felicitaciones María Corina te mereces todos los premios del mundo eres una persona muy generosa luchadora por la democracia y la libertad de nuestro pais estamos contigo hasta el final te amamos María desde España venezolanos contigo ❤❤❤❤❤",
+          "dirigente": "María Corina Machado",
+          "tono": "POS",
+          "likes": 0
+        }
+      ]
+    }
+  ]
+}

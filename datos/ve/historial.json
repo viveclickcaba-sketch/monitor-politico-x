@@ -1,0 +1,42 @@
+[
+  {
+    "fecha": "12/11 13:43",
+    "fecha_completa": "12/11/2026 13:43",
+    "fecha_iso": "2026-11-12",
+    "metodo": 4,
+    "datos": {
+      "Delcy Rodríguez": {
+        "POS": 3,
+        "NEG": 1,
+        "NEU": 0
+      },
+      "María Corina Machado": {
+        "POS": 48,
+        "NEG": 7,
+        "NEU": 9
+      },
+      "Edmundo González": {
+        "POS": 3,
+        "NEG": 6,
+        "NEU": 9
+      },
+      "Maduro": {
+        "POS": 0,
+        "NEG": 16,
+        "NEU": 4
+      },
+      "Diosdado Cabello": {
+        "POS": 4,
+        "NEG": 28,
+        "NEU": 9
+      }
+    },
+    "pocos_datos": {
+      "Delcy Rodríguez": true,
+      "María Corina Machado": false,
+      "Edmundo González": true,
+      "Maduro": true,
+      "Diosdado Cabello": true
+    }
+  }
+]

@@ -38,6 +38,7 @@ if not API_KEY:
 # "videos": videos por dirigente (buscar 40 cuesta lo mismo que buscar 20)
 # "paginas": paginas de 100 comentarios por video
 # "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
+# "temas" (opcional): lista de temas propia del pais (si no, se usa la del idioma)
 # ============================================================
 PAISES = {
     "ar": {
@@ -145,6 +146,70 @@ PAISES = {
 }
 
 # ============================================================
+# TEMAS MENCIONADOS
+# Cada tema tiene sus palabras clave (minuscula, sin tildes), con las mismas reglas
+# que las palabras de los dirigentes: normal = tambien derivados, "=" = palabra exacta.
+# Un comentario puede contar para varios temas.
+# ============================================================
+TEMAS = {
+    "es": {
+        "Inflación y precios":   ["inflacion", "=precio", "=precios", "carestia", "=caro", "=caros"],
+        "Dólar":                 ["dolar", "devalua", "=cepo"],
+        "FMI y deuda":           ["=fmi", "fondo monetario", "deuda", "endeud"],
+        "Jubilaciones":          ["jubila", "pension", "=abuelos"],
+        "Salarios y empleo":     ["salario", "sueldo", "desemple", "=empleo", "=empleos", "despid", "paritaria", "=trabajo", "=laburo"],
+        "Tarifas y servicios":   ["tarifa", "=luz", "=gas", "factura", "=boleto", "transporte"],
+        "Impuestos":             ["impuesto", "=iva", "retenciones", "=afip", "=arca"],
+        "Ajuste y recortes":     ["ajuste", "motosierra", "recorte", "=casta", "deficit"],
+        "Corrupción":            ["corrup", "chorro", "=robo", "=robaron", "=roban", "ladron", "coima", "=presa", "=preso", "=carcel"],
+        "Justicia":              ["justicia", "=juez", "=jueza", "jueces", "fiscal", "tribunal", "condena"],
+        "Inseguridad":           ["insegur", "delincu", "=delito", "=delitos", "=crimen", "narco", "=policia"],
+        "Educación":             ["educacion", "universidad", "=escuela", "=escuelas", "docente", "maestr"],
+        "Salud":                 ["=salud", "hospital", "medicamento", "=medicos", "prepaga", "=pami"],
+        "Pobreza":               ["pobreza", "=pobres", "=hambre", "comedor", "=planes", "planero", "indigen"],
+        "Elecciones":            ["eleccion", "=votar", "=voto", "=votos", "votaron", "candidat", "=urnas", "=fraude"],
+        "Medios y periodistas":  ["periodist", "=medios", "=prensa", "ensobrad"],
+    },
+    "en": {
+        "Inflation and prices":  ["inflation", "=prices", "=price", "groceries", "=expensive"],
+        "Economy and jobs":      ["economy", "=jobs", "=job", "unemploy", "recession", "=wages"],
+        "Taxes and tariffs":     ["=tax", "=taxes", "tariff"],
+        "Immigration":           ["immigra", "=border", "deport", "=ice", "illegal"],
+        "Healthcare":            ["healthcare", "medicare", "medicaid", "obamacare", "insurance"],
+        "Corruption":            ["corrupt", "=bribe", "=fraud", "epstein"],
+        "Courts and justice":    ["=court", "=judge", "indict", "=trial", "=jail", "prison"],
+        "Crime":                 ["=crime", "criminal", "=police", "=guns", "=gun"],
+        "Elections":             ["election", "=vote", "=voting", "=voters", "ballot", "=polls", "rigged"],
+        "War and foreign policy": ["=war", "ukraine", "israel", "=gaza", "russia", "china", "=iran"],
+        "Media":                 ["=media", "fake news", "=press", "journalist"],
+    },
+    "pt": {
+        "Inflação e preços":     ["inflacao", "=preco", "=precos", "=caro", "carestia"],
+        "Economia e emprego":    ["economia", "desemprego", "=emprego", "salario", "=trabalho"],
+        "Impostos":              ["imposto", "tribut", "=taxa", "=taxas", "tarifa"],
+        "Corrupção":             ["corrup", "=ladrao", "=roubo", "=roubou", "propina", "mensalao", "petrolao"],
+        "Justiça":               ["justica", "=stf", "supremo", "=juiz", "=prisao", "=preso", "condena"],
+        "Segurança":             ["seguranca", "violencia", "=crime", "=bandido", "=policia", "=faccao"],
+        "Saúde":                 ["=saude", "=sus", "hospital", "medico"],
+        "Educação":              ["educacao", "=escola", "universidade", "professor"],
+        "Eleições":              ["eleicao", "eleicoes", "=voto", "=votar", "=urna", "=urnas", "=fraude", "candidat"],
+        "Pobreza e auxílios":    ["pobreza", "=fome", "bolsa familia", "auxilio"],
+    },
+    "it": {
+        "Inflazione e prezzi":   ["inflazione", "=prezzi", "=prezzo", "bollett", "carovita"],
+        "Economia e lavoro":     ["economia", "=lavoro", "disoccup", "stipend", "salari"],
+        "Tasse":                 ["=tasse", "=tassa", "fisco", "=iva", "=irpef"],
+        "Immigrazione":          ["immigra", "migranti", "sbarchi", "clandestin", "albania"],
+        "Corruzione":            ["corruz", "=ladri", "=ladro", "tangent", "mafia"],
+        "Giustizia":             ["giustizia", "magistrat", "=giudici", "=giudice", "processo", "condann"],
+        "Sanità":                ["sanita", "ospedal", "=medici"],
+        "Guerra ed esteri":      ["guerra", "ucraina", "russia", "israele", "=gaza", "=nato"],
+        "Elezioni":              ["elezioni", "=voto", "=votare", "sondagg", "=urne"],
+        "Pensioni":              ["pension"],
+    },
+}
+
+# ============================================================
 # CONFIGURACION GENERAL
 # ============================================================
 MAX_COMENTARIOS_POR_CANAL = 20
@@ -156,6 +221,10 @@ MINIMO_CANALES = 5
 EJEMPLOS_POR_TIPO = 3
 VIDEOS_DESTACADOS = 3
 TEMAS_POR_DIRIGENTE = 12
+NUBE_PALABRAS = 60
+NUBE_MINIMO = 3
+EJEMPLOS_POR_PALABRA = 10
+EJEMPLOS_POR_DIRIGENTE_EN_PALABRA = 3
 MAX_HISTORIAL = 200
 UMBRAL_ALERTA = 15
 EXCLUIR_IRONIA = True
@@ -299,6 +368,39 @@ def enviar_telegram(texto):
 def porcentaje_negativo(d):
     total = d.get("POS", 0) + d.get("NEG", 0) + d.get("NEU", 0)
     return d.get("NEG", 0) * 100 / total if total else None
+
+
+def armar_resumen(registros, claves_de, maximo=None, minimo=1):
+    """Agrupa los comentarios por palabra o por tema: total, tono, reparto por dirigente y ejemplos."""
+    indice = {}
+    for r in registros:
+        for clave in claves_de(r):
+            e = indice.setdefault(clave, {
+                "clave": clave, "total": 0, "tono": {"POS": 0, "NEG": 0, "NEU": 0},
+                "por_dirigente": {}, "_comentarios": [],
+            })
+            e["total"] += 1
+            e["tono"][r["s"]] += 1
+            pd = e["por_dirigente"].setdefault(r["d"], {"total": 0, "POS": 0, "NEG": 0, "NEU": 0})
+            pd["total"] += 1
+            pd[r["s"]] += 1
+            e["_comentarios"].append(r)
+    lista = sorted([e for e in indice.values() if e["total"] >= minimo], key=lambda e: -e["total"])
+    if maximo:
+        lista = lista[:maximo]
+    for e in lista:
+        ordenados = sorted(e.pop("_comentarios"), key=lambda r: -r["l"])
+        elegidos, por_dirigente = [], Counter()
+        for r in ordenados:
+            if por_dirigente[r["d"]] >= EJEMPLOS_POR_DIRIGENTE_EN_PALABRA:
+                continue
+            elegidos.append(r)
+            por_dirigente[r["d"]] += 1
+            if len(elegidos) >= EJEMPLOS_POR_PALABRA:
+                break
+        e["ejemplos"] = [{"texto": r["t"], "dirigente": r["d"], "tono": r["s"], "likes": r["l"]} for r in elegidos]
+        e["por_dirigente"] = dict(sorted(e["por_dirigente"].items(), key=lambda x: -x[1]["total"]))
+    return lista
 
 
 # ============================================================
@@ -495,6 +597,7 @@ def procesar_pais(codigo, cfg):
     politicos = cfg["politicos"]
     compartidas = cfg.get("compartidas", [])
     otros_nombres = cfg.get("otros", [])
+    temas_cfg = cfg.get("temas") or TEMAS.get(cfg["idioma"], {})
     stop = STOPWORDS.get(cfg["idioma"], set())
     excluir_temas = set()
     for o in otros_nombres:
@@ -512,6 +615,7 @@ def procesar_pais(codigo, cfg):
     detalle = {}
     ya_analizados = {}
     ids_por_politico = {p: [] for p in politicos}
+    registros = []
     limite_cuenta_nueva = datetime.now(timezone.utc) - timedelta(days=DIAS_CUENTA_NUEVA)
 
     for nombre, config in politicos.items():
@@ -636,8 +740,15 @@ def procesar_pais(codigo, cfg):
                 respuestas_total += respuestas
                 if respuestas > mas_discutido["respuestas"]:
                     mas_discutido = {"texto": texto[:220], "respuestas": respuestas}
-                temas.update({w for w in normalizar(texto).split()
-                              if len(w) >= 4 and w not in stop and w not in excluir_temas and not w.isdigit()})
+                norm_texto = normalizar(texto)
+                palabras_comentario = {w for w in norm_texto.split()
+                                       if len(w) >= 4 and w not in stop and w not in excluir_temas and not w.isdigit()}
+                temas.update(palabras_comentario)
+                registros.append({
+                    "d": nombre, "s": s, "l": likes, "t": texto[:240],
+                    "w": palabras_comentario,
+                    "tm": [tema for tema, claves in temas_cfg.items() if menciona(norm_texto, claves, texto)],
+                })
                 analizados_politico.append((s, likes, texto))
                 ids_por_politico[nombre].append(cid)
                 contados_canal += 1
@@ -683,6 +794,13 @@ def procesar_pais(codigo, cfg):
     if total == 0:
         print(f"ERROR: no se pudo analizar ningun comentario de {cfg['nombre']}. No se actualizan sus datos.")
         return False
+
+    # Nube de palabras y temas mencionados (de todos los dirigentes del pais)
+    nube = armar_resumen(registros, lambda r: r["w"], maximo=NUBE_PALABRAS, minimo=NUBE_MINIMO)
+    temas_mencionados = armar_resumen(registros, lambda r: r["tm"])
+    del registros
+    print(f"Nube: {len(nube)} palabras. Temas mencionados: " +
+          (", ".join(f"{t['clave']} ({t['total']})" for t in temas_mencionados[:6]) or "ninguno"))
 
     hora_ar = datetime.now(timezone(timedelta(hours=-3)))
     hoy = hora_ar.strftime("%Y-%m-%d")
@@ -758,6 +876,9 @@ def procesar_pais(codigo, cfg):
             "pocos_datos": {n: sum(d.values()) < MINIMO_COMENTARIOS for n, d in datos_acumulados.items()},
         },
         "detalle": detalle,
+        "temas_lista": {tema: claves for tema, claves in temas_cfg.items()},
+        "temas_mencionados": temas_mencionados,
+        "nube": nube,
     }
     guardar_json(ruta(codigo, "info.json"), info)
 

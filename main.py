@@ -19,7 +19,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 PAIS_ELEGIDO = os.getenv("PAIS") or "Todos"
 URL_WEB = "https://viveclickcaba-sketch.github.io/monitor-politico-x/"
 CARPETA = "datos"
-METODO = 3
+METODO = 4
 
 if not API_KEY:
     print("ERROR: falta la clave YOUTUBE_API_KEY en los secretos de GitHub.")
@@ -27,18 +27,6 @@ if not API_KEY:
 
 # ============================================================
 # PAISES Y DIRIGENTES
-# "busqueda": lo que se busca en YouTube
-# "palabras": como lo escribe la gente (minuscula, sin tildes)
-#   - una palabra normal tambien detecta derivados (ej. "milei" -> "mileista")
-#   - si empieza con "=" se detecta solo la palabra exacta (ej. "=petro" no cuenta "petroleo")
-#   - si empieza con "~" se busca tal cual, respetando la ñ (ej. "~peña" no cuenta "pena")
-# "compartidas": palabras que cuentan para varios dirigentes a la vez
-#   - "quitar": nombres completos que se sacan antes de buscar la palabra compartida
-# "otros": figuras que, si aparecen en el comentario, hacen que no se cuente
-# "videos": videos por dirigente (buscar 40 cuesta lo mismo que buscar 20)
-# "paginas": paginas de 100 comentarios por video
-# "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
-# "temas" (opcional): lista de temas propia del pais (si no, se usa la del idioma)
 # ============================================================
 PAISES = {
     "ar": {
@@ -147,9 +135,6 @@ PAISES = {
 
 # ============================================================
 # TEMAS MENCIONADOS
-# Cada tema tiene sus palabras clave (minuscula, sin tildes), con las mismas reglas
-# que las palabras de los dirigentes: normal = tambien derivados, "=" = palabra exacta.
-# Un comentario puede contar para varios temas.
 # ============================================================
 TEMAS = {
     "es": {
@@ -228,7 +213,6 @@ EJEMPLOS_POR_DIRIGENTE_EN_PALABRA = 3
 MAX_HISTORIAL = 200
 UMBRAL_ALERTA = 15
 EXCLUIR_IRONIA = True
-# El detector de ironia solo se usa donde funciona bien (en portugues marcaba todo como ironico)
 IDIOMAS_CON_IRONIA = {"es"}
 
 EMOCIONES = {
@@ -321,6 +305,40 @@ def menciona_dirigente(nombre, texto_norm, texto_crudo, politicos, compartidas, 
         if menciona(quitar_frases(texto_norm, grupo.get("quitar", [])), grupo["palabras"]):
             return True
     return False
+
+
+def corregir_sentimiento_politico(texto, dirigente, sentimiento_actual):
+    """Corrige falsos negativos o neutrales en consignas y apoyos politicos locales."""
+    t_norm = normalizar(texto)
+    d_norm = normalizar(dirigente)
+    # Tomamos tambien la ultima palabra del nombre (ej. "kirchner" o "milei") por si lo nombran asi
+    partes_d = [re.escape(p) for p in set([d_norm] + d_norm.split()) if len(p) >= 4]
+    if not partes_d:
+        partes_d = [re.escape(d_norm)]
+    patron_dir = r"(?:" + "|".join(partes_d) + r")"
+
+    patrones_apoyo = [
+        rf"{patron_dir}\s+tenia\s+ra+zon",
+        rf"tenia\s+ra+zon\s+{patron_dir}",
+        rf"viva\s+{patron_dir}",
+        rf"aguante\s+{patron_dir}",
+        rf"grande\s+{patron_dir}",
+        rf"{patron_dir}\s+(?:fernandez\s+)?(?:libre|presidente|presidenta|conduccion)",
+        rf"votar\s+a\s+{patron_dir}",
+        rf"te\s+banco\s+{patron_dir}",
+        rf"vamos\s+{patron_dir}",
+    ]
+
+    for patron in patrones_apoyo:
+        if re.search(patron, t_norm):
+            return "POS"
+
+    # Si nombra al dirigente con emojis positivos y el modelo lo dejo en neutral
+    if sentimiento_actual == "NEU" and re.search(patron_dir, t_norm):
+        if any(emoji in texto for emoji in ("❤️", "♥️", "👏", "🙌", "💪", "🇦🇷", "🦁")):
+            return "POS"
+
+    return sentimiento_actual
 
 
 def etiqueta(salida, validas, por_defecto):
@@ -732,6 +750,9 @@ def procesar_pais(codigo, cfg):
                     descartes["ironia"] += 1
                     continue
                 s = r["s"]
+                if cfg["idioma"] == "es":
+                    s = corregir_sentimiento_politico(texto, nombre, s)
+                    ya_analizados[cid]["s"] = s
                 resultados[nombre][s] += 1
                 ponderado[s] += 1 + likes
                 emociones[EMOCIONES.get(r.get("e"), "sin_emocion_clara")] += 1

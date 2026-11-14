@@ -1,32 +1,32 @@
 {
   "Sánchez": {
-    "POS": 18,
-    "NEG": 96,
-    "NEU": 15
+    "POS": 27,
+    "NEG": 86,
+    "NEU": 5
   },
   "Feijóo": {
-    "POS": 8,
-    "NEG": 66,
-    "NEU": 3
+    "POS": 5,
+    "NEG": 45,
+    "NEU": 1
   },
   "Abascal": {
-    "POS": 29,
-    "NEG": 87,
-    "NEU": 24
+    "POS": 54,
+    "NEG": 137,
+    "NEU": 15
   },
   "Colau": {
-    "POS": 14,
-    "NEG": 34,
-    "NEU": 5
+    "POS": 21,
+    "NEG": 27,
+    "NEU": 3
   },
   "Irene Montero": {
     "POS": 22,
-    "NEG": 11,
-    "NEU": 20
+    "NEG": 16,
+    "NEU": 5
   },
   "Rufián": {
-    "POS": 38,
-    "NEG": 117,
-    "NEU": 16
+    "POS": 25,
+    "NEG": 46,
+    "NEU": 6
   }
 }

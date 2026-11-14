@@ -44,5 +44,51 @@
       "Irene Montero": false,
       "Rufián": false
     }
+  },
+  {
+    "fecha": "14/11 10:26",
+    "fecha_completa": "14/11/2026 10:26",
+    "fecha_iso": "2026-11-14",
+    "metodo": 4,
+    "datos": {
+      "Sánchez": {
+        "POS": 27,
+        "NEG": 86,
+        "NEU": 5
+      },
+      "Feijóo": {
+        "POS": 5,
+        "NEG": 45,
+        "NEU": 1
+      },
+      "Abascal": {
+        "POS": 54,
+        "NEG": 137,
+        "NEU": 15
+      },
+      "Colau": {
+        "POS": 21,
+        "NEG": 27,
+        "NEU": 3
+      },
+      "Irene Montero": {
+        "POS": 22,
+        "NEG": 16,
+        "NEU": 5
+      },
+      "Rufián": {
+        "POS": 25,
+        "NEG": 46,
+        "NEU": 6
+      }
+    },
+    "pocos_datos": {
+      "Sánchez": false,
+      "Feijóo": false,
+      "Abascal": false,
+      "Colau": false,
+      "Irene Montero": true,
+      "Rufián": false
+    }
   }
 ]

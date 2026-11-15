@@ -19,7 +19,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 PAIS_ELEGIDO = os.getenv("PAIS") or "Todos"
 URL_WEB = "https://viveclickcaba-sketch.github.io/monitor-politico-x/"
 CARPETA = "datos"
-METODO = 4
+METODO = 3
 
 if not API_KEY:
     print("ERROR: falta la clave YOUTUBE_API_KEY en los secretos de GitHub.")
@@ -27,6 +27,17 @@ if not API_KEY:
 
 # ============================================================
 # PAISES Y DIRIGENTES
+# "busqueda": lo que se busca en YouTube
+# "palabras": como lo escribe la gente (minuscula, sin tildes)
+#   - una palabra normal tambien detecta derivados (ej. "milei" -> "mileista")
+#   - si empieza con "=" se detecta solo la palabra exacta (ej. "=petro" no cuenta "petroleo")
+#   - si empieza con "~" se busca tal cual, respetando la ñ (ej. "~peña" no cuenta "pena")
+# "compartidas": palabras que cuentan para varios dirigentes a la vez
+#   - "quitar": nombres completos que se sacan antes de buscar la palabra compartida
+# "otros": figuras que, si aparecen en el comentario, hacen que no se cuente
+# "videos": videos por dirigente (buscar 40 cuesta lo mismo que buscar 20)
+# "paginas": paginas de 100 comentarios por video
+# "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
 # ============================================================
 PAISES = {
     "ar": {
@@ -134,67 +145,6 @@ PAISES = {
 }
 
 # ============================================================
-# TEMAS MENCIONADOS
-# ============================================================
-TEMAS = {
-    "es": {
-        "Inflación y precios":   ["inflacion", "=precio", "=precios", "carestia", "=caro", "=caros"],
-        "Dólar":                 ["dolar", "devalua", "=cepo"],
-        "FMI y deuda":           ["=fmi", "fondo monetario", "deuda", "endeud"],
-        "Jubilaciones":          ["jubila", "pension", "=abuelos"],
-        "Salarios y empleo":     ["salario", "sueldo", "desemple", "=empleo", "=empleos", "despid", "paritaria", "=trabajo", "=laburo"],
-        "Tarifas y servicios":   ["tarifa", "=luz", "=gas", "factura", "=boleto", "transporte"],
-        "Impuestos":             ["impuesto", "=iva", "retenciones", "=afip", "=arca"],
-        "Ajuste y recortes":     ["ajuste", "motosierra", "recorte", "=casta", "deficit"],
-        "Corrupción":            ["corrup", "chorro", "=robo", "=robaron", "=roban", "ladron", "coima", "=presa", "=preso", "=carcel"],
-        "Justicia":              ["justicia", "=juez", "=jueza", "jueces", "fiscal", "tribunal", "condena"],
-        "Inseguridad":           ["insegur", "delincu", "=delito", "=delitos", "=crimen", "narco", "=policia"],
-        "Educación":             ["educacion", "universidad", "=escuela", "=escuelas", "docente", "maestr"],
-        "Salud":                 ["=salud", "hospital", "medicamento", "=medicos", "prepaga", "=pami"],
-        "Pobreza":               ["pobreza", "=pobres", "=hambre", "comedor", "=planes", "planero", "indigen"],
-        "Elecciones":            ["eleccion", "=votar", "=voto", "=votos", "votaron", "candidat", "=urnas", "=fraude"],
-        "Medios y periodistas":  ["periodist", "=medios", "=prensa", "ensobrad"],
-    },
-    "en": {
-        "Inflation and prices":  ["inflation", "=prices", "=price", "groceries", "=expensive"],
-        "Economy and jobs":      ["economy", "=jobs", "=job", "unemploy", "recession", "=wages"],
-        "Taxes and tariffs":     ["=tax", "=taxes", "tariff"],
-        "Immigration":           ["immigra", "=border", "deport", "=ice", "illegal"],
-        "Healthcare":            ["healthcare", "medicare", "medicaid", "obamacare", "insurance"],
-        "Corruption":            ["corrupt", "=bribe", "=fraud", "epstein"],
-        "Courts and justice":    ["=court", "=judge", "indict", "=trial", "=jail", "prison"],
-        "Crime":                 ["=crime", "criminal", "=police", "=guns", "=gun"],
-        "Elections":             ["election", "=vote", "=voting", "=voters", "ballot", "=polls", "rigged"],
-        "War and foreign policy": ["=war", "ukraine", "israel", "=gaza", "russia", "china", "=iran"],
-        "Media":                 ["=media", "fake news", "=press", "journalist"],
-    },
-    "pt": {
-        "Inflação e preços":     ["inflacao", "=preco", "=precos", "=caro", "carestia"],
-        "Economia e emprego":    ["economia", "desemprego", "=emprego", "salario", "=trabalho"],
-        "Impostos":              ["imposto", "tribut", "=taxa", "=taxas", "tarifa"],
-        "Corrupção":             ["corrup", "=ladrao", "=roubo", "=roubou", "propina", "mensalao", "petrolao"],
-        "Justiça":               ["justica", "=stf", "supremo", "=juiz", "=prisao", "=preso", "condena"],
-        "Segurança":             ["seguranca", "violencia", "=crime", "=bandido", "=policia", "=faccao"],
-        "Saúde":                 ["=saude", "=sus", "hospital", "medico"],
-        "Educação":              ["educacao", "=escola", "universidade", "professor"],
-        "Eleições":              ["eleicao", "eleicoes", "=voto", "=votar", "=urna", "=urnas", "=fraude", "candidat"],
-        "Pobreza e auxílios":    ["pobreza", "=fome", "bolsa familia", "auxilio"],
-    },
-    "it": {
-        "Inflazione e prezzi":   ["inflazione", "=prezzi", "=prezzo", "bollett", "carovita"],
-        "Economia e lavoro":     ["economia", "=lavoro", "disoccup", "stipend", "salari"],
-        "Tasse":                 ["=tasse", "=tassa", "fisco", "=iva", "=irpef"],
-        "Immigrazione":          ["immigra", "migranti", "sbarchi", "clandestin", "albania"],
-        "Corruzione":            ["corruz", "=ladri", "=ladro", "tangent", "mafia"],
-        "Giustizia":             ["giustizia", "magistrat", "=giudici", "=giudice", "processo", "condann"],
-        "Sanità":                ["sanita", "ospedal", "=medici"],
-        "Guerra ed esteri":      ["guerra", "ucraina", "russia", "israele", "=gaza", "=nato"],
-        "Elezioni":              ["elezioni", "=voto", "=votare", "sondagg", "=urne"],
-        "Pensioni":              ["pension"],
-    },
-}
-
-# ============================================================
 # CONFIGURACION GENERAL
 # ============================================================
 MAX_COMENTARIOS_POR_CANAL = 20
@@ -204,15 +154,13 @@ DIAS_ACUMULADO = 30
 MINIMO_COMENTARIOS = 50
 MINIMO_CANALES = 5
 EJEMPLOS_POR_TIPO = 3
+REVISABLES_POR_DIRIGENTE = 15
 VIDEOS_DESTACADOS = 3
 TEMAS_POR_DIRIGENTE = 12
-NUBE_PALABRAS = 60
-NUBE_MINIMO = 3
-EJEMPLOS_POR_PALABRA = 10
-EJEMPLOS_POR_DIRIGENTE_EN_PALABRA = 3
 MAX_HISTORIAL = 200
 UMBRAL_ALERTA = 15
 EXCLUIR_IRONIA = True
+# El detector de ironia solo se usa donde funciona bien (en portugues marcaba todo como ironico)
 IDIOMAS_CON_IRONIA = {"es"}
 
 EMOCIONES = {
@@ -307,40 +255,6 @@ def menciona_dirigente(nombre, texto_norm, texto_crudo, politicos, compartidas, 
     return False
 
 
-def corregir_sentimiento_politico(texto, dirigente, sentimiento_actual):
-    """Corrige falsos negativos o neutrales en consignas y apoyos politicos locales."""
-    t_norm = normalizar(texto)
-    d_norm = normalizar(dirigente)
-    # Tomamos tambien la ultima palabra del nombre (ej. "kirchner" o "milei") por si lo nombran asi
-    partes_d = [re.escape(p) for p in set([d_norm] + d_norm.split()) if len(p) >= 4]
-    if not partes_d:
-        partes_d = [re.escape(d_norm)]
-    patron_dir = r"(?:" + "|".join(partes_d) + r")"
-
-    patrones_apoyo = [
-        rf"{patron_dir}\s+tenia\s+ra+zon",
-        rf"tenia\s+ra+zon\s+{patron_dir}",
-        rf"viva\s+{patron_dir}",
-        rf"aguante\s+{patron_dir}",
-        rf"grande\s+{patron_dir}",
-        rf"{patron_dir}\s+(?:fernandez\s+)?(?:libre|presidente|presidenta|conduccion)",
-        rf"votar\s+a\s+{patron_dir}",
-        rf"te\s+banco\s+{patron_dir}",
-        rf"vamos\s+{patron_dir}",
-    ]
-
-    for patron in patrones_apoyo:
-        if re.search(patron, t_norm):
-            return "POS"
-
-    # Si nombra al dirigente con emojis positivos y el modelo lo dejo en neutral
-    if sentimiento_actual == "NEU" and re.search(patron_dir, t_norm):
-        if any(emoji in texto for emoji in ("❤️", "♥️", "👏", "🙌", "💪", "🇦🇷", "🦁")):
-            return "POS"
-
-    return sentimiento_actual
-
-
 def etiqueta(salida, validas, por_defecto):
     """Toma la salida de un modelo (texto o lista) y devuelve una etiqueta valida."""
     if isinstance(salida, (list, tuple)):
@@ -386,39 +300,6 @@ def enviar_telegram(texto):
 def porcentaje_negativo(d):
     total = d.get("POS", 0) + d.get("NEG", 0) + d.get("NEU", 0)
     return d.get("NEG", 0) * 100 / total if total else None
-
-
-def armar_resumen(registros, claves_de, maximo=None, minimo=1):
-    """Agrupa los comentarios por palabra o por tema: total, tono, reparto por dirigente y ejemplos."""
-    indice = {}
-    for r in registros:
-        for clave in claves_de(r):
-            e = indice.setdefault(clave, {
-                "clave": clave, "total": 0, "tono": {"POS": 0, "NEG": 0, "NEU": 0},
-                "por_dirigente": {}, "_comentarios": [],
-            })
-            e["total"] += 1
-            e["tono"][r["s"]] += 1
-            pd = e["por_dirigente"].setdefault(r["d"], {"total": 0, "POS": 0, "NEG": 0, "NEU": 0})
-            pd["total"] += 1
-            pd[r["s"]] += 1
-            e["_comentarios"].append(r)
-    lista = sorted([e for e in indice.values() if e["total"] >= minimo], key=lambda e: -e["total"])
-    if maximo:
-        lista = lista[:maximo]
-    for e in lista:
-        ordenados = sorted(e.pop("_comentarios"), key=lambda r: -r["l"])
-        elegidos, por_dirigente = [], Counter()
-        for r in ordenados:
-            if por_dirigente[r["d"]] >= EJEMPLOS_POR_DIRIGENTE_EN_PALABRA:
-                continue
-            elegidos.append(r)
-            por_dirigente[r["d"]] += 1
-            if len(elegidos) >= EJEMPLOS_POR_PALABRA:
-                break
-        e["ejemplos"] = [{"texto": r["t"], "dirigente": r["d"], "tono": r["s"], "likes": r["l"]} for r in elegidos]
-        e["por_dirigente"] = dict(sorted(e["por_dirigente"].items(), key=lambda x: -x[1]["total"]))
-    return lista
 
 
 # ============================================================
@@ -615,7 +496,6 @@ def procesar_pais(codigo, cfg):
     politicos = cfg["politicos"]
     compartidas = cfg.get("compartidas", [])
     otros_nombres = cfg.get("otros", [])
-    temas_cfg = cfg.get("temas") or TEMAS.get(cfg["idioma"], {})
     stop = STOPWORDS.get(cfg["idioma"], set())
     excluir_temas = set()
     for o in otros_nombres:
@@ -633,7 +513,6 @@ def procesar_pais(codigo, cfg):
     detalle = {}
     ya_analizados = {}
     ids_por_politico = {p: [] for p in politicos}
-    registros = []
     limite_cuenta_nueva = datetime.now(timezone.utc) - timedelta(days=DIAS_CUENTA_NUEVA)
 
     for nombre, config in politicos.items():
@@ -750,9 +629,6 @@ def procesar_pais(codigo, cfg):
                     descartes["ironia"] += 1
                     continue
                 s = r["s"]
-                if cfg["idioma"] == "es":
-                    s = corregir_sentimiento_politico(texto, nombre, s)
-                    ya_analizados[cid]["s"] = s
                 resultados[nombre][s] += 1
                 ponderado[s] += 1 + likes
                 emociones[EMOCIONES.get(r.get("e"), "sin_emocion_clara")] += 1
@@ -761,16 +637,9 @@ def procesar_pais(codigo, cfg):
                 respuestas_total += respuestas
                 if respuestas > mas_discutido["respuestas"]:
                     mas_discutido = {"texto": texto[:220], "respuestas": respuestas}
-                norm_texto = normalizar(texto)
-                palabras_comentario = {w for w in norm_texto.split()
-                                       if len(w) >= 4 and w not in stop and w not in excluir_temas and not w.isdigit()}
-                temas.update(palabras_comentario)
-                registros.append({
-                    "d": nombre, "s": s, "l": likes, "t": texto[:240],
-                    "w": palabras_comentario,
-                    "tm": [tema for tema, claves in temas_cfg.items() if menciona(norm_texto, claves, texto)],
-                })
-                analizados_politico.append((s, likes, texto))
+                temas.update({w for w in normalizar(texto).split()
+                              if len(w) >= 4 and w not in stop and w not in excluir_temas and not w.isdigit()})
+                analizados_politico.append((s, likes, texto, cid))
                 ids_por_politico[nombre].append(cid)
                 contados_canal += 1
             if contados_canal:
@@ -779,7 +648,13 @@ def procesar_pais(codigo, cfg):
 
         def ejemplos_de(tipo):
             lista = sorted([a for a in analizados_politico if a[0] == tipo], key=lambda a: -a[1])
-            return [{"texto": t[:280], "likes": l} for _, l, t in lista[:EJEMPLOS_POR_TIPO]]
+            return [{"id": c, "texto": t[:280], "likes": l} for _, l, t, c in lista[:EJEMPLOS_POR_TIPO]]
+
+        # Comentarios mas votados (de cualquier tono) para poder corregirlos desde la web
+        revisables = [
+            {"id": c, "texto": t[:400], "likes": l, "s": s}
+            for s, l, t, c in sorted(analizados_politico, key=lambda a: -a[1])[:REVISABLES_POR_DIRIGENTE]
+        ]
 
         canales_ordenados = dict(sorted(canales.items(), key=lambda x: -x[1]))
         pocos_datos = contados < MINIMO_COMENTARIOS or len(canales) < MINIMO_CANALES
@@ -798,6 +673,7 @@ def procesar_pais(codigo, cfg):
             "comentarios_descartados": descartes,
             "videos_destacados": videos_destacados,
             "ejemplos": {"positivos": ejemplos_de("POS"), "negativos": ejemplos_de("NEG")},
+            "revisables": revisables,
             "emociones": emociones,
             "agresivos": agresivos,
             "ponderado_likes": ponderado,
@@ -815,13 +691,6 @@ def procesar_pais(codigo, cfg):
     if total == 0:
         print(f"ERROR: no se pudo analizar ningun comentario de {cfg['nombre']}. No se actualizan sus datos.")
         return False
-
-    # Nube de palabras y temas mencionados (de todos los dirigentes del pais)
-    nube = armar_resumen(registros, lambda r: r["w"], maximo=NUBE_PALABRAS, minimo=NUBE_MINIMO)
-    temas_mencionados = armar_resumen(registros, lambda r: r["tm"])
-    del registros
-    print(f"Nube: {len(nube)} palabras. Temas mencionados: " +
-          (", ".join(f"{t['clave']} ({t['total']})" for t in temas_mencionados[:6]) or "ninguno"))
 
     hora_ar = datetime.now(timezone(timedelta(hours=-3)))
     hoy = hora_ar.strftime("%Y-%m-%d")
@@ -897,9 +766,6 @@ def procesar_pais(codigo, cfg):
             "pocos_datos": {n: sum(d.values()) < MINIMO_COMENTARIOS for n, d in datos_acumulados.items()},
         },
         "detalle": detalle,
-        "temas_lista": {tema: claves for tema, claves in temas_cfg.items()},
-        "temas_mencionados": temas_mencionados,
-        "nube": nube,
     }
     guardar_json(ruta(codigo, "info.json"), info)
 

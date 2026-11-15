@@ -1158,5 +1158,75 @@
       "Grabois": true,
       "Bregman": true
     }
+  },
+  {
+    "fecha": "15/11 13:41",
+    "fecha_completa": "15/11/2026 13:41",
+    "fecha_iso": "2026-11-15",
+    "metodo": 4,
+    "datos": {
+      "Milei": {
+        "POS": 28,
+        "NEG": 72,
+        "NEU": 7
+      },
+      "Massa": {
+        "POS": 0,
+        "NEG": 11,
+        "NEU": 3
+      },
+      "Kicillof": {
+        "POS": 13,
+        "NEG": 45,
+        "NEU": 5
+      },
+      "Macri": {
+        "POS": 3,
+        "NEG": 44,
+        "NEU": 3
+      },
+      "Bullrich": {
+        "POS": 2,
+        "NEG": 36,
+        "NEU": 3
+      },
+      "Cristina": {
+        "POS": 6,
+        "NEG": 45,
+        "NEU": 12
+      },
+      "Máximo Kirchner": {
+        "POS": 0,
+        "NEG": 5,
+        "NEU": 3
+      },
+      "Villarruel": {
+        "POS": 9,
+        "NEG": 44,
+        "NEU": 14
+      },
+      "Grabois": {
+        "POS": 7,
+        "NEG": 21,
+        "NEU": 5
+      },
+      "Bregman": {
+        "POS": 0,
+        "NEG": 3,
+        "NEU": 2
+      }
+    },
+    "pocos_datos": {
+      "Milei": false,
+      "Massa": true,
+      "Kicillof": false,
+      "Macri": false,
+      "Bullrich": true,
+      "Cristina": false,
+      "Máximo Kirchner": true,
+      "Villarruel": false,
+      "Grabois": true,
+      "Bregman": true
+    }
   }
 ]

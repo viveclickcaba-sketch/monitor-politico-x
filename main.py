@@ -35,7 +35,7 @@ if not API_KEY:
 # "compartidas": palabras que cuentan para varios dirigentes a la vez
 #   - "quitar": nombres completos que se sacan antes de buscar la palabra compartida
 # "otros": figuras que, si aparecen en el comentario, hacen que no se cuente
-# "videos": videos por dirigente (buscar 40 cuesta lo mismo que buscar 20)
+# "videos": videos NUEVOS por dirigente en cada corrida
 # "paginas": paginas de 100 comentarios por video
 # "dias" (opcional): cuantos dias hacia atras mirar (por defecto 7)
 # ============================================================
@@ -162,6 +162,8 @@ UMBRAL_ALERTA = 15
 EXCLUIR_IRONIA = True
 # El detector de ironia solo se usa donde funciona bien (en portugues marcaba todo como ironico)
 IDIOMAS_CON_IRONIA = {"es"}
+# No repetir: se saltean videos ya analizados y comentarios ya contados en corridas anteriores
+NO_REPETIR = True
 
 EMOCIONES = {
     "joy": "alegria", "sadness": "tristeza", "anger": "enojo", "surprise": "sorpresa",
@@ -393,7 +395,8 @@ def cargar_canales(ids):
             info_canales.setdefault(i, {"pais": None, "creado": None})
 
 
-def buscar_videos(busqueda, region, idioma, cantidad, dias):
+def buscar_videos(busqueda, region, idioma, dias):
+    """Siempre pide 50 resultados (cuesta lo mismo), asi hay lugar para saltear los ya analizados."""
     desde = (datetime.now(timezone.utc) - timedelta(days=dias)).strftime("%Y-%m-%dT%H:%M:%SZ")
     datos = llamar_youtube("search", {
         "part": "snippet",
@@ -403,7 +406,7 @@ def buscar_videos(busqueda, region, idioma, cantidad, dias):
         "publishedAfter": desde,
         "regionCode": region,
         "relevanceLanguage": idioma,
-        "maxResults": min(cantidad, 50),
+        "maxResults": 50,
     })
     videos = []
     for item in datos.get("items", []):
@@ -508,30 +511,52 @@ def procesar_pais(codigo, cfg):
         for p in grupo["palabras"]:
             excluir_temas.update(normalizar(p.lstrip("=~")).split())
 
+    # Lo ya analizado en corridas anteriores (para no repetir)
+    hora_ar = datetime.now(timezone(timedelta(hours=-3)))
+    hoy = hora_ar.strftime("%Y-%m-%d")
+    limite_acum = (hora_ar - timedelta(days=DIAS_ACUMULADO)).strftime("%Y-%m-%d")
+    vistos = leer_json(ruta(codigo, "videos_vistos.json"), {})
+    vistos = {v: f for v, f in vistos.items() if f >= limite_acum}
+    acumulado = leer_json(ruta(codigo, "acumulado.json"), {})
+    if acumulado.get("_metodo") != METODO:
+        acumulado = {"_metodo": METODO}
+    ya_contados = set()
+    for k, v in acumulado.items():
+        if k != "_metodo":
+            ya_contados.update(v.keys())
+    if NO_REPETIR:
+        print(f"  Ya analizados antes: {len(vistos)} videos y {len(ya_contados)} comentarios (se saltean)")
+
     comentarios_max = cfg["paginas"] * 100
     resultados = {p: {"POS": 0, "NEG": 0, "NEU": 0} for p in politicos}
     detalle = {}
     ya_analizados = {}
     ids_por_politico = {p: [] for p in politicos}
+    videos_nuevos = set()
     limite_cuenta_nueva = datetime.now(timezone.utc) - timedelta(days=DIAS_CUENTA_NUEVA)
 
     for nombre, config in politicos.items():
         print(f"Buscando videos de {config['busqueda']}...")
         try:
-            videos = buscar_videos(config["busqueda"], cfg["region"], cfg["idioma"], cfg["videos"], dias)
+            videos = buscar_videos(config["busqueda"], cfg["region"], cfg["idioma"], dias)
         except Exception as e:
             print(f"  Error al buscar videos: {e}")
             continue
 
-        videos_descartados = {"canal_extranjero": 0, "canal_oficial": 0}
-        descartes = {"menciona_otros": 0, "mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0, "ironia": 0}
+        videos_descartados = {"ya_analizado": 0, "canal_extranjero": 0, "canal_oficial": 0}
+        descartes = {"ya_contado": 0, "menciona_otros": 0, "mismo_autor": 0, "texto_repetido": 0, "cuenta_nueva": 0, "tope_canal": 0, "ironia": 0}
         otros_dirigentes = [n for n in politicos if n != nombre]
 
-        # 1) Filtrar canales extranjeros u oficiales
+        # 1) Saltear videos ya analizados y filtrar canales extranjeros u oficiales
         cargar_canales([v[1] for v in videos])
         busqueda_norm = normalizar(config["busqueda"])
         validos = []
         for video_id, canal_id, canal, titulo in videos:
+            if len(validos) >= cfg["videos"]:
+                break
+            if NO_REPETIR and video_id in vistos:
+                videos_descartados["ya_analizado"] += 1
+                continue
             pais = info_canales.get(canal_id, {}).get("pais")
             if pais and pais != cfg["region"]:
                 videos_descartados["canal_extranjero"] += 1
@@ -542,6 +567,7 @@ def procesar_pais(codigo, cfg):
                 print(f"    (descartado canal oficial: {canal})")
                 continue
             validos.append((video_id, canal, titulo))
+        videos_nuevos.update(v[0] for v in validos)
 
         # 2) Alcance y videos con mas conversacion
         stats = estadisticas_videos([v[0] for v in validos])
@@ -568,7 +594,7 @@ def procesar_pais(codigo, cfg):
                 except Exception:
                     pass
 
-        # 4) Comentarios que lo nombran SOLO a el, sin autores ni textos repetidos
+        # 4) Comentarios nuevos que lo nombran SOLO a el, sin autores ni textos repetidos
         candidatos = {}
         vistos_cid, vistos_autor, vistos_texto = set(), set(), set()
         for video_id, canal, titulo in validos:
@@ -576,6 +602,9 @@ def procesar_pais(codigo, cfg):
                 if cid in vistos_cid:
                     continue
                 vistos_cid.add(cid)
+                if NO_REPETIR and cid in ya_contados:
+                    descartes["ya_contado"] += 1
+                    continue
                 norm = normalizar(texto)
                 if not menciona_dirigente(nombre, norm, texto, politicos, compartidas):
                     continue
@@ -659,8 +688,8 @@ def procesar_pais(codigo, cfg):
         canales_ordenados = dict(sorted(canales.items(), key=lambda x: -x[1]))
         pocos_datos = contados < MINIMO_COMENTARIOS or len(canales) < MINIMO_CANALES
 
-        print(f"  {len(validos)} videos validos ({alcance['vistas']} vistas), {contados} comentarios de {len(canales)} canales")
-        print(f"  Descartados: {descartes}")
+        print(f"  {len(validos)} videos nuevos ({alcance['vistas']} vistas), {contados} comentarios nuevos de {len(canales)} canales")
+        print(f"  Videos salteados: {videos_descartados} | Comentarios descartados: {descartes}")
         if pocos_datos:
             print("  AVISO: pocos datos, resultado poco confiable")
 
@@ -689,17 +718,15 @@ def procesar_pais(codigo, cfg):
 
     total = sum(sum(v.values()) for v in resultados.values())
     if total == 0:
-        print(f"ERROR: no se pudo analizar ningun comentario de {cfg['nombre']}. No se actualizan sus datos.")
+        print(f"Sin comentarios nuevos para {cfg['nombre']} desde la corrida anterior. No se actualizan sus datos.")
         return False
 
-    hora_ar = datetime.now(timezone(timedelta(hours=-3)))
-    hoy = hora_ar.strftime("%Y-%m-%d")
-    limite_acum = (hora_ar - timedelta(days=DIAS_ACUMULADO)).strftime("%Y-%m-%d")
+    # Registrar los videos analizados para no repetirlos
+    for v in videos_nuevos:
+        vistos[v] = hoy
+    guardar_json(ruta(codigo, "videos_vistos.json"), vistos, indent=None)
 
     # Acumulado (cada comentario cuenta una sola vez)
-    acumulado = leer_json(ruta(codigo, "acumulado.json"), {})
-    if acumulado.get("_metodo") != METODO:
-        acumulado = {"_metodo": METODO}
     for nombre, ids in ids_por_politico.items():
         registro = acumulado.setdefault(nombre, {})
         for cid in ids:
@@ -724,6 +751,7 @@ def procesar_pais(codigo, cfg):
         "fecha_completa": hora_ar.strftime("%d/%m/%Y %H:%M"),
         "fecha_iso": hoy,
         "metodo": METODO,
+        "solo_nuevos": NO_REPETIR,
         "datos": resultados,
         "pocos_datos": {n: d["pocos_datos"] for n, d in detalle.items()},
     })
@@ -739,6 +767,7 @@ def procesar_pais(codigo, cfg):
         "idioma": cfg["idioma"],
         "actualizado": hora_ar.strftime("%d/%m/%Y %H:%M"),
         "metodo": METODO,
+        "solo_nuevos": NO_REPETIR,
         "fuente": "Comentarios de YouTube",
         "periodo": f"Videos de los ultimos {dias} dias",
         "filtros": {
@@ -749,6 +778,7 @@ def procesar_pais(codigo, cfg):
             "tope_por_canal": MAX_COMENTARIOS_POR_CANAL,
             "un_comentario_por_persona": True,
             "sin_textos_repetidos": True,
+            "sin_repetir_videos_ni_comentarios": NO_REPETIR,
             "cuentas_nuevas_excluidas_dias": DIAS_CUENTA_NUEVA,
             "sin_canales_extranjeros_ni_oficiales": True,
         },
@@ -801,7 +831,7 @@ def procesar_pais(codigo, cfg):
     if cambios and TELEGRAM_TOKEN and TELEGRAM_CHAT_ID:
         enviar_telegram(f"📊 Monitor Político ({cfg['nombre']}): cambios fuertes\n\n" + "\n".join(cambios) + f"\n\n{URL_WEB}")
 
-    print(f"Listo {cfg['nombre']}: {total} comentarios. Acumulado de {corridas} corrida(s).")
+    print(f"Listo {cfg['nombre']}: {total} comentarios nuevos. Acumulado de {corridas} corrida(s).")
     return True
 
 
@@ -829,7 +859,7 @@ for codigo in codigos:
 print("")
 print("RESUMEN:")
 for codigo, ok in estado.items():
-    print(f"  {PAISES[codigo]['nombre']}: {'OK' if ok else 'SIN ACTUALIZAR'}")
+    print(f"  {PAISES[codigo]['nombre']}: {'OK' if ok else 'SIN ACTUALIZAR (sin novedades o con error)'}")
 
 if not any(estado.values()):
     sys.exit(1)

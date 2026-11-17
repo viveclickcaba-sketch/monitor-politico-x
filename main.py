@@ -554,7 +554,7 @@ def procesar_pais(codigo, cfg):
         for video_id, canal_id, canal, titulo in videos:
             if len(validos) >= cfg["videos"]:
                 break
-            if NO_REPETIR and video_id in vistos:
+            if False and video_id in vistos:
                 videos_descartados["ya_analizado"] += 1
                 continue
             pais = info_canales.get(canal_id, {}).get("pais")

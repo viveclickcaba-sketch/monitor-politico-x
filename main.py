@@ -53,7 +53,9 @@ PAISES = {
             "Villarruel":      {"busqueda": "Victoria Villarruel", "palabras": ["victoria villarruel", "villarruel", "villaruel"]},
             "Grabois":         {"busqueda": "Juan Grabois",        "palabras": ["juan grabois", "grabois"]},
             "Bregman":         {"busqueda": "Myriam Bregman",      "palabras": ["myriam bregman", "bregman"]},
+            "Larreta":         {"busqueda": "Horacio Rodríguez Larreta", "palabras": ["horacio rodriguez larreta", "rodriguez larreta", "larreta"]},
         },
+        
         "compartidas": [
             {
                 "dirigentes": ["Cristina", "Máximo Kirchner"],

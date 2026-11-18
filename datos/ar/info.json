@@ -2,7 +2,7 @@
   "pais": "Argentina",
   "codigo": "ar",
   "idioma": "es",
-  "actualizado": "18/11/2026 10:10",
+  "actualizado": "18/11/2026 15:26",
   "metodo": 3,
   "solo_nuevos": true,
   "fuente": "Comentarios de YouTube",
@@ -46,45 +46,45 @@
     "comentarios": 50,
     "canales": 5
   },
-  "total_comentarios": 186,
+  "total_comentarios": 84,
   "acumulado": {
     "dias": 30,
-    "corridas": 16,
+    "corridas": 17,
     "datos": {
       "Milei": {
-        "POS": 94,
-        "NEG": 292,
-        "NEU": 71
+        "POS": 96,
+        "NEG": 305,
+        "NEU": 74
       },
       "Massa": {
-        "POS": 3,
-        "NEG": 36,
-        "NEU": 10
+        "POS": 6,
+        "NEG": 45,
+        "NEU": 14
       },
       "Kicillof": {
-        "POS": 14,
-        "NEG": 82,
-        "NEU": 18
+        "POS": 16,
+        "NEG": 88,
+        "NEU": 19
       },
       "Macri": {
-        "POS": 8,
+        "POS": 10,
         "NEG": 97,
         "NEU": 9
       },
       "Bullrich": {
-        "POS": 6,
+        "POS": 7,
         "NEG": 56,
         "NEU": 6
       },
       "Cristina": {
-        "POS": 28,
-        "NEG": 108,
-        "NEU": 39
+        "POS": 36,
+        "NEG": 119,
+        "NEU": 47
       },
       "Máximo Kirchner": {
         "POS": 0,
         "NEG": 9,
-        "NEU": 3
+        "NEU": 4
       },
       "Villarruel": {
         "POS": 14,
@@ -93,18 +93,23 @@
       },
       "Grabois": {
         "POS": 11,
-        "NEG": 36,
-        "NEU": 8
+        "NEG": 37,
+        "NEU": 9
       },
       "Bregman": {
         "POS": 0,
         "NEG": 9,
         "NEU": 4
+      },
+      "Larreta": {
+        "POS": 0,
+        "NEG": 8,
+        "NEU": 0
       }
     },
     "pocos_datos": {
       "Milei": false,
-      "Massa": true,
+      "Massa": false,
       "Kicillof": false,
       "Macri": false,
       "Bullrich": false,
@@ -112,306 +117,298 @@
       "Máximo Kirchner": true,
       "Villarruel": false,
       "Grabois": false,
-      "Bregman": true
+      "Bregman": true,
+      "Larreta": true
     }
   },
   "detalle": {
     "Milei": {
       "videos": 40,
-      "comentarios": 77,
-      "pocos_datos": false,
+      "comentarios": 18,
+      "pocos_datos": true,
       "canales": {
-        "eldoce": 10,
-        "Revolución Popular Noticias": 10,
-        "LA NACION": 9,
-        "Politica Argentina": 9,
-        "El Peluca Milei": 7,
-        "Adrián Ackerman": 5,
-        "Las Fuerzas de La Pala": 5,
-        "Cíclico": 4,
-        "LA ROSCA Y LA PELOTA": 3,
-        "A24com": 3,
-        "Página12": 2,
-        "NICO ZAPATA": 2,
-        "EZZE TV": 2,
-        "Derecha Diario TV": 2,
-        "CLARÍN": 1,
-        "Filo News": 1,
-        "El Destape": 1,
-        "SinEmbargo Al Aire": 1
+        "Todo Noticias": 5,
+        "El Peluca Milei": 4,
+        "Adrián Ackerman": 2,
+        "Revolución Popular Noticias": 2,
+        "A24com": 1,
+        "LA ROSCA Y LA PELOTA": 1,
+        "LA NACION": 1,
+        "Politica Argentina": 1,
+        "Canal Siete Noticias": 1
       },
       "videos_descartados": {
         "ya_analizado": 0,
-        "canal_extranjero": 3,
+        "canal_extranjero": 4,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "ya_contado": 144,
-        "menciona_otros": 23,
-        "mismo_autor": 7,
-        "texto_repetido": 2,
+        "ya_contado": 188,
+        "menciona_otros": 26,
+        "mismo_autor": 5,
+        "texto_repetido": 1,
         "cuenta_nueva": 1,
-        "tope_canal": 7,
-        "ironia": 76
+        "tope_canal": 1,
+        "ironia": 65
       },
       "videos_destacados": [
         {
           "titulo": "Milei contra los discapacitados - ( Santiago Cuneo te advirtió sobre Javier )",
           "canal": "Politica Argentina",
           "url": "https://www.youtube.com/watch?v=YZUpKR9hbYE",
-          "comentarios": 788,
-          "vistas": 59004
+          "comentarios": 793,
+          "vistas": 59220
         },
         {
           "titulo": "MILEI DELIRA: \"El estado natural del hombre durante toda su existencia fue la pobreza\"",
           "canal": "El Destape",
           "url": "https://www.youtube.com/watch?v=_XVBQYiREM0",
-          "comentarios": 625,
-          "vistas": 83565
+          "comentarios": 628,
+          "vistas": 83871
         },
         {
           "titulo": "Patologia terminal de Javier Milei - ( Santiago Cuneo )",
           "canal": "Politica Argentina",
           "url": "https://www.youtube.com/watch?v=N3X-pNW6JHo",
-          "comentarios": 485,
-          "vistas": 51315
+          "comentarios": 497,
+          "vistas": 52994
         }
       ],
       "ejemplos": {
         "positivos": [
           {
-            "id": "UgwaRaEdCYpAhathZLB4AaABAg",
-            "texto": "Que grande milei,,,,,siga asi carajo",
-            "likes": 18
+            "id": "UgzrZJd9IQW-WTGnTkJ4AaABAg",
+            "texto": "Hermoso reconocimiento al Presidente. DIOS BENDIGA A ESTE BELLO PAÍS, DIOS BENDIGA AL PRESIDENTE MILEI.",
+            "likes": 6
           },
           {
-            "id": "Ugw-6CmWHrhu2GH0OY94AaABAg",
-            "texto": "Vamos Milei, carajo!!",
-            "likes": 10
-          },
-          {
-            "id": "Ugw6DyDWZDP25BVPP3V4AaABAg",
-            "texto": "Bendiciones desde cdmx México.  Voto Milei la única opción para sacar del hambre después de vivir corrupción x 80 años.",
-            "likes": 8
+            "id": "UgzMH3tCD7vi-JlUtzp4AaABAg",
+            "texto": "Dejen Milei que continúe impulsando el avance de Argentina el Papa le desea lo mejor a este pueblo",
+            "likes": 4
           }
         ],
         "negativos": [
           {
-            "id": "UgynBYJfUu6jwYy2ivN4AaABAg",
-            "texto": "Ya lo dijo Ricardo Arriazu, economista liberal: los votantes de milei son en su mayoría \"varones jóvenes, pobres y de poca educación\" que \"no entienden nada de lo que se les dice\"",
-            "likes": 22
+            "id": "Ugx296_lBkdMTskDrRh4AaABAg",
+            "texto": "La verdad no me gustó como Nelson cubrió la visita del Papa. Y lo que hizo en Perú… hablando de Milei y del país peruano🤦‍♀️ necesita unas vacaciones y un retiro espiritual para que se calme. Mucha soberbia y arrogancia.",
+            "likes": 8
           },
           {
-            "id": "Ugwuh9115rPsIJtX1cF4AaABAg",
-            "texto": "Milei  4 años mas",
-            "likes": 16
+            "id": "UgxebTDV4_0KhbVz4vh4AaABAg",
+            "texto": "Que hincha pelotas de los periodistas, queriendo que el Papa hable mal del gobierno de Milei. Además hablan como si la mala situación fuese producto del gobierno actual, se recibió un pésimo estado, que parecen todos olvidan.",
+            "likes": 4
           },
           {
-            "id": "UgzbOZYCY9m1jPLttgR4AaABAg",
-            "texto": "Así es humanidad es lo que le falta a Milei , exacto Papa León.",
-            "likes": 12
+            "id": "Ugy6k_eDA3M-2q_gakJ4AaABAg",
+            "texto": "Tiene qué Haber las pasó para qué suban nuevos partidos políticos Milei no quiere por qué quiere ser él y C F K peronistas basta de lo mismo tiene qué aber la verdadera democracias",
+            "likes": 4
           }
         ]
       },
       "revisables": [
         {
-          "id": "Ugzo543mBsc04ReIAid4AaABAg",
-          "texto": "Clarito Clarito, y hablo con Milei xq es el presidente, pero el.mje es para todos los ámbitos políticos, gobernadores, intendentes, concejales, diputados, etc etc...",
-          "likes": 28,
-          "s": "NEU"
-        },
-        {
-          "id": "UgynBYJfUu6jwYy2ivN4AaABAg",
-          "texto": "Ya lo dijo Ricardo Arriazu, economista liberal: los votantes de milei son en su mayoría \"varones jóvenes, pobres y de poca educación\" que \"no entienden nada de lo que se les dice\"",
-          "likes": 22,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwaRaEdCYpAhathZLB4AaABAg",
-          "texto": "Que grande milei,,,,,siga asi carajo",
-          "likes": 18,
-          "s": "POS"
-        },
-        {
-          "id": "Ugwuh9115rPsIJtX1cF4AaABAg",
-          "texto": "Milei  4 años mas",
-          "likes": 16,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzbOZYCY9m1jPLttgR4AaABAg",
-          "texto": "Así es humanidad es lo que le falta a Milei , exacto Papa León.",
+          "id": "UgyJ2x_xA695fiyZ9294AaABAg",
+          "texto": "No. Milei no va por la reelección. Milei YA fue reelecto.",
           "likes": 12,
-          "s": "NEG"
-        },
-        {
-          "id": "UgxJ6nbGSYesAxemoU14AaABAg",
-          "texto": "Es muy inteligente este Papá Calmo con convicciones Pero Ud se dan cuenta que Milei está en las antípodas del.pensamiento cristiano No está del lado de los débiles Milei Todo su accionar por el contrario complicando a los discapacitados a los jubilados etc etc",
-          "likes": 11,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugw-6CmWHrhu2GH0OY94AaABAg",
-          "texto": "Vamos Milei, carajo!!",
-          "likes": 10,
-          "s": "POS"
-        },
-        {
-          "id": "UgwtVAyj6IniIddybX94AaABAg",
-          "texto": "Diplomaticamente le dijo que deje de odiar a los propios Argentinos. TODOS SABEMOS QUE NOS DETESTA Y NOS QUIERE ELIMINAR DEL PLANETA NUESTRO PRESIDENTE JAVIER MILEI. 😢",
-          "likes": 8,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugw6DyDWZDP25BVPP3V4AaABAg",
-          "texto": "Bendiciones desde cdmx México.  Voto Milei la única opción para sacar del hambre después de vivir corrupción x 80 años.",
-          "likes": 8,
-          "s": "POS"
-        },
-        {
-          "id": "UgwGCUa6aVkFm2j9M6J4AaABAg",
-          "texto": "Leon es más vivo que todos. Frente a Milei, su mensaje es claramente político, ya que Milei convirtió la deshumanizacion en política de estado. Pero Leon no lo ataca directamente, es muchísimo más hábil que eso.",
-          "likes": 7,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyQjv1wtYqXnIPGEth4AaABAg",
-          "texto": "BRAVO MILEI YO SIEMPRE TE VOTARE\nSIGUE ADELANTE TE QUEREMOS.....",
-          "likes": 7,
-          "s": "POS"
-        },
-        {
-          "id": "UgxL4UiMDY7Srq79K7t4AaABAg",
-          "texto": "Sos un sorete milei",
-          "likes": 5,
-          "s": "NEG"
-        },
-        {
-          "id": "UgysBXv0DvWimig2RGR4AaABAg",
-          "texto": "MILEI con su hipocresía no va a cambiar !!!! \nVan a seguir con estas políticas de hambre e injusticia !!!! \nUn país endeudado por años y años ,maltrato y maltrata al pueblo  y no creo cambie",
-          "likes": 5,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwWylQI6WfIGkvf7-V4AaABAg",
-          "texto": "Aparte milei no politizó nada y el lloro en la despedida del Papa fue real te das cuenta cuando finjen ❤",
-          "likes": 5,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyI0CofsXql6mm40uN4AaABAg",
-          "texto": "Milei por siempre vllc ♥️🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷",
-          "likes": 4,
           "s": "NEU"
+        },
+        {
+          "id": "UgwWMi-iq55A40GWUQd4AaABAg",
+          "texto": "gracias. presidente  pero que vayan presos todos. los. corruptos x ciempre  vllc 👍🏻🫂💜🇦🇷viva milei. fuera kukas .",
+          "likes": 11,
+          "s": "NEU"
+        },
+        {
+          "id": "Ugx296_lBkdMTskDrRh4AaABAg",
+          "texto": "La verdad no me gustó como Nelson cubrió la visita del Papa. Y lo que hizo en Perú… hablando de Milei y del país peruano🤦‍♀️ necesita unas vacaciones y un retiro espiritual para que se calme. Mucha soberbia y arrogancia.",
+          "likes": 8,
+          "s": "NEG"
+        },
+        {
+          "id": "UgzrZJd9IQW-WTGnTkJ4AaABAg",
+          "texto": "Hermoso reconocimiento al Presidente. DIOS BENDIGA A ESTE BELLO PAÍS, DIOS BENDIGA AL PRESIDENTE MILEI.",
+          "likes": 6,
+          "s": "POS"
+        },
+        {
+          "id": "UgxebTDV4_0KhbVz4vh4AaABAg",
+          "texto": "Que hincha pelotas de los periodistas, queriendo que el Papa hable mal del gobierno de Milei. Además hablan como si la mala situación fuese producto del gobierno actual, se recibió un pésimo estado, que parecen todos olvidan.",
+          "likes": 4,
+          "s": "NEG"
+        },
+        {
+          "id": "UgzMH3tCD7vi-JlUtzp4AaABAg",
+          "texto": "Dejen Milei que continúe impulsando el avance de Argentina el Papa le desea lo mejor a este pueblo",
+          "likes": 4,
+          "s": "POS"
+        },
+        {
+          "id": "Ugy6k_eDA3M-2q_gakJ4AaABAg",
+          "texto": "Tiene qué Haber las pasó para qué suban nuevos partidos políticos Milei no quiere por qué quiere ser él y C F K peronistas basta de lo mismo tiene qué aber la verdadera democracias",
+          "likes": 4,
+          "s": "NEG"
+        },
+        {
+          "id": "UgyNMNZwEhVHbPe84294AaABAg",
+          "texto": "11:31 claro, pone de ejemplo a Abascal en España de discurso violento, que casualidad los violentos son Milei, Trump Abascal, Cast, ¿los otros no son violentos? ¿Y que hay de ustedes los periodistas con sus discursos?",
+          "likes": 3,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugz86zQZSAWTF_hOr5R4AaABAg",
+          "texto": "MILEI 2027 ❤❤❤❤❤❤",
+          "likes": 2,
+          "s": "NEU"
+        },
+        {
+          "id": "UgyZQt_vM9sIRu5LHlx4AaABAg",
+          "texto": "Milei pierde en primera vuelta por goleada y va preso.",
+          "likes": 2,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxyMDLUoPJXGjYAmkZ4AaABAg",
+          "texto": "Milei es un orate",
+          "likes": 1,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugz9xEClZIgXJ99aKo54AaABAg",
+          "texto": "Fuera los Milei",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugz6kQc8_06MlNXa9x94AaABAg",
+          "texto": "Milei es un loco siquiatrico",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxELSUudlUapKM9p0d4AaABAg",
+          "texto": "Lo mismo sucedido en Peru, y lamentablemente el Cardenal Castillo quizo aprovechar en uno de sus mensajes hablar de la violencia y terrorismo que sufrio nuestro pais, pero..\nMencionando eventos que sucedieron sin contar TODA la verdad .\nSu investidura , no debe ser usada para \" politizar\" en los mensajes que da defendiendo a los politicos de izquierda que solo buscan el poder y beneficio personal ",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugx5K85nMFAVBMM8bRR4AaABAg",
+          "texto": "Milei lo voy decir siempre..milei mala persona .es mala ..no importa ..la gente ..no tiene compasión.por el otro mala persona .cuando uno mal persona ..es mala persona .hay persona son buenas pero este es malo....\n.las tiene todas ...",
+          "likes": 0,
+          "s": "NEG"
         }
       ],
       "emociones": {
-        "alegria": 14,
-        "tristeza": 3,
-        "enojo": 32,
+        "alegria": 2,
+        "tristeza": 0,
+        "enojo": 7,
         "sorpresa": 0,
-        "asco": 1,
+        "asco": 0,
         "miedo": 0,
-        "sin_emocion_clara": 27
+        "sin_emocion_clara": 9
       },
-      "agresivos": 5,
+      "agresivos": 0,
       "ponderado_likes": {
-        "POS": 58,
-        "NEG": 159,
-        "NEU": 57
+        "POS": 12,
+        "NEG": 35,
+        "NEU": 28
       },
       "alcance": {
         "videos": 40,
-        "vistas": 989639,
-        "likes_videos": 24678
+        "vistas": 1295458,
+        "likes_videos": 24820
       },
       "polemica": {
-        "respuestas": 26,
-        "promedio": 0.34,
+        "respuestas": 10,
+        "promedio": 0.56,
         "mas_discutido": {
-          "texto": "Diplomaticamente le dijo que deje de odiar a los propios Argentinos. TODOS SABEMOS QUE NOS DETESTA Y NOS QUIERE ELIMINAR DEL PLANETA NUESTRO PRESIDENTE JAVIER MILEI. 😢",
-          "respuestas": 5
+          "texto": "Hermoso reconocimiento al Presidente. DIOS BENDIGA A ESTE BELLO PAÍS, DIOS BENDIGA AL PRESIDENTE MILEI.",
+          "respuestas": 3
         }
       },
       "titulos": {
-        "POS": 3,
-        "NEG": 10,
-        "NEU": 27
+        "POS": 2,
+        "NEG": 9,
+        "NEU": 29
       },
       "temas": [
         [
           "presidente",
-          9
+          3
         ],
         [
           "papa",
-          6
-        ],
-        [
-          "voto",
-          5
-        ],
-        [
-          "gobierno",
-          4
-        ],
-        [
-          "cuenta",
-          4
+          3
         ],
         [
           "fuera",
-          4
+          2
+        ],
+        [
+          "verdad",
+          2
+        ],
+        [
+          "peru",
+          2
         ],
         [
           "hablar",
-          3
+          2
         ],
         [
-          "leon",
-          3
+          "politicos",
+          2
         ],
         [
-          "hambre",
-          3
+          "mala",
+          2
         ],
         [
-          "pueblo",
-          3
+          "periodistas",
+          2
         ],
         [
-          "cambiar",
-          3
+          "orate",
+          1
         ],
         [
-          "trabajo",
-          3
+          "siquiatrico",
+          1
+        ],
+        [
+          "loco",
+          1
         ]
       ]
     },
     "Massa": {
       "videos": 40,
-      "comentarios": 31,
+      "comentarios": 16,
       "pocos_datos": true,
       "canales": {
-        "Revolución Popular Noticias": 18,
-        "C5N": 8,
-        "Argentina 12": 3,
-        "LA NACION": 2
+        "LA ROSCA Y LA PELOTA": 5,
+        "C5N": 2,
+        "Revolución Popular Noticias": 2,
+        "Franco Antunes": 2,
+        "LA NACION": 1,
+        "La Voz": 1,
+        "Perfil": 1,
+        "Todo Negativo": 1,
+        "Gelatina.clipss": 1
       },
       "videos_descartados": {
         "ya_analizado": 0,
-        "canal_extranjero": 3,
+        "canal_extranjero": 1,
         "canal_oficial": 0
       },
       "comentarios_descartados": {
-        "ya_contado": 15,
-        "menciona_otros": 20,
-        "mismo_autor": 4,
-        "texto_repetido": 0,
+        "ya_contado": 51,
+        "menciona_otros": 32,
+        "mismo_autor": 2,
+        "texto_repetido": 1,
         "cuenta_nueva": 0,
         "tope_canal": 0,
-        "ironia": 15
+        "ironia": 17
       },
       "videos_destacados": [
         {
@@ -419,219 +416,199 @@
           "canal": "Franco Antunes",
           "url": "https://www.youtube.com/watch?v=Qz9UQpfaAQ8",
           "comentarios": 213,
-          "vistas": 30436
+          "vistas": 30614
         },
         {
           "titulo": "BOMBAZO: Massa rompe el silencio y deja un tremenda definición: \"El año que viene..\"",
           "canal": "Revolución Popular Noticias",
           "url": "https://www.youtube.com/watch?v=pXxSyXAqTQo",
-          "comentarios": 171,
-          "vistas": 44337
+          "comentarios": 188,
+          "vistas": 50595
         },
         {
           "titulo": "Sergio Massa mencionó a tres posibles candidatos a presidente del peronismo",
           "canal": "C5N",
           "url": "https://www.youtube.com/watch?v=571PMPgV12U",
-          "comentarios": 96,
-          "vistas": 14423
+          "comentarios": 138,
+          "vistas": 24545
         }
       ],
       "ejemplos": {
         "positivos": [
           {
-            "id": "UgwBxY0BkdZz6-ItyvV4AaABAg",
-            "texto": "Excelente Massa la unidad para obtener  la gran construccion de una alternativa  pensando en todos  los Argentinos ,sin egos ,sin arrogancia ,y sin ambisiones  desmedidas  porque no todas las acciones  justifican los  medios ,Dios los bendiga  enormemente para el bien comun.",
-            "likes": 4
+            "id": "Ugylyy-xjCY9hFpTC714AaABAg",
+            "texto": "Bien ministro Massa, exelente opinion, Dios lo bendiga.! 🙏🙏🙏👏👏👏",
+            "likes": 0
           },
           {
-            "id": "UgzVjgwAIbuKccNc4194AaABAg",
-            "texto": "Te amo massa",
-            "likes": 3
+            "id": "UgyMmZwiJvDakXXOMxV4AaABAg",
+            "texto": "Y tiene que ser Massa !!! Yo quiero que sea el presidente Se merece una oportunidad.Esta muy preparado y el trabaja mucho , un tipo activo y que piensa en la gente !!!!",
+            "likes": 0
           },
           {
-            "id": "Ugz-LmEhaR_fpCNsb0d4AaABAg",
-            "texto": "Capo Massa.",
-            "likes": 1
+            "id": "UgyIdoatx0FCJ1edZb54AaABAg",
+            "texto": "Massa ! Estuvo a punto de ganar! Y tiene experiencia no no meter la pata con emitir y emitir",
+            "likes": 0
           }
         ],
         "negativos": [
           {
-            "id": "UgxR8Zmq1eNexMwRmwt4AaABAg",
-            "texto": "Massa es el político de las campañas Basta de políticos puestos a Dedo .Es con Axel",
-            "likes": 15
+            "id": "Ugxwpj2AXi3GWryIIkJ4AaABAg",
+            "texto": "Aunque la doctora lo marque a Massa, los votos de sus seguidores irán al Gotico. Hay que ver si después Massa y su gente acompañan o le harán perder las elecciones a mano de la derecha",
+            "likes": 3
           },
           {
-            "id": "UgwOAD5ABMMkdgYsOkF4AaABAg",
-            "texto": "Es con Kici! Entierren a Massa de una vez!",
-            "likes": 11
+            "id": "UgyKoJ00_2l32SgoA214AaABAg",
+            "texto": "Axel es el único que le puso el lomo, Massa hasta ahora estuvo mudo y escondido",
+            "likes": 2
           },
           {
-            "id": "UgyrtywwPD1GmC6ExJB4AaABAg",
-            "texto": "Massa nunca más. Con él se desordena el peronismo. Punto",
-            "likes": 9
+            "id": "UgwwxboRRR41D3lmNHt4AaABAg",
+            "texto": "No soporto escucharlo a Massa. Panqueque. Hipócrita. De veras aún es una opción para el voto popular? No alcanzó con la elección del 2023 como botón de muestra?",
+            "likes": 2
           }
         ]
       },
       "revisables": [
         {
-          "id": "UgxR8Zmq1eNexMwRmwt4AaABAg",
-          "texto": "Massa es el político de las campañas Basta de políticos puestos a Dedo .Es con Axel",
-          "likes": 15,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwOAD5ABMMkdgYsOkF4AaABAg",
-          "texto": "Es con Kici! Entierren a Massa de una vez!",
-          "likes": 11,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyrtywwPD1GmC6ExJB4AaABAg",
-          "texto": "Massa nunca más. Con él se desordena el peronismo. Punto",
-          "likes": 9,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwldtQG8roc66v-uaV4AaABAg",
-          "texto": "Va a ganar Massa.juste a Kien le guste .está en su Destino🤷🏽‍♀️✌🏽🇦🇷🇦🇷🇦🇷🙌🏽🙏",
-          "likes": 6,
-          "s": "NEU"
-        },
-        {
-          "id": "UgxKpHPMUsn5bgEot314AaABAg",
-          "texto": "Massa masón no es peronista, fue parte de un gobierno que nos engañó con la PLANDEMIA!!!\nMassa en la lista de políticos argentinos AMIGABLES de Soros según la OPEN SOCIETY",
-          "likes": 5,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzHw-Qpiv9zyK1KxX14AaABAg",
-          "texto": "axel alejate de massa y maximo,",
-          "likes": 5,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwBxY0BkdZz6-ItyvV4AaABAg",
-          "texto": "Excelente Massa la unidad para obtener  la gran construccion de una alternativa  pensando en todos  los Argentinos ,sin egos ,sin arrogancia ,y sin ambisiones  desmedidas  porque no todas las acciones  justifican los  medios ,Dios los bendiga  enormemente para el bien comun.",
-          "likes": 4,
-          "s": "POS"
-        },
-        {
-          "id": "UgzVjgwAIbuKccNc4194AaABAg",
-          "texto": "Te amo massa",
-          "likes": 3,
-          "s": "POS"
-        },
-        {
-          "id": "UgwUYKzPnMWwRJZNiAh4AaABAg",
-          "texto": "Ni loco voto a Massa, es un ambicioso de la  derecha, Máximo sería el candidato a presidente.",
+          "id": "Ugxwpj2AXi3GWryIIkJ4AaABAg",
+          "texto": "Aunque la doctora lo marque a Massa, los votos de sus seguidores irán al Gotico. Hay que ver si después Massa y su gente acompañan o le harán perder las elecciones a mano de la derecha",
           "likes": 3,
           "s": "NEG"
         },
         {
-          "id": "UgyWBmgqtieRaRYOoQF4AaABAg",
-          "texto": "NO TARDEN,POR LA UNIDAD ,MASSA PRESIDENTE!!!!🫶🫶🫶🫶🫶",
-          "likes": 3,
-          "s": "NEU"
-        },
-        {
-          "id": "UgzrGVhziUQuJUt_ah54AaABAg",
-          "texto": "Massa, militancia?\nMassa tiene menos calle que Venecia. Puede tener contactos en el Establishment pero militancia y lealtad, no.\nY Kristina, que disfrute de su jubilación de privilegio.",
-          "likes": 3,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwW8f5XX-gdE66mJRt4AaABAg",
-          "texto": "Massa nadie te quiere traidor 😂😂😂vos tenes que irte",
+          "id": "UgyKoJ00_2l32SgoA214AaABAg",
+          "texto": "Axel es el único que le puso el lomo, Massa hasta ahora estuvo mudo y escondido",
           "likes": 2,
           "s": "NEG"
         },
         {
-          "id": "UgxSHCR8ndKL-fW0OS14AaABAg",
-          "texto": "No se postulo Massa y perdió ya?",
+          "id": "UgwwxboRRR41D3lmNHt4AaABAg",
+          "texto": "No soporto escucharlo a Massa. Panqueque. Hipócrita. De veras aún es una opción para el voto popular? No alcanzó con la elección del 2023 como botón de muestra?",
           "likes": 2,
           "s": "NEG"
         },
         {
-          "id": "UgzhVvmOP2r2Wygsn2d4AaABAg",
-          "texto": "Vamos Massa. Conta tal de sacar este gobierno de la Crotera! Corruptos te votó ya.",
+          "id": "UgzzyWjU5EPxvA60Znd4AaABAg",
+          "texto": "Massa otra vez no",
           "likes": 1,
           "s": "NEG"
         },
         {
-          "id": "Ugz-LmEhaR_fpCNsb0d4AaABAg",
-          "texto": "Capo Massa.",
+          "id": "UgzxciFiGXzWnakUQVZ4AaABAg",
+          "texto": "Massa toda la vida",
           "likes": 1,
+          "s": "NEU"
+        },
+        {
+          "id": "UgznIxMqoxkBQHFBJ3V4AaABAg",
+          "texto": "Caso sira Alberto massa 7500 millones de dólares",
+          "likes": 1,
+          "s": "NEU"
+        },
+        {
+          "id": "Ugylyy-xjCY9hFpTC714AaABAg",
+          "texto": "Bien ministro Massa, exelente opinion, Dios lo bendiga.! 🙏🙏🙏👏👏👏",
+          "likes": 0,
           "s": "POS"
+        },
+        {
+          "id": "UgyyLzxR5ya3NAF4XiR4AaABAg",
+          "texto": "Otra vez Sergio Massa ?; él es unos de los artífices, junto a los 2 Fernández, del  fracaso tremendo del 2023 !!.",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgzrqrmWyC42ep9ypvl4AaABAg",
+          "texto": "VAMOS MASSA .. DALE... SEGURO QUE SIS EL INDICADO...ME GUSTARÍA UN MANO A MANO EL DROGADICTO...NO AGUANTARIA NADA...MASSA PRESIDENTE",
+          "likes": 0,
+          "s": "NEU"
+        },
+        {
+          "id": "Ugxnn8J8fIdOPKfdo_54AaABAg",
+          "texto": "Para La Nacion web, MASSA es Churchill.   Pero Massa destruyo el pais como ministro de economía. Cuando fue Candidato, le robo la presidencia a Alberto y desde ahi.,.. despilfarro toneladas de guita para ser presidente!!.",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugx-blribmr5rtnZbJh4AaABAg",
+          "texto": "En serioooo???... me parece que los que extrañan la inflación  claramente votarán a Massa",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugz6HkdrIjJ32CJkz694AaABAg",
+          "texto": "Hola Fran tantos canales q me mareo😅😅😅 mira massa venía bien hasta q se mandó frases q lo condenó primero hace 10 años se acercó a unas jubiladas q lo  adelante y les dice  me ocuparé de euds y q paso ni se acordó de ellos",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgyMmZwiJvDakXXOMxV4AaABAg",
+          "texto": "Y tiene que ser Massa !!! Yo quiero que sea el presidente Se merece una oportunidad.Esta muy preparado y el trabaja mucho , un tipo activo y que piensa en la gente !!!!",
+          "likes": 0,
+          "s": "POS"
+        },
+        {
+          "id": "UgyIdoatx0FCJ1edZb54AaABAg",
+          "texto": "Massa ! Estuvo a punto de ganar! Y tiene experiencia no no meter la pata con emitir y emitir",
+          "likes": 0,
+          "s": "POS"
+        },
+        {
+          "id": "UgzgyyqmzB3QBCpd0mN4AaABAg",
+          "texto": "NOOOO!! CUALQUIERA NO NO OLVIDEMOS QUE NUESTRO MOVIMIENTO ESTA LLENO DE TRAIDORES,Y OTRA COSA MASSA,YA PERDIO CON EL BURRO ASI QUE PONGAN A OTRA PERSONA EN LAS LINEAS DEL PERONISMO HAY MUCHA BUENA GENTE QUE DARIA LA VIDA X EL PERONISMO Y EL PUEBLO TODOS ESTOS PAYASOS QUE SE JUNTARON BUSCAN SU PROPIO BENEFICIO PERSONAL,DEJEN DE VENDER HUMO X QUE LA GENTE NO ES BOLUDA ,Y ACUERDENSE,QUE PASO EN EL 20",
+          "likes": 0,
+          "s": "NEG"
         }
       ],
       "emociones": {
-        "alegria": 4,
-        "tristeza": 1,
-        "enojo": 8,
-        "sorpresa": 0,
-        "asco": 1,
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 4,
+        "sorpresa": 1,
+        "asco": 0,
         "miedo": 0,
-        "sin_emocion_clara": 17
+        "sin_emocion_clara": 10
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 11,
-        "NEG": 84,
-        "NEU": 16
+        "POS": 3,
+        "NEG": 17,
+        "NEU": 6
       },
       "alcance": {
         "videos": 40,
-        "vistas": 235788,
-        "likes_videos": 4492
+        "vistas": 235217,
+        "likes_videos": 3881
       },
       "polemica": {
-        "respuestas": 5,
-        "promedio": 0.16,
+        "respuestas": 1,
+        "promedio": 0.06,
         "mas_discutido": {
-          "texto": "Massa masón no es peronista, fue parte de un gobierno que nos engañó con la PLANDEMIA!!!\nMassa en la lista de políticos argentinos AMIGABLES de Soros según la OPEN SOCIETY",
+          "texto": "No soporto escucharlo a Massa. Panqueque. Hipócrita. De veras aún es una opción para el voto popular? No alcanzó con la elección del 2023 como botón de muestra?",
           "respuestas": 1
         }
       },
       "titulos": {
         "POS": 2,
-        "NEG": 5,
-        "NEU": 18
+        "NEG": 6,
+        "NEU": 22
       },
       "temas": [
         [
           "presidente",
-          4
-        ],
-        [
-          "peronista",
           3
         ],
         [
-          "politicos",
+          "paso",
           3
         ],
         [
-          "gobierno",
-          3
-        ],
-        [
-          "nadie",
-          3
-        ],
-        [
-          "voto",
+          "ministro",
           2
         ],
         [
-          "peronismo",
-          2
-        ],
-        [
-          "unidad",
-          2
-        ],
-        [
-          "dios",
+          "mano",
           2
         ],
         [
@@ -639,39 +616,59 @@
           2
         ],
         [
-          "loco",
+          "alberto",
           2
         ],
         [
-          "votos",
+          "estuvo",
           2
+        ],
+        [
+          "tipo",
+          2
+        ],
+        [
+          "propio",
+          2
+        ],
+        [
+          "vida",
+          2
+        ],
+        [
+          "eleccion",
+          2
+        ],
+        [
+          "dios",
+          1
         ]
       ]
     },
     "Kicillof": {
       "videos": 40,
-      "comentarios": 15,
+      "comentarios": 9,
       "pocos_datos": true,
       "canales": {
-        "GELATINA": 6,
-        "El Destape": 5,
+        "GELATINA": 2,
         "BorderPeriodismo": 2,
-        "LA NACION": 1,
+        "Agarrá La Pala": 2,
+        "LA ROSCA Y LA PELOTA": 2,
         "Cenital": 1
       },
       "videos_descartados": {
         "ya_analizado": 0,
-        "canal_extranjero": 2,
-        "canal_oficial": 0
+        "canal_extranjero": 1,
+        "canal_oficial": 2
       },
       "comentarios_descartados": {
-        "ya_contado": 43,
-        "menciona_otros": 51,
-        "mismo_autor": 1,
+        "ya_contado": 54,
+        "menciona_otros": 48,
+        "mismo_autor": 2,
         "texto_repetido": 3,
         "cuenta_nueva": 1,
         "tope_canal": 0,
-        "ironia": 23
+        "ironia": 24
       },
       "videos_destacados": [
         {
@@ -679,562 +676,108 @@
           "canal": "Adrián Ackerman",
           "url": "https://www.youtube.com/watch?v=L37azcnFh0A",
           "comentarios": 371,
-          "vistas": 103916
+          "vistas": 104223
         },
         {
           "titulo": "Kicillof amenazó a los policías para que no publiquen nada",
           "canal": "Mate con Mote",
           "url": "https://www.youtube.com/watch?v=Mhk9vRC8TXs",
           "comentarios": 342,
-          "vistas": 51775
+          "vistas": 51931
         },
         {
-          "titulo": "“KICILLOF QUIERE DESAPARECER LA POLICÍA BONAERENSE” #border",
-          "canal": "BorderPeriodismo",
-          "url": "https://www.youtube.com/watch?v=3r-fsrGUzyI",
-          "comentarios": 234,
-          "vistas": 53177
+          "titulo": "Kicillof subió una foto con el Papa hecha con IA",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=qNzdLYuvhC0",
+          "comentarios": 256,
+          "vistas": 66320
         }
       ],
       "ejemplos": {
         "positivos": [
           {
-            "id": "UgyU59QY2oaPee7PLaR4AaABAg",
-            "texto": "Aguante a Kicillof💪",
-            "likes": 14
-          }
-        ],
-        "negativos": [
-          {
-            "id": "UgxUA325XAPHc0lSK1t4AaABAg",
-            "texto": "❤ kicillof❤",
-            "likes": 20
-          },
-          {
-            "id": "UgwU6Be9Z7TqriohoV94AaABAg",
-            "texto": "VOTO  KICILOFF",
-            "likes": 12
-          },
-          {
-            "id": "UgxWVhGTaVMUKBIqkc54AaABAg",
-            "texto": "El unico que zafa ahi es Kicillof...pero hay un 40% que no vota nada del presente ni del pasado",
-            "likes": 8
-          }
-        ]
-      },
-      "revisables": [
-        {
-          "id": "UgyqPMCoHMj-EXolZkh4AaABAg",
-          "texto": "Es con Kicillof",
-          "likes": 24,
-          "s": "NEU"
-        },
-        {
-          "id": "UgxUA325XAPHc0lSK1t4AaABAg",
-          "texto": "❤ kicillof❤",
-          "likes": 20,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzIfgb-3Sv40pVCxPR4AaABAg",
-          "texto": "AXEL KICILLOF FUTURO PRESIDENTE DE LA NACIÓN UNIDOS 🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷",
-          "likes": 15,
-          "s": "NEU"
-        },
-        {
-          "id": "UgyU59QY2oaPee7PLaR4AaABAg",
-          "texto": "Aguante a Kicillof💪",
-          "likes": 14,
-          "s": "POS"
-        },
-        {
-          "id": "UgwU6Be9Z7TqriohoV94AaABAg",
-          "texto": "VOTO  KICILOFF",
-          "likes": 12,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugyy1UJX1Abs46aQ-fB4AaABAg",
-          "texto": "Kiciloff es Presidente del PJ",
-          "likes": 9,
-          "s": "NEU"
-        },
-        {
-          "id": "UgxWVhGTaVMUKBIqkc54AaABAg",
-          "texto": "El unico que zafa ahi es Kicillof...pero hay un 40% que no vota nada del presente ni del pasado",
-          "likes": 8,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwfCrlKXhOMG7xLAu14AaABAg",
-          "texto": "Kicillof va poner a patrullar a los delicuense Bonaerense",
-          "likes": 2,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwEW2N4Cu2bIYIGma54AaABAg",
-          "texto": "Kicilof aviso que no podía ir porque estaba practicando nuevas canciones",
-          "likes": 2,
-          "s": "NEG"
-        },
-        {
-          "id": "UgxMquV8vylGh0i2LjJ4AaABAg",
-          "texto": "LULA TAMBIEN DIJO LO MISMO QUE KICILOF😡💀👿👺👎👎",
-          "likes": 1,
-          "s": "NEG"
-        },
-        {
-          "id": "UgwPoUyTjA_w_kX7g9x4AaABAg",
-          "texto": "Kicillof es hermano del narcotraficante.😮",
-          "likes": 1,
-          "s": "NEG"
-        },
-        {
-          "id": "UgxEAXs33c3uG9xQMx14AaABAg",
-          "texto": "a kicilof lo expusieron mucho y mal, el cuervo, tolosa paz y mario secco como principales figuras, los demás eran muy segundas líneas. lo de tolosa paz, es muy muy difícil de digerir. rompe todo",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyDecUNhltDjVvxsUx4AaABAg",
-          "texto": "Es correcto no incluir a Kiciloff... todo bien con el como persona excelente tipo....pero NO ES PERONISTA....es progre gobalista pro china... no tiene un pomo que ver con la doctrina justicialista....el peronismo no es de izquierda ni derecha....es capitalismo con distribución justicialista... SIMPLE...para el que quiera entenderlo....",
-          "likes": 0,
-          "s": "NEU"
-        },
-        {
-          "id": "UgyKOgtFsISxlWuQT254AaABAg",
-          "texto": "kicillof no es peronista.",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugy1yAfXtN3G1mMadyF4AaABAg",
-          "texto": "Kicillof  y manzano",
-          "likes": 0,
-          "s": "NEU"
-        }
-      ],
-      "emociones": {
-        "alegria": 1,
-        "tristeza": 0,
-        "enojo": 2,
-        "sorpresa": 1,
-        "asco": 0,
-        "miedo": 0,
-        "sin_emocion_clara": 11
-      },
-      "agresivos": 0,
-      "ponderado_likes": {
-        "POS": 15,
-        "NEG": 55,
-        "NEU": 53
-      },
-      "alcance": {
-        "videos": 40,
-        "vistas": 1123129,
-        "likes_videos": 37312
-      },
-      "polemica": {
-        "respuestas": 12,
-        "promedio": 0.8,
-        "mas_discutido": {
-          "texto": "Aguante a Kicillof💪",
-          "respuestas": 5
-        }
-      },
-      "titulos": {
-        "POS": 1,
-        "NEG": 21,
-        "NEU": 14
-      },
-      "temas": [
-        [
-          "presidente",
-          2
-        ],
-        [
-          "peronista",
-          2
-        ],
-        [
-          "voto",
-          1
-        ],
-        [
-          "principales",
-          1
-        ],
-        [
-          "secco",
-          1
-        ],
-        [
-          "demas",
-          1
-        ],
-        [
-          "cuervo",
-          1
-        ],
-        [
-          "expusieron",
-          1
-        ],
-        [
-          "figuras",
-          1
-        ],
-        [
-          "lineas",
-          1
-        ],
-        [
-          "dificil",
-          1
-        ],
-        [
-          "segundas",
-          1
-        ]
-      ]
-    },
-    "Macri": {
-      "videos": 40,
-      "comentarios": 8,
-      "pocos_datos": true,
-      "canales": {
-        "eldoce": 2,
-        "Ciudadano news": 2,
-        "Revolución Popular Noticias": 1,
-        "Todo Noticias": 1,
-        "A24com": 1,
-        "Anses News": 1
-      },
-      "videos_descartados": {
-        "ya_analizado": 0,
-        "canal_extranjero": 1,
-        "canal_oficial": 3
-      },
-      "comentarios_descartados": {
-        "ya_contado": 30,
-        "menciona_otros": 8,
-        "mismo_autor": 1,
-        "texto_repetido": 0,
-        "cuenta_nueva": 0,
-        "tope_canal": 0,
-        "ironia": 13
-      },
-      "videos_destacados": [
-        {
-          "titulo": "MACRI Y EL PRESIDENTE DE LA CORTE: Hablaron de BOCA y hay una historia detrás",
-          "canal": "Gonromiau",
-          "url": "https://www.youtube.com/watch?v=2FaMPwFuklo",
-          "comentarios": 225,
-          "vistas": 11181
-        },
-        {
-          "titulo": "⚖️ HISTÓRICO FALLO CONTRA LA LEY DE MOVILIDAD: ¿QUÉ PASA CON LOS JUBILADOS?",
-          "canal": "Anses News",
-          "url": "https://www.youtube.com/watch?v=RPgoCUnVrxY",
-          "comentarios": 170,
-          "vistas": 89142
-        },
-        {
-          "titulo": "\"¿QUÉ CLASE DE SUPERÁVIT TENÉS SI TE SEGUÍS ENDEUDANDO?\": El editorial de Rolando Graña en RPM",
-          "canal": "Del Plata AM 1030",
-          "url": "https://www.youtube.com/watch?v=9X1FWTgl7cc",
-          "comentarios": 113,
-          "vistas": 40402
-        }
-      ],
-      "ejemplos": {
-        "positivos": [],
-        "negativos": [
-          {
-            "id": "UgzeiDi_hME7bPeClSZ4AaABAg",
-            "texto": "Que le habran ofrecido a Macri??? el tipo lo unico que quiere es el Sillon de la AFA...",
+            "id": "UgwbDeYrAahsoED2qBJ4AaABAg",
+            "texto": "Cualquiera de los dos,Mazza más capacitado Pero Kicillof para mí arrasa",
             "likes": 3
           },
           {
-            "id": "UgxElLoMvobve901uk94AaABAg",
-            "texto": "Y que le van ofrecer??? Negocios obviamente que a Macri lo único que le interesa.",
-            "likes": 2
-          },
-          {
-            "id": "UgxC39LKr-tQI1mY2-14AaABAg",
-            "texto": "espero que el pro se abra y forme un gobierno , esto es muy malo , volve macri",
-            "likes": 1
-          }
-        ]
-      },
-      "revisables": [
-        {
-          "id": "UgzeiDi_hME7bPeClSZ4AaABAg",
-          "texto": "Que le habran ofrecido a Macri??? el tipo lo unico que quiere es el Sillon de la AFA...",
-          "likes": 3,
-          "s": "NEG"
-        },
-        {
-          "id": "UgxElLoMvobve901uk94AaABAg",
-          "texto": "Y que le van ofrecer??? Negocios obviamente que a Macri lo único que le interesa.",
-          "likes": 2,
-          "s": "NEG"
-        },
-        {
-          "id": "UgxC39LKr-tQI1mY2-14AaABAg",
-          "texto": "espero que el pro se abra y forme un gobierno , esto es muy malo , volve macri",
-          "likes": 1,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyH-AYX6YxKjXgdzcV4AaABAg",
-          "texto": "Miley mismo camino que el inutil de macri ,así le irá!!! Vamos Axel Presidente 2027!!!",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzS69YD4iSaMry69WZ4AaABAg",
-          "texto": "nunca voy a entender porque la gente de a pie... no pide a gritos el enjuiciamiento de macri.... el estafador mas grande de nuestra historia.... mucho mas que Rivadabia!!!",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugx1mW6ZvP7MunGVMvx4AaABAg",
-          "texto": "Celebro que el Pro se despegue de LLA, cuya gestión hasta hoy ha sido EXECRABLE. Que LLA aún tenga un núcleo duro de votantes no justifica que el Pro se embarre en el mismo barro que el desastre que deja el oficialismo en su 3er año de gobierno en cada hogar argentino que no es de clase alta ni dueño de multinacionales. Impecable lectura política del Ingeniero Macri al despegar al Pro de LLA a dif",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzrOq2SUa5wDlr-6ON4AaABAg",
-          "texto": "El empobrecimiento de todos es culpa de la deuda Macri y Miley",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyEFE95wfUp3ZkksyN4AaABAg",
-          "texto": "Hojo con macri",
-          "likes": 0,
-          "s": "NEU"
-        }
-      ],
-      "emociones": {
-        "alegria": 0,
-        "tristeza": 0,
-        "enojo": 3,
-        "sorpresa": 0,
-        "asco": 1,
-        "miedo": 0,
-        "sin_emocion_clara": 4
-      },
-      "agresivos": 0,
-      "ponderado_likes": {
-        "POS": 0,
-        "NEG": 13,
-        "NEU": 1
-      },
-      "alcance": {
-        "videos": 40,
-        "vistas": 250162,
-        "likes_videos": 4964
-      },
-      "polemica": {
-        "respuestas": 3,
-        "promedio": 0.38,
-        "mas_discutido": {
-          "texto": "Que le habran ofrecido a Macri??? el tipo lo unico que quiere es el Sillon de la AFA...",
-          "respuestas": 2
-        }
-      },
-      "titulos": {
-        "POS": 0,
-        "NEG": 11,
-        "NEU": 14
-      },
-      "temas": [
-        [
-          "miley",
-          2
-        ],
-        [
-          "gobierno",
-          2
-        ],
-        [
-          "unico",
-          2
-        ],
-        [
-          "camino",
-          1
-        ],
-        [
-          "inutil",
-          1
-        ],
-        [
-          "presidente",
-          1
-        ],
-        [
-          "enjuiciamiento",
-          1
-        ],
-        [
-          "rivadabia",
-          1
-        ],
-        [
-          "pide",
-          1
-        ],
-        [
-          "gritos",
-          1
-        ],
-        [
-          "grande",
-          1
-        ],
-        [
-          "historia",
-          1
-        ]
-      ]
-    },
-    "Bullrich": {
-      "videos": 40,
-      "comentarios": 9,
-      "pocos_datos": true,
-      "canales": {
-        "Franco Antunes": 2,
-        "Las Fuerzas de La Pala": 2,
-        "MAGANA BIENESTAR": 2,
-        "El Destape": 1,
-        "Agarrá La Pala": 1,
-        "A24com": 1
-      },
-      "videos_descartados": {
-        "ya_analizado": 0,
-        "canal_extranjero": 0,
-        "canal_oficial": 0
-      },
-      "comentarios_descartados": {
-        "ya_contado": 35,
-        "menciona_otros": 37,
-        "mismo_autor": 1,
-        "texto_repetido": 0,
-        "cuenta_nueva": 0,
-        "tope_canal": 0,
-        "ironia": 11
-      },
-      "videos_destacados": [
-        {
-          "titulo": "ULTIMA OPERETA! Dicen que Bullrich rompe con MILEI..",
-          "canal": "Inge Manuel",
-          "url": "https://www.youtube.com/watch?v=dTxg0UkKTNw",
-          "comentarios": 166,
-          "vistas": 12850
-        },
-        {
-          "titulo": "🗳️ 🇦🇷 KICILLOF, MASSA, MILEI Y BULLRICH | El editorial de Roberto Navarro",
-          "canal": "El Destape",
-          "url": "https://www.youtube.com/watch?v=BqeWdOhxNPA",
-          "comentarios": 156,
-          "vistas": 78875
-        },
-        {
-          "titulo": "💥 ESCÁNDALO EN LA ROSADA: Karina y Milei enfurecidos contra Bullrich | Jonathan Heguier",
-          "canal": "El Destape",
-          "url": "https://www.youtube.com/watch?v=KDs4CQv3P9k",
-          "comentarios": 127,
-          "vistas": 94606
-        }
-      ],
-      "ejemplos": {
-        "positivos": [
-          {
-            "id": "UgzPqUF8V-jLL_HryTB4AaABAg",
-            "texto": "Vamos Bullrich!",
-            "likes": 48
-          },
-          {
-            "id": "Ugwr5nJYNCSeFqBQAId4AaABAg",
-            "texto": "Fuerza senadora Bullrich ❤",
-            "likes": 9
+            "id": "Ugx-sfggYwgFIxxngO14AaABAg",
+            "texto": "Axel, futuro y nuevo presidente de la Argentina, tendremos una Argentina potencia en la industria, la ciencia, la economía, la explotación de recursos, la educación enriquecerá a los jóvenes y no tan jóvenes, todos los países querrán negociar e invertir en Argentina generando mil",
+            "likes": 0
           }
         ],
         "negativos": [
           {
-            "id": "Ugz5pthWXf8H_yovRLF4AaABAg",
-            "texto": "No se da cuenta que el peluca va a utilizar a bullrich asta el final...\nNo le importa a nadie al peluca solo quieren el poder",
-            "likes": 4
+            "id": "Ugw1ZJDiA8oT00DRcF94AaABAg",
+            "texto": "Kicillof ❤",
+            "likes": 26
           },
           {
-            "id": "Ugy0iVWvLFnyO60aCS14AaABAg",
-            "texto": "Que pasó con Bullrich 😮.que pena .porque no le creemos .",
-            "likes": 1
+            "id": "UgzM3faj6UDKJa_bBw14AaABAg",
+            "texto": "Kicillof no es peronista y por eso no va a las convocatorias peronista. Él se confeso marxista, fue economista socialdemócrata y ahora solo representa al progresismo de izquierda, o sea volvió a donde empezó en el partido comunista argentino y solo usa al PJ como mascaron de proa",
+            "likes": 0
           },
           {
-            "id": "UgzRpugNkcuFpEmRmr14AaABAg",
-            "texto": "Bullrich en todos los gobiernos que estuvo,  cusndo las papas queman se borra es su costumbre.",
-            "likes": 1
+            "id": "UgwuHhgLGxfF9acmQ-d4AaABAg",
+            "texto": "Kicillof no es peronista",
+            "likes": 0
           }
         ]
       },
       "revisables": [
         {
-          "id": "UgzPqUF8V-jLL_HryTB4AaABAg",
-          "texto": "Vamos Bullrich!",
-          "likes": 48,
+          "id": "Ugw1ZJDiA8oT00DRcF94AaABAg",
+          "texto": "Kicillof ❤",
+          "likes": 26,
+          "s": "NEG"
+        },
+        {
+          "id": "UgwbDeYrAahsoED2qBJ4AaABAg",
+          "texto": "Cualquiera de los dos,Mazza más capacitado Pero Kicillof para mí arrasa",
+          "likes": 3,
           "s": "POS"
         },
         {
-          "id": "Ugwr5nJYNCSeFqBQAId4AaABAg",
-          "texto": "Fuerza senadora Bullrich ❤",
-          "likes": 9,
+          "id": "Ugy2rYpKb4jw5IasDtd4AaABAg",
+          "texto": "Kicilof",
+          "likes": 1,
+          "s": "NEU"
+        },
+        {
+          "id": "UgzM3faj6UDKJa_bBw14AaABAg",
+          "texto": "Kicillof no es peronista y por eso no va a las convocatorias peronista. Él se confeso marxista, fue economista socialdemócrata y ahora solo representa al progresismo de izquierda, o sea volvió a donde empezó en el partido comunista argentino y solo usa al PJ como mascaron de proa, para engañar a los incautos y desinformados.",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgwuHhgLGxfF9acmQ-d4AaABAg",
+          "texto": "Kicillof no es peronista",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxOCB-WDI9yf7yD0rZ4AaABAg",
+          "texto": "En Argentina hay un sólo Partido Comunista y NUNCA FUERON GOBIERNO.   KICILLOF NO PERTENECE A ESTE PARTIDO COMUNISTA  Señor quédese tranqulo, escuche a la Periodista que se lo está  explicando, la Policía jamás puede desaparecer.,  Los policías o vigilantes Municipales están para ordenar el tránsito, cuidar las Plazas, etc, etc y NO tiene nada que ver con la Policía Federal y Provincial.   Eso no ",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugxb5VAx7zAonEsb-ah4AaABAg",
+          "texto": "KICILOF ES UNO DELOS POLITICOS MAS CORUPTOS DEL PAIS NO ES PERONISTA SE DISE SER ES UN SANGANO",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgwcIjcsRUTvxtMloe94AaABAg",
+          "texto": "Parece que Kicillof no compartió algunos numeros con algunos peronistas.",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugx-sfggYwgFIxxngO14AaABAg",
+          "texto": "Axel, futuro y nuevo presidente de la Argentina, tendremos una Argentina potencia en la industria, la ciencia, la economía, la explotación de recursos, la educación enriquecerá a los jóvenes y no tan jóvenes, todos los países querrán negociar e invertir en Argentina generando millones de puestos de trabajo, esto impactara positivamente en la economía, las ventas serán infernales, quien se ponga un",
+          "likes": 0,
           "s": "POS"
-        },
-        {
-          "id": "Ugx4mKFNvMgvSZVxm5t4AaABAg",
-          "texto": "Se la re banca la Leona Bullrich 💪🏼👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻",
-          "likes": 5,
-          "s": "NEU"
-        },
-        {
-          "id": "Ugz5pthWXf8H_yovRLF4AaABAg",
-          "texto": "No se da cuenta que el peluca va a utilizar a bullrich asta el final...\nNo le importa a nadie al peluca solo quieren el poder",
-          "likes": 4,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugy0iVWvLFnyO60aCS14AaABAg",
-          "texto": "Que pasó con Bullrich 😮.que pena .porque no le creemos .",
-          "likes": 1,
-          "s": "NEG"
-        },
-        {
-          "id": "UgzRpugNkcuFpEmRmr14AaABAg",
-          "texto": "Bullrich en todos los gobiernos que estuvo,  cusndo las papas queman se borra es su costumbre.",
-          "likes": 1,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugyown1ADrMMgcb1bhN4AaABAg",
-          "texto": "BULLRICH O GUILLERMO FRANCO",
-          "likes": 0,
-          "s": "NEU"
-        },
-        {
-          "id": "Ugz4-lamwvu_GIXysWF4AaABAg",
-          "texto": "Bullrich no tiene los votos, dejá de fantasear, ya la midieron y no le da, ya salió 3ra en las últimas elecciones, ya fue!!!",
-          "likes": 0,
-          "s": "NEG"
-        },
-        {
-          "id": "UgyOulUMOJdcGh-ielN4AaABAg",
-          "texto": "Los liberados no existen sin el Pro...\nEl Pro ya definió a Patricia Bullrich...\nEl psiquiátrico no vuelve más 🦆",
-          "likes": 0,
-          "s": "NEG"
         }
       ],
       "emociones": {
@@ -1248,331 +791,39 @@
       },
       "agresivos": 0,
       "ponderado_likes": {
-        "POS": 59,
-        "NEG": 11,
-        "NEU": 7
+        "POS": 5,
+        "NEG": 32,
+        "NEU": 2
       },
       "alcance": {
         "videos": 40,
-        "vistas": 599736,
-        "likes_videos": 11770
+        "vistas": 1054757,
+        "likes_videos": 38677
       },
       "polemica": {
         "respuestas": 1,
         "promedio": 0.11,
         "mas_discutido": {
-          "texto": "Que pasó con Bullrich 😮.que pena .porque no le creemos .",
+          "texto": "Cualquiera de los dos,Mazza más capacitado Pero Kicillof para mí arrasa",
           "respuestas": 1
         }
       },
       "titulos": {
         "POS": 0,
-        "NEG": 14,
-        "NEU": 25
+        "NEG": 22,
+        "NEU": 14
       },
       "temas": [
         [
-          "franco",
-          1
-        ],
-        [
-          "guillermo",
-          1
-        ],
-        [
-          "paso",
-          1
-        ],
-        [
-          "pena",
-          1
-        ],
-        [
-          "creemos",
-          1
-        ],
-        [
-          "leona",
-          1
-        ],
-        [
-          "banca",
-          1
-        ],
-        [
-          "cusndo",
-          1
-        ],
-        [
-          "costumbre",
-          1
-        ],
-        [
-          "papas",
-          1
-        ],
-        [
-          "queman",
-          1
-        ],
-        [
-          "gobiernos",
-          1
-        ]
-      ]
-    },
-    "Cristina": {
-      "videos": 40,
-      "comentarios": 43,
-      "pocos_datos": true,
-      "canales": {
-        "Revolución Popular Noticias": 17,
-        "C5N": 12,
-        "Argentina 12": 4,
-        "Agarrá La Pala": 3,
-        "Radio Mitre": 2,
-        "Menjunjetv": 2,
-        "Los Herederos De Miguel": 1,
-        "Todo Noticias": 1,
-        "MDZ": 1
-      },
-      "videos_descartados": {
-        "ya_analizado": 0,
-        "canal_extranjero": 4,
-        "canal_oficial": 0
-      },
-      "comentarios_descartados": {
-        "ya_contado": 67,
-        "menciona_otros": 36,
-        "mismo_autor": 17,
-        "texto_repetido": 15,
-        "cuenta_nueva": 1,
-        "tope_canal": 93,
-        "ironia": 34
-      },
-      "videos_destacados": [
-        {
-          "titulo": "Papa visitó a Cristina Kirchner jajaja Que alguien le avise que ya está en Perú",
-          "canal": "Mate con Mote",
-          "url": "https://www.youtube.com/watch?v=E6vzimsJu1o",
-          "comentarios": 1080,
-          "vistas": 99417
-        },
-        {
-          "titulo": "UN EXREIDOR DE TINELLI INVENTÓ UNA FAKE NEWS SOBRE LA REA CRISTINA KIRCHNER Y EL PAPA LEÓN XIV",
-          "canal": "Agarra la Pala América",
-          "url": "https://www.youtube.com/watch?v=IEn-4Ha162I",
-          "comentarios": 380,
-          "vistas": 28053
-        },
-        {
-          "titulo": "¡LE CERRARON LA BOCA! Periodista de Clarín atacó a Cristina y lo dejaron pedaleando en el aire",
-          "canal": "Revolución Popular Noticias",
-          "url": "https://www.youtube.com/watch?v=SVerhyhzU2k",
-          "comentarios": 279,
-          "vistas": 77255
-        }
-      ],
-      "ejemplos": {
-        "positivos": [
-          {
-            "id": "UgwsoFNlu5r1befrY8J4AaABAg",
-            "texto": "Ojala vuelva Cristina!!!",
-            "likes": 31
-          },
-          {
-            "id": "UgwbM-MPikhxcdOwyJh4AaABAg",
-            "texto": "Pronta libertad a Cristina Fernández de kirchner con ella podíamos vivir",
-            "likes": 17
-          },
-          {
-            "id": "UgzTtrd6xy7mMPS8p114AaABAg",
-            "texto": "Amada  y querida hermana Cristina en primer lugar te pido perdón en el nombre de Jesús y de todos los que te amamos  por no cuidarte   le pido a dios que te cuide y te fortalesca siempre  ,y guarde toda tu familia un abrazo gigante ❤🇦🇷🇦🇷🇦🇷🇦🇷❤️🙏🙏❤️❤️❤️🙌🙌",
-            "likes": 13
-          }
-        ],
-        "negativos": [
-          {
-            "id": "UgxArxpHaXxK9MzslOt4AaABAg",
-            "texto": "Cristina sacamos a este loco q nos gobierna❤",
-            "likes": 9
-          },
-          {
-            "id": "UgxOULcmb1P1u6S477x4AaABAg",
-            "texto": "Me haces llorar Cristina",
-            "likes": 7
-          },
-          {
-            "id": "UgyzVp2pqWdBVZrsVJZ4AaABAg",
-            "texto": "Que de un paso al costado Cristina , ya fue che .",
-            "likes": 5
-          }
-        ]
-      },
-      "revisables": [
-        {
-          "id": "UgwsoFNlu5r1befrY8J4AaABAg",
-          "texto": "Ojala vuelva Cristina!!!",
-          "likes": 31,
-          "s": "POS"
-        },
-        {
-          "id": "UgwoZPQszx_ymT2UhmF4AaABAg",
-          "texto": "No era embajador en España por el Kirchnerismo?",
-          "likes": 19,
-          "s": "NEU"
-        },
-        {
-          "id": "Ugww2fgeloenrOpuE294AaABAg",
-          "texto": "Desde Curuzu cuatia corrientes cristina presidenta 2027",
-          "likes": 18,
-          "s": "NEU"
-        },
-        {
-          "id": "UgwbM-MPikhxcdOwyJh4AaABAg",
-          "texto": "Pronta libertad a Cristina Fernández de kirchner con ella podíamos vivir",
-          "likes": 17,
-          "s": "POS"
-        },
-        {
-          "id": "UgzTtrd6xy7mMPS8p114AaABAg",
-          "texto": "Amada  y querida hermana Cristina en primer lugar te pido perdón en el nombre de Jesús y de todos los que te amamos  por no cuidarte   le pido a dios que te cuide y te fortalesca siempre  ,y guarde toda tu familia un abrazo gigante ❤🇦🇷🇦🇷🇦🇷🇦🇷❤️🙏🙏❤️❤️❤️🙌🙌",
-          "likes": 13,
-          "s": "POS"
-        },
-        {
-          "id": "Ugz7QeM_gWHn6spFWnR4AaABAg",
-          "texto": "#LibertadParaCrustinaYa\n#CristinaEsINOCENTE\nTE AMAMOSSSS,desde Madariaga, prov de BsAs",
-          "likes": 13,
-          "s": "NEU"
-        },
-        {
-          "id": "UgzMsM7xKH8Mt4QJ1Up4AaABAg",
-          "texto": "LIBERTAD PARA CRISTINA ❤...!!! LÍDER DE CORAZÓN!",
-          "likes": 12,
-          "s": "POS"
-        },
-        {
-          "id": "Ugzgx-6DTfk0Hi_vhI54AaABAg",
-          "texto": "SIEMPRE CONTIGO CRISTINA🤗🙏✌🇦🇷",
-          "likes": 10,
-          "s": "NEU"
-        },
-        {
-          "id": "UgwPsNhj4CfVURTQ8QB4AaABAg",
-          "texto": "💖💖💖💖💖💖💖💖💖💖VAMOS COMPAÑERA CRISTINA‼️💚💜🇦🇷🇦🇷🇦🇷",
-          "likes": 10,
-          "s": "NEU"
-        },
-        {
-          "id": "UgxmWwnodppMdbqOjzl4AaABAg",
-          "texto": "Cristina es como si estuviera  libre hase lo que quieras desde ahí San José 111",
-          "likes": 10,
-          "s": "NEU"
-        },
-        {
-          "id": "UgxArxpHaXxK9MzslOt4AaABAg",
-          "texto": "Cristina sacamos a este loco q nos gobierna❤",
-          "likes": 9,
-          "s": "NEG"
-        },
-        {
-          "id": "Ugz9gL90Wl58Vg3h6TB4AaABAg",
-          "texto": "Cristina Fernández volveremos todos juntos ❤❤❤❤",
-          "likes": 9,
-          "s": "POS"
-        },
-        {
-          "id": "UgwhE9jfzpupoa20PZ54AaABAg",
-          "texto": "VIVA CRISTINA !!!!",
-          "likes": 9,
-          "s": "POS"
-        },
-        {
-          "id": "UgyMOJFl4NX9rJPPkqZ4AaABAg",
-          "texto": "Dios te bendiga Cristina y que se haga justicia y vuelvas junto a tu pueblo, el que realmente te ama y al que le diste tanto. Gracias Cristina ❤🙏🇦🇷🇦🇷🇦🇷🇦🇷✌️",
-          "likes": 9,
-          "s": "POS"
-        },
-        {
-          "id": "Ugz6ojhj9Qc9PMNcPwl4AaABAg",
-          "texto": "Amamos a Cristina 🇦🇷❤️✌️",
-          "likes": 8,
-          "s": "NEU"
-        }
-      ],
-      "emociones": {
-        "alegria": 23,
-        "tristeza": 2,
-        "enojo": 4,
-        "sorpresa": 0,
-        "asco": 0,
-        "miedo": 0,
-        "sin_emocion_clara": 14
-      },
-      "agresivos": 0,
-      "ponderado_likes": {
-        "POS": 152,
-        "NEG": 41,
-        "NEU": 124
-      },
-      "alcance": {
-        "videos": 40,
-        "vistas": 778061,
-        "likes_videos": 22105
-      },
-      "polemica": {
-        "respuestas": 10,
-        "promedio": 0.23,
-        "mas_discutido": {
-          "texto": "No era embajador en España por el Kirchnerismo?",
-          "respuestas": 3
-        }
-      },
-      "titulos": {
-        "POS": 3,
-        "NEG": 10,
-        "NEU": 22
-      },
-      "temas": [
-        [
-          "pueblo",
-          4
-        ],
-        [
-          "presa",
-          4
-        ],
-        [
-          "libre",
-          4
-        ],
-        [
-          "amamos",
+          "peronista",
           3
         ],
         [
-          "dios",
+          "comunista",
           2
         ],
         [
-          "libertad",
-          2
-        ],
-        [
-          "fernandez",
-          2
-        ],
-        [
-          "aguante",
-          2
-        ],
-        [
-          "jueces",
-          2
-        ],
-        [
-          "companera",
+          "partido",
           2
         ],
         [
@@ -1580,20 +831,539 @@
           2
         ],
         [
-          "gracias",
+          "trabajo",
           2
+        ],
+        [
+          "poder",
+          2
+        ],
+        [
+          "incautos",
+          1
+        ],
+        [
+          "desinformados",
+          1
+        ],
+        [
+          "proa",
+          1
+        ],
+        [
+          "argentino",
+          1
+        ],
+        [
+          "progresismo",
+          1
+        ],
+        [
+          "confeso",
+          1
+        ]
+      ]
+    },
+    "Macri": {
+      "videos": 40,
+      "comentarios": 2,
+      "pocos_datos": true,
+      "canales": {
+        "SeguimosAjorge": 1,
+        "Comunidad Jorge Macri ": 1
+      },
+      "videos_descartados": {
+        "ya_analizado": 0,
+        "canal_extranjero": 1,
+        "canal_oficial": 3
+      },
+      "comentarios_descartados": {
+        "ya_contado": 38,
+        "menciona_otros": 11,
+        "mismo_autor": 1,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 13
+      },
+      "videos_destacados": [
+        {
+          "titulo": "MACRI Y EL PRESIDENTE DE LA CORTE: Hablaron de BOCA y hay una historia detrás",
+          "canal": "Gonromiau",
+          "url": "https://www.youtube.com/watch?v=2FaMPwFuklo",
+          "comentarios": 225,
+          "vistas": 11201
+        },
+        {
+          "titulo": "⚖️ HISTÓRICO FALLO CONTRA LA LEY DE MOVILIDAD: ¿QUÉ PASA CON LOS JUBILADOS?",
+          "canal": "Anses News",
+          "url": "https://www.youtube.com/watch?v=RPgoCUnVrxY",
+          "comentarios": 174,
+          "vistas": 89843
+        },
+        {
+          "titulo": "\"¿QUÉ CLASE DE SUPERÁVIT TENÉS SI TE SEGUÍS ENDEUDANDO?\": El editorial de Rolando Graña en RPM",
+          "canal": "Del Plata AM 1030",
+          "url": "https://www.youtube.com/watch?v=9X1FWTgl7cc",
+          "comentarios": 113,
+          "vistas": 40758
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "id": "UgzndOm7jmccsjwiGsl4AaABAg",
+            "texto": "Gracias Jorge Macri",
+            "likes": 1
+          },
+          {
+            "id": "Ugwm3pNjFcv5krgS5cl4AaABAg",
+            "texto": "Esa es la actitud Jorge macri un verdadero hombre de bien❤❤❤🎉🎉😊",
+            "likes": 0
+          }
+        ],
+        "negativos": []
+      },
+      "revisables": [
+        {
+          "id": "UgzndOm7jmccsjwiGsl4AaABAg",
+          "texto": "Gracias Jorge Macri",
+          "likes": 1,
+          "s": "POS"
+        },
+        {
+          "id": "Ugwm3pNjFcv5krgS5cl4AaABAg",
+          "texto": "Esa es la actitud Jorge macri un verdadero hombre de bien❤❤❤🎉🎉😊",
+          "likes": 0,
+          "s": "POS"
+        }
+      ],
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 1
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 3,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 40,
+        "vistas": 258735,
+        "likes_videos": 5155
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 11,
+        "NEU": 14
+      },
+      "temas": [
+        [
+          "jorge",
+          2
+        ],
+        [
+          "actitud",
+          1
+        ],
+        [
+          "hombre",
+          1
+        ],
+        [
+          "verdadero",
+          1
+        ],
+        [
+          "gracias",
+          1
+        ]
+      ]
+    },
+    "Bullrich": {
+      "videos": 40,
+      "comentarios": 1,
+      "pocos_datos": true,
+      "canales": {
+        "Las Fuerzas de La Pala": 1
+      },
+      "videos_descartados": {
+        "ya_analizado": 0,
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "ya_contado": 39,
+        "menciona_otros": 24,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 10
+      },
+      "videos_destacados": [
+        {
+          "titulo": "🗳️ 🇦🇷 KICILLOF, MASSA, MILEI Y BULLRICH | El editorial de Roberto Navarro",
+          "canal": "El Destape",
+          "url": "https://www.youtube.com/watch?v=BqeWdOhxNPA",
+          "comentarios": 171,
+          "vistas": 81981
+        },
+        {
+          "titulo": "ULTIMA OPERETA! Dicen que Bullrich rompe con MILEI..",
+          "canal": "Inge Manuel",
+          "url": "https://www.youtube.com/watch?v=dTxg0UkKTNw",
+          "comentarios": 166,
+          "vistas": 12908
+        },
+        {
+          "titulo": "¡FIJAP REVELÓ TODO! ¿PATRICIA BULLRICH ROMPE CON MILEI Y SE LANZA PARA PRESIDENTE EN 2027?",
+          "canal": "Franco Antunes",
+          "url": "https://www.youtube.com/watch?v=zvrxl4c1fOg",
+          "comentarios": 113,
+          "vistas": 18157
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "id": "UgwxpNsfpbk-bSYRVdB4AaABAg",
+            "texto": "Vamos Bullrich!",
+            "likes": 10
+          }
+        ],
+        "negativos": []
+      },
+      "revisables": [
+        {
+          "id": "UgwxpNsfpbk-bSYRVdB4AaABAg",
+          "texto": "Vamos Bullrich!",
+          "likes": 10,
+          "s": "POS"
+        }
+      ],
+      "emociones": {
+        "alegria": 1,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 0
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 11,
+        "NEG": 0,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 40,
+        "vistas": 426416,
+        "likes_videos": 9402
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 14,
+        "NEU": 25
+      },
+      "temas": []
+    },
+    "Cristina": {
+      "videos": 40,
+      "comentarios": 27,
+      "pocos_datos": true,
+      "canales": {
+        "Revolución Popular Noticias": 10,
+        "C5N": 8,
+        "Instituto Patria": 5,
+        "El Peluca Milei": 1,
+        "LA NACION": 1,
+        "Menjunjetv": 1,
+        "Las Fuerzas de La Pala": 1
+      },
+      "videos_descartados": {
+        "ya_analizado": 0,
+        "canal_extranjero": 2,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "ya_contado": 89,
+        "menciona_otros": 36,
+        "mismo_autor": 13,
+        "texto_repetido": 18,
+        "cuenta_nueva": 0,
+        "tope_canal": 87,
+        "ironia": 41
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Papa visitó a Cristina Kirchner jajaja Que alguien le avise que ya está en Perú",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=E6vzimsJu1o",
+          "comentarios": 1081,
+          "vistas": 99616
+        },
+        {
+          "titulo": "¡LE CERRARON LA BOCA! Periodista de Clarín atacó a Cristina y lo dejaron pedaleando en el aire",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=SVerhyhzU2k",
+          "comentarios": 285,
+          "vistas": 78674
+        },
+        {
+          "titulo": "Colapsa el sueño de los fachos: la ultraderecha cae en picada en todo el continente.",
+          "canal": "Emanuel Rodríguez",
+          "url": "https://www.youtube.com/watch?v=YaVfnWYM6iE",
+          "comentarios": 214,
+          "vistas": 92528
+        }
+      ],
+      "ejemplos": {
+        "positivos": [
+          {
+            "id": "Ugwq9KvxQxLOLax08et4AaABAg",
+            "texto": "Vamos Cristina, sos muy valiosa para todos los argentinos. Esperando por tu regreso, junto al pueblo",
+            "likes": 42
+          },
+          {
+            "id": "UgycCZWJdZ2005Zai414AaABAg",
+            "texto": "Aguante Cristina!",
+            "likes": 25
+          },
+          {
+            "id": "Ugxvp-sHAwAYuFKUPx14AaABAg",
+            "texto": "Vamos CRISTINA LIBRE ❤😊",
+            "likes": 2
+          }
+        ],
+        "negativos": [
+          {
+            "id": "UgxCUQuf_beuOWJxK1p4AaABAg",
+            "texto": "Está gente No SE DA CUENTA QUE CRISTINA.ESTÁ PROHIBIDA. A EJERCER CARGOS PÚBLICO, DE POR VIDA.. POR CORRUPTA😡😡😡",
+            "likes": 2
+          },
+          {
+            "id": "UgwBbDdXGhRfL_pRbjx4AaABAg",
+            "texto": "Jueces no sirve para nada tenes que reemplazar a los jueces cobarde no puede seguir asi estoy harto nos provocandos a los argentinos de bien es una burla para justicia donde esta nuevos candidatos para jueces sin miedo a cristina? Que asco de los idiot4 utiles y los jueces son co",
+            "likes": 2
+          },
+          {
+            "id": "UgyBgB3zUgg3r-2hfAF4AaABAg",
+            "texto": "No puede decir la verdad por que esta comprometido con Clarin que le paga el sueldo. \nClarin es el principal impulsor de todas las causas contra CFK por la Ley de Medios. Es la venganza del Poder, y quien se atreva a cuestionar este mafioso accionar, activa los caniones en su con",
+            "likes": 1
+          }
+        ]
+      },
+      "revisables": [
+        {
+          "id": "Ugwq9KvxQxLOLax08et4AaABAg",
+          "texto": "Vamos Cristina, sos muy valiosa para todos los argentinos. Esperando por tu regreso, junto al pueblo",
+          "likes": 42,
+          "s": "POS"
+        },
+        {
+          "id": "UgxeeaSE418zaXcjx2B4AaABAg",
+          "texto": "Vamos Cristina todavía y feliz día de la militancia para todos 💪💪✌️✌️✌️🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷🇦🇷",
+          "likes": 25,
+          "s": "NEU"
+        },
+        {
+          "id": "UgycCZWJdZ2005Zai414AaABAg",
+          "texto": "Aguante Cristina!",
+          "likes": 25,
+          "s": "POS"
+        },
+        {
+          "id": "UgyRn8dFb4F71-gxqEV4AaABAg",
+          "texto": "Cristina preside✌️",
+          "likes": 11,
+          "s": "NEU"
+        },
+        {
+          "id": "UgwHY4QrcHmCenkcn654AaABAg",
+          "texto": "Viva Cristina",
+          "likes": 8,
+          "s": "NEU"
+        },
+        {
+          "id": "UgwmkBX0upHbHfEdqi54AaABAg",
+          "texto": "Cristina2027❤",
+          "likes": 3,
+          "s": "NEU"
+        },
+        {
+          "id": "Ugxvp-sHAwAYuFKUPx14AaABAg",
+          "texto": "Vamos CRISTINA LIBRE ❤😊",
+          "likes": 2,
+          "s": "POS"
+        },
+        {
+          "id": "UgzA0Z4qgU2jne2L9Tt4AaABAg",
+          "texto": "CRISTINA,ES MEJOR QUE TI MUJER 30 AÑOS.MAS JOVEN QUE VOS Y VIVE DE ESTADO.",
+          "likes": 2,
+          "s": "NEU"
+        },
+        {
+          "id": "UgxCUQuf_beuOWJxK1p4AaABAg",
+          "texto": "Está gente No SE DA CUENTA QUE CRISTINA.ESTÁ PROHIBIDA. A EJERCER CARGOS PÚBLICO, DE POR VIDA.. POR CORRUPTA😡😡😡",
+          "likes": 2,
+          "s": "NEG"
+        },
+        {
+          "id": "UgwBbDdXGhRfL_pRbjx4AaABAg",
+          "texto": "Jueces no sirve para nada tenes que reemplazar a los jueces cobarde no puede seguir asi estoy harto nos provocandos a los argentinos de bien es una burla para justicia donde esta nuevos candidatos para jueces sin miedo a cristina? Que asco de los idiot4 utiles y los jueces son complices no hay excusa que le tenga miedo a cristina a sali hablar YA esta perdiendo el tiempo",
+          "likes": 2,
+          "s": "NEG"
+        },
+        {
+          "id": "UgyyJFvG5JIjAlrucdN4AaABAg",
+          "texto": "Unica Cristina volveras❤",
+          "likes": 1,
+          "s": "NEU"
+        },
+        {
+          "id": "UgwjSsCs3gVQM_--1oR4AaABAg",
+          "texto": "Volves Cristina te amamos ❤",
+          "likes": 1,
+          "s": "POS"
+        },
+        {
+          "id": "UgyiSIrAejU5nfFcVtt4AaABAg",
+          "texto": "Cristina ❤  \nLibre. Ya",
+          "likes": 1,
+          "s": "NEU"
+        },
+        {
+          "id": "UgyBgB3zUgg3r-2hfAF4AaABAg",
+          "texto": "No puede decir la verdad por que esta comprometido con Clarin que le paga el sueldo. \nClarin es el principal impulsor de todas las causas contra CFK por la Ley de Medios. Es la venganza del Poder, y quien se atreva a cuestionar este mafioso accionar, activa los caniones en su contra..",
+          "likes": 1,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxHGbBLkck8b5BQq-p4AaABAg",
+          "texto": "Contestale lo que te preguntó...¿Ud cree que Cristina es inocente? Sí o No ?\nSos impresentable....\nSino te animás a reconocerlo, dice mucho de quién sos",
+          "likes": 1,
+          "s": "NEG"
+        }
+      ],
+      "emociones": {
+        "alegria": 14,
+        "tristeza": 0,
+        "enojo": 7,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 5
+      },
+      "agresivos": 2,
+      "ponderado_likes": {
+        "POS": 78,
+        "NEG": 17,
+        "NEU": 59
+      },
+      "alcance": {
+        "videos": 40,
+        "vistas": 730716,
+        "likes_videos": 24483
+      },
+      "polemica": {
+        "respuestas": 6,
+        "promedio": 0.22,
+        "mas_discutido": {
+          "texto": "Vamos Cristina, sos muy valiosa para todos los argentinos. Esperando por tu regreso, junto al pueblo",
+          "respuestas": 2
+        }
+      },
+      "titulos": {
+        "POS": 4,
+        "NEG": 7,
+        "NEU": 18
+      },
+      "temas": [
+        [
+          "libre",
+          3
+        ],
+        [
+          "pueblo",
+          2
+        ],
+        [
+          "cristina2027",
+          2
+        ],
+        [
+          "vida",
+          2
+        ],
+        [
+          "grande",
+          2
+        ],
+        [
+          "presidenta",
+          2
+        ],
+        [
+          "cristinalibre",
+          2
+        ],
+        [
+          "presa",
+          2
+        ],
+        [
+          "publico",
+          2
+        ],
+        [
+          "dejen",
+          2
+        ],
+        [
+          "preside",
+          1
+        ],
+        [
+          "feliz",
+          1
         ]
       ]
     },
     "Máximo Kirchner": {
       "videos": 40,
-      "comentarios": 0,
+      "comentarios": 1,
       "pocos_datos": true,
-      "canales": {},
+      "canales": {
+        "La Voz": 1
+      },
       "videos_descartados": {
         "ya_analizado": 0,
         "canal_extranjero": 2,
-        "canal_oficial": 0
+        "canal_oficial": 1
       },
       "comentarios_descartados": {
         "ya_contado": 5,
@@ -1610,21 +1380,147 @@
           "canal": "Mate con Mote",
           "url": "https://www.youtube.com/watch?v=R8T5dywBVmw",
           "comentarios": 234,
-          "vistas": 43199
-        },
-        {
-          "titulo": "CENSURARON EL MÓVIL DE LN+ TRAS APARICIÓN DE NANCY PAZOS, MÁXIMO KIRCHNER Y MAYRA MENDOZA EN LUJÁN",
-          "canal": "Agarrá La Pala",
-          "url": "https://www.youtube.com/watch?v=LW3A21an-Ec",
-          "comentarios": 191,
-          "vistas": 62731
+          "vistas": 43373
         },
         {
           "titulo": "CAOS EN LA INTERNA PERONISTA: ACTO DEL PJ SIN KICILLOF y el FUTURO de BULLRICH con MANU JOVE | ESDLP",
           "canal": "Cenital",
           "url": "https://www.youtube.com/watch?v=XYS9rlK7K20",
-          "comentarios": 169,
-          "vistas": 75014
+          "comentarios": 183,
+          "vistas": 78524
+        },
+        {
+          "titulo": "LAJE PRENDIÓ FUEGO A MÁXIMO Y A LOS KUKAS POR PAPELÓN CON PAPA LEÓN: \"NO PUEDO CREER SU CARADUREZ\"",
+          "canal": "Agarrá La Pala",
+          "url": "https://www.youtube.com/watch?v=4iF4uZ2bsFw",
+          "comentarios": 78,
+          "vistas": 35181
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": []
+      },
+      "revisables": [
+        {
+          "id": "UgyY01Pta53EutohQEx4AaABAg",
+          "texto": "La base electoral peronista y kirchnerista ya decidió por Axel, el resto es gaterio político de dos rosqueros",
+          "likes": 1,
+          "s": "NEU"
+        }
+      ],
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 0,
+        "sorpresa": 0,
+        "asco": 0,
+        "miedo": 0,
+        "sin_emocion_clara": 1
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 0,
+        "NEU": 2
+      },
+      "alcance": {
+        "videos": 40,
+        "vistas": 293739,
+        "likes_videos": 12660
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 4,
+        "NEU": 13
+      },
+      "temas": [
+        [
+          "resto",
+          1
+        ],
+        [
+          "decidio",
+          1
+        ],
+        [
+          "rosqueros",
+          1
+        ],
+        [
+          "base",
+          1
+        ],
+        [
+          "gaterio",
+          1
+        ],
+        [
+          "kirchnerista",
+          1
+        ],
+        [
+          "politico",
+          1
+        ],
+        [
+          "peronista",
+          1
+        ],
+        [
+          "electoral",
+          1
+        ]
+      ]
+    },
+    "Villarruel": {
+      "videos": 40,
+      "comentarios": 0,
+      "pocos_datos": true,
+      "canales": {},
+      "videos_descartados": {
+        "ya_analizado": 0,
+        "canal_extranjero": 0,
+        "canal_oficial": 0
+      },
+      "comentarios_descartados": {
+        "ya_contado": 40,
+        "menciona_otros": 7,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 1,
+        "tope_canal": 0,
+        "ironia": 1
+      },
+      "videos_destacados": [
+        {
+          "titulo": "PERTENECER TIENE SUS DIFERENCIAS: \"¿DÓNDE ESTÁ EL DISCURSO DE AMOR?\"",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=saLiv-5Q6lU",
+          "comentarios": 273,
+          "vistas": 32976
+        },
+        {
+          "titulo": "BOMBAZO: Massa rompe el silencio y deja un tremenda definición: \"El año que viene..\"",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=pXxSyXAqTQo",
+          "comentarios": 188,
+          "vistas": 50595
+        },
+        {
+          "titulo": "EL TRISTE CASO DE LA JUBILADA QUE ESTUVO PRESA UN MES POR ROBAR PARA COMER",
+          "canal": "Revolución Popular Noticias",
+          "url": "https://www.youtube.com/watch?v=dwdx8GB5JdE",
+          "comentarios": 142,
+          "vistas": 18288
         }
       ],
       "ejemplos": {
@@ -1649,8 +1545,8 @@
       },
       "alcance": {
         "videos": 40,
-        "vistas": 365652,
-        "likes_videos": 15503
+        "vistas": 396065,
+        "likes_videos": 10310
       },
       "polemica": {
         "respuestas": 0,
@@ -1661,149 +1557,33 @@
         }
       },
       "titulos": {
-        "POS": 0,
-        "NEG": 5,
-        "NEU": 12
+        "POS": 3,
+        "NEG": 6,
+        "NEU": 7
       },
       "temas": []
     },
-    "Villarruel": {
+    "Grabois": {
       "videos": 40,
       "comentarios": 2,
       "pocos_datos": true,
       "canales": {
-        "MAGANA BIENESTAR": 1,
-        "ls clipping": 1
+        "Grabois F.C.": 1,
+        "Agarra la Pala América": 1
       },
       "videos_descartados": {
         "ya_analizado": 0,
-        "canal_extranjero": 0,
-        "canal_oficial": 0
-      },
-      "comentarios_descartados": {
-        "ya_contado": 17,
-        "menciona_otros": 6,
-        "mismo_autor": 0,
-        "texto_repetido": 0,
-        "cuenta_nueva": 1,
-        "tope_canal": 0,
-        "ironia": 1
-      },
-      "videos_destacados": [
-        {
-          "titulo": "PERTENECER TIENE SUS DIFERENCIAS: \"¿DÓNDE ESTÁ EL DISCURSO DE AMOR?\"",
-          "canal": "Revolución Popular Noticias",
-          "url": "https://www.youtube.com/watch?v=saLiv-5Q6lU",
-          "comentarios": 272,
-          "vistas": 32928
-        },
-        {
-          "titulo": "¡¡MAYANS LE LLENÓ LA CARA DE DEDOS A MILEI ¡ESTÓ ES UN MAMARRACHO",
-          "canal": "Revolución Popular Noticias",
-          "url": "https://www.youtube.com/watch?v=6WOnJlmcwlk",
-          "comentarios": 152,
-          "vistas": 77544
-        },
-        {
-          "titulo": "Milei elogió a Bullrich por el protocolo antipiquetes y cruzó a Victoria Villarruel",
-          "canal": "LA NACION",
-          "url": "https://www.youtube.com/watch?v=fsXJUlBUX_w",
-          "comentarios": 109,
-          "vistas": 26041
-        }
-      ],
-      "ejemplos": {
-        "positivos": [],
-        "negativos": [
-          {
-            "id": "UgzYtIt-7fVxWVBCs9d4AaABAg",
-            "texto": "Las dos vende patria limones y Villarruel",
-            "likes": 1
-          }
-        ]
-      },
-      "revisables": [
-        {
-          "id": "UgyY5eihJ4CSVqiLhYd4AaABAg",
-          "texto": "Victoria villarruel Pte.",
-          "likes": 1,
-          "s": "NEU"
-        },
-        {
-          "id": "UgzYtIt-7fVxWVBCs9d4AaABAg",
-          "texto": "Las dos vende patria limones y Villarruel",
-          "likes": 1,
-          "s": "NEG"
-        }
-      ],
-      "emociones": {
-        "alegria": 0,
-        "tristeza": 0,
-        "enojo": 0,
-        "sorpresa": 0,
-        "asco": 0,
-        "miedo": 0,
-        "sin_emocion_clara": 2
-      },
-      "agresivos": 1,
-      "ponderado_likes": {
-        "POS": 0,
-        "NEG": 2,
-        "NEU": 2
-      },
-      "alcance": {
-        "videos": 40,
-        "vistas": 348925,
-        "likes_videos": 6343
-      },
-      "polemica": {
-        "respuestas": 0,
-        "promedio": 0.0,
-        "mas_discutido": {
-          "texto": "",
-          "respuestas": 0
-        }
-      },
-      "titulos": {
-        "POS": 3,
-        "NEG": 8,
-        "NEU": 7
-      },
-      "temas": [
-        [
-          "vende",
-          1
-        ],
-        [
-          "patria",
-          1
-        ],
-        [
-          "limones",
-          1
-        ]
-      ]
-    },
-    "Grabois": {
-      "videos": 40,
-      "comentarios": 1,
-      "pocos_datos": true,
-      "canales": {
-        "Cenital": 1
-      },
-      "videos_descartados": {
-        "ya_analizado": 0,
-        "canal_extranjero": 3,
+        "canal_extranjero": 2,
         "canal_oficial": 5
       },
       "comentarios_descartados": {
-        "ya_contado": 13,
-        "menciona_otros": 9,
-        "mismo_autor": 2,
+        "ya_contado": 14,
+        "menciona_otros": 8,
+        "mismo_autor": 0,
         "texto_repetido": 0,
         "cuenta_nueva": 0,
         "tope_canal": 0,
-        "ironia": 10
+        "ironia": 7
       },
       "videos_destacados": [
         {
@@ -1811,39 +1591,51 @@
           "canal": "Emanuel Rodríguez",
           "url": "https://www.youtube.com/watch?v=H5Jbi_cC4M0",
           "comentarios": 164,
-          "vistas": 74469
+          "vistas": 75164
+        },
+        {
+          "titulo": "\"LEÓN XIV habló de los temas que el GOBIERNO quiere INVISIBILIZAR\" | AXEL KICILLOF en MINUTO UNO",
+          "canal": "C5N",
+          "url": "https://www.youtube.com/watch?v=9YCl-aBFPP4",
+          "comentarios": 131,
+          "vistas": 36303
         },
         {
           "titulo": "A GRABOIS NO SE LE CAE UNA IDEA NUEVA",
           "canal": "Ramiro Marra",
           "url": "https://www.youtube.com/watch?v=wn-OxQSEpr0",
           "comentarios": 92,
-          "vistas": 10710
-        },
-        {
-          "titulo": "JUAN GRABOIS LE LLENÓ LA CARA DE DEDOS A JAVIER MILEI",
-          "canal": "Revolución Popular Noticias",
-          "url": "https://www.youtube.com/watch?v=JuGbOVOT5HE",
-          "comentarios": 72,
-          "vistas": 38122
+          "vistas": 10785
         }
       ],
       "ejemplos": {
         "positivos": [],
-        "negativos": []
+        "negativos": [
+          {
+            "id": "Ugxaa3APKhWEtcSBQS94AaABAg",
+            "texto": "Y por que los sinvergüenzas de Pérsico y Grabois no están siendo investigados por la Justicia??",
+            "likes": 13
+          }
+        ]
       },
       "revisables": [
         {
-          "id": "Ugw_hCypQQU_VS5QcIp4AaABAg",
-          "texto": "Axel al gobierno - Grabois al poder",
-          "likes": 1,
+          "id": "Ugxaa3APKhWEtcSBQS94AaABAg",
+          "texto": "Y por que los sinvergüenzas de Pérsico y Grabois no están siendo investigados por la Justicia??",
+          "likes": 13,
+          "s": "NEG"
+        },
+        {
+          "id": "UgwHDoE8a48tPDjzNxt4AaABAg",
+          "texto": "Grabois al poder",
+          "likes": 0,
           "s": "NEU"
         }
       ],
       "emociones": {
         "alegria": 0,
         "tristeza": 0,
-        "enojo": 0,
+        "enojo": 1,
         "sorpresa": 0,
         "asco": 0,
         "miedo": 0,
@@ -1852,34 +1644,50 @@
       "agresivos": 0,
       "ponderado_likes": {
         "POS": 0,
-        "NEG": 0,
-        "NEU": 2
+        "NEG": 14,
+        "NEU": 1
       },
       "alcance": {
         "videos": 40,
-        "vistas": 315778,
-        "likes_videos": 11294
+        "vistas": 359461,
+        "likes_videos": 11925
       },
       "polemica": {
-        "respuestas": 0,
-        "promedio": 0.0,
+        "respuestas": 2,
+        "promedio": 1.0,
         "mas_discutido": {
-          "texto": "",
-          "respuestas": 0
+          "texto": "Y por que los sinvergüenzas de Pérsico y Grabois no están siendo investigados por la Justicia??",
+          "respuestas": 2
         }
       },
       "titulos": {
-        "POS": 2,
-        "NEG": 16,
+        "POS": 1,
+        "NEG": 12,
         "NEU": 10
       },
       "temas": [
         [
-          "gobierno",
+          "poder",
           1
         ],
         [
-          "poder",
+          "siendo",
+          1
+        ],
+        [
+          "persico",
+          1
+        ],
+        [
+          "sinverguenzas",
+          1
+        ],
+        [
+          "justicia",
+          1
+        ],
+        [
+          "investigados",
           1
         ]
       ]
@@ -1908,22 +1716,22 @@
           "titulo": "¿Puede Ganar la Izquierda?  |  con Cele Fierro",
           "canal": "DELIREO",
           "url": "https://www.youtube.com/watch?v=A2unsaLq6uU",
-          "comentarios": 223,
-          "vistas": 18494
+          "comentarios": 224,
+          "vistas": 18668
         },
         {
           "titulo": "LA ENCUESTA QUE ALERTA A MILEI, CAÍDA DEL CONSUMO Y JUSTICIA | TENEMBAUM Y SIETECASE",
           "canal": "Radio Con Vos 89.9",
           "url": "https://www.youtube.com/watch?v=1FqZsdOU5kY",
           "comentarios": 90,
-          "vistas": 67336
+          "vistas": 67428
         },
         {
           "titulo": "Brutal explosión en Remedios de Escalada: hay heridos de gravedad en el lugar",
           "canal": "Crónica TV",
           "url": "https://www.youtube.com/watch?v=HpqtCqZJ5cU",
           "comentarios": 42,
-          "vistas": 16346
+          "vistas": 16359
         }
       ],
       "ejemplos": {
@@ -1948,8 +1756,8 @@
       },
       "alcance": {
         "videos": 40,
-        "vistas": 168926,
-        "likes_videos": 3389
+        "vistas": 170616,
+        "likes_videos": 3523
       },
       "polemica": {
         "respuestas": 0,
@@ -1965,6 +1773,205 @@
         "NEU": 3
       },
       "temas": []
+    },
+    "Larreta": {
+      "videos": 18,
+      "comentarios": 8,
+      "pocos_datos": true,
+      "canales": {
+        "Mate con Mote": 6,
+        "LA NACION": 2
+      },
+      "videos_descartados": {
+        "ya_analizado": 0,
+        "canal_extranjero": 7,
+        "canal_oficial": 7
+      },
+      "comentarios_descartados": {
+        "ya_contado": 0,
+        "menciona_otros": 2,
+        "mismo_autor": 0,
+        "texto_repetido": 0,
+        "cuenta_nueva": 0,
+        "tope_canal": 0,
+        "ironia": 7
+      },
+      "videos_destacados": [
+        {
+          "titulo": "Papelón Larreta: nuevo spot de campaña que nadie entendió jaja",
+          "canal": "Mate con Mote",
+          "url": "https://www.youtube.com/watch?v=FW3q0z9o6kY",
+          "comentarios": 306,
+          "vistas": 18812
+        },
+        {
+          "titulo": "ELECCIONES 2023: El día que un outsider rompió el mapa político de la argentina",
+          "canal": "Camino hacia el poder",
+          "url": "https://www.youtube.com/watch?v=oHVxs9PNg7c",
+          "comentarios": 144,
+          "vistas": 17092
+        },
+        {
+          "titulo": "El Polémico Galardón que le dieron a León XIV",
+          "canal": "DDVlog",
+          "url": "https://www.youtube.com/watch?v=kfdjXWYVQcA",
+          "comentarios": 113,
+          "vistas": 20947
+        }
+      ],
+      "ejemplos": {
+        "positivos": [],
+        "negativos": [
+          {
+            "id": "Ugzfuv2_nCEB3UaYYdN4AaABAg",
+            "texto": "Larreta no ,nunca más este tipo .El poder lo convirtió en lo que es hoy .",
+            "likes": 12
+          },
+          {
+            "id": "UgxqyTc-ur4WaNnl25N4AaABAg",
+            "texto": "Les dije larreta es un pelado es malvado encima un alíen nos quiere destruir",
+            "likes": 6
+          },
+          {
+            "id": "Ugx61BP0-m6UMRnkIM14AaABAg",
+            "texto": "Larreta no volves nunca más !",
+            "likes": 0
+          }
+        ]
+      },
+      "revisables": [
+        {
+          "id": "Ugzfuv2_nCEB3UaYYdN4AaABAg",
+          "texto": "Larreta no ,nunca más este tipo .El poder lo convirtió en lo que es hoy .",
+          "likes": 12,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxqyTc-ur4WaNnl25N4AaABAg",
+          "texto": "Les dije larreta es un pelado es malvado encima un alíen nos quiere destruir",
+          "likes": 6,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugx61BP0-m6UMRnkIM14AaABAg",
+          "texto": "Larreta no volves nunca más !",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgzcZm5XOfSq0Yv6VR14AaABAg",
+          "texto": "A Larreta ni un voto ... panqueque total.",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugw2RPV7nxfqBC1BQUp4AaABAg",
+          "texto": "Larreta Bane",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgzfmUSUj9AhhcIH6m54AaABAg",
+          "texto": "Qué ridículo Larreta, más boludo, imposible",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "Ugw1jldMQmQ0L4sfKHt4AaABAg",
+          "texto": "Puro humo Larreta como siempre",
+          "likes": 0,
+          "s": "NEG"
+        },
+        {
+          "id": "UgxmFWQS2Bc21NZ_UKh4AaABAg",
+          "texto": "es un garca Larreta ,hace un montón viene choriando en los gobiernos ,que se  ponga a trabajar nunca ganó nada, un fracasado , impresentable",
+          "likes": 0,
+          "s": "NEG"
+        }
+      ],
+      "emociones": {
+        "alegria": 0,
+        "tristeza": 0,
+        "enojo": 5,
+        "sorpresa": 0,
+        "asco": 1,
+        "miedo": 0,
+        "sin_emocion_clara": 2
+      },
+      "agresivos": 0,
+      "ponderado_likes": {
+        "POS": 0,
+        "NEG": 26,
+        "NEU": 0
+      },
+      "alcance": {
+        "videos": 18,
+        "vistas": 63143,
+        "likes_videos": 2846
+      },
+      "polemica": {
+        "respuestas": 0,
+        "promedio": 0.0,
+        "mas_discutido": {
+          "texto": "",
+          "respuestas": 0
+        }
+      },
+      "titulos": {
+        "POS": 0,
+        "NEG": 6,
+        "NEU": 4
+      },
+      "temas": [
+        [
+          "tipo",
+          1
+        ],
+        [
+          "convirtio",
+          1
+        ],
+        [
+          "poder",
+          1
+        ],
+        [
+          "volves",
+          1
+        ],
+        [
+          "destruir",
+          1
+        ],
+        [
+          "encima",
+          1
+        ],
+        [
+          "alien",
+          1
+        ],
+        [
+          "dije",
+          1
+        ],
+        [
+          "pelado",
+          1
+        ],
+        [
+          "malvado",
+          1
+        ],
+        [
+          "panqueque",
+          1
+        ],
+        [
+          "total",
+          1
+        ]
+      ]
     }
   }
 }
